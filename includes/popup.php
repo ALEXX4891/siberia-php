@@ -49,7 +49,7 @@
           <span class="form__agreement-text">
             Нажимая кнопку «Отправить», вы соглашаетесь с
           </span>
-          <a class="form__agreement-link" href="agreement.html" target="_blank">
+          <a class="form__agreement-link" href="/pages/policy/agreement/" target="_blank">
             условиями обработки персональных данных
           </a>
         </div>
@@ -129,7 +129,7 @@
           <span class="request__agreement-text">
             Нажимая кнопку «Отправить», вы соглашаетесь с
           </span>
-          <a class="request__agreement-link" href="agreement.html" target="_blank">
+          <a class="request__agreement-link" href="/pages/policy/agreement/" target="_blank">
             условиями обработки персональных данных
           </a>
         </div>
@@ -228,7 +228,7 @@
           <span class="notification__agreement-text">
             Нажимая кнопку «Отправить», вы соглашаетесь с
           </span>
-          <a class="notification__agreement-link" href="agreement.html" target="_blank">
+          <a class="notification__agreement-link" href="/pages/policy/agreement/" target="_blank">
             условиями обработки персональных данных
           </a>
         </div>
@@ -275,23 +275,25 @@
         <span class="promo__time">
           <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_850_17965)">
-            <path d="M8.5 4.31579V8.36842L10.7105 10.2105M15.5 8C15.5 11.866 12.366 15 8.5 15C4.63401 15 1.5 11.866 1.5 8C1.5 4.13401 4.63401 1 8.5 1C12.366 1 15.5 4.13401 15.5 8Z" stroke="#748D55" stroke-width="1.5"/>
+              <path d="M8.5 4.31579V8.36842L10.7105 10.2105M15.5 8C15.5 11.866 12.366 15 8.5 15C4.63401 15 1.5 11.866 1.5 8C1.5 4.13401 4.63401 1 8.5 1C12.366 1 15.5 4.13401 15.5 8Z" stroke="#748D55" stroke-width="1.5" />
             </g>
             <defs>
-            <clipPath id="clip0_850_17965">
-            <rect width="16" height="16" fill="white" transform="translate(0.5)"/>
-            </clipPath>
+              <clipPath id="clip0_850_17965">
+                <rect width="16" height="16" fill="white" transform="translate(0.5)" />
+              </clipPath>
             </defs>
-          </svg>            
+          </svg>
           Осталось 12 дней
         </span>
       </div>
 
       <div class="promo__wrapper">
         <div class="promo__img">
-          <picture><source srcset="img/popup-img.webp" type="image/webp"><img src="img/popup-img.jpg" alt="Квартиры в расрочку от 2%"></picture>
+          <picture>
+            <source srcset="/assets/img/popup-img.webp" type="image/webp"><img src="/assets/img/popup-img.jpg" alt="Квартиры в расрочку от 2%">
+          </picture>
         </div>
-  
+
         <ul class="promo__list">
           <li class="promo__item">
             <h3 class="promo__item-title">
@@ -301,7 +303,7 @@
               Забудьте о платежах по ипотеке!
             </p>
           </li>
-  
+
           <li class="promo__item">
             <h3 class="promo__item-title">
               Что это такое?
@@ -310,7 +312,7 @@
               Мы запускаем акцию, которая позволяет нам оплачивать расходы по ипотеке до конца года в сданных домах: Дом на Мысу, Квартал на Московском и в Доме на Баумана.
             </p>
           </li>
-  
+
           <li class="promo__item">
             <h3 class="promo__item-title">
               “А в Кедровом береге тоже заплатите?”
@@ -320,13 +322,13 @@
             </p>
           </li>
         </ul>
-  
-        <p class="promo__desc">        
+
+        <p class="promo__desc">
           Срок предложения ограничен. <br><br>
           Узнайте подробнее об условиях акции у менеджеров в отделе продаж по телефону:
         </p>
         <a href="tel:+73452611157" class="promo__phone">8 (3452) 611-157</a>
-  
+
         <button class="promo__btn btn btn_dark popup-link" href="#popup-form">
           Связаться с нами
         </button>
@@ -334,8 +336,8 @@
 
       <button class="promo__close popup-close">
         <svg width="29" height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1L28.5 21M1 21L28.5 1" stroke="black"/>
-        </svg>          
+          <path d="M1 1L28.5 21M1 21L28.5 1" stroke="black" />
+        </svg>
       </button>
     </div>
   </div>
@@ -346,8 +348,8 @@
     <div class="popup__content popup__promo filter">
       <button class="promo__close">
         <svg width="29" height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1L28.5 21M1 21L28.5 1" stroke="black"/>
-        </svg>          
+          <path d="M1 1L28.5 21M1 21L28.5 1" stroke="black" />
+        </svg>
       </button>
     </div>
   </div>
@@ -358,8 +360,8 @@
     <div class="popup__content popup__promo menu">
 
       <div class="header__logo logo">
-        <a href="index.html" class="logo__link">
-          <img class="logo__main" width="116" height="43" src="img/logo.svg" alt="Логотип Сибирь">
+        <a href="/" class="logo__link">
+          <img class="logo__main" width="116" height="43" src="/assets/img/logo.svg" alt="Логотип Сибирь">
         </a>
       </div>
 
@@ -374,8 +376,8 @@
 
       <button class="promo__close">
         <svg width="32" height="17" viewBox="0 0 32 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1L31 16M31 1L1 16" stroke="#8C8C8C" stroke-width="1.5"/>
-        </svg>                 
+          <path d="M1 1L31 16M31 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+        </svg>
       </button>
     </div>
   </div>

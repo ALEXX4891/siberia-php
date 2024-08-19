@@ -24,7 +24,7 @@
 						<ul class="nav__list">
 
 							<li class="nav__item">
-								<a href="proekty.html" class="nav__link">
+								<a href="/pages/proekty/" class="nav__link">
 									<p class="nav__text">
 										Проекты
 									</p>
@@ -32,7 +32,7 @@
 							</li>
 
 							<li class="nav__item">
-								<a href="kommercia.html" class="nav__link">
+								<a href="/pages/kommercia/" class="nav__link">
 									<p class="nav__text">
 										Коммерция
 									</p>
@@ -40,7 +40,7 @@
 							</li>
 
 							<li class="nav__item">
-								<a href="sposob-pokupki.html" class="nav__link">
+								<a href="/pages/sposob-pokupki/" class="nav__link">
 									<p class="nav__text">
 										Способ покупки
 									</p>
@@ -48,7 +48,7 @@
 							</li>
 
 							<li class="nav__item">
-								<a href="akcii.html" class="nav__link">
+								<a href="/pages/akcii/" class="nav__link">
 									<p class="nav__text">
 										Акции
 									</p>
@@ -106,7 +106,7 @@
 						<ul class="nav__list">
 
 							<li class="nav__item">
-								<a href="o-companii.html" class="nav__link">
+								<a href="/pages/o-companii/" class="nav__link">
 									<p class="nav__text">
 										О компании
 									</p>
@@ -114,7 +114,7 @@
 							</li>
 
 							<li class="nav__item">
-								<a href="novosti.html" class="nav__link">
+								<a href="/pages/novosti/" class="nav__link">
 									<p class="nav__text">
 										Новости
 									</p>
@@ -122,7 +122,7 @@
 							</li>
 
 							<li class="nav__item">
-								<a href="sotrudnichestvo.html" class="nav__link">
+								<a href="/pages/sotrudnichestvo/" class="nav__link">
 									<p class="nav__text">
 										Сотрудничество
 									</p>
@@ -130,7 +130,7 @@
 							</li>
 
 							<li class="nav__item">
-								<a href="kontakty.html" class="nav__link">
+								<a href="/pages/kontakty/" class="nav__link">
 									<p class="nav__text">
 										Контакты
 									</p>
@@ -148,8 +148,8 @@
 			<div class="footer__bottom-block">
 
 				<div class="footer__logo logo">
-					<a href="index.html" class="logo__link">
-						<img class="logo__main" width="116" height="43" src="img/logo-white.svg" alt="Логотип Сибирь">
+					<a href="/" class="logo__link">
+						<img class="logo__main" width="116" height="43" src="/assets/img/logo-white.svg" alt="Логотип Сибирь">
 					</a>
 				</div>
 
@@ -247,7 +247,7 @@
 	<div class="cookie__wrapper">
 		<p>
 			Продолжая использовать наш сайт, вы принимаете
-			<a href="/pages/cookie/" target="_blank">
+			<a href="/pages/policy/cookie/" target="_blank">
 				политику использования cookie-файлов.
 			</a>
 		</p>
@@ -269,8 +269,8 @@
 include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/popup.php';
 ?>
 
-<script src="/js/lib/jquery-3.5.1.min.js"></script>
-<script src="/js/lib/swiper-bundle.min.js"></script>
-<script src="/js/lib/fancybox.umd.js"></script>
-<script src="/js/lib/jquery.maskedinput.min.js"></script>
-<script type="module" src="/js/app.js"></script>
+<script src="/assets/js/lib/jquery-3.5.1.min.js"></script>
+<script src="/assets/js/lib/swiper-bundle.min.js"></script>
+<script src="/assets/js/lib/fancybox.umd.js"></script>
+<script src="/assets/js/lib/jquery.maskedinput.min.js"></script>
+<script type="module" src="/assets/js/app.js"></script>

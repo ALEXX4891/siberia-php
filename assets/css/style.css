@@ -3153,7 +3153,7 @@ a {
 }
 
 .no-webp .glavnaya .glavnaya__main_top .banner .banner__container{
-  background: url("../img/banner-img.jpg"); }
+  background: url("/assets/img/banner-img.jpg"); }
 
 .glavnaya .glavnaya__main_top .banner .banner__container {
   min-height: 820px;
@@ -3489,7 +3489,7 @@ a {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: url("../img/fon-1.svg");
+  background: url("/assets/img/fon-1.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
@@ -3501,7 +3501,7 @@ a {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: url("../img/fon-2.svg");
+  background: url("/assets/img/fon-2.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
@@ -3513,7 +3513,7 @@ a {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: url("../img/fon-3.svg");
+  background: url("/assets/img/fon-3.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
@@ -3525,7 +3525,7 @@ a {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: url("../img/fon-4.svg");
+  background: url("/assets/img/fon-4.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
@@ -3537,7 +3537,7 @@ a {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: url("../img/fon-5.svg");
+  background: url("/assets/img/fon-5.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
@@ -3545,7 +3545,7 @@ a {
 }
 
 .no-webp .glavnaya .glavnaya__main_top .regions .regions__container .regions-banner{
-  background: url("../img/regions-bg.jpg"), #363636; }
+  background: url("/assets/img/regions-bg.jpg"), #363636; }
 
 .glavnaya .glavnaya__main_top .regions .regions__container .regions-banner {
   display: -ms-grid;
@@ -4148,7 +4148,7 @@ a {
 }
 
 .glavnaya .slider .slider__container .owl-nav .owl-prev {
-  background: url("../img/owl-index-prew-btn_white.svg") !important;
+  background: url("/assets/img/owl-index-prew-btn_white.svg") !important;
   width: 55px;
   height: 55px;
   background-size: cover !important;
@@ -4162,7 +4162,7 @@ a {
 }
 
 .glavnaya .slider .slider__container .owl-nav .owl-next {
-  background: url("../img/owl-index-next-btn_white.svg") !important;
+  background: url("/assets/img/owl-index-next-btn_white.svg") !important;
   width: 55px;
   height: 55px;
   background-size: cover !important;
@@ -4174,7 +4174,7 @@ a {
 .glavnaya .slider .slider__container .owl-nav .owl-next span {
   display: none;
   /* display: block; */
-  /* background-image: url("../img/owl_next.svg");
+  /* background-image: url("/assets/img/owl_next.svg");
   width: 50px;
   height: 50px;
   background-size: cover;
@@ -8521,7 +8521,7 @@ a {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: url("../img/fon-1.svg");
+  background: url("/assets/img/fon-1.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
@@ -8533,7 +8533,7 @@ a {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: url("../img/fon-2.svg");
+  background: url("/assets/img/fon-2.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
@@ -8545,7 +8545,7 @@ a {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: url("../img/fon-3.svg");
+  background: url("/assets/img/fon-3.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
@@ -8557,7 +8557,7 @@ a {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: url("../img/fon-4.svg");
+  background: url("/assets/img/fon-4.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
@@ -8569,7 +8569,7 @@ a {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: url("../img/fon-5.svg");
+  background: url("/assets/img/fon-5.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
@@ -8593,7 +8593,7 @@ a {
 }
 
 .project-item-page .project-item-page__main .slim .regions .regions__container .regions__wrap .regions__list .owl-nav .owl-prev {
-  background: url("../img/owl-index-prew-btn.svg") !important;
+  background: url("/assets/img/owl-index-prew-btn.svg") !important;
   width: 55px;
   height: 55px;
   background-size: cover !important;
@@ -8607,7 +8607,7 @@ a {
 }
 
 .project-item-page .project-item-page__main .slim .regions .regions__container .regions__wrap .regions__list .owl-nav .owl-next {
-  background: url("../img/owl-index-next-btn.svg") !important;
+  background: url("/assets/img/owl-index-next-btn.svg") !important;
   width: 55px;
   height: 55px;
   background-size: cover !important;
@@ -8619,7 +8619,7 @@ a {
 .project-item-page .project-item-page__main .slim .regions .regions__container .regions__wrap .regions__list .owl-nav .owl-next span {
   display: none;
   /* display: block; */
-  /* background-image: url("../img/owl_next.svg");
+  /* background-image: url("/assets/img/owl_next.svg");
   width: 50px;
   height: 50px;
   background-size: cover;
@@ -12410,7 +12410,7 @@ a {
   }
 
   .no-webp .glavnaya .glavnaya__main_top .banner .banner__container{
-    background: url("../img/banner-img-1280.jpg"); }
+    background: url("/assets/img/banner-img-1280.jpg"); }
 
   .glavnaya .glavnaya__main_top .banner .banner__container {
     background-repeat: no-repeat;
@@ -12435,7 +12435,7 @@ a {
   }
 
   .no-webp .glavnaya .glavnaya__main_top .regions .regions__container .regions-banner{
-    background: url("../img/regions-bg-1512.jpg"), #363636; }
+    background: url("/assets/img/regions-bg-1512.jpg"), #363636; }
 
   .glavnaya .glavnaya__main_top .regions .regions__container .regions-banner {
     padding: 56px 50px 50px;
@@ -13984,7 +13984,7 @@ a {
   }
 
   .no-webp .glavnaya .glavnaya__main_top .banner .banner__container{
-    background: url("../img/banner-img-760.jpg"); }
+    background: url("/assets/img/banner-img-760.jpg"); }
 
   .glavnaya .glavnaya__main_top .banner .banner__container {
     -ms-grid-columns: 1fr;
@@ -14045,7 +14045,7 @@ a {
   }
 
   .no-webp .glavnaya .glavnaya__main_top .regions .regions__container .regions-banner{
-    background: url("../img/regions-bg-820.jpg"), #363636; }
+    background: url("/assets/img/regions-bg-820.jpg"), #363636; }
 
   .glavnaya .glavnaya__main_top .regions .regions__container .regions-banner {
     background-repeat: no-repeat;
@@ -15854,7 +15854,7 @@ a {
 
 @media (max-width: 460px) {
   .no-webp .glavnaya .glavnaya__main_top .regions .regions__container .regions-banner{
-    background: url("../img/regions-bg-375.jpg"), #363636; }
+    background: url("/assets/img/regions-bg-375.jpg"), #363636; }
   .glavnaya .glavnaya__main_top .regions .regions__container .regions-banner {
     background-repeat: no-repeat;
     background-position: top;
@@ -15866,7 +15866,7 @@ a {
 
 @media (max-width: 400px) {
   .no-webp .glavnaya .glavnaya__main_top .banner .banner__container{
-    background: url("../img/banner-img-345.jpg"); }
+    background: url("/assets/img/banner-img-345.jpg"); }
   .glavnaya .glavnaya__main_top .banner .banner__container {
     background-repeat: no-repeat;
     background-position: center;

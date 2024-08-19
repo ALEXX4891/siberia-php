@@ -9,8 +9,8 @@ $row1 = mysqli_fetch_array($result);
 		<div class="header__container">
 			<div class="header__top-block">
 				<div class="header__logo logo">
-					<a href="index.html" class="logo__link">
-						<img class="logo__main" width="116" height="43" src="img/logo.svg" alt="Логотип Сибирь">
+					<a href="/" class="logo__link">
+						<img class="logo__main" width="116" height="43" src="/assets/img/logo.svg" alt="Логотип Сибирь">
 					</a>
 				</div>
 
@@ -18,63 +18,63 @@ $row1 = mysqli_fetch_array($result);
 					<nav class="nav header__nav">
 						<ul class="nav__list">
 							<li class="nav__item">
-								<a href="proekty.html" class="nav__link">
+								<a href="/pages/proekty/" class="nav__link">
 									<p class="nav__text">
 										Проекты
 									</p>
 								</a>
 							</li>
 							<li class="nav__item nav__item_apartments">
-								<a href="kvartiry.html" class="nav__link">
+								<a href="/pages/kvartiry/" class="nav__link">
 									<p class="nav__text">
 										Квартиры
 									</p>
 								</a>
 							</li>
 							<li class="nav__item">
-								<a href="kommercia.html" class="nav__link">
+								<a href="/pages/kommercia/" class="nav__link">
 									<p class="nav__text">
 										Коммерция
 									</p>
 								</a>
 							</li>
 							<li class="nav__item">
-								<a href="sotrudnichestvo.html" class="nav__link">
+								<a href="/pages/sotrudnichestvo/" class="nav__link">
 									<p class="nav__text">
 										Сотрудничество
 									</p>
 								</a>
 							</li>
 							<li class="nav__item">
-								<a href="sposob-pokupki.html" class="nav__link">
+								<a href="/pages/sposob-pokupki/" class="nav__link">
 									<p class="nav__text">
 										Способ покупки
 									</p>
 								</a>
 							</li>
 							<li class="nav__item">
-								<a href="akcii.html" class="nav__link">
+								<a href="/pages/akcii/" class="nav__link">
 									<p class="nav__text">
 										Акции
 									</p>
 								</a>
 							</li>
 							<li class="nav__item">
-								<a href="o-companii.html" class="nav__link">
+								<a href="/pages/o-companii/" class="nav__link">
 									<p class="nav__text">
 										О компании
 									</p>
 								</a>
 							</li>
 							<li class="nav__item">
-								<a href="novosti.html" class="nav__link">
+								<a href="/pages/novosti/" class="nav__link">
 									<p class="nav__text">
 										Новости
 									</p>
 								</a>
 							</li>
 							<li class="nav__item">
-								<a href="kontakty.html" class="nav__link">
+								<a href="/pages/kontakty/" class="nav__link">
 									<p class="nav__text">
 										Контакты
 									</p>
