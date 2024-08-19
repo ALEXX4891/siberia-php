@@ -316,8 +316,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 <p class="address__item-title">
                   Телефон:
                 </p>
-                <a class="address__item-text" href="tel: 8 (3452) 611-157">
-                  8 (3452) 611-157
+                <a class="address__item-text" href="tel: <?= $row1['phone']; ?>">
+                  <?= $row1['phone']; ?>
                 </a>
               </div>
 

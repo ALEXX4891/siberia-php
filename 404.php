@@ -156,7 +156,7 @@
           </div>
 
           <div class="header__contacts contacts">
-            <a href="tel:8 (3452) 611-157" class="contacts__item contacts__item_phone">8 (3452) 611-157</a>
+            <a href="tel:<? echo preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>" class="contacts__item contacts__item_phone"><?= $row1['phone']; ?></a>
           </div>
           <button class="header__burger burger">
             <div class="burger__open-btn">
@@ -213,11 +213,11 @@
         <div class="footer__top-block">
 
           <div class="footer__contacts contacts" id="footer-contacts">
-            <a href="tel:8 (3452) 611-157" class="contacts__item contacts__item_phone">
-              8 (3452) 611-157
+            <a href="tel:<? echo preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>" class="contacts__item contacts__item_phone">
+              <?= $row1['phone']; ?>
             </a>
-            <a href="mailto:sosnovy@siberiadev.ru" class="contacts__item contacts__item_email">
-              sosnovy@siberiadev.ru
+            <a href="mailto:<? echo $row1['email']; ?>" class="contacts__item contacts__item_email">
+              <? echo $row1['email']; ?>
             </a>
             <p class="contacts__item contacts__item_address">
               Россия, Тюмень, ул. Клары Цеткин 61, к2

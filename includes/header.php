@@ -85,7 +85,7 @@ $row1 = mysqli_fetch_array($result);
 				</div>
 
 				<div class="header__contacts contacts">
-					<a href="tel:8 (3452) 611-157" class="contacts__item contacts__item_phone">8 (3452) 611-157</a>
+					<a href="tel:<? echo preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>" class="contacts__item contacts__item_phone"><?= $row1['phone']; ?></a>
 				</div>
 				<button class="header__burger burger">
 					<div class="burger__open-btn">

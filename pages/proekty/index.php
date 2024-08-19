@@ -45,7 +45,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
         <ul class="project-page__list">
           <li class="project-page__item">
-            <a class="project-page__link" href="project-item.html">
+            <a class="project-page__link" href="/pages/project-item/">
               <div class="project-page__card-img">
                 <picture>
                   <source srcset="/assets/img/building-1.webp" type="image/webp"><img src="/assets/img/building-1.jpg" alt="">
@@ -87,7 +87,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </a>
           </li>
           <li class="project-page__item">
-            <a class="project-page__link" href="project-item.html">
+            <a class="project-page__link" href="/pages/project-item/">
 
               <div class="project-page__card-img">
                 <picture>
@@ -141,7 +141,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </li>
 
           <li class="project-page__item project-page__item_no-show">
-            <a class="project-page__link" href="project-item.html">
+            <a class="project-page__link" href="/pages/project-item/">
               <div class="project-page__card-img">
                 <picture>
                   <source srcset="/assets/img/building-1.webp" type="image/webp"><img src="/assets/img/building-1.jpg" alt="">
@@ -183,7 +183,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </a>
           </li>
           <li class="project-page__item project-page__item_no-show">
-            <a class="project-page__link" href="project-item.html">
+            <a class="project-page__link" href="/pages/project-item/">
 
               <div class="project-page__card-img">
                 <picture>

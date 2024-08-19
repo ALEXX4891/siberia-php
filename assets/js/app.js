@@ -1,3 +1,17 @@
+
+function testWebP(callback) {
+  let webP = new Image();
+  webP.onload = webP.onerror = function () {
+    callback(webP.height == 2);
+  };
+  webP.src =
+    "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+}
+testWebP(function (support) {
+  let className = support === true ? "webp" : "no-webp";
+  document.documentElement.classList.add(className);
+});
+
 const body = document.querySelector("body");
 Fancybox.bind("[data-fancybox]", {
   // Your custom options
@@ -63,30 +77,34 @@ if (map) {
 
   const resetBtns = map.querySelector(".reset-btn");
 
-  resetBtns.addEventListener("click", function () {
-    console.log("тест");
-    filter.forEach((item) => {
-      item.classList.remove("map__mark-item_active");
-      checkAll();
+  if (resetBtns) {
+    resetBtns.addEventListener("click", function () {
+      console.log("тест");
+      filter.forEach((item) => {
+        item.classList.remove("map__mark-item_active");
+        checkAll();
+      });
     });
-  });
+  }
 
   const allBtn = map.querySelector(".map__mark-item-all");
 
-  allBtn.addEventListener("click", function () {
-    console.log("тест");
-    if (allBtn.classList.contains("map__mark-item_active")) {
-      allBtn.classList.remove("map__mark-item_active");
-      filter.forEach((item) => {
-        item.classList.remove("map__mark-item_active");
-      });
-    } else {
-      filter.forEach((item) => {
-        item.classList.add("map__mark-item_active");
-      });
-      allBtn.classList.add("map__mark-item_active");
-    }
-  });
+  if (allBtn) {
+    allBtn.addEventListener("click", function () {
+      console.log("тест");
+      if (allBtn.classList.contains("map__mark-item_active")) {
+        allBtn.classList.remove("map__mark-item_active");
+        filter.forEach((item) => {
+          item.classList.remove("map__mark-item_active");
+        });
+      } else {
+        filter.forEach((item) => {
+          item.classList.add("map__mark-item_active");
+        });
+        allBtn.classList.add("map__mark-item_active");
+      }
+    });
+  }
 
   function checkAll() {
     console.log("тест");
@@ -106,18 +124,19 @@ if (map) {
   const markListBtnOpen = map.querySelector(".map__menu-btn-filters");
   const markListBtnClose = map.querySelector(".map__menu-btn-apply");
 
+  if (markListBtnOpen) {
+    markListBtnOpen.addEventListener("click", function () {
+      const markList = map.querySelector(".map__mark-list-wrap");
+      console.log("тест");
+      markList.classList.add("map__mark-list-wrap_active");
+    });
 
-  markListBtnOpen.addEventListener("click", function () {
-    const markList = map.querySelector(".map__mark-list-wrap");
-    console.log("тест");
-    markList.classList.add("map__mark-list-wrap_active");
-  });
-
-  markListBtnClose.addEventListener("click", function () {
-    const markList = map.querySelector(".map__mark-list-wrap");
-    console.log("тест");
-    markList.classList.remove("map__mark-list-wrap_active");
-  });
+    markListBtnClose.addEventListener("click", function () {
+      const markList = map.querySelector(".map__mark-list-wrap");
+      console.log("тест");
+      markList.classList.remove("map__mark-list-wrap_active");
+    });
+  }
 }
 // --------------------------------------- end карта: ---------------------------------------------
 // --------------------------------------- start бокове меню: ---------------------------------------------
@@ -136,7 +155,7 @@ if (asideMenu) {
   });
 
   document.addEventListener("scroll", () => {
-    console.log("scroll");
+    // console.log("scroll");
 
     // получаем все секции с атрибутом id
     let sections = Array.from(document.querySelectorAll("section")).filter(
@@ -148,7 +167,7 @@ if (asideMenu) {
       const rect = section.getBoundingClientRect();
       // проверяем что начало секции находится в первой половине экрана
       if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
-        console.log(rect.top);
+        // console.log(rect.top);
         links.forEach((item) => {
           if (item.getAttribute("href").replace("#", "") === section.id) {
             item.classList.add("slider__toggle-link_active");
@@ -230,17 +249,13 @@ if (sliderBtnList) {
 //   }
 // });
 
-let page = window.location.pathname.split("/").pop();
-if (page === "") {
-  page = "index";
-} else {
-  const navLinks = document.querySelectorAll(".nav__link");
-  navLinks.forEach((item) => {
-    if (item.getAttribute("href").includes(page)) {
-      item.classList.add("nav__link_active");
-    }
-  });
-}
+const page = window.location.pathname;
+const navLinks = document.querySelectorAll(".nav__link");
+navLinks.forEach((item) => {
+  if (item.getAttribute("href") === page) {
+    item.classList.add("nav__link_active");
+  }
+});
 
 // const swiper = new Swiper(".swiper", {
 //   // Optional parameters
@@ -721,13 +736,11 @@ new Swiper(".commercial_swiper", {
       // slidesPerView: 1,
       spaceBetween: 10,
       slidesPerView: 1, // сколько слайдов показывать, можно дробно
-      
-    },    
+    },
     760: {
       // slidesPerView: 1,
       spaceBetween: 10,
       slidesPerView: 2, // сколько слайдов показывать, можно дробно
-      
     },
     1460: {
       spaceBetween: 10,
@@ -735,9 +748,8 @@ new Swiper(".commercial_swiper", {
       slidesPerView: 3, // сколько слайдов показывать, можно дробно
     },
     1560: {
-        spaceBetween: 20,
-
-    }
+      spaceBetween: 20,
+    },
   },
 });
 
@@ -1555,297 +1567,6 @@ if (catalog) {
 // }
 
 // -------------------------------------------- end Описание товара ---------------------------------------------
-// -------------------------------------------- start OWL: ---------------------------------------------
-// let margin = 16;
-
-jQuery(($) => {
-  if ($(window).width() <= 768) {
-    margin = 13;
-  }
-});
-// console.log(window.screen.width / 340);
-
-jQuery(($) => {
-  if ($(window).width() > 0) {
-    $(".owl-carousel-index").owlCarousel({
-      // screenLeft:true,
-      // startPosition: 1,
-
-      loop: false,
-      // center: true,
-      margin: 20,
-      items: 4,
-      nav: true,
-      // navText : ["<i class='fa fa-chevron-left'>>>>></i>","<i class='fa fa-chevron-right'><<<<<<<</i>"],
-      dots: false,
-      singleItem: false,
-      autoplay: false,
-      smartSpeed: 1000,
-      // autowidth: true,
-      autoplayTimeout: 5000,
-      stagePadding: 104, // позволяет задать начальное положение первого слайда
-      responsive: {
-        0: {
-          items: 1,
-          stagePadding: 15,
-          margin: 5,
-
-          // nav: false,
-          // items: window.screen.width / 360,
-        },
-        350: {
-          items: 1,
-          stagePadding: 15,
-          margin: 5,
-
-          // nav: false,
-          // items: window.screen.width / 360,
-        },
-        570: {
-          items: 1,
-          stagePadding: 30,
-          margin: 10,
-          singleItem: true,
-
-          // nav: false,
-          // items: window.screen.width / 360,
-        },
-        760: {
-          items: 2,
-          stagePadding: 30,
-          margin: 5,
-
-          // nav: false,
-          // items: window.screen.width / 360,
-        },
-        1280: {
-          items: 2.5,
-          stagePadding: 30,
-          // nav: false,
-          // items: window.screen.width / 420,
-        },
-        1460: {
-          items: 3,
-          stagePadding: 116,
-        },
-        1920: {
-          items: 4,
-        },
-      },
-    });
-
-    // $(".owl-carousel-index").owlCarousel({
-    //   loop: false,
-    //   center: true,
-    //   margin: 20,
-    //   // items: 4.5,
-    //   nav: true,
-    //   // navText : ["<i class='fa fa-chevron-left'>>>>></i>","<i class='fa fa-chevron-right'><<<<<<<</i>"],
-    //   dots: false,
-    //   singleItem: false,
-    //   autoplay: false,
-    //   smartSpeed: 1000,
-    //   autoplayTimeout: 5000,
-    //   responsive: {
-    //     0: {
-    //       nav: false,
-    //       items: 1,
-    //     },
-    //     800: {
-    //       nav: false,
-    //       items: 1,
-    //     },
-    //     1200: {
-    //       items: 1,
-    //     },
-    //   },
-    // });
-
-    $(".owl-carousel-slider").owlCarousel({
-      loop: false,
-      margin: 20,
-      nav: true,
-      dots: false,
-      autoplay: false,
-      smartSpeed: 1000,
-      autoplayTimeout: 5000,
-      responsive: {
-        //Адаптация в зависимости от разрешения экрана
-        0: {
-          items: 1,
-        },
-        600: {
-          items: 1,
-        },
-        1000: {
-          items: 1,
-        },
-      },
-    });
-
-    // $(".owl-carousel-about").owlCarousel({
-    //   loop: false,
-    //   margin: 16,
-    //   items: 4,
-    //   nav: true,
-    //   // navText : ["<i class='fa fa-chevron-left'>>>>></i>","<i class='fa fa-chevron-right'><<<<<<<</i>"],
-    //   dots: false,
-    //   singleItem: false,
-    //   autoplay: false,
-    //   smartSpeed: 1000,
-    //   autoplayTimeout: 5000,
-    //   responsive: {
-    //     0: {
-    //       nav: false,
-    //       margin: 5,
-    //       items: 1,
-
-    //       // items: window.screen.width / 360,
-    //     },
-    //     400: {
-    //       nav: false,
-    //       margin: 5,
-
-    //       items: 1.3,
-
-    //       // items: window.screen.width / 360,
-    //     },
-    //     520: {
-    //       nav: false,
-    //       margin: 5,
-
-    //       items: 1.7,
-
-    //       // items: window.screen.width / 360,
-    //     },
-    //     650: {
-    //       nav: false,
-    //       items: 2.2,
-
-    //       // items: window.screen.width / 360,
-    //     },
-    //     800: {
-    //       nav: false,
-    //       items: 2.5,
-    //       // items: window.screen.width / 420,
-    //     },
-    //     900: {
-    //       nav: false,
-    //       items: 3,
-    //       // items: window.screen.width / 420,
-    //     },
-    //     1200: {
-    //       nav: false,
-    //       items: 4,
-    //     },
-    //     1350: {
-    //       items: 4,
-    //     },
-    //   },
-    // });
-
-    // $(".owl-carousel-index").owlCarousel({
-    //   loop: false,
-    //   margin: 16,
-    //   // autoWidth:true,
-    //   items: 4,
-    //   nav: true,
-    //   // navText : ["<i class='fa fa-chevron-left'>>>>></i>","<i class='fa fa-chevron-right'><<<<<<<</i>"],
-    //   dots: false,
-    //   singleItem: false,
-    //   autoplay: false,
-    //   smartSpeed: 1000,
-    //   autoplayTimeout: 5000,
-    //   stagePadding: 104, // позволяет задать начальное положение первого слайда
-    //   responsive: {
-    //     0: {
-    //       nav: false,
-    //       // margin: 5,
-    //       items: 4,
-    //       margin: 13,
-    //     },
-    //     600: {
-    //       nav: false,
-    //       items: 4,
-    //       margin: 15,
-    //     },
-    //     1050: {
-    //       items: 4,
-    //     },
-    //   },
-    // });
-
-    // $(".owl-carousel-news-item").owlCarousel({
-    //   loop: false,
-    //   margin: 16,
-    //   // autoWidth:true,
-    //   items: 3,
-    //   nav: true,
-    //   // navText : ["<i class='fa fa-chevron-left'>>>>></i>","<i class='fa fa-chevron-right'><<<<<<<</i>"],
-    //   dots: false,
-    //   singleItem: false,
-    //   autoplay: false,
-    //   smartSpeed: 1000,
-    //   autoplayTimeout: 5000,
-    //   responsive: {
-    //     0: {
-    //       nav: false,
-    //       // margin: 5,
-    //       items: 1,
-    //       autoWidth: true,
-
-    //       // margin: 13,
-    //     },
-    //     410: {
-    //       nav: false,
-    //       // margin: 5,
-    //       items: 1.17,
-    //       // margin: 13,
-    //     },
-    //     425: {
-    //       nav: false,
-    //       // margin: 5,
-    //       items: 1.2,
-    //       // margin: 13,
-    //     },
-    //     530: {
-    //       nav: false,
-    //       // margin: 5,
-    //       items: 1.5,
-    //       // margin: 13,
-    //     },
-    //     600: {
-    //       nav: false,
-    //       // margin: 5,
-    //       items: 1.7,
-    //       // margin: 13,
-    //     },
-    //     750: {
-    //       nav: false,
-    //       // margin: 5,
-    //       items: 2.15,
-    //       // margin: 13,
-    //     },
-    //     950: {
-    //       nav: false,
-    //       items: 2.4,
-    //       // margin: 15,
-    //     },
-    //     1050: {
-    //       nav: false,
-    //       items: 2.7,
-    //       // margin: 15,
-    //     },
-    //     1180: {
-    //       items: 3,
-    //     },
-    //   },
-    // });
-  }
-});
-
-// -------------------------------------------- end OWL ---------------------------------------------
-
 // -------------------------------------------- start BURGER: ---------------------------------------------
 
 const burger = document.querySelector(".burger");
@@ -2402,10 +2123,10 @@ if (choiceForm) {
 const projectPage = document.querySelector(".project-item-page");
 if (projectPage) {
   const projectChoice = projectPage.querySelector(".choice");
-  console.log(projectChoice);
+  // console.log(projectChoice);
   const content = projectChoice.querySelector(".choice__container");
   const popup = document.querySelector("#filter");
-  console.log(popup);
+  // console.log(popup);
   const button = projectChoice.querySelector(".choice__btn-request_mobile");
 
   // открытие popup и заполнение его формой
@@ -2684,39 +2405,39 @@ $(document).ready(function () {
 // -------------------------------------------- end Карта ---------------------------------------------
 //--------------------------Запрос к БД----------------------------
 // Загружаем список контрагентов с БД:
-async function fetchToDB(options) {
-  // Блок try выполнится полностью, если не будет ошибок:
-  try {
-    // Выполняем запрос:
-    const responce = await fetch("files/main.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(options),
-    });
-    const infoList = await responce.json();
-    return infoList; // Возвращаем результат запроса
-  } catch (err) {
-    // Блок catch сработает только если будут какие-то ошибки в блоке try:
-    // Выведем в консоли информацию об ошибке:
-    console.log("При запросе к БД произошла ошибка, детали ниже:");
-    console.error(err);
-    // Вернем исключение с текстом поясняющим детали ошибки:
-    // alert("Произошла ошибка при запросе к БД!");
-    throw new Error("Запрос завершился неудачно.");
-  }
-}
+// async function fetchToDB(options) {
+//   // Блок try выполнится полностью, если не будет ошибок:
+//   try {
+//     // Выполняем запрос:
+//     const responce = await fetch("files/main.php", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(options),
+//     });
+//     const infoList = await responce.json();
+//     return infoList; // Возвращаем результат запроса
+//   } catch (err) {
+//     // Блок catch сработает только если будут какие-то ошибки в блоке try:
+//     // Выведем в консоли информацию об ошибке:
+//     console.log("При запросе к БД произошла ошибка, детали ниже:");
+//     console.error(err);
+//     // Вернем исключение с текстом поясняющим детали ошибки:
+//     // alert("Произошла ошибка при запросе к БД!");
+//     throw new Error("Запрос завершился неудачно.");
+//   }
+// }
 
-let options = {
-  // опции для получения списка всех контрагентов
-  function: "getAll",
-  table: "apartments",
-  all: "*",
-};
+// let options = {
+//   // опции для получения списка всех контрагентов
+//   function: "getAll",
+//   table: "apartments",
+//   all: "*",
+// };
 
-const arrApartments = await fetchToDB(options);
-const apartmentsForRender = [...arrApartments];
+// const arrApartments = await fetchToDB(options);
+// const apartmentsForRender = [...arrApartments];
 // console.log(apartmentsForRender);
 
 // console.log(options);

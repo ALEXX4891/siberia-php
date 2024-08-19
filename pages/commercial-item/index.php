@@ -337,285 +337,96 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </h2>
 
         <ul class="apartments__list swiper-wrapper">
-          <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
-              <h5 class="commercial__item-title">
-                Сосновый | ГП 8 |
-              </h5>
-              <p class="commercial__item-desc">
-                Помещение №1, 151,67м<sup>2</sup>
-              </p>
-              <div class="commercial__item-price-wrap">
-                <p class="commercial__item-new-price">
-                  5 662 000 ₽
-                </p>
-                <p class="commercial__item-old-price">
-                  9 331 000 ₽
-                </p>
-              </div>
-              <p class="commercial__credit-pay">
-                от 45 426₽/месяц
-              </p>
-              <div class="commercial__item-img">
-                <picture>
-                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
-                </picture>
-              </div>
-            </a>
 
+          <?
+          // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
+          $result = mysqli_query($db, "SELECT * FROM apartments LIMIT 8");
+
+          $row = mysqli_fetch_array($result);
+
+          // if ($row == '') {
+          //   echo 'Ничего не нашлось';
+          // }
+
+          // echo '<pre>';
+          // print_r($row);
+          // echo '</pre>';
+
+          // Сосновый | ГП 8 | 1 / 2 этаж
+
+          if (mysqli_num_rows($result) > 0) {
+            do {
+              echo '
+      <li class="apartments__item swiper-slide">
+      <a class="apartments__item-link" href="/pages/apartments-item/?id=' . $row['id'] . '">
+        <h5 class="apartments__item-title">
+          ' . $row['complex'] . ' | ГП ' . $row['house'] . ' | ' . $row['stage'] . ' этаж' . '                    
+        </h5>
+        <div class="apartments__item-img">
+            <img src="/assets/img/' . $row['image'] . '" alt="планировка квартиры">
+        </div>
+
+        <p class="apartments__item-desc">
+          ' . $row['number_of_rooms'] . '-комнатная ' . $row['area'] . 'м2
+        </p>
+
+        <div class="apartments__item-price-wrap">
+          <p class="apartments__item-new-price">
+            ' . number_format($row['price'], 0, '', ' ') . ' ₽
+          </p>
+          <p class="apartments__item-old-price">
+          ' . number_format($row['price'] * 1.2, 0, '', ' ') . ' ₽
+          </p>
+        </div>
+
+        <ul class="apartments__item-footer">
+          <li class="apartments__item-footer-item">
+            <p class="apartments__item-footer-item-text">
+              Акция
+            </p>
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="18" height="18" rx="9" stroke="#56693E" />
+              <path
+                d="M8.41903 11.8409V11.7855C8.42519 11.1977 8.48674 10.7299 8.60369 10.3821C8.72064 10.0343 8.88684 9.75272 9.10227 9.53729C9.31771 9.32185 9.57623 9.12334 9.87784 8.94176C10.0594 8.83097 10.2225 8.70017 10.3672 8.54936C10.5118 8.39548 10.6257 8.21851 10.7088 8.01847C10.795 7.81842 10.8381 7.59683 10.8381 7.35369C10.8381 7.05208 10.7673 6.79048 10.6257 6.56889C10.4841 6.3473 10.2949 6.17649 10.0579 6.05646C9.8209 5.93643 9.55777 5.87642 9.26847 5.87642C9.0161 5.87642 8.77296 5.92874 8.53906 6.03338C8.30516 6.13802 8.10973 6.30268 7.95277 6.52734C7.79581 6.75201 7.70502 7.04593 7.6804 7.40909H6.51705C6.54167 6.88589 6.67708 6.43809 6.9233 6.0657C7.17259 5.6933 7.50036 5.40862 7.90661 5.21165C8.31593 5.01468 8.76989 4.91619 9.26847 4.91619C9.81013 4.91619 10.281 5.02391 10.6811 5.23935C11.0843 5.45478 11.3951 5.75024 11.6136 6.12571C11.8352 6.50118 11.946 6.92898 11.946 7.40909C11.946 7.74763 11.8937 8.05386 11.7891 8.32777C11.6875 8.60168 11.5398 8.84635 11.3459 9.06179C11.1551 9.27723 10.9242 9.46804 10.6534 9.63423C10.3826 9.8035 10.1656 9.98201 10.0025 10.1697C9.83937 10.3544 9.72088 10.5745 9.64702 10.8299C9.57315 11.0853 9.53314 11.4039 9.52699 11.7855V11.8409H8.41903ZM9.00994 14.5739C8.7822 14.5739 8.58677 14.4923 8.42365 14.3292C8.26054 14.1661 8.17898 13.9706 8.17898 13.7429C8.17898 13.5152 8.26054 13.3197 8.42365 13.1566C8.58677 12.9935 8.7822 12.9119 9.00994 12.9119C9.23769 12.9119 9.43312 12.9935 9.59624 13.1566C9.75935 13.3197 9.84091 13.5152 9.84091 13.7429C9.84091 13.8937 9.80244 14.0322 9.7255 14.1584C9.65163 14.2846 9.55161 14.3861 9.42543 14.4631C9.30232 14.5369 9.16383 14.5739 9.00994 14.5739Z"
+                fill="#56693E" />
+            </svg>
           </li>
 
-          <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
-              <h5 class="commercial__item-title">
-                Сосновый | ГП 8 |
-              </h5>
-              <p class="commercial__item-desc">
-                Помещение №1, 151,67м<sup>2</sup>
-              </p>
-              <div class="commercial__item-price-wrap">
-                <p class="commercial__item-new-price">
-                  5 662 000 ₽
-                </p>
-                <p class="commercial__item-old-price">
-                  9 331 000 ₽
-                </p>
-              </div>
-              <p class="commercial__credit-pay">
-                от 45 426₽/месяц
-              </p>
-              <div class="commercial__item-img">
-                <picture>
-                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
-                </picture>
-              </div>
-            </a>
+          <!-- <li class="apartments__item-footer-item">
+          <p class="apartments__item-footer-item-text">
+            Ключи сегодня
+          </p>
+          <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="18" height="18" rx="9" stroke="#56693E"/>
+            <path d="M8.41903 11.8409V11.7855C8.42519 11.1977 8.48674 10.7299 8.60369 10.3821C8.72064 10.0343 8.88684 9.75272 9.10227 9.53729C9.31771 9.32185 9.57623 9.12334 9.87784 8.94176C10.0594 8.83097 10.2225 8.70017 10.3672 8.54936C10.5118 8.39548 10.6257 8.21851 10.7088 8.01847C10.795 7.81842 10.8381 7.59683 10.8381 7.35369C10.8381 7.05208 10.7673 6.79048 10.6257 6.56889C10.4841 6.3473 10.2949 6.17649 10.0579 6.05646C9.8209 5.93643 9.55777 5.87642 9.26847 5.87642C9.0161 5.87642 8.77296 5.92874 8.53906 6.03338C8.30516 6.13802 8.10973 6.30268 7.95277 6.52734C7.79581 6.75201 7.70502 7.04593 7.6804 7.40909H6.51705C6.54167 6.88589 6.67708 6.43809 6.9233 6.0657C7.17259 5.6933 7.50036 5.40862 7.90661 5.21165C8.31593 5.01468 8.76989 4.91619 9.26847 4.91619C9.81013 4.91619 10.281 5.02391 10.6811 5.23935C11.0843 5.45478 11.3951 5.75024 11.6136 6.12571C11.8352 6.50118 11.946 6.92898 11.946 7.40909C11.946 7.74763 11.8937 8.05386 11.7891 8.32777C11.6875 8.60168 11.5398 8.84635 11.3459 9.06179C11.1551 9.27723 10.9242 9.46804 10.6534 9.63423C10.3826 9.8035 10.1656 9.98201 10.0025 10.1697C9.83937 10.3544 9.72088 10.5745 9.64702 10.8299C9.57315 11.0853 9.53314 11.4039 9.52699 11.7855V11.8409H8.41903ZM9.00994 14.5739C8.7822 14.5739 8.58677 14.4923 8.42365 14.3292C8.26054 14.1661 8.17898 13.9706 8.17898 13.7429C8.17898 13.5152 8.26054 13.3197 8.42365 13.1566C8.58677 12.9935 8.7822 12.9119 9.00994 12.9119C9.23769 12.9119 9.43312 12.9935 9.59624 13.1566C9.75935 13.3197 9.84091 13.5152 9.84091 13.7429C9.84091 13.8937 9.80244 14.0322 9.7255 14.1584C9.65163 14.2846 9.55161 14.3861 9.42543 14.4631C9.30232 14.5369 9.16383 14.5739 9.00994 14.5739Z" fill="#56693E"/>
+          </svg>                  
+        </li> -->
 
+          <li class="apartments__item-footer-item">
+            <p class="apartments__item-footer-item-text">
+              Окна на 2 стороны
+            </p>
           </li>
 
-          <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
-              <h5 class="commercial__item-title">
-                Сосновый | ГП 8 |
-              </h5>
-              <p class="commercial__item-desc">
-                Помещение №1, 151,67м<sup>2</sup>
-              </p>
-              <div class="commercial__item-price-wrap">
-                <p class="commercial__item-new-price">
-                  5 662 000 ₽
-                </p>
-                <p class="commercial__item-old-price">
-                  9 331 000 ₽
-                </p>
-              </div>
-              <p class="commercial__credit-pay">
-                от 45 426₽/месяц
-              </p>
-              <div class="commercial__item-img">
-                <picture>
-                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
-                </picture>
-              </div>
-            </a>
+          <!-- <li class="apartments__item-footer-item">
+          <p class="apartments__item-footer-item-text">
+            Гостевой санузел
+          </p>                 
+        </li> -->
 
+          <li class="apartments__item-footer-item">
+            <p class="apartments__item-footer-item-text">
+              Кухня-гостинная
+            </p>
           </li>
+        </ul>
+      </a>
+    </li>
+      ';
+            } while ($row = mysqli_fetch_array($result));
+          }
+          ?>
 
-          <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
-              <h5 class="commercial__item-title">
-                Сосновый | ГП 8 |
-              </h5>
-              <p class="commercial__item-desc">
-                Помещение №1, 151,67м<sup>2</sup>
-              </p>
-              <div class="commercial__item-price-wrap">
-                <p class="commercial__item-new-price">
-                  5 662 000 ₽
-                </p>
-                <p class="commercial__item-old-price">
-                  9 331 000 ₽
-                </p>
-              </div>
-              <p class="commercial__credit-pay">
-                от 45 426₽/месяц
-              </p>
-              <div class="commercial__item-img">
-                <picture>
-                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
-                </picture>
-              </div>
-            </a>
-
-          </li>
-
-          <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
-              <h5 class="commercial__item-title">
-                Сосновый | ГП 8 |
-              </h5>
-              <p class="commercial__item-desc">
-                Помещение №1, 151,67м<sup>2</sup>
-              </p>
-              <div class="commercial__item-price-wrap">
-                <p class="commercial__item-new-price">
-                  5 662 000 ₽
-                </p>
-                <p class="commercial__item-old-price">
-                  9 331 000 ₽
-                </p>
-              </div>
-              <p class="commercial__credit-pay">
-                от 45 426₽/месяц
-              </p>
-              <div class="commercial__item-img">
-                <picture>
-                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
-                </picture>
-              </div>
-            </a>
-
-          </li>
-
-          <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
-              <h5 class="commercial__item-title">
-                Сосновый | ГП 8 |
-              </h5>
-              <p class="commercial__item-desc">
-                Помещение №1, 151,67м<sup>2</sup>
-              </p>
-              <div class="commercial__item-price-wrap">
-                <p class="commercial__item-new-price">
-                  5 662 000 ₽
-                </p>
-                <p class="commercial__item-old-price">
-                  9 331 000 ₽
-                </p>
-              </div>
-              <p class="commercial__credit-pay">
-                от 45 426₽/месяц
-              </p>
-              <div class="commercial__item-img">
-                <picture>
-                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
-                </picture>
-              </div>
-            </a>
-
-          </li>
-
-          <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
-              <h5 class="commercial__item-title">
-                Сосновый | ГП 8 |
-              </h5>
-              <p class="commercial__item-desc">
-                Помещение №1, 151,67м<sup>2</sup>
-              </p>
-              <div class="commercial__item-price-wrap">
-                <p class="commercial__item-new-price">
-                  5 662 000 ₽
-                </p>
-                <p class="commercial__item-old-price">
-                  9 331 000 ₽
-                </p>
-              </div>
-              <p class="commercial__credit-pay">
-                от 45 426₽/месяц
-              </p>
-              <div class="commercial__item-img">
-                <picture>
-                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
-                </picture>
-              </div>
-            </a>
-
-          </li>
-
-          <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
-              <h5 class="commercial__item-title">
-                Сосновый | ГП 8 |
-              </h5>
-              <p class="commercial__item-desc">
-                Помещение №1, 151,67м<sup>2</sup>
-              </p>
-              <div class="commercial__item-price-wrap">
-                <p class="commercial__item-new-price">
-                  5 662 000 ₽
-                </p>
-                <p class="commercial__item-old-price">
-                  9 331 000 ₽
-                </p>
-              </div>
-              <p class="commercial__credit-pay">
-                от 45 426₽/месяц
-              </p>
-              <div class="commercial__item-img">
-                <picture>
-                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
-                </picture>
-              </div>
-            </a>
-
-          </li>
-
-          <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
-              <h5 class="commercial__item-title">
-                Сосновый | ГП 8 |
-              </h5>
-              <p class="commercial__item-desc">
-                Помещение №1, 151,67м<sup>2</sup>
-              </p>
-              <div class="commercial__item-price-wrap">
-                <p class="commercial__item-new-price">
-                  5 662 000 ₽
-                </p>
-                <p class="commercial__item-old-price">
-                  9 331 000 ₽
-                </p>
-              </div>
-              <p class="commercial__credit-pay">
-                от 45 426₽/месяц
-              </p>
-              <div class="commercial__item-img">
-                <picture>
-                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
-                </picture>
-              </div>
-            </a>
-
-          </li>
-
-          <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
-              <h5 class="commercial__item-title">
-                Сосновый | ГП 8 |
-              </h5>
-              <p class="commercial__item-desc">
-                Помещение №1, 151,67м<sup>2</sup>
-              </p>
-              <div class="commercial__item-price-wrap">
-                <p class="commercial__item-new-price">
-                  5 662 000 ₽
-                </p>
-                <p class="commercial__item-old-price">
-                  9 331 000 ₽
-                </p>
-              </div>
-              <p class="commercial__credit-pay">
-                от 45 426₽/месяц
-              </p>
-              <div class="commercial__item-img">
-                <picture>
-                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
-                </picture>
-              </div>
-            </a>
-
-          </li>
         </ul>
       </div>
 
@@ -668,8 +479,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               <p class="address__item-title">
                 Телефон:
               </p>
-              <a class="address__item-text" href="tel: 8 (3452) 611-157">
-                8 (3452) 611-157
+              <a class="address__item-text" href="tel: <?= $row1['phone']; ?>">
+                <?= $row1['phone']; ?>
               </a>
             </div>
 

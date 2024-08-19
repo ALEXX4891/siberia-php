@@ -327,7 +327,7 @@
           Срок предложения ограничен. <br><br>
           Узнайте подробнее об условиях акции у менеджеров в отделе продаж по телефону:
         </p>
-        <a href="tel:+73452611157" class="promo__phone">8 (3452) 611-157</a>
+        <a href="tel:+73452611157" class="promo__phone"><?= $row1['phone']; ?></a>
 
         <button class="promo__btn btn btn_dark popup-link" href="#popup-form">
           Связаться с нами
@@ -366,11 +366,11 @@
       </div>
 
       <div class="footer__contacts contacts">
-        <a href="tel:8 (3452) 611-157" class="contacts__item contacts__item_phone">
-          8 (3452) 611-157
+        <a href="tel:<? echo preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>" class="contacts__item contacts__item_phone">
+          <?= $row1['phone']; ?>
         </a>
-        <a href="mailto:sosnovy@siberiadev.ru" class="contacts__item contacts__item_email">
-          sosnovy@siberiadev.ru
+        <a href="mailto:<? echo $row1['email']; ?>" class="contacts__item contacts__item_email">
+          <? echo $row1['email']; ?>
         </a>
       </div>
 
