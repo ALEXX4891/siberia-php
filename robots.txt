@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /404.php
+Disallow: /backend
+Disallow: /uploads
+Disallow: /files
+
+//Host: https://web5943.ww.net.ru
+//Sitemap: https://web5943.ww.net.ru/sitemap.xml
