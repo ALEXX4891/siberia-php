@@ -25,11 +25,7 @@ async function getHouse() {
 // ГП3 house_id 945
 
 const idHouse = [933, 943, 945];
-const projectById = [
-  { 933: "Сосновый" },
-  { 943: "Сосновый" },
-  { 945: "Сосновый" },
-];
+const projectById = [{ 933: "Сосновый" }, { 943: "Сосновый" }, { 945: "Сосновый" }];
 
 function getProjectName(id) {
   return projectById.find((item) => item[id])[id];
@@ -38,7 +34,7 @@ function getProjectName(id) {
 // функция получения информации о квартирах:
 let allInfo = [];
 let houseInfo = {};
-let allAparstInfo = [];
+let allApartsInfo = [];
 let allHouseInfo = [];
 
 async function getRealty(id) {
@@ -96,59 +92,35 @@ houseInfo = allInfo[0]; // массив с инофрмацией о домах
 // console.log("allInfo:", allInfo);
 allInfo.splice(1).forEach((item) => {
   allHouseInfo.push(item[0]);
-  allAparstInfo.push(...item[1]);
+  allApartsInfo.push(...item[1]);
 });
 
 // console.log("allHouseInfo:", allHouseInfo);
 // console.log("allAparstInfo:", allAparstInfo);
 
 // добавляем в обьекты квартир информацию о доме:
-allAparstInfo.forEach(function (item) {
-  item.house_address = allHouseInfo.find(
-    (house) => house.id == item.house_id
-  ).address;
-  item.house_ceiling_height = allHouseInfo.find(
-    (house) => house.id == item.house_id
-  ).ceiling_height;
-  item.house_floor_count = allHouseInfo.find(
-    (house) => house.id == item.house_id
-  ).floor_count;
+allApartsInfo.forEach(function (item) {
+  item.house_address = allHouseInfo.find((house) => house.id == item.house_id).address;
+  item.house_ceiling_height = allHouseInfo.find((house) => house.id == item.house_id).ceiling_height;
+  item.house_floor_count = allHouseInfo.find((house) => house.id == item.house_id).floor_count;
   // item.house_id = allHouseInfo.find((house) => house.id == item.house_id).id;
   item.house_img = allHouseInfo.find((house) => house.id == item.house_id).img;
-  item.house_section_count = allHouseInfo.find(
-    (house) => house.id == item.house_id
-  ).section_count;
-  item.house_title = allHouseInfo
-    .find((house) => house.id == item.house_id)
-    .title.replace(/\D/g, "");
+  item.house_section_count = allHouseInfo.find((house) => house.id == item.house_id).section_count;
+  item.house_title = allHouseInfo.find((house) => house.id == item.house_id).title.replace(/\D/g, "");
   item.project_name = getProjectName(item.house_id);
-  item.house_building_begin = houseInfo.find(
-    (house) => house.house_id == item.house_id
-  ).house_building_begin.date;
-  item.house_building_end = houseInfo.find(
-    (house) => house.house_id == item.house_id
-  ).house_building_end.date;
-  item.house_material = houseInfo.find(
-    (house) => house.house_id == item.house_id
-  ).house_material;
-  item.house_material_code = houseInfo.find(
-    (house) => house.house_id == item.house_id
-  ).house_material_code;
-  item.house_title_rus = houseInfo.find(
-    (house) => house.house_id == item.house_id
-  ).house_title;
-  item.object_type_code = houseInfo.find(
-    (house) => house.house_id == item.house_id
-  ).object_type_code;
-  item.object_type_title = houseInfo.find(
-    (house) => house.house_id == item.house_id
-  ).object_type_title;
+  item.house_building_begin = houseInfo.find((house) => house.house_id == item.house_id).house_building_begin.date;
+  item.house_building_end = houseInfo.find((house) => house.house_id == item.house_id).house_building_end.date;
+  item.house_material = houseInfo.find((house) => house.house_id == item.house_id).house_material;
+  item.house_material_code = houseInfo.find((house) => house.house_id == item.house_id).house_material_code;
+  item.house_title_rus = houseInfo.find((house) => house.house_id == item.house_id).house_title;
+  item.object_type_code = houseInfo.find((house) => house.house_id == item.house_id).object_type_code;
+  item.object_type_title = houseInfo.find((house) => house.house_id == item.house_id).object_type_title;
 });
 
 // console.log("allInfoArr", allInfoArr);
 
 // console.log("allHouseInfo", allHouseInfo);
-console.log("allAparstInfo", allAparstInfo);
+console.log("allAparstInfo", allApartsInfo);
 
 // -------------------------------------- start функция создания карточки квартиры: --------------------------------------
 function getli(obj) {
@@ -163,33 +135,23 @@ function getli(obj) {
   });
 
   li.innerHTML = `
-    <a class="apartments__item-link" href="/pages/apartments-item/?id=${
-      obj.id
-    }">
+    <a class="apartments__item-link" href="/pages/apartments-item/?id=${obj.id}">
       <h5 class="apartments__item-title">
         ${obj.project_name ? obj.project_name : ""}  |  ${
     obj.house_title ? obj.house_title.replace("-", " ") : ""
-  }  |  ${obj.floor ? obj.floor : ""} / ${
-    obj.floor_count ? obj.floor_count : ""
-  } этаж                    
+  }  |  ${obj.floor ? obj.floor : ""} / ${obj.floor_count ? obj.floor_count : ""} этаж                    
       </h5>
       <div class="apartments__item-img">          
-          <img src="${
-            obj.img ? obj.img[0].img_path : ""
-          }" alt="планировка квартиры">
+          <img src="${obj.img ? obj.img[0].img_path : ""}" alt="планировка квартиры">
       </div>
   
       <p class="apartments__item-desc">
-        ${obj.rooms ? obj.rooms : ""}-комнатная ${
-    obj.square ? obj.square : ""
-  }м<sup>2</sup>
+        ${obj.rooms ? obj.rooms : ""}-комнатная ${obj.square ? obj.square : ""}м<sup>2</sup>
       </p>
   
       <div class="apartments__item-price-wrap">
         <p class="apartments__item-new-price">
-        ${(obj.price ? obj.price * 1 : "")
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽
+        ${(obj.price ? obj.price * 1 : "").toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽
         </p>
 
         ${
@@ -207,42 +169,24 @@ function getli(obj) {
 }
 // -------------------------------------- end функция создания карточки квартиры: --------------------------------------
 
-console.log("allAparstInfo", allAparstInfo[0]);
+console.log("allAparstInfo", allApartsInfo[0]);
 // -------------------------------------- start полуаем граничные значения для фильтров: --------------------------------------
-function getMaxMinForFilters() {
+function getMaxMinForFilters(allApartsInfo) {
   console.log("Старт функции getMaxMinForFilters"); // имя функции
 
   // получаем граничные значения из allAparstInfo:
-  const minPrice = Math.floor(
-    Math.min(...allAparstInfo.map((item) => item.price))
-  );
-  const maxPrice = Math.ceil(
-    Math.max(...allAparstInfo.map((item) => item.price))
-  );
-  const minSquare = Math.floor(
-    Math.min(...allAparstInfo.map((item) => item.square))
-  );
-  const maxSquare = Math.ceil(
-    Math.max(...allAparstInfo.map((item) => item.square))
-  );
-  const rooms = [...new Set(allAparstInfo.map((item) => item.rooms))].sort(
-    (a, b) => a - b
-  );
-  const minFloor = Math.floor(
-    Math.min(...allAparstInfo.map((item) => item.floor))
-  );
-  const maxFloor = Math.ceil(
-    Math.max(...allAparstInfo.map((item) => item.floor))
-  );
-  const projects = [...new Set(allAparstInfo.map((item) => item.project_name))];
-  const houses = [...new Set(allAparstInfo.map((item) => item.house_title))];
-  const sections = [...new Set(allAparstInfo.map((item) => item.section))];
+  const minPrice = Math.floor(Math.min(...allApartsInfo.map((item) => item.price)));
+  const maxPrice = Math.ceil(Math.max(...allApartsInfo.map((item) => item.price)));
+  const minSquare = Math.floor(Math.min(...allApartsInfo.map((item) => item.square)));
+  const maxSquare = Math.ceil(Math.max(...allApartsInfo.map((item) => item.square)));
+  const rooms = [...new Set(allApartsInfo.map((item) => item.rooms))].sort((a, b) => a - b);
+  const minFloor = Math.floor(Math.min(...allApartsInfo.map((item) => item.floor)));
+  const maxFloor = Math.ceil(Math.max(...allApartsInfo.map((item) => item.floor)));
+  const projects = [...new Set(allApartsInfo.map((item) => item.project_name))];
+  const houses = [...new Set(allApartsInfo.map((item) => item.house_title))];
+  const sections = [...new Set(allApartsInfo.map((item) => item.section))];
   // const deadline = [... new Set(allAparstInfo.map((item) => new Date(item.house_building_end).toLocaleString()))];
-  const deadline = [
-    ...new Set(
-      allAparstInfo.map((item) => getQuarter(new Date(item.house_building_end)))
-    ),
-  ];
+  const deadline = [...new Set(allApartsInfo.map((item) => getQuarter(new Date(item.house_building_end))))];
 
   // console.log("minPrice", minPrice);
   // console.log("maxPrice", maxPrice);
@@ -309,9 +253,9 @@ function getMaxMinForFilters() {
 // -------------------------------------- end полуаем граничные значения для фильтров: --------------------------------------
 
 // -------------------------------------- start устанавливаем граничные значения в фильтры: --------------------------------------
-function setMaxMinForFilters() {
+function setMaxMinForFilters(filterAllInfo) {
   console.log("Старт функции setMaxMinForFilters"); // имя функции
-  const filterAllInfo = getMaxMinForFilters();
+  // const filterAllInfo = getMaxMinForFilters();
   const choiceFilterForm = document.querySelector("[data-form]");
   console.log("choiceFilterForm", choiceFilterForm);
 
@@ -320,30 +264,14 @@ function setMaxMinForFilters() {
     return;
   }
 
-  const projectFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_select_project .select__list"
-  );
-  const roomsFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_buttons_rooms .choice__buttons-select"
-  );
-  const squareFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_slider_square"
-  );
-  const costFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_slider_cost"
-  );
-  const houseFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_select_house .select__list"
-  );
-  const sectionFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_select_section .select__list"
-  );
-  const deadlineFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_select_date .select__list"
-  );
-  const floorFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_slider_floor"
-  );
+  const projectFilter = choiceFilterForm.querySelector(".choice__input-block_select_project .select__list");
+  const roomsFilter = choiceFilterForm.querySelector(".choice__input-block_buttons_rooms .choice__buttons-select");
+  const squareFilter = choiceFilterForm.querySelector(".choice__input-block_slider_square");
+  const costFilter = choiceFilterForm.querySelector(".choice__input-block_slider_cost");
+  const houseFilter = choiceFilterForm.querySelector(".choice__input-block_select_house .select__list");
+  const sectionFilter = choiceFilterForm.querySelector(".choice__input-block_select_section .select__list");
+  const deadlineFilter = choiceFilterForm.querySelector(".choice__input-block_select_date .select__list");
+  const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
   let allSelect = '<li class="select__item">Все</li>';
 
   if (projectFilter) {
@@ -398,11 +326,7 @@ function setMaxMinForFilters() {
   if (roomsFilter) {
     const btns = roomsFilter.querySelectorAll(".choice__buttons-select-item");
     btns.forEach((item) => {
-      if (
-        filterAllInfo
-          .find((item) => item.name === "Комнат")
-          .value.includes(Number(item.getAttribute("data-id")))
-      ) {
+      if (filterAllInfo.find((item) => item.name === "Комнат").value.includes(Number(item.getAttribute("data-id")))) {
         item.classList.add("choice__buttons-select-item_available");
       }
     });
@@ -411,52 +335,48 @@ function setMaxMinForFilters() {
   }
 
   if (costFilter) {
-    let minFilterCost = filterAllInfo.find(
-      (item) => item.name === "Стоимость, ₽"
-    ).value.from;
-    let maxFilterCost =
-      filterAllInfo.find((item) => item.name === "Стоимость, ₽").value.to +
-      10000;
+    let minFilterCost = filterAllInfo.find((item) => item.name === "Стоимость, ₽").value.from;
+    let maxFilterCost = filterAllInfo.find((item) => item.name === "Стоимость, ₽").value.to + 10000;
     rangeSliderInit(costFilter, 10000, minFilterCost, maxFilterCost);
   } else {
     console.log("costFilter not found");
   }
 
   if (squareFilter) {
-    let minFilterSquare = filterAllInfo.find(
-      (item) => item.name === "Площадь, м2"
-    ).value.from;
-    let maxFilterSquare = filterAllInfo.find(
-      (item) => item.name === "Площадь, м2"
-    ).value.to;
+    let minFilterSquare = filterAllInfo.find((item) => item.name === "Площадь, м2").value.from;
+    let maxFilterSquare = filterAllInfo.find((item) => item.name === "Площадь, м2").value.to;
     rangeSliderInit(squareFilter, 1, minFilterSquare, maxFilterSquare);
   } else {
     console.log("squareFilter not found");
   }
 
   if (floorFilter) {
-    let minFilterFloor = filterAllInfo.find((item) => item.name === "Этаж")
-      .value.from;
-    let maxFilterFloor = filterAllInfo.find((item) => item.name === "Этаж")
-      .value.to;
+    let minFilterFloor = filterAllInfo.find((item) => item.name === "Этаж").value.from;
+    let maxFilterFloor = filterAllInfo.find((item) => item.name === "Этаж").value.to;
     rangeSliderInit(floorFilter, 0, minFilterFloor, maxFilterFloor);
   } else {
     console.log("floorFilter not found");
   }
 }
-setMaxMinForFilters();
+setMaxMinForFilters(getMaxMinForFilters(allApartsInfo));
 
+// -------------------------------------- start функция установки и сброса значений фильтров ----------------
 setNowFilters();
 function setNowFilters(arr) {
   console.log("Старт функции setNowFilters"); // имя функции
   // arr = [
-  //   { name: "Проект", value: "Сосновый" },
-  //   { name: "Комнат", value: [1, 2] },
-  //   { name: "Площадь, м2", value: { from: 36, to: 60 } },
-  //   { name: "Стоимость, ₽", value: { from: 1860000, to: 6250000 } },
-  //   { name: "Дом", value: 1 },
+  //   // { name: "Проект", value: "Сосновый" },
+  //   // { name: "Проект", value: "" },
+  //   // { name: "Комнат", value: [1, 2] },
+  //   { name: "Комнат", value: '' },
+  //   // { name: "Площадь, м2", value: { from: 36, to: 60 } },
+  //   { name: "Площадь, м2", value: "" },
+  //   // { name: "Стоимость, ₽", value: { from: 1860000, to: 6250000 } },
+  //   // { name: "Дом", value: 1 },
+  //   { name: "Дом", value: '' },
+
   //   { name: "Секция", value: 1 },
-  //   { name: "Срок сдачи", value: "IV квартал 2025" },
+  //   // { name: "Срок сдачи", value: "IV квартал 2025" },
   //   { name: "Этаж", value: { from: 2, to: 3 } },
   //   { name: "btns", value: [] },
   // ];
@@ -466,234 +386,159 @@ function setNowFilters(arr) {
     return;
   }
 
-  const projectFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_select_project .select__text"
-  );
-  let roomsFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_buttons_rooms .choice__buttons-select"
-  );
+  const projectFilter = choiceFilterForm.querySelector(".choice__input-block_select_project .select__text");
+  let roomsFilter = choiceFilterForm.querySelector(".choice__input-block_buttons_rooms .choice__buttons-select");
 
   if (roomsFilter) {
     roomsFilter = [
-      ...choiceFilterForm.querySelector(
-        ".choice__input-block_buttons_rooms .choice__buttons-select"
-      ).children,
+      ...choiceFilterForm.querySelector(".choice__input-block_buttons_rooms .choice__buttons-select").children,
     ];
   }
 
-  const squareInputFrom = choiceFilterForm.querySelector(
-    ".choice__input-block_slider_square .select__input_from"
-  );
-  const squareInputTo = choiceFilterForm.querySelector(
-    ".choice__input-block_slider_square .select__input_to"
-  );
+  const squareInputFrom = choiceFilterForm.querySelector(".choice__input-block_slider_square .select__input_from");
+  const squareInputTo = choiceFilterForm.querySelector(".choice__input-block_slider_square .select__input_to");
 
-  const costInputFrom = choiceFilterForm.querySelector(
-    ".choice__input-block_slider_cost .select__input_from"
-  );
-  const costInputTo = choiceFilterForm.querySelector(
-    ".choice__input-block_slider_cost .select__input_to"
-  );
+  const costInputFrom = choiceFilterForm.querySelector(".choice__input-block_slider_cost .select__input_from");
+  const costInputTo = choiceFilterForm.querySelector(".choice__input-block_slider_cost .select__input_to");
 
-  const houseFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_select_house .select__text"
-  );
-  const sectionFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_select_section .select__text"
-  );
-  const deadlineFilter = choiceFilterForm.querySelector(
-    ".choice__input-block_select_date .select__text"
-  );
+  const houseFilter = choiceFilterForm.querySelector(".choice__input-block_select_house .select__text");
+  const sectionFilter = choiceFilterForm.querySelector(".choice__input-block_select_section .select__text");
+  const deadlineFilter = choiceFilterForm.querySelector(".choice__input-block_select_date .select__text");
 
-  const floorInputFrom = choiceFilterForm.querySelector(
-    ".choice__input-block_slider_floor .select__input_from"
-  );
-  const floorInputTo = choiceFilterForm.querySelector(
-    ".choice__input-block_slider_floor .select__input_to"
-  );
-  // const floorRangeSlider = choiceFilterForm.querySelector(
-  //   ".choice__input-block_slider_floor .range-slider"
-  // );
-  // const floorRangePointFrom = choiceFilterForm.querySelector(
-  //   ".choice__input-block_slider_floor .min-range"
-  // );
-  // const floorRangePointTo = choiceFilterForm.querySelector(
-  //   ".choice__input-block_slider_floor .max-range"
-  // );
-
-  if (!arr) {
-    console.log("arrFilter not found");
-    if (projectFilter) {
-      projectFilter.innerHTML = "Все";
-    }
-
-    if (roomsFilter) {
-      roomsFilter.forEach((item) =>
-        item.classList.remove("choice__buttons-select-item_active")
-      );
-    }
-
-    if (squareInputFrom) {
-      squareInputFrom.value = squareInputFrom.getAttribute("min");
-      squareInputTo.value = squareInputTo.getAttribute("max");
-      const squareFilter = choiceFilterForm.querySelector(
-        ".choice__input-block_slider_square"
-      );
-      rangeSliderUpdate(squareFilter);
-    }
-
-    if (costInputFrom) {
-      costInputFrom.value = costInputFrom.getAttribute("min");
-      costInputTo.value = costInputTo.getAttribute("max");
-      const costFilter = choiceFilterForm.querySelector(
-        ".choice__input-block_slider_cost"
-      );
-      rangeSliderUpdate(costFilter);
-    }
-
-    if (houseFilter) {
-      houseFilter.innerHTML = "Все";
-    }
-
-    if (sectionFilter) {
-      sectionFilter.innerHTML = "Все";
-    }
-
-    if (deadlineFilter) {
-      deadlineFilter.innerHTML = "Все";
-    }
-
-    if (floorInputFrom) {
-      floorInputFrom.value = floorInputFrom.getAttribute("min");
-      floorInputTo.value = floorInputTo.getAttribute("max");
-      const floorFilter = choiceFilterForm.querySelector(
-        ".choice__input-block_slider_floor"
-      );
-      rangeSliderUpdate(floorFilter);
-    }
-
-    return;
-  }
-
-  // projectFilter.innerHTML = arr.find(item => item.name === "Проект").value;
-  // console.log(arr.find(item => item.name === "Проект").value);
-  // console.log(projectFilter);
-  // roomsFilter.innerHTML = arr.find(item => item.name === "Комнат").value;
-  // squareFilter.innerHTML = arr.find(item => item.name === "Площадь, м2").value;
-  // costFilter.innerHTML = arr.find(item => item.name === "Стоимость, ₽").value;
-  // houseFilter.innerHTML = arr.find(item => item.name === "Дом").value;
-  // sectionFilter.innerHTML = arr.find(item => item.name === "Секция").value;
-  // deadlineFilter.innerHTML = arr.find(item => item.name === "Срок сдачи").value;
-  // floorFilter.innerHTML = arr.find(item => item.name === "Этаж").value;
+  const floorInputFrom = choiceFilterForm.querySelector(".choice__input-block_slider_floor .select__input_from");
+  const floorInputTo = choiceFilterForm.querySelector(".choice__input-block_slider_floor .select__input_to");
 
   if (projectFilter) {
-    projectFilter.innerHTML = arr.find((item) => item.name === "Проект").value;
+    if (arr) {
+      if (arr.find((item) => item.name === "Проект") && arr.find((item) => item.name === "Проект").value !== "") {
+        projectFilter.innerHTML = arr.find((item) => item.name === "Проект").value;
+      } else {
+        projectFilter.innerHTML = "";
+      }
+    }
+
     if (projectFilter.innerHTML !== "") {
       projectFilter.classList.add("select__text_active");
-      projectFilter
-        .closest(".select__wrapper")
-        .querySelector(".select__placeholder").style.display = "none";
+      projectFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "none";
     } else {
       projectFilter.classList.remove("select__text_active");
-      projectFilter
-        .closest(".select__wrapper")
-        .querySelector(".select__placeholder").style.display = "block";
+      projectFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "block";
     }
-    // console.log(projectFilter);
-    // console.log(projectFilter.innerHTML);
-    // console.log(arr.find((item) => item.name === "Проект").value);
   }
 
   if (roomsFilter) {
-    roomsFilter.forEach((item) =>
-      arr
-        .find((item) => item.name === "Комнат")
-        .value.includes(Number(item.innerText))
-        ? item.classList.add("choice__buttons-select-item_active")
-        : item.classList.remove("choice__buttons-select-item_active")
-    );
+    if (arr) {
+      if (arr.find((item) => item.name === "Комнат") && arr.find((item) => item.name === "Комнат").value !== "") {
+        roomsFilter.forEach((item) =>
+          arr.find((item) => item.name === "Комнат").value.includes(Number(item.innerText))
+            ? item.classList.add("choice__buttons-select-item_active")
+            : item.classList.remove("choice__buttons-select-item_active")
+        );
+      } else {
+        roomsFilter.forEach((item) => item.classList.remove("choice__buttons-select-item_active"));
+      }
+    }
   }
 
   if (squareInputFrom) {
-    squareInputFrom.value = arr.find(
-      (item) => item.name === "Площадь, м2"
-    ).value.from;
-    squareInputTo.value = arr.find(
-      (item) => item.name === "Площадь, м2"
-    ).value.to;
-    const squareFilter = choiceFilterForm.querySelector(
-      ".choice__input-block_slider_square"
-    );
-    rangeSliderUpdate(squareFilter);
+    if (arr) {
+      if (arr.find((item) => item.name === "Площадь, м2") && arr.find((item) => item.name === "Площадь, м2").value !== "") {
+        squareInputFrom.value = arr.find((item) => item.name === "Площадь, м2").value.from;
+        squareInputTo.value = arr.find((item) => item.name === "Площадь, м2").value.to;
+        const squareFilter = choiceFilterForm.querySelector(".choice__input-block_slider_square");
+        rangeSliderUpdate(squareFilter);
+      } else {
+        squareInputFrom.value = squareInputFrom.getAttribute("min");
+        squareInputTo.value = squareInputTo.getAttribute("max");
+        const squareFilter = choiceFilterForm.querySelector(".choice__input-block_slider_square");
+        rangeSliderUpdate(squareFilter);
+      }
+    }
   }
 
   if (costInputFrom) {
-    costInputFrom.value = arr.find(
-      (item) => item.name === "Стоимость, ₽"
-    ).value.from;
-    costInputTo.value = arr.find(
-      (item) => item.name === "Стоимость, ₽"
-    ).value.to;
-    const costFilter = choiceFilterForm.querySelector(
-      ".choice__input-block_slider_cost"
-    );
-    rangeSliderUpdate(costFilter);
+    if (arr) {
+      if (arr.find((item) => item.name === "Стоимость, ₽") && arr.find((item) => item.name === "Стоимость, ₽").value !== "") {
+        costInputFrom.value = arr.find((item) => item.name === "Стоимость, ₽").value.from;
+        costInputTo.value = arr.find((item) => item.name === "Стоимость, ₽").value.to;
+        const costFilter = choiceFilterForm.querySelector(".choice__input-block_slider_cost");
+        rangeSliderUpdate(costFilter);
+      } else {
+        costInputFrom.value = costInputFrom.getAttribute("min");
+        costInputTo.value = costInputTo.getAttribute("max");
+        const costFilter = choiceFilterForm.querySelector(".choice__input-block_slider_cost");
+        rangeSliderUpdate(costFilter);
+      }
+    }
   }
 
   if (houseFilter) {
-    houseFilter.innerHTML = arr.find((item) => item.name === "Дом").value;
+    if (arr) {
+      if (arr.find((item) => item.name === "Дом") && arr.find((item) => item.name === "Дом").value !== "") {
+        houseFilter.innerHTML = arr.find((item) => item.name === "Дом").value;
+      } else {
+        houseFilter.innerHTML = "";
+      }
+    }
+
     if (houseFilter.innerHTML !== "") {
       houseFilter.classList.add("select__text_active");
-      houseFilter
-        .closest(".select__wrapper")
-        .querySelector(".select__placeholder").style.display = "none";
+      houseFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "none";
     } else {
       houseFilter.classList.remove("select__text_active");
-      houseFilter
-        .closest(".select__wrapper")
-        .querySelector(".select__placeholder").style.display = "block";
+      houseFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "block";
     }
   }
 
   if (sectionFilter) {
-    sectionFilter.innerHTML = arr.find((item) => item.name === "Секция").value;
+    if (arr) {
+      if (arr.find((item) => item.name === "Секция") && arr.find((item) => item.name === "Секция").value !== "") {
+      sectionFilter.innerHTML = arr.find((item) => item.name === "Секция").value;
+      } else {
+        sectionFilter.innerHTML = "";
+      }
+    }
     if (sectionFilter.innerHTML !== "") {
       sectionFilter.classList.add("select__text_active");
-      sectionFilter
-        .closest(".select__wrapper")
-        .querySelector(".select__placeholder").style.display = "none";
+      sectionFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "none";
     } else {
       sectionFilter.classList.remove("select__text_active");
-      sectionFilter
-        .closest(".select__wrapper")
-        .querySelector(".select__placeholder").style.display = "block";
+      sectionFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "block";
     }
   }
 
   if (deadlineFilter) {
-    deadlineFilter.innerHTML = arr.find(
-      (item) => item.name === "Срок сдачи"
-    ).value;
+    if (arr) {
+      if (arr.find((item) => item.name === "Срок сдачи") && arr.find((item) => item.name === "Срок сдачи").value !== "") {
+        deadlineFilter.innerHTML = arr.find((item) => item.name === "Срок сдачи").value;
+      } else {
+        deadlineFilter.innerHTML = "";
+      }
+    }
+
     if (deadlineFilter.innerHTML !== "") {
       deadlineFilter.classList.add("select__text_active");
-      deadlineFilter
-        .closest(".select__wrapper")
-        .querySelector(".select__placeholder").style.display = "none";
+      deadlineFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "none";
     } else {
       deadlineFilter.classList.remove("select__text_active");
-      deadlineFilter
-        .closest(".select__wrapper")
-        .querySelector(".select__placeholder").style.display = "block";
+      deadlineFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "block";
     }
   }
 
   if (floorInputFrom) {
-    floorInputFrom.value = arr.find((item) => item.name === "Этаж").value.from;
-    floorInputTo.value = arr.find((item) => item.name === "Этаж").value.to;
-    const floorFilter = choiceFilterForm.querySelector(
-      ".choice__input-block_slider_floor"
-    );
-    rangeSliderUpdate(floorFilter);
+    if (arr) {
+      if (arr.find((item) => item.name === "Этаж") && arr.find((item) => item.name === "Этаж").value !== "") {
+        floorInputFrom.value = arr.find((item) => item.name === "Этаж").value.from;
+        floorInputTo.value = arr.find((item) => item.name === "Этаж").value.to;
+        const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
+        rangeSliderUpdate(floorFilter);
+      } else {
+        floorInputFrom.value = floorInputFrom.getAttribute("min");
+        floorInputTo.value = floorInputTo.getAttribute("max");
+        const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
+        rangeSliderUpdate(floorFilter);
+      }
+    }
   }
 }
 // -------------------------------------- end устанавливаем граничные значения в фильтры: --------------------------------------
@@ -746,7 +591,7 @@ if (addApartBtn) {
 // первичный рендеринг квартир:
 const list = document.querySelector(".apartments__list");
 if (list) {
-  apartRender(allAparstInfo);
+  apartRender(allApartsInfo);
 }
 
 // очищаем локальное хранилище если находимся на главной странице:
@@ -757,19 +602,15 @@ if (window.location.pathname === "/") {
 // ------------------------------------------ start функция рендеринга квартир: --------------------------------------
 function apartRender(arr) {
   console.log("Старт функции apartRender"); // имя функции
-  let params = window
-  .location
-  .search
-  .replace('?','')
-  .split('&')
-  .reduce(
-      function(p,e){
-          var a = e.split('=');
-          p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
-          return p;
-      },
-      {}
-  );
+
+  let params = window.location.search
+    .replace("?", "")
+    .split("&")
+    .reduce(function (p, e) {
+      var a = e.split("=");
+      p[decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+      return p;
+    }, {});
   console.log(params);
 
   limit = 12;
@@ -794,9 +635,7 @@ function apartRender(arr) {
 
     // Фильтрация таблицы:
     if (filterArr.find((item) => item.name === "Проект")) {
-      const projectFilter = filterArr.find(
-        (item) => item.name === "Проект"
-      ).value;
+      const projectFilter = filterArr.find((item) => item.name === "Проект").value;
       if (projectFilter && projectFilter !== "Все") {
         copyList = filterTable(projectFilter, "project_name", copyList);
       }
@@ -817,24 +656,16 @@ function apartRender(arr) {
     }
 
     if (filterArr.find((item) => item.name === "Секция")) {
-      const sectionFilter = filterArr.find(
-        (item) => item.name === "Секция"
-      ).value;
+      const sectionFilter = filterArr.find((item) => item.name === "Секция").value;
       if (sectionFilter && sectionFilter !== "Все") {
         copyList = filterTable(sectionFilter, "section", copyList);
       }
     }
 
     if (filterArr.find((item) => item.name === "Срок сдачи")) {
-      const deadlineFilter = filterArr.find(
-        (item) => item.name === "Срок сдачи"
-      ).value;
+      const deadlineFilter = filterArr.find((item) => item.name === "Срок сдачи").value;
       if (deadlineFilter && deadlineFilter !== "Все") {
-        copyList = filterTableDate(
-          deadlineFilter,
-          "house_building_end",
-          copyList
-        );
+        copyList = filterTableDate(deadlineFilter, "house_building_end", copyList);
       }
     }
 
@@ -846,18 +677,14 @@ function apartRender(arr) {
     }
 
     if (filterArr.find((item) => item.name === "Стоимость, ₽")) {
-      const priceFilter = filterArr.find(
-        (item) => item.name === "Стоимость, ₽"
-      ).value;
+      const priceFilter = filterArr.find((item) => item.name === "Стоимость, ₽").value;
       if (priceFilter.from || priceFilter.to) {
         copyList = filterTableSlider(priceFilter, "price", copyList);
       }
     }
 
     if (filterArr.find((item) => item.name === "Площадь, м2")) {
-      const squareFilter = filterArr.find(
-        (item) => item.name === "Площадь, м2"
-      ).value;
+      const squareFilter = filterArr.find((item) => item.name === "Площадь, м2").value;
       if (squareFilter.from || squareFilter.to) {
         copyList = filterTableSlider(squareFilter, "square", copyList);
       }
@@ -909,30 +736,18 @@ function filterTableDate(filter, param, arr) {
 }
 
 function filterTableSlider(filter, param, arr) {
-  return arr.filter(
-    (item) => item[param] >= filter["from"] && item[param] <= filter["to"]
-  );
+  return arr.filter((item) => item[param] >= filter["from"] && item[param] <= filter["to"]);
 }
 // ----------------------------------------- end функциb фильтрации массива квартир: --------------------------------------
 
 // ----------------------------------------- start заполнение фильтров: --------------------------------------
 if (choiceFilterForm) {
   // если есть форма c фильтрами
-  const houseSelect = choiceFilterForm.querySelector(
-    ".choice__input-block_select_house .select__list"
-  );
-  const sectionSelect = choiceFilterForm.querySelector(
-    ".choice__input-block_select_section .select__list"
-  );
-  const projectSelect = choiceFilterForm.querySelector(
-    ".choice__input-block_select_project .select__list"
-  );
-  const deadlineSelect = choiceFilterForm.querySelector(
-    ".choice__input-block_select_date .select__list"
-  );
-  const roomsSelect = choiceFilterForm.querySelector(
-    ".choice__input-block_buttons_rooms .choice__buttons-select"
-  );
+  const houseSelect = choiceFilterForm.querySelector(".choice__input-block_select_house .select__list");
+  const sectionSelect = choiceFilterForm.querySelector(".choice__input-block_select_section .select__list");
+  const projectSelect = choiceFilterForm.querySelector(".choice__input-block_select_project .select__list");
+  const deadlineSelect = choiceFilterForm.querySelector(".choice__input-block_select_date .select__list");
+  const roomsSelect = choiceFilterForm.querySelector(".choice__input-block_buttons_rooms .choice__buttons-select");
   // const squareSlider = choiceFilterForm.querySelector(".choice__slider-select_square");
   // const costSlider = choiceFilterForm.querySelector(".choice__slider-select_cost");
   // const floorSlider = choiceFilterForm.querySelector(".choice__slider-select_floor");
@@ -1241,10 +1056,7 @@ if (formAll) {
           formAddError(input);
           error++;
         }
-      } else if (
-        input.getAttribute("type") === "checkbox" &&
-        input.checked === false
-      ) {
+      } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
         formAddError(input);
         error++;
       } else {
@@ -1299,7 +1111,7 @@ if (resetFiltersBtn) {
   resetFiltersBtn.addEventListener("click", (e) => {
     // getFilters("reset");
     setNowFilters();
-    apartRender(allAparstInfo);
+    apartRender(allApartsInfo);
     // getSliderValues(allAparstInfo);
   });
 }
@@ -1333,9 +1145,7 @@ function getFilters() {
     }
 
     if (item.classList.contains("choice__input-block_buttons")) {
-      const valueBtns = item.querySelectorAll(
-        ".choice__buttons-select-item_active"
-      );
+      const valueBtns = item.querySelectorAll(".choice__buttons-select-item_active");
       const value = [];
       valueBtns.forEach((item) => {
         value.push(item.getAttribute("data-id"));
@@ -1466,9 +1276,7 @@ if (apartmentsPage) {
 
   const choiceTop = apartmentsPage.querySelector(".choice__inputs-list_top");
   const choiceBot = apartmentsPage.querySelector(".choice__inputs-list_bot");
-  const section__apartments = apartmentsPage.querySelector(
-    ".section__apartments"
-  );
+  const section__apartments = apartmentsPage.querySelector(".section__apartments");
   const height = choice.getBoundingClientRect().height;
 
   // const el = Array.from(choiceBot.children)[3];
@@ -1545,9 +1353,7 @@ if (map) {
 
   function checkAll() {
     console.log("тест");
-    let activeItems = map.querySelectorAll(
-      ".map__mark-item_point.map__mark-item_active"
-    );
+    let activeItems = map.querySelectorAll(".map__mark-item_point.map__mark-item_active");
     console.log(activeItems.length);
     console.log(filter.length);
 
@@ -1595,9 +1401,7 @@ if (asideMenu) {
     // console.log("scroll");
 
     // получаем все секции с атрибутом id
-    let sections = Array.from(document.querySelectorAll("section")).filter(
-      (section) => section.hasAttribute("id")
-    );
+    let sections = Array.from(document.querySelectorAll("section")).filter((section) => section.hasAttribute("id"));
 
     sections.forEach((section) => {
       // получаем параметры секции
@@ -1715,9 +1519,7 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
   const rangeSlider = slider.querySelector(".range-slider");
 
   // текстовые инпуты:
-  const priceInputs = slider.querySelectorAll(
-    ".choice__slider-select .select__input"
-  );
+  const priceInputs = slider.querySelectorAll(".choice__slider-select .select__input");
   const textInputMin = slider.querySelector(".select__input_from");
   const textInputMax = slider.querySelector(".select__input_to");
   // console.log(priceInputs);
@@ -1793,15 +1595,11 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
       if (diff >= gap) {
         rangeInputMax.value = maxVal;
         rangeInputMin.value = minVal;
-        rangeSlider.style.right = `${
-          100 - ((maxVal - minRange) * 100) / (maxRange - minRange)
-        }%`;
-        rangeSlider.style.left = `${
-          ((minVal - minRange) * 100) / (maxRange - minRange)
-        }%`;
+        rangeSlider.style.right = `${100 - ((maxVal - minRange) * 100) / (maxRange - minRange)}%`;
+        rangeSlider.style.left = `${((minVal - minRange) * 100) / (maxRange - minRange)}%`;
       }
       // apartRender = debounce(apartRender, 1000);
-      apartRender(allAparstInfo);
+      apartRender(allApartsInfo);
 
       // запись параметров в адресную строку:
       if (slider.classList.contains("choice__input-block_slider_cost")) {
@@ -1826,12 +1624,8 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
     if (diff >= gap) {
       textInputMin.value = minVal;
       textInputMax.value = maxVal;
-      rangeSlider.style.right = `${
-        100 - ((maxVal - minRange) * 100) / (maxRange - minRange)
-      }%`;
-      rangeSlider.style.left = `${
-        ((minVal - minRange) * 100) / (maxRange - minRange)
-      }%`;
+      rangeSlider.style.right = `${100 - ((maxVal - minRange) * 100) / (maxRange - minRange)}%`;
+      rangeSlider.style.left = `${((minVal - minRange) * 100) / (maxRange - minRange)}%`;
     }
 
     // изменение положения ползунков при перетаскивании:
@@ -1873,12 +1667,8 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
       if (diff >= gap) {
         textInputMin.value = minVal;
         textInputMax.value = maxVal;
-        rangeSlider.style.right = `${
-          100 - ((maxVal - minRange) * 100) / (maxRange - minRange)
-        }%`;
-        rangeSlider.style.left = `${
-          ((minVal - minRange) * 100) / (maxRange - minRange)
-        }%`;
+        rangeSlider.style.right = `${100 - ((maxVal - minRange) * 100) / (maxRange - minRange)}%`;
+        rangeSlider.style.left = `${((minVal - minRange) * 100) / (maxRange - minRange)}%`;
       }
 
       // setTimeout(() => {
@@ -1891,7 +1681,7 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
     });
 
     input.addEventListener("change", (e) => {
-      apartRender(allAparstInfo);
+      apartRender(allApartsInfo);
       // запись параметров в адресную строку:
       if (slider.classList.contains("choice__input-block_slider_cost")) {
         urlParams.set("cost", `${rangeInputMin.value}-${rangeInputMax.value}`);
@@ -1929,12 +1719,8 @@ function rangeSliderUpdate(slider) {
   rangeInputMax.value = textInputMax.value;
 
   // вычисляем положение рендж инпутов:
-  rangeSlider.style.right = `${
-    100 - ((maxVal - minRange) * 100) / (maxRange - minRange)
-  }%`;
-  rangeSlider.style.left = `${
-    ((minVal - minRange) * 100) / (maxRange - minRange)
-  }%`;
+  rangeSlider.style.right = `${100 - ((maxVal - minRange) * 100) / (maxRange - minRange)}%`;
+  rangeSlider.style.left = `${((minVal - minRange) * 100) / (maxRange - minRange)}%`;
 }
 
 // TODO можно выбирать из текущего массива для рендеринга крайние значений для ползунков и других фильтров
@@ -2587,8 +2373,7 @@ function popupClose(popupActive, doUnlock = true) {
 
 // добавляем боди padding-right при открытии попапа, на ширину скролл-бара
 function bodyLock() {
-  const lockPaddingValue =
-    window.innerWidth - document.querySelector(".header").offsetWidth + "px";
+  const lockPaddingValue = window.innerWidth - document.querySelector(".header").offsetWidth + "px";
   // console.log(lockPaddingValue);
   for (let index = 0; index < lockPadding.length; index++) {
     const el = lockPadding[index];
@@ -2874,13 +2659,9 @@ if (catalog) {
     });
   }
 
-  const allActivOptionsDelBtn = document.querySelector(
-    ".activ-options__del-all"
-  );
+  const allActivOptionsDelBtn = document.querySelector(".activ-options__del-all");
   if (allActivOptionsDelBtn) {
-    const closeBtn = allActivOptionsDelBtn.querySelector(
-      ".activ-options__icon"
-    );
+    const closeBtn = allActivOptionsDelBtn.querySelector(".activ-options__icon");
     closeBtn.addEventListener("click", function () {
       console.log("тест");
       activOptionsItem.forEach((item) => {
@@ -3215,9 +2996,7 @@ if (headerSearchWrap) {
     });
   }
 
-  const closeSearchBtn = headerSearchWrap.querySelector(
-    ".search-form__close-btn"
-  );
+  const closeSearchBtn = headerSearchWrap.querySelector(".search-form__close-btn");
   const inputField = headerSearchWrap.querySelector(".search-form__input");
 
   if (closeSearchBtn) {
@@ -3233,10 +3012,7 @@ if (headerSearchWrap) {
 
   document.addEventListener("click", function (e) {
     console.log("тест");
-    if (
-      !e.target.closest(".search-form") &&
-      headerSearchWrap.classList.contains("header__search-form-wrap_active")
-    ) {
+    if (!e.target.closest(".search-form") && headerSearchWrap.classList.contains("header__search-form-wrap_active")) {
       headerSearchWrap.classList.remove("header__search-form-wrap_active");
       inputField.value = "";
       // console.log("400");
@@ -3350,21 +3126,21 @@ if (cookieCloseBtn) {
 // -------------------------------------------- end Отзывы ---------------------------------------------
 // -------------------------------------------- start Селект: ---------------------------------------------
 
-let queryParams = {
-  name: "",
-  phone: "",
-  email: "",
-  message: "",
-  project: "sosnoviy",
-  numbers_of_rooms: "",
-  area: "",
-  balcony: "",
-  dressing_room: "",
-  side_2: "",
-  side_3: "",
-  guest_bathroom: "",
-  kitchen_living_room: "",
-};
+// let queryParams = {
+//   name: "",
+//   phone: "",
+//   email: "",
+//   message: "",
+//   project: "sosnoviy",
+//   numbers_of_rooms: "",
+//   area: "",
+//   balcony: "",
+//   dressing_room: "",
+//   side_2: "",
+//   side_3: "",
+//   guest_bathroom: "",
+//   kitchen_living_room: "",
+// };
 
 // console.log(selects);
 const urlParams = new URLSearchParams(window.location.search);
@@ -3395,11 +3171,9 @@ if (choiceForm) {
             input.innerHTML = item.innerHTML;
             input.classList.add("select__text_active");
             input.setAttribute("data-id", item.getAttribute("data-id"));
-            queryParams.project = item.getAttribute("data-id");
-            console.log(queryParams);
             selectProject.classList.remove("select_open");
             selectProject.classList.add("select_active");
-            apartRender(allAparstInfo);
+            apartRender(allApartsInfo);
 
             if (selectProject.closest(".choice__input-block_select_project")) {
               urlParams.set("project", input.innerHTML);
@@ -3437,27 +3211,22 @@ if (choiceForm) {
   if (choiceButtonsSelect) {
     // const btns = choiceButtonsSelect.querySelectorAll(".choice__buttons-select-item");
 
-    const choiceBtns = document.querySelectorAll(
-      ".choice__buttons-select-item"
-    );
+    const choiceBtns = document.querySelectorAll(".choice__buttons-select-item");
 
     if (choiceBtns) {
       choiceBtns.forEach((item) => {
         item.addEventListener("click", (event) => {
           console.log("тест");
           item.classList.toggle("choice__buttons-select-item_active");
-          queryParams.numbers_of_rooms = "";
-
-          choiceBtns.forEach((item) => {
-            if (item.classList.contains("choice__buttons-select-item_active")) {
-              queryParams.numbers_of_rooms =
-                queryParams.numbers_of_rooms +
-                ", " +
-                item.getAttribute("data-id");
-            }
+          const valueBtns = choiceButtonsSelect.querySelectorAll(".choice__buttons-select-item_active");
+          const value = [];
+          valueBtns.forEach((item) => {
+            value.push(item.getAttribute("data-id"));
           });
-          apartRender(allAparstInfo);
-          urlParams.set("rooms", queryParams.numbers_of_rooms);
+
+          apartRender(allApartsInfo);
+          console.log(value);
+          urlParams.set("rooms", value);
           console.log(urlParams);
           window.history.pushState({}, "", "?" + urlParams.toString());
 
@@ -3517,9 +3286,7 @@ if (choiceForm) {
       queryParams.name = choiceForm.querySelector(".form__input_name").value;
       queryParams.phone = choiceForm.querySelector(".form__input_phone").value;
       queryParams.email = choiceForm.querySelector(".form__input_email").value;
-      queryParams.message = choiceForm.querySelector(
-        ".form__input_textarea"
-      ).value;
+      queryParams.message = choiceForm.querySelector(".form__input_textarea").value;
       // console.log(queryParams);
       if (queryParams.name === "" || queryParams.phone === "") {
         alert("Заполните обязательные поля");
@@ -3561,27 +3328,13 @@ if (choiceForm) {
         email: "",
         message: "",
       };
-      queryParams.apartment = requestForm.querySelector(
-        ".request__input_apartment"
-      ).value;
-      queryParams.name = requestForm.querySelector(
-        ".request__input_name"
-      ).value;
-      queryParams.phone = requestForm.querySelector(
-        ".request__input_phone"
-      ).value;
-      queryParams.email = requestForm.querySelector(
-        ".request__input_email"
-      ).value;
-      queryParams.message = requestForm.querySelector(
-        ".request__input_textarea"
-      ).value;
+      queryParams.apartment = requestForm.querySelector(".request__input_apartment").value;
+      queryParams.name = requestForm.querySelector(".request__input_name").value;
+      queryParams.phone = requestForm.querySelector(".request__input_phone").value;
+      queryParams.email = requestForm.querySelector(".request__input_email").value;
+      queryParams.message = requestForm.querySelector(".request__input_textarea").value;
       // console.log(queryParams);
-      if (
-        queryParams.apartment === "" ||
-        queryParams.name === "" ||
-        queryParams.phone === ""
-      ) {
+      if (queryParams.apartment === "" || queryParams.name === "" || queryParams.phone === "") {
         alert("Заполните обязательные поля");
         return;
       } else {
@@ -3635,24 +3388,12 @@ if (choiceForm) {
       // queryParams.name = notificationForm.querySelector(".notification__input_name").value;
       // queryParams.phone = notificationForm.querySelector(".notification__input_phone").value;
       // queryParams.email = notificationForm.querySelector(".notification__input_email").value;
-      queryParams.agency = notificationForm.querySelector(
-        ".notification__input_agency"
-      ).value;
-      queryParams.agentName = notificationForm.querySelector(
-        ".notification__input_agent-name"
-      ).value;
-      queryParams.agentPhone = notificationForm.querySelector(
-        ".notification__input_agent-phone"
-      ).value;
-      queryParams.clientName = notificationForm.querySelector(
-        ".notification__input_client-name"
-      ).value;
-      queryParams.clientPhone = notificationForm.querySelector(
-        ".notification__input_client-phone"
-      ).value;
-      queryParams.message = notificationForm.querySelector(
-        ".notification__input_textarea"
-      ).value;
+      queryParams.agency = notificationForm.querySelector(".notification__input_agency").value;
+      queryParams.agentName = notificationForm.querySelector(".notification__input_agent-name").value;
+      queryParams.agentPhone = notificationForm.querySelector(".notification__input_agent-phone").value;
+      queryParams.clientName = notificationForm.querySelector(".notification__input_client-name").value;
+      queryParams.clientPhone = notificationForm.querySelector(".notification__input_client-phone").value;
+      queryParams.message = notificationForm.querySelector(".notification__input_textarea").value;
       // console.log(queryParams);
       if (
         queryParams.agency === "" ||
@@ -3725,9 +3466,7 @@ if (projectPage) {
   const content = projectChoice.querySelector(".choice__container");
   const popup = document.querySelector("#filter");
   // console.log(popup);
-  const filterMobileBtn = projectChoice.querySelector(
-    ".choice__btn-request_mobile"
-  );
+  const filterMobileBtn = projectChoice.querySelector(".choice__btn-request_mobile");
 
   // открытие popup и заполнение его формой
   filterMobileBtn.addEventListener("click", () => {
@@ -3864,8 +3603,7 @@ async function initMap() {
   //     // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
   await ymaps3.ready;
 
-  const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } =
-    ymaps3;
+  const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = ymaps3;
 
   // const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-markers@0.0.1');
   // // кластеризация маркеров
@@ -4282,26 +4020,17 @@ document.addEventListener("click", (event) => {
     });
     event.target.closest(".plans__item").classList.add("plans__item_active");
     const imgBox = document.querySelector(".plans__img").querySelector("img");
-    const img = event.target
-      .closest(".plans__item")
-      .querySelector("img")
-      .getAttribute("src");
+    const img = event.target.closest(".plans__item").querySelector("img").getAttribute("src");
     imgBox.setAttribute("src", img);
     const id = event.target.closest(".plans__item").getAttribute("data-id");
     // console.log(id);
     const title = document.querySelector(".plans__name");
-    title.textContent = `${
-      apartmentsForRender.filter((item) => item.id == id)[0].number_of_rooms
-    }-комнатная ${
+    title.textContent = `${apartmentsForRender.filter((item) => item.id == id)[0].number_of_rooms}-комнатная ${
       apartmentsForRender.filter((item) => item.id == id)[0].area
     }м2`;
     const requestPopup = document.querySelector("#popup-request");
-    const requestInput = requestPopup.querySelector(
-      ".request__input_apartment"
-    );
-    requestInput.value = `${
-      apartmentsForRender.filter((item) => item.id == id)[0].number_of_rooms
-    }-комнатная ${
+    const requestInput = requestPopup.querySelector(".request__input_apartment");
+    requestInput.value = `${apartmentsForRender.filter((item) => item.id == id)[0].number_of_rooms}-комнатная ${
       apartmentsForRender.filter((item) => item.id == id)[0].area
     }м2`;
   }
@@ -4344,33 +4073,19 @@ function filterPreviewArr(key, arr) {
   // console.log(arr);
   if (key === "Студия") {
     // console.log('Студия');
-    return arr.filter(
-      (obj) =>
-        obj.number_of_rooms === 1 && obj.studio === 1 && obj.commerce === 0
-    );
+    return arr.filter((obj) => obj.number_of_rooms === 1 && obj.studio === 1 && obj.commerce === 0);
   }
   if (key === "1") {
-    return arr.filter(
-      (obj) =>
-        obj.number_of_rooms === 1 && obj.studio === 0 && obj.commerce === 0
-    );
+    return arr.filter((obj) => obj.number_of_rooms === 1 && obj.studio === 0 && obj.commerce === 0);
   }
   if (key === "2") {
-    return arr.filter(
-      (obj) =>
-        obj.number_of_rooms === 2 && obj.studio === 0 && obj.commerce === 0
-    );
+    return arr.filter((obj) => obj.number_of_rooms === 2 && obj.studio === 0 && obj.commerce === 0);
   }
   if (key === "3") {
-    return arr.filter(
-      (obj) =>
-        obj.number_of_rooms === 3 && obj.studio === 0 && obj.commerce === 0
-    );
+    return arr.filter((obj) => obj.number_of_rooms === 3 && obj.studio === 0 && obj.commerce === 0);
   }
   if (key === "3+") {
-    return arr.filter(
-      (obj) => obj.number_of_rooms > 3 && obj.studio === 0 && obj.commerce === 0
-    );
+    return arr.filter((obj) => obj.number_of_rooms > 3 && obj.studio === 0 && obj.commerce === 0);
   }
   if (key === "Коммерция") {
     return arr.filter((obj) => obj.commerce === 1);
@@ -4422,15 +4137,15 @@ function setInfo() {
   imgBox.setAttribute("src", img);
   const title = document.querySelector(".plans__name");
   const id = plansItem.getAttribute("data-id");
-  title.textContent = `${
-    apartmentsForRender.filter((item) => item.id == id)[0].number_of_rooms
-  }-комнатная ${apartmentsForRender.filter((item) => item.id == id)[0].area}м2`;
+  title.textContent = `${apartmentsForRender.filter((item) => item.id == id)[0].number_of_rooms}-комнатная ${
+    apartmentsForRender.filter((item) => item.id == id)[0].area
+  }м2`;
 
   const requestPopup = document.querySelector("#popup-request");
   const requestInput = requestPopup.querySelector(".request__input_apartment");
-  requestInput.value = `${
-    apartmentsForRender.filter((item) => item.id == id)[0].number_of_rooms
-  }-комнатная ${apartmentsForRender.filter((item) => item.id == id)[0].area}м2`;
+  requestInput.value = `${apartmentsForRender.filter((item) => item.id == id)[0].number_of_rooms}-комнатная ${
+    apartmentsForRender.filter((item) => item.id == id)[0].area
+  }м2`;
   // console.log(img);
   // imgBox.setAttribute("src", img);
   // console.log(imgBox);
