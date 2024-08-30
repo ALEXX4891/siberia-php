@@ -1,4 +1,7 @@
 const choiceFilterForm = document.querySelector("[data-form]");
+let urlParams = new URLSearchParams(window.location.search);
+
+
 // функция получения информации о обьектах строительства:
 async function getHouse() {
   let responseHouses = await fetch("/backend/intHouse.php", {
@@ -87,16 +90,11 @@ async function getAllInfo(idHouse) {
 
 allInfo = await getAllInfo(idHouse); // массив всей информации из api
 houseInfo = allInfo[0]; // массив с инофрмацией о домах
-// console.log("houseInfo:", houseInfo);
 
-// console.log("allInfo:", allInfo);
 allInfo.splice(1).forEach((item) => {
   allHouseInfo.push(item[0]);
   allApartsInfo.push(...item[1]);
 });
-
-// console.log("allHouseInfo:", allHouseInfo);
-// console.log("allAparstInfo:", allAparstInfo);
 
 // добавляем в обьекты квартир информацию о доме:
 allApartsInfo.forEach(function (item) {
@@ -117,10 +115,7 @@ allApartsInfo.forEach(function (item) {
   item.object_type_title = houseInfo.find((house) => house.house_id == item.house_id).object_type_title;
 });
 
-// console.log("allInfoArr", allInfoArr);
-
-// console.log("allHouseInfo", allHouseInfo);
-console.log("allAparstInfo", allApartsInfo);
+// console.log("allAparstInfo", allApartsInfo);
 
 // -------------------------------------- start функция создания карточки квартиры: --------------------------------------
 function getli(obj) {
@@ -358,12 +353,14 @@ function setMaxMinForFilters(filterAllInfo) {
     console.log("floorFilter not found");
   }
 }
+
 setMaxMinForFilters(getMaxMinForFilters(allApartsInfo));
 
 // -------------------------------------- start функция установки и сброса значений фильтров ----------------
-setNowFilters();
+// setNowFilters();
 function setNowFilters(arr) {
   console.log("Старт функции setNowFilters"); // имя функции
+  // let urlParams = new URLSearchParams(window.location.search);
   // arr = [
   //   // { name: "Проект", value: "Сосновый" },
   //   // { name: "Проект", value: "" },
@@ -384,6 +381,13 @@ function setNowFilters(arr) {
   if (!choiceFilterForm) {
     console.log("choiceFilterForm not found");
     return;
+  }
+
+  if (!arr) {
+    window.history.pushState({}, document.title, window.location.pathname);
+    // urlParams.forEach((value, key) => {
+    //   urlParams.set(value, "0");
+    // });
   }
 
   const projectFilter = choiceFilterForm.querySelector(".choice__input-block_select_project .select__text");
@@ -408,21 +412,83 @@ function setNowFilters(arr) {
   const floorInputFrom = choiceFilterForm.querySelector(".choice__input-block_slider_floor .select__input_from");
   const floorInputTo = choiceFilterForm.querySelector(".choice__input-block_slider_floor .select__input_to");
 
+  // TODO можно написать цикл, который будет проверть все фильтры и добавлять или удалять классы.
+
+
   if (projectFilter) {
     if (arr) {
       if (arr.find((item) => item.name === "Проект") && arr.find((item) => item.name === "Проект").value !== "") {
         projectFilter.innerHTML = arr.find((item) => item.name === "Проект").value;
-      } else {
-        projectFilter.innerHTML = "";
       }
     }
 
+    projectFilter.innerHTML = "";    
+      
     if (projectFilter.innerHTML !== "") {
       projectFilter.classList.add("select__text_active");
-      projectFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "none";
+      projectFilter.closest(".choice__select").classList.add("select_active");
     } else {
       projectFilter.classList.remove("select__text_active");
-      projectFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "block";
+      projectFilter.closest(".choice__select").classList.remove("select_active");
+    }
+  }
+
+  if (houseFilter) {
+    if (arr) {
+      if (arr.find((item) => item.name === "Дом") && arr.find((item) => item.name === "Дом").value !== "") {
+        houseFilter.innerHTML = arr.find((item) => item.name === "Дом").value;
+      }
+    }
+
+    houseFilter.innerHTML = "";    
+      
+    if (houseFilter.innerHTML !== "") {
+      houseFilter.classList.add("select__text_active");
+      houseFilter.closest(".choice__select").classList.add("select_active");
+      // houseFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "none";
+    } else {
+      houseFilter.classList.remove("select__text_active");
+      houseFilter.closest(".choice__select").classList.remove("select_active");
+      // houseFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "block";
+    }
+  }
+
+  if (sectionFilter) {
+    if (arr) {
+      if (arr.find((item) => item.name === "Секция") && arr.find((item) => item.name === "Секция").value !== "") {
+        sectionFilter.innerHTML = arr.find((item) => item.name === "Секция").value;
+        
+      }
+    }
+
+    sectionFilter.innerHTML = "";
+
+    if (sectionFilter.innerHTML !== "") {
+      sectionFilter.classList.add("select__text_active");
+      sectionFilter.closest(".choice__select").classList.add("select_active");
+    } else {
+      sectionFilter.classList.remove("select__text_active");
+      sectionFilter.closest(".choice__select").classList.remove("select_active");
+    }
+  }
+
+  if (deadlineFilter) {
+    if (arr) {
+      if (arr.find((item) => item.name === "Срок сдачи") && arr.find((item) => item.name === "Срок сдачи").value !== "") {
+        deadlineFilter.innerHTML = arr.find((item) => item.name === "Срок сдачи").value;
+      }
+    }
+    
+    deadlineFilter.innerHTML = "";
+
+    if (deadlineFilter.innerHTML !== "") {
+      deadlineFilter.classList.add("select__text_active");
+      deadlineFilter.closest(".choice__select").classList.add("select_active");
+      // deadlineFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "none";
+    } else {
+      deadlineFilter.classList.remove("select__text_active");
+      deadlineFilter.closest(".choice__select").classList.remove("select_active");
+      // deadlineFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "block";
     }
   }
 
@@ -434,9 +500,11 @@ function setNowFilters(arr) {
             ? item.classList.add("choice__buttons-select-item_active")
             : item.classList.remove("choice__buttons-select-item_active")
         );
-      } else {
-        roomsFilter.forEach((item) => item.classList.remove("choice__buttons-select-item_active"));
       }
+    } else {
+      roomsFilter.forEach((item) => item.classList.remove("choice__buttons-select-item_active"));
+      urlParams.delete("rooms");
+      console.log('urlParams', urlParams);
     }
   }
 
@@ -447,12 +515,12 @@ function setNowFilters(arr) {
         squareInputTo.value = arr.find((item) => item.name === "Площадь, м2").value.to;
         const squareFilter = choiceFilterForm.querySelector(".choice__input-block_slider_square");
         rangeSliderUpdate(squareFilter);
-      } else {
-        squareInputFrom.value = squareInputFrom.getAttribute("min");
-        squareInputTo.value = squareInputTo.getAttribute("max");
-        const squareFilter = choiceFilterForm.querySelector(".choice__input-block_slider_square");
-        rangeSliderUpdate(squareFilter);
       }
+    } else {
+      squareInputFrom.value = squareInputFrom.getAttribute("min");
+      squareInputTo.value = squareInputTo.getAttribute("max");
+      const squareFilter = choiceFilterForm.querySelector(".choice__input-block_slider_square");
+      rangeSliderUpdate(squareFilter);
     }
   }
 
@@ -463,65 +531,12 @@ function setNowFilters(arr) {
         costInputTo.value = arr.find((item) => item.name === "Стоимость, ₽").value.to;
         const costFilter = choiceFilterForm.querySelector(".choice__input-block_slider_cost");
         rangeSliderUpdate(costFilter);
-      } else {
-        costInputFrom.value = costInputFrom.getAttribute("min");
-        costInputTo.value = costInputTo.getAttribute("max");
-        const costFilter = choiceFilterForm.querySelector(".choice__input-block_slider_cost");
-        rangeSliderUpdate(costFilter);
       }
-    }
-  }
-
-  if (houseFilter) {
-    if (arr) {
-      if (arr.find((item) => item.name === "Дом") && arr.find((item) => item.name === "Дом").value !== "") {
-        houseFilter.innerHTML = arr.find((item) => item.name === "Дом").value;
-      } else {
-        houseFilter.innerHTML = "";
-      }
-    }
-
-    if (houseFilter.innerHTML !== "") {
-      houseFilter.classList.add("select__text_active");
-      houseFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "none";
     } else {
-      houseFilter.classList.remove("select__text_active");
-      houseFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "block";
-    }
-  }
-
-  if (sectionFilter) {
-    if (arr) {
-      if (arr.find((item) => item.name === "Секция") && arr.find((item) => item.name === "Секция").value !== "") {
-      sectionFilter.innerHTML = arr.find((item) => item.name === "Секция").value;
-      } else {
-        sectionFilter.innerHTML = "";
-      }
-    }
-    if (sectionFilter.innerHTML !== "") {
-      sectionFilter.classList.add("select__text_active");
-      sectionFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "none";
-    } else {
-      sectionFilter.classList.remove("select__text_active");
-      sectionFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "block";
-    }
-  }
-
-  if (deadlineFilter) {
-    if (arr) {
-      if (arr.find((item) => item.name === "Срок сдачи") && arr.find((item) => item.name === "Срок сдачи").value !== "") {
-        deadlineFilter.innerHTML = arr.find((item) => item.name === "Срок сдачи").value;
-      } else {
-        deadlineFilter.innerHTML = "";
-      }
-    }
-
-    if (deadlineFilter.innerHTML !== "") {
-      deadlineFilter.classList.add("select__text_active");
-      deadlineFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "none";
-    } else {
-      deadlineFilter.classList.remove("select__text_active");
-      deadlineFilter.closest(".select__wrapper").querySelector(".select__placeholder").style.display = "block";
+      costInputFrom.value = costInputFrom.getAttribute("min");
+      costInputTo.value = costInputTo.getAttribute("max");
+      const costFilter = choiceFilterForm.querySelector(".choice__input-block_slider_cost");
+      rangeSliderUpdate(costFilter);
     }
   }
 
@@ -532,12 +547,12 @@ function setNowFilters(arr) {
         floorInputTo.value = arr.find((item) => item.name === "Этаж").value.to;
         const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
         rangeSliderUpdate(floorFilter);
-      } else {
-        floorInputFrom.value = floorInputFrom.getAttribute("min");
-        floorInputTo.value = floorInputTo.getAttribute("max");
-        const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
-        rangeSliderUpdate(floorFilter);
       }
+    } else {
+      floorInputFrom.value = floorInputFrom.getAttribute("min");
+      floorInputTo.value = floorInputTo.getAttribute("max");
+      const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
+      rangeSliderUpdate(floorFilter);
     }
   }
 }
@@ -721,7 +736,101 @@ function apartRender(arr) {
   });
 }
 // ----------------------------------------- end функция рендеринга квартир: -------------------------------------
+// ----------------------------------------- start функция парсинга url и формирования фильтров: -------------------------------------
+function parseUrlQuery() {
+  // let urlParams = new URLSearchParams(window.location.search);
 
+  // const urlParams = new URLSearchParams(window.location.search);
+  const filterArr = [];
+  const res = [];
+  urlParams.forEach((value, key) => {
+    filterArr.push({ name: key, value: value });
+  });
+
+//   [
+//     {
+//         "name": "project",
+//         "value": "Все"
+//     },
+//     {
+//         "name": "house",
+//         "value": "2"
+//     },
+//     {
+//         "name": "section",
+//         "value": "2"
+//     },
+//     {
+//         "name": "rooms",
+//         "value": "2"
+//     },
+//     {
+//         "name": "date",
+//         "value": "IV квартал 2025"
+//     },
+//     {
+//         "name": "floor",
+//         "value": "2-4"
+//     },
+//     {
+//         "name": "cost",
+//         "value": "2330000-6260000"
+//     },
+//     {
+//         "name": "square",
+//         "value": "61-81"
+//     }
+// ]
+
+  if (filterArr.find((item) => item.name === "project")) {
+    const projectFilter = filterArr.find((item) => item.name === "project").value;
+    res.push(
+      {
+        name: "Проект",
+        value: projectFilter,
+      }
+    )
+  }
+
+  if (filterArr.find((item) => item.name === "house")) {
+    const houseFilter = filterArr.find((item) => item.name === "house").value;
+    res.push(
+      {
+        name: "Дом",
+        value: houseFilter,
+      }
+    )
+  }
+
+  if (filterArr.find((item) => item.name === "section")) {
+    const sectionFilter = filterArr.find((item) => item.name === "section").value;
+    res.push(
+      {
+        name: "Секция",
+        value: sectionFilter,
+      }
+    )
+  }
+
+  if (filterArr.find((item) => item.name === "date")) {
+    const dateFilter = filterArr.find((item) => item.name === "date").value;
+    res.push(
+      {
+        name: "Срок сдачи",
+        value: dateFilter,
+      }
+    )
+  }
+
+  // if (filterArr.find((item) => item.name === "rooms")) {
+
+
+
+
+  return res;
+}
+// console.log( parseUrlQuery() );
+// ----------------------------------------- end функция парсинга url и формирования фильтров: -------------------------------------
 // ----------------------------------------- start функциb фильтрации массива квартир: --------------------------------------
 function filterTableArr(filter, param, arr) {
   return arr.filter((item) => filter.indexOf(String(item[param])) !== -1);
@@ -740,48 +849,8 @@ function filterTableSlider(filter, param, arr) {
 }
 // ----------------------------------------- end функциb фильтрации массива квартир: --------------------------------------
 
+// TODO запрограммировать адаптив филтров.
 // ----------------------------------------- start заполнение фильтров: --------------------------------------
-if (choiceFilterForm) {
-  // если есть форма c фильтрами
-  const houseSelect = choiceFilterForm.querySelector(".choice__input-block_select_house .select__list");
-  const sectionSelect = choiceFilterForm.querySelector(".choice__input-block_select_section .select__list");
-  const projectSelect = choiceFilterForm.querySelector(".choice__input-block_select_project .select__list");
-  const deadlineSelect = choiceFilterForm.querySelector(".choice__input-block_select_date .select__list");
-  const roomsSelect = choiceFilterForm.querySelector(".choice__input-block_buttons_rooms .choice__buttons-select");
-  // const squareSlider = choiceFilterForm.querySelector(".choice__slider-select_square");
-  // const costSlider = choiceFilterForm.querySelector(".choice__slider-select_cost");
-  // const floorSlider = choiceFilterForm.querySelector(".choice__slider-select_floor");
-  // const floorSelect = choiceFilterForm.querySelector(".choice__input-block_select_floor .select__list");
-  // const priceSelect = choiceFilterForm.querySelector(".choice__input-block_select_price .select__list");
-  // const squareSelect = choiceFilterForm.querySelector(".choice__input-block_select_square .select__list");
-  // const filterArr = getFilters("reset");
-  // console.log('houseSelect', houseSelect);
-  // console.log('sectionSelect', sectionSelect);
-  // console.log('projectSelect', projectSelect);
-  // console.log('deadlineSelect', deadlineSelect);
-  // console.log('roomsSelect', roomsSelect);
-  // console.log('squareSlider', squareSlider);
-  // console.log('costSlider', costSlider);
-  // console.log('floorSlider', floorSlider);
-  // console.log(filterArr);
-
-  function setSelect(select, arr) {
-    arr.forEach((item) => {
-      select.append(new Option(item, item));
-    });
-  }
-
-  // получаем граничные значения слайдеров из Api:
-  // getSliderValues(allAparstInfo);
-
-  // TODO написать функцию создания селектов для фильтров:
-
-  // TODO написать функцию активных кнопок для кнопочного фильтра:
-
-  // TODO запрограммировать адаптив филтров.
-
-  // TODO подключить гитхаб
-}
 
 // // функция инициализации рэндж слайдеров:
 // function getSliderValues(arr) {
@@ -1109,6 +1178,7 @@ if (choiceTitle) {
 const resetFiltersBtn = document.querySelector(".choice__btn-reset");
 if (resetFiltersBtn) {
   resetFiltersBtn.addEventListener("click", (e) => {
+    console.log('сброс фильтров');
     // getFilters("reset");
     setNowFilters();
     apartRender(allApartsInfo);
@@ -1516,6 +1586,7 @@ navLinks.forEach((item) => {
 // -------------------------------------------- start range-slider: ---------------------------------------------
 
 function rangeSliderInit(slider, gap, minRange, maxRange) {
+  // let urlParams = new URLSearchParams(window.location.search);
   const rangeSlider = slider.querySelector(".range-slider");
 
   // текстовые инпуты:
@@ -3059,8 +3130,7 @@ if (goodsCartBtn) {
 // -------------------------------------------- start сертификаты: ---------------------------------------------
 // -------------------------------------------- end корзина ---------------------------------------------
 
-$("#phone_1").mask("+7(999) 999 99 99");
-$("#phone_2").mask("+7(999) 999 99 99");
+$(".phone").mask("+7(999) 999 99 99");
 
 // -------------------------------------------- start Куки: ---------------------------------------------
 function setCookie(name, value, lifetimeDays = 30, path = "/") {
@@ -3143,7 +3213,7 @@ if (cookieCloseBtn) {
 // };
 
 // console.log(selects);
-const urlParams = new URLSearchParams(window.location.search);
+
 const choiceForm = document.querySelector(".choice__form");
 if (choiceForm) {
   const selectProjectList = document.querySelectorAll(".choice__select");
@@ -3238,40 +3308,40 @@ if (choiceForm) {
     }
   }
 
-  const filterBtns = document.querySelectorAll(".choice__btn-filter");
+  // const filterBtns = document.querySelectorAll(".choice__btn-filter");
 
-  if (filterBtns) {
-    filterBtns.forEach((item) => {
-      item.addEventListener("click", (event) => {
-        console.log("тест");
-        item.classList.toggle("choice__btn-filter_active");
-        let key = item.getAttribute("data-id");
-        if (item.classList.contains("choice__btn-filter_active")) {
-          queryParams[key] = "yes";
-        } else {
-          queryParams[key] = "";
-        }
-        // console.log(queryParams);
-      });
-    });
-  }
+  // if (filterBtns) {
+  //   filterBtns.forEach((item) => {
+  //     item.addEventListener("click", (event) => {
+  //       console.log("тест");
+  //       item.classList.toggle("choice__btn-filter_active");
+  //       let key = item.getAttribute("data-id");
+  //       if (item.classList.contains("choice__btn-filter_active")) {
+  //         queryParams[key] = "yes";
+  //       } else {
+  //         queryParams[key] = "";
+  //       }
+  //       // console.log(queryParams);
+  //     });
+  //   });
+  // }
 
-  const choice__square = document.querySelector(".choice__square-select");
-  if (choice__square) {
-    const inputFrom = choice__square.querySelector(".select__input_from");
-    const inputTo = choice__square.querySelector(".select__input_to");
-    queryParams.area = inputFrom.value + " - " + inputTo.value;
+  // const choice__square = document.querySelector(".choice__square-select");
+  // if (choice__square) {
+  //   const inputFrom = choice__square.querySelector(".select__input_from");
+  //   const inputTo = choice__square.querySelector(".select__input_to");
+  //   queryParams.area = inputFrom.value + " - " + inputTo.value;
 
-    inputFrom.addEventListener("input", (event) => {
-      queryParams.area = inputFrom.value + " - " + inputTo.value;
-      // console.log(queryParams);
-    });
+  //   inputFrom.addEventListener("input", (event) => {
+  //     queryParams.area = inputFrom.value + " - " + inputTo.value;
+  //     // console.log(queryParams);
+  //   });
 
-    inputTo.addEventListener("input", (event) => {
-      queryParams.area = inputFrom.value + " - " + inputTo.value;
-      // console.log(queryParams);
-    });
-  }
+  //   inputTo.addEventListener("input", (event) => {
+  //     queryParams.area = inputFrom.value + " - " + inputTo.value;
+  //     // console.log(queryParams);
+  //   });
+  // }
 
   const choiceForm = document.querySelector("#choice-form");
   // console.log(choiceForm);
