@@ -385,9 +385,7 @@ function setNowFilters(arr) {
 
   if (!arr) {
     window.history.pushState({}, document.title, window.location.pathname);
-    // urlParams.forEach((value, key) => {
-    //   urlParams.set(value, "0");
-    // });
+    urlParams = new URLSearchParams(window.location.search);
   }
 
   const projectFilter = choiceFilterForm.querySelector(".choice__input-block_select_project .select__text");
