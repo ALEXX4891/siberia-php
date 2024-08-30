@@ -757,6 +757,20 @@ if (window.location.pathname === "/") {
 // ------------------------------------------ start функция рендеринга квартир: --------------------------------------
 function apartRender(arr) {
   console.log("Старт функции apartRender"); // имя функции
+  let params = window
+  .location
+  .search
+  .replace('?','')
+  .split('&')
+  .reduce(
+      function(p,e){
+          var a = e.split('=');
+          p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+          return p;
+      },
+      {}
+  );
+  console.log(params);
 
   limit = 12;
   offset = 0;
@@ -1699,6 +1713,7 @@ navLinks.forEach((item) => {
 
 function rangeSliderInit(slider, gap, minRange, maxRange) {
   const rangeSlider = slider.querySelector(".range-slider");
+
   // текстовые инпуты:
   const priceInputs = slider.querySelectorAll(
     ".choice__slider-select .select__input"
@@ -1787,6 +1802,18 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
       }
       // apartRender = debounce(apartRender, 1000);
       apartRender(allAparstInfo);
+
+      // запись параметров в адресную строку:
+      if (slider.classList.contains("choice__input-block_slider_cost")) {
+        urlParams.set("cost", `${rangeInputMin.value}-${rangeInputMax.value}`);
+      }
+      if (slider.classList.contains("choice__input-block_slider_floor")) {
+        urlParams.set("floor", `${rangeInputMin.value}-${rangeInputMax.value}`);
+      }
+      if (slider.classList.contains("choice__input-block_slider_square")) {
+        urlParams.set("square", `${rangeInputMin.value}-${rangeInputMax.value}`);
+      }
+      window.history.pushState({}, "", "?" + urlParams.toString());
     });
   });
 
@@ -1865,6 +1892,17 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
 
     input.addEventListener("change", (e) => {
       apartRender(allAparstInfo);
+      // запись параметров в адресную строку:
+      if (slider.classList.contains("choice__input-block_slider_cost")) {
+        urlParams.set("cost", `${rangeInputMin.value}-${rangeInputMax.value}`);
+      }
+      if (slider.classList.contains("choice__input-block_slider_floor")) {
+        urlParams.set("floor", `${rangeInputMin.value}-${rangeInputMax.value}`);
+      }
+      if (slider.classList.contains("choice__input-block_slider_square")) {
+        urlParams.set("square", `${rangeInputMin.value}-${rangeInputMax.value}`);
+      }
+      window.history.pushState({}, "", "?" + urlParams.toString());
     });
   });
 }
@@ -3329,6 +3367,7 @@ let queryParams = {
 };
 
 // console.log(selects);
+const urlParams = new URLSearchParams(window.location.search);
 const choiceForm = document.querySelector(".choice__form");
 if (choiceForm) {
   const selectProjectList = document.querySelectorAll(".choice__select");
@@ -3357,10 +3396,27 @@ if (choiceForm) {
             input.classList.add("select__text_active");
             input.setAttribute("data-id", item.getAttribute("data-id"));
             queryParams.project = item.getAttribute("data-id");
-            // console.log(queryParams);
+            console.log(queryParams);
             selectProject.classList.remove("select_open");
             selectProject.classList.add("select_active");
             apartRender(allAparstInfo);
+
+            if (selectProject.closest(".choice__input-block_select_project")) {
+              urlParams.set("project", input.innerHTML);
+            }
+            if (selectProject.closest(".choice__input-block_select_house")) {
+              urlParams.set("house", input.innerHTML);
+            }
+
+            if (selectProject.closest(".choice__input-block_select_section")) {
+              urlParams.set("section", input.innerHTML);
+            }
+
+            if (selectProject.closest(".choice__input-block_select_date")) {
+              urlParams.set("date", input.innerHTML);
+            }
+
+            window.history.pushState({}, "", "?" + urlParams.toString());
           });
         });
       }
@@ -3401,6 +3457,12 @@ if (choiceForm) {
             }
           });
           apartRender(allAparstInfo);
+          urlParams.set("rooms", queryParams.numbers_of_rooms);
+          console.log(urlParams);
+          window.history.pushState({}, "", "?" + urlParams.toString());
+
+          // window.location.search = urlParams;
+          // console.log(window.location.search);
           // console.log(queryParams);
         });
       });
@@ -4211,7 +4273,7 @@ async function postNotification(queryParams) {
 // }
 
 document.addEventListener("click", (event) => {
-  console.log("тест");
+  console.log("глобальный тест");
   // if (!event.target.closest(".plans__item")) return;
   if (event.target.closest(".plans__item")) {
     const plansItem = document.querySelectorAll(".plans__item");
