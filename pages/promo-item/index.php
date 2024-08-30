@@ -16,6 +16,14 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
   ?>
 
   <main class="main news-page-item__main">
+    <?php
+    $result = mysqli_query($db, "SELECT * FROM events WHERE id = " . $_GET['id']);
+    // $result = mysqli_query($db, "SELECT * FROM news ORDER BY DATE DESC");
+    $row = mysqli_fetch_array($result);
+    // echo '<pre>';
+    // print_r($row);
+    // echo '</pre>';
+    ?>
     <section class="section news-page-item__news-content news-content">
       <div class="container news-content__container">
         <a class="news-content__btn news-content__btn_white" href="/pages/novosti/">
@@ -28,45 +36,21 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </p>
         </a>
         <h1 class="news-content__title title title_40">
-          В Тюмени стартовали продажи нового дома в квартале
-          «Сосновый»
+          <?= $row['title'] ?>
         </h1>
 
         <p class="news-content__date">
-          01 мая 2024
+          <?= date("d", strtotime($row['date'])) . ' '
+            . monthRus(date("m", strtotime($row['date'])), 'rod', 2) . ' '
+            . date("Y", strtotime($row['date'])) ?>
         </p>
 
         <div class="news-content__img-wrapper">
-          <picture>
-            <source srcset="/assets/img/news-img-1.webp" type="image/webp"><img src="/assets/img/news-img-1.jpg" alt="Проект">
-          </picture>
+          <img src="/assets/img/<?= $row['image'] ?>" alt="Проект">
         </div>
 
         <p class="news-content__text">
-          11 октября стартовали продажи нового дома в квартале «Октябрьский на Туре». Строительство квартала началось
-          в 2019 году, он стал продолжением проекта «Октябрьский», который Брусника построила ранее.<br /><br />
-
-          Удачное расположение района позволяет добраться до центра города всего за 15 минут, при этом здесь сильно
-          природное начало — много зелени и есть выход к реке.<br /><br />
-
-          «Октябрьский на Туре» — часть большого проекта комплексного развития территории площадью 27 гектаров, который
-          осваивает Брусника. В рамках договора КРТ будут построены детский сад, библиотека, фитнес-центр.<br /><br />
-
-          Сегодня в районе уже есть вся необходимая инфраструктура, а согласно генплану развития ДОКа появятся зоны
-          отдыха у береговой линии, 11 детских садов, две школы, медицинский и спортивный центры. Документ
-          также предполагает строительство двух мостов через Туру, которые соединят ДОК с заречной частью
-          города.<br /><br />
-
-          Новый дом представляет собой замкнутый квартал из шести секций переменной этажности с подземным паркингом
-          и кладовыми на −1 этаже. Проект предусматривает множество планировок от 24-метровых студий до просторных
-          двухуровневых квартир площадью 140 метров, в том числе уникальные квартиры с террасами — они расположены
-          на первом и последних этажах, а также квартиры с отдельным входом.<br /><br />
-
-          С внешней стороны квартала спроектированы коммерческие помещения, где появятся магазины, кафе и другая
-          инфраструктура. При этом двор приватный и свободный от машин — здесь будет много зелени, зоны отдыха,
-          воркаут-зоны и площадки для детей.<br /><br />
-
-          Срок сдачи дома в эксплуатацию − 2 квартал 2026 года. Выбрать квартиру можно здесь.
+          <?= $row['description'] ?>
         </p>
       </div>
     </section>
@@ -79,67 +63,43 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
       </div>
       <div class="container news-slider__container-bot news-slider_swiper">
         <ul class="news-slider__cards-list swiper-wrapper">
-          <li class="news-slider__cards-item swiper-slide">
-            <div class="news-slider__card-img-wrapper">
-              <picture>
-                <source srcset="/assets/img/news-img-1.webp" type="image/webp"><img src="/assets/img/news-img-1.jpg" alt="Проект">
-              </picture>
-            </div>
-            <p class="news-slider__card-date">
-              01 мая 2024
-            </p>
-            <a class="news-slider__card-link" href="novosti-item.html">
-              <h2 class="news-slider__card-title">
-                Динамика строительства «Сосновый». Апрель 2024.
-              </h2>
-            </a>
-          </li>
-          <li class="news-slider__cards-item swiper-slide">
-            <div class="news-slider__card-img-wrapper">
-              <picture>
-                <source srcset="/assets/img/news-img-4.webp" type="image/webp"><img src="/assets/img/news-img-4.jpg" alt="Проект">
-              </picture>
-            </div>
-            <p class="news-slider__card-date">
-              01 мая 2024
-            </p>
+        <?
+          // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
+          $result = mysqli_query($db, "SELECT * FROM news WHERE publish = 1 ORDER BY DATE DESC LIMIT 8");
 
-            <a class="news-slider__card-link" href="novosti-item.html">
-              <h2 class="news-slider__card-title">
-                Сибирь объявляет об операционных результатах первого квартала 2024
-              </h2>
-            </a>
-          </li>
-          <li class="news-slider__cards-item swiper-slide">
-            <div class="news-slider__card-img-wrapper">
-              <picture>
-                <source srcset="/assets/img/news-img-2.webp" type="image/webp"><img src="/assets/img/news-img-2.jpg" alt="Проект">
-              </picture>
-            </div>
-            <p class="news-slider__card-date">
-              01 мая 2024
-            </p>
-            <a class="news-slider__card-link" href="novosti-item.html">
-              <h2 class="news-slider__card-title">
-                Сибирь разрабатывает новый проект ЖК «Успенка»
-              </h2>
-            </a>
-          </li>
-          <li class="news-slider__cards-item swiper-slide">
-            <div class="news-slider__card-img-wrapper">
-              <picture>
-                <source srcset="/assets/img/news-img-3.webp" type="image/webp"><img src="/assets/img/news-img-3.jpg" alt="Проект">
-              </picture>
-            </div>
-            <p class="news-slider__card-date">
-              01 мая 2024
-            </p>
-            <a class="news-slider__card-link" href="novosti-item.html">
-              <h2 class="news-slider__card-title">
-                Динамика строительства Сосновый. Апрель 2024.
-              </h2>
-            </a>
-          </li>
+          $row = mysqli_fetch_array($result);
+
+          // if ($row == '') {
+          //   echo 'Ничего не нашлось';
+          // }
+
+          // echo '<pre>';
+          // print_r($row);
+          // echo '</pre>';
+
+          // Сосновый | ГП 8 | 1 / 2 этаж
+
+          if (mysqli_num_rows($result) > 0) {
+            do {
+              echo '
+                <li class="news-slider__cards-item swiper-slide">
+                  <div class="news-slider__card-img-wrapper">
+                      <img src="/assets/img/' . $row['photo'] . '" alt="' . $row['title'] . '">
+                  </div>
+                  <p class="news-slider__card-date">
+                    ' . date("d", strtotime($row['date'])) . ' '
+                    . monthRus(date("m", strtotime($row['date'])), 'rod', 2) . ' '
+                    . date("Y", strtotime($row['date'])) . '
+                  </p>
+                  <a class="news-slider__card-link" href="/pages/novosti-item/?id=' . $row['id'] . '">
+                    ' . $row['title'] . '
+                  </a>
+                </li>
+                ';
+            } while ($row = mysqli_fetch_array($result));
+          }
+          ?>
+
         </ul>
       </div>
 

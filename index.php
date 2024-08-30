@@ -215,9 +215,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
         </h2>
 
-        <div class="choice__form" action="#" method="post" enctype="multipart/form-data">
+        <div class="choice__form" data-form>
 
-          <div class="choice__input-block choice__input-block_project">
+          <div class="choice__input-block choice__input-block_select choice__input-block_project">
             <p class="choice__label">
               Проект
             </p>
@@ -241,30 +241,30 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </div>
           </div>
 
-          <div class="choice__input-block choice__input-block_rooms">
+          <div class="choice__input-block choice__input-block_buttons choice__input-block_rooms">
             <p class="choice__label">
               Комнат
             </p>
             <div class="choice__buttons-select select-frame">
-              <button class="choice__buttons-select-item" data-id="studio">
+              <button class="choice__buttons-select-item" data-id="s">
                 Студия
               </button>
-              <button class="choice__buttons-select-item" data-id="1-k">
+              <button class="choice__buttons-select-item" data-id="1">
                 1
               </button>
-              <button class="choice__buttons-select-item" data-id="2-k">
+              <button class="choice__buttons-select-item" data-id="2">
                 2
               </button>
-              <button class="choice__buttons-select-item" data-id="3-k">
+              <button class="choice__buttons-select-item" data-id="3">
                 3
               </button>
-              <button class="choice__buttons-select-item" data-id="3+">
+              <button class="choice__buttons-select-item" data-id="4">
                 3+
               </button>
             </div>
           </div>
 
-          <div class="choice__input-block choice__input-block_square">
+          <div class="choice__input-block choice__input-block_slider choice__input-block_square">
             <p class="choice__label">
               Площадь, м2
             </p>
@@ -299,7 +299,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </div>
           </div>
 
-          <div class="choice__btns-block">
+          <div class="choice__btns-block" style="display: none;">
             <button class="choice__btn-filter" data-id="promotion">
               Акция
               <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -339,7 +339,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </div>
 
           <div class="choice__btn-wrap">
-            <p class="choice__text">
+            <p class="choice__search-text">
               найдено 5 квартир
             </p>
             <a class="choice__btn-request btn btn_dark" href="/pages/kvartiry/">
@@ -482,7 +482,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           <?
           // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
-          $result = mysqli_query($db, "SELECT * FROM apartments LIMIT 8");
+          $result = mysqli_query($db, "SELECT * FROM apartments WHERE commerce = 0 LIMIT 8");
 
           $row = mysqli_fetch_array($result);
 
@@ -611,7 +611,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="promo__slider-wrap promo_swiper">
           <ul class="promo__list swiper-wrapper">
             <?
-            include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
+            // include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
             // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
             $result = mysqli_query($db, "SELECT * FROM events");
 
@@ -626,7 +626,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             // echo '</pre>';
 
             // Сосновый | ГП 8 | 1 / 2 этаж
-            
+
             if (mysqli_num_rows($result) > 0) {
               do {
                 $now = date('Y-m-d H:i:s');
@@ -640,9 +640,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     </div>
 
                     <p class="promo__item-date">
-                      До ' . date("d", strtotime($row['time'])) . ' ' 
-                      . monthRus(date("m", strtotime($row['time'])), 'rod', 2) . ' ' 
-                      . date("Y", strtotime($row['time'])) . '
+                      До ' . date("d", strtotime($row['time'])) . ' '
+                  . monthRus(date("m", strtotime($row['time'])), 'rod', 2) . ' '
+                  . date("Y", strtotime($row['time'])) . '
                     </p>
                     <p class="promo__item-period">
                       Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']) . ' 
@@ -798,7 +798,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
   <?
   include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php';
   ?>
-
 </body>
 
 </html>

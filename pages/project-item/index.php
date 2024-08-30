@@ -203,19 +203,19 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   Комнат
                 </p>
                 <div class="choice__buttons-select select-frame">
-                  <button class="choice__buttons-select-item" data-id="studio">
+                  <button class="choice__buttons-select-item" data-id="s">
                     Студия
                   </button>
-                  <button class="choice__buttons-select-item" data-id="1-k">
+                  <button class="choice__buttons-select-item" data-id="1">
                     1
                   </button>
-                  <button class="choice__buttons-select-item" data-id="2-k">
+                  <button class="choice__buttons-select-item" data-id="2">
                     2
                   </button>
-                  <button class="choice__buttons-select-item" data-id="3-k">
+                  <button class="choice__buttons-select-item" data-id="3">
                     3
                   </button>
-                  <button class="choice__buttons-select-item" data-id="3+">
+                  <button class="choice__buttons-select-item" data-id="4">
                     3+
                   </button>
                 </div>
@@ -256,7 +256,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </div>
               </div>
 
-              <div class="choice__btns-block">
+              <div class="choice__btns-block" style="display: none;">
                 <button class="choice__btn-filter" data-id="promotion">
                   Акция
                   <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -296,7 +296,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
 
               <div class="choice__btn-wrap">
-                <p class="choice__text">
+                <p class="choice__search-text">
                   Найдено 5 квартир
                 </p>
                 <a class="choice__btn-request btn btn_dark" href="/pages/kvartiry/">

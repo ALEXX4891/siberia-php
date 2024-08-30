@@ -296,7 +296,7 @@
 
         <ul class="promo__list">
             <?
-            include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
+            // include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
             // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
             $result = mysqli_query($db, "SELECT * FROM events");
 
@@ -354,7 +354,7 @@
           Срок предложения ограничен. <br><br>
           Узнайте подробнее об условиях акции у менеджеров в отделе продаж по телефону:
         </p>
-        <a href="tel:+73452611157" class="promo__phone"><?= $row1['phone']; ?></a>
+        <a href="tel:+<? echo preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>" class="promo__phone"><?= $row1['phone']; ?></a>
 
         <button class="promo__btn btn btn_dark popup-link" href="#popup-form">
           Связаться с нами

@@ -2373,6 +2373,7 @@ a {
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item {
+pointer-events: none;
   width: 100%;
   height: 100%;
   font-family: Inter;
@@ -2391,8 +2392,20 @@ a {
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_active {
+pointer-events: all;
   color: #000;
   border-color: #56693e;
+}
+
+.popup
+  .filter
+  .choice__container
+  .choice__form
+  .choice__input-block
+  .choice__buttons-select
+  .choice__buttons-select-item_available {
+pointer-events: all;
+  color: #000;
 }
 
 .popup
@@ -2605,7 +2618,7 @@ a {
   .choice__container
   .choice__form
   .choice__btn-wrap
-  .choice__text {
+  .choice__search-text {
   font-family: Inter;
   font-size: 16px;
   font-weight: 400;
@@ -2816,7 +2829,7 @@ a {
 }
 
 .select-frame {
-  max-width: 517.33px;
+  max-width: 100%;
   width: 100%;
   min-height: 60px;
   position: relative;
@@ -2860,6 +2873,12 @@ a {
   font-size: 16px;
   font-weight: 400;
   line-height: 110%;
+}
+
+.choice__input-block_select .select__placeholder {
+  position: absolute;
+  top: 21px;
+  left: 20px;
 }
 
 .select-frame .select__text {
@@ -4380,6 +4399,7 @@ a {
   .apartments__item
   .apartments__item-img {
   padding: 30px;
+  height: 400px;
 }
 
 .glavnaya
@@ -4421,16 +4441,14 @@ a {
   .apartments__list
   .apartments__item
   .apartments__item-price-wrap {
-  display: -ms-grid;
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: start;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: end;
-  gap: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    gap: 10px;
 }
 
 .glavnaya
@@ -5596,6 +5614,7 @@ a {
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item {
+pointer-events: none;
   width: 100%;
   height: 100%;
   font-family: Inter;
@@ -5614,8 +5633,20 @@ a {
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_active {
+pointer-events: all;
   color: #000;
   border-color: #56693e;
+}
+
+.glavnaya
+  .choice
+  .choice__container
+  .choice__form
+  .choice__input-block
+  .choice__buttons-select
+  .choice__buttons-select-item_available {
+pointer-events: all;
+  color: #000;
 }
 
 .glavnaya
@@ -5821,6 +5852,7 @@ a {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  gap: 10px;
 }
 
 .glavnaya
@@ -5828,7 +5860,8 @@ a {
   .choice__container
   .choice__form
   .choice__btn-wrap
-  .choice__text {
+  .choice__search-text {
+  width: 167px;
   font-family: Inter;
   font-size: 16px;
   font-weight: 400;
@@ -5836,6 +5869,7 @@ a {
   text-align: left;
   color: #000;
   opacity: 0.8;
+  text-wrap: nowrap;
 }
 
 .glavnaya
@@ -7264,6 +7298,7 @@ a {
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item {
+pointer-events: none;
   width: 100%;
   height: 100%;
   font-family: Inter;
@@ -7282,8 +7317,21 @@ a {
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_active {
+pointer-events: all;
   color: #000;
   border-color: #56693e;
+}
+
+.apartments-page
+  .choice
+  .choice__container
+  .choice__form
+  .choice__input-block
+  .choice__buttons-select
+  .choice__buttons-select-item_available {
+pointer-events: all;
+    pointer-events: all;
+  color: #000;
 }
 
 .apartments-page
@@ -7565,12 +7613,24 @@ a {
   .choice__form
   .choice__reset-wrap
   .choice__btn-reset {
+    position: relative;
   display: -ms-grid;
   display: grid;
   grid-auto-flow: column;
   place-content: center;
   gap: 10px;
   opacity: 0.4;
+}
+
+.apartments-page
+  .choice
+  .choice__container
+  .choice__form
+  .choice__reset-wrap
+  .choice__btn-reset::after {
+    content: '';
+    position: absolute;
+    inset: -15px -5px;
 }
 
 .apartments-page
@@ -7689,7 +7749,8 @@ a {
   .apartments__list
   .apartments__item {
   padding: 20px;
-  max-width: 420.5px;
+  /* max-width: 420.5px; */
+  width: 100%;
   min-height: 655px;
   background: #ffffff;
   border-radius: 5px;
@@ -7734,6 +7795,8 @@ a {
   .apartments__item-link
   .apartments__item-img {
   padding: 30px;
+  /* aspect-ratio: 348/364; */
+  height: 400px;
 }
 
 .apartments-page
@@ -7775,16 +7838,14 @@ a {
   .apartments__item
   .apartments__item-link
   .apartments__item-price-wrap {
-  display: -ms-grid;
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: start;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: end;
-  gap: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    gap: 10px;
 }
 
 .apartments-page
@@ -9067,6 +9128,7 @@ a {
   .apartments__item
   .apartments__item-img {
   padding: 30px;
+  height: 400px;
 }
 
 .apartments-item-page
@@ -9105,16 +9167,14 @@ a {
   .apartments__list
   .apartments__item
   .apartments__item-price-wrap {
-  display: -ms-grid;
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: start;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: end;
-  gap: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    gap: 10px;
 }
 
 .apartments-item-page
@@ -10766,6 +10826,7 @@ a {
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item {
+pointer-events: none;
   width: 100%;
   height: 100%;
   font-family: Inter;
@@ -10787,8 +10848,23 @@ a {
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_active {
+pointer-events: all;
   color: #000;
   border-color: #56693e;
+}
+
+.project-item-page
+  .project-item-page__main
+  .slim
+  .choice
+  .choice__container
+  .choice__wrap
+  .choice__form
+  .choice__input-block
+  .choice__buttons-select
+  .choice__buttons-select-item_available {
+pointer-events: all;
+  color: #000;
 }
 
 .project-item-page
@@ -11054,7 +11130,7 @@ a {
   .choice__wrap
   .choice__form
   .choice__btn-wrap
-  .choice__text {
+  .choice__search-text {
   font-family: Inter;
   font-size: 16px;
   font-weight: 400;
@@ -12631,6 +12707,7 @@ a {
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item {
+pointer-events: none;
   width: 100%;
   height: 100%;
   font-family: Inter;
@@ -12649,8 +12726,20 @@ a {
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_active {
+pointer-events: all;
   color: #000;
   border-color: #56693e;
+}
+
+.commercial-page
+  .choice
+  .choice__container
+  .choice__form
+  .choice__input-block
+  .choice__buttons-select
+  .choice__buttons-select-item_available {
+pointer-events: all;
+  color: #000;
 }
 
 .commercial-page
@@ -17165,8 +17254,8 @@ a {
   }
 
   .glavnaya .choice .choice__container .choice__form .choice__btn-wrap {
-    -ms-grid-column-align: end;
-    justify-self: end;
+    -ms-grid-column-align: start;
+    justify-self: start;
   }
 
   .glavnaya
@@ -17174,7 +17263,7 @@ a {
     .choice__container
     .choice__form
     .choice__btn-wrap
-    .choice__text {
+    .choice__search-text {
     display: none;
   }
 
@@ -19096,13 +19185,13 @@ a {
   }
 }
 
-@media (max-width: 1160px) {
+@media (max-width: 1200px) {
   .apartments-page
     .choice
     .choice__container
     .choice__form
     .choice__inputs-list {
-    grid-template-columns: repeat(auto-fit, minmax(357px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   }
 
   .apartments-page
@@ -19479,6 +19568,13 @@ a {
 }
 
 @media (max-width: 960px) {
+  .apartments-page
+    .choice
+    .choice__container
+    .choice__form
+    .choice__inputs-list {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  }
   .title.title_30 {
     font-family: Inter;
     font-size: 22px;
@@ -20785,6 +20881,7 @@ a {
     .choice__input-block
     .choice__buttons-select
     .choice__buttons-select-item {
+pointer-events: none;
     font-family: Inter;
     font-size: 15px;
     font-weight: 400;
@@ -20796,7 +20893,7 @@ a {
     .choice__container
     .choice__form
     .choice__btn-wrap
-    .choice__text {
+    .choice__search-text {
     display: none;
   }
 
@@ -21114,6 +21211,7 @@ a {
     .choice__input-block
     .choice__buttons-select
     .choice__buttons-select-item {
+pointer-events: none;
     font-family: Inter;
     font-size: 15px;
     font-weight: 400;
@@ -21273,6 +21371,7 @@ a {
     .choice__input-block
     .choice__buttons-select
     .choice__buttons-select-item {
+pointer-events: none;
     font-family: Inter;
     font-size: 15px;
     font-weight: 400;
@@ -21329,7 +21428,7 @@ a {
     .choice__wrap
     .choice__form
     .choice__btn-wrap
-    .choice__text {
+    .choice__search-text {
     display: none;
   }
 
@@ -22618,4 +22717,27 @@ a {
     background-position: center;
     background-size: cover;
   }
+}
+
+
+body::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  /* display: block; */
+  content: "";
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5) url(/assets/img/loading.gif) center/50px no-repeat;
+  /* border-radius: 10px; */
+  opacity: 0;
+  visibility: hidden;
+
+}
+
+body._sending::after {
+/* body::after { */
+  opacity: 1;
+  visibility: visible;
 }

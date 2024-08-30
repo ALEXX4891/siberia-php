@@ -42,7 +42,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </h1>
 
         <p class="news-content__date">
-          <?= date("d.m.Y", strtotime($row['date'])) ?>
+          <?= date("d", strtotime($row['date'])) . ' '
+            . monthRus(date("m", strtotime($row['date'])), 'rod', 2) . ' '
+            . date("Y", strtotime($row['date'])) ?>
         </p>
 
         <div class="news-content__img-wrapper">
@@ -65,7 +67,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <ul class="news-slider__cards-list swiper-wrapper">
           <?
           // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
-          $result = mysqli_query($db, "SELECT * FROM news ORDER BY DATE DESC LIMIT 8");
+          $result = mysqli_query($db, "SELECT * FROM news WHERE publish = 1 ORDER BY DATE DESC LIMIT 8");
 
           $row = mysqli_fetch_array($result);
 
@@ -87,7 +89,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   <img src="/assets/img/' . $row['photo'] . '" alt="' . $row['title'] . '">
                 </div>
                 <p class="news-slider__card-date">
-                ' . date("d.m.Y", strtotime($row['date'])) . '
+                  ' . date("d", strtotime($row['date'])) . ' '
+                . monthRus(date("m", strtotime($row['date'])), 'rod', 2) . ' '
+                . date("Y", strtotime($row['date'])) . '
                 </p>
                 <a class="news-slider__card-link" href="/pages/novosti-item/?id=' . $row['id'] . '">
                   <h2 class="news-slider__card-title">
@@ -129,6 +133,100 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
   <?
   include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php';
   ?>
+
+  <script>
+
+    const title = document.querySelector('.news-content__title');
+    let transTitle = transliterate(title.textContent);
+    // title.textContent = transTitle;
+
+    // history.pushState(null, null, transTitle); //заменяет url в браузере
+
+    function transliterate(word) {
+      var answer = "",
+        a = {};
+        a["А"] = "A";
+        a["Б"] = "B";
+        a["В"] = "V";
+        a["Г"] = "G";
+        a["Д"] = "D";
+        a["Е"] = "E";
+        a["Ё"] = "E";
+        a["Ж"] = "ZH";
+        a["З"] = "Z";
+        a["И"] = "I";
+        a["Й"] = "Y";
+        a["К"] = "K";
+        a["Л"] = "L";
+        a["М"] = "M";
+        a["Н"] = "N";
+        a["О"] = "O";
+        a["П"] = "P";
+        a["Р"] = "R";
+        a["С"] = "S";
+        a["Т"] = "T";
+        a["У"] = "U";
+        a["Ф"] = "F";
+        a["Х"] = "KH";
+        a["Ц"] = "TS";
+        a["Ч"] = "CH";
+        a["Ш"] = "SH";
+        a["Щ"] = "SHCH";
+        a["Ъ"] = "";
+        a["Ы"] = "Y";
+        a["Ь"] = "";
+        a["Э"] = "E";
+        a["Ю"] = "YU";
+        a["Я"] = "YA";
+        a["а"] = "a";
+        a["б"] = "b";
+        a["в"] = "v";
+        a["г"] = "g";
+        a["д"] = "d";
+        a["е"] = "e";
+        a["ё"] = "e";
+        a["ж"] = "zh";
+        a["з"] = "z";
+        a["и"] = "i";
+        a["й"] = "y";
+        a["к"] = "k";
+        a["л"] = "l";
+        a["м"] = "m";
+        a["н"] = "n";
+        a["о"] = "o";
+        a["п"] = "p";
+        a["р"] = "r";
+        a["с"] = "s";
+        a["т"] = "t";
+        a["у"] = "u";
+        a["ф"] = "f";
+        a["х"] = "kh";
+        a["ц"] = "ts"; 
+        a["ч"] = "ch";
+        a["ш"] = "sh";  
+        a["щ"] = "shch";
+        a["ъ"] = "";
+        a["ы"] = "y";
+        a["ь"] = "";
+        a["э"] = "e";
+        a["ю"] = "yu";
+        a["я"] = "ya";
+
+
+      for (i in word) {
+        if (word.hasOwnProperty(i)) {
+          if (a[word[i]] === undefined) {
+            answer += word[i];
+            console.log(word[i]);
+          } else {
+            answer += a[word[i]];
+            console.log(a[word[i]]);
+          }
+        }
+      }
+      return answer;
+    }
+  </script>
 
 </body>
 

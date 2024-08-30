@@ -1,3 +1,1363 @@
+const choiceFilterForm = document.querySelector("[data-form]");
+// функция получения информации о обьектах строительства:
+async function getHouse() {
+  let responseHouses = await fetch("/backend/intHouse.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+  });
+
+  let arr = [];
+
+  if (responseHouses.ok) {
+    let result = await responseHouses.json();
+    arr = Object.values(result.response);
+  } else {
+    console.log("error");
+  }
+  return arr;
+}
+
+// Сосновый:
+// ГП1 house_id 933
+// ГП2 house_id 943
+// ГП3 house_id 945
+
+const idHouse = [933, 943, 945];
+const projectById = [
+  { 933: "Сосновый" },
+  { 943: "Сосновый" },
+  { 945: "Сосновый" },
+];
+
+function getProjectName(id) {
+  return projectById.find((item) => item[id])[id];
+}
+
+// функция получения информации о квартирах:
+let allInfo = [];
+let houseInfo = {};
+let allAparstInfo = [];
+let allHouseInfo = [];
+
+async function getRealty(id) {
+  let allAparstInfo = [];
+  let houseInfo = {};
+  let body = document.querySelector("body");
+  body.classList.add("_sending");
+
+  let responseAparts = await fetch("/backend/intApart.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify({ id: id }),
+  });
+
+  if (responseAparts.ok) {
+    let result = await responseAparts.json();
+    allAparstInfo = Object.values(result.response.realty);
+    houseInfo = result.response.house;
+    body.classList.remove("_sending");
+  } else {
+    console.log("error");
+    body.classList.remove("_sending");
+  }
+  const res = [houseInfo, allAparstInfo];
+
+  return res;
+}
+
+// idHouse.forEach((item) => {});
+
+// // отправляем запросы к API последовательно:
+// async function getAllInfo(idHouse) {
+//   const allInfo = [];
+//   for (const item of idHouse) {
+//     allInfo.push(await getRealty(item));
+//   }
+//   return allInfo;
+// }
+
+// отправляем запросы к API параллельно:
+async function getAllInfo(idHouse) {
+  // делаем "map" массива в промисы
+  const promises = idHouse.map((id) => getRealty(id));
+  promises.unshift(getHouse()); // добавляем запрос на получение информации о домах
+  // ждем когда всё промисы будут выполнены
+  return await Promise.all(promises);
+}
+
+allInfo = await getAllInfo(idHouse); // массив всей информации из api
+houseInfo = allInfo[0]; // массив с инофрмацией о домах
+// console.log("houseInfo:", houseInfo);
+
+// console.log("allInfo:", allInfo);
+allInfo.splice(1).forEach((item) => {
+  allHouseInfo.push(item[0]);
+  allAparstInfo.push(...item[1]);
+});
+
+// console.log("allHouseInfo:", allHouseInfo);
+// console.log("allAparstInfo:", allAparstInfo);
+
+// добавляем в обьекты квартир информацию о доме:
+allAparstInfo.forEach(function (item) {
+  item.house_address = allHouseInfo.find(
+    (house) => house.id == item.house_id
+  ).address;
+  item.house_ceiling_height = allHouseInfo.find(
+    (house) => house.id == item.house_id
+  ).ceiling_height;
+  item.house_floor_count = allHouseInfo.find(
+    (house) => house.id == item.house_id
+  ).floor_count;
+  // item.house_id = allHouseInfo.find((house) => house.id == item.house_id).id;
+  item.house_img = allHouseInfo.find((house) => house.id == item.house_id).img;
+  item.house_section_count = allHouseInfo.find(
+    (house) => house.id == item.house_id
+  ).section_count;
+  item.house_title = allHouseInfo
+    .find((house) => house.id == item.house_id)
+    .title.replace(/\D/g, "");
+  item.project_name = getProjectName(item.house_id);
+  item.house_building_begin = houseInfo.find(
+    (house) => house.house_id == item.house_id
+  ).house_building_begin.date;
+  item.house_building_end = houseInfo.find(
+    (house) => house.house_id == item.house_id
+  ).house_building_end.date;
+  item.house_material = houseInfo.find(
+    (house) => house.house_id == item.house_id
+  ).house_material;
+  item.house_material_code = houseInfo.find(
+    (house) => house.house_id == item.house_id
+  ).house_material_code;
+  item.house_title_rus = houseInfo.find(
+    (house) => house.house_id == item.house_id
+  ).house_title;
+  item.object_type_code = houseInfo.find(
+    (house) => house.house_id == item.house_id
+  ).object_type_code;
+  item.object_type_title = houseInfo.find(
+    (house) => house.house_id == item.house_id
+  ).object_type_title;
+});
+
+// console.log("allInfoArr", allInfoArr);
+
+// console.log("allHouseInfo", allHouseInfo);
+console.log("allAparstInfo", allAparstInfo);
+
+// -------------------------------------- start функция создания карточки квартиры: --------------------------------------
+function getli(obj) {
+  const li = document.createElement("li"); // создаем li
+  const classes = ["apartments__item", "swiper-slide"];
+
+  // добавляем классы:
+  classes.forEach((item) => {
+    li.classList.add(item);
+  });
+
+  li.innerHTML = `
+    <a class="apartments__item-link" href="/pages/apartments-item/?id=${
+      obj.id
+    }">
+      <h5 class="apartments__item-title">
+        ${obj.project_name ? obj.project_name : ""}  |  ${
+    obj.house_title ? obj.house_title.replace("-", " ") : ""
+  }  |  ${obj.floor ? obj.floor : ""} / ${
+    obj.floor_count ? obj.floor_count : ""
+  } этаж                    
+      </h5>
+      <div class="apartments__item-img">          
+          <img src="${
+            obj.img ? obj.img[0].img_path : ""
+          }" alt="планировка квартиры">
+      </div>
+  
+      <p class="apartments__item-desc">
+        ${obj.rooms ? obj.rooms : ""}-комнатная ${
+    obj.square ? obj.square : ""
+  }м<sup>2</sup>
+      </p>
+  
+      <div class="apartments__item-price-wrap">
+        <p class="apartments__item-new-price">
+        ${(obj.price ? obj.price * 1 : "")
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽
+        </p>
+
+        ${
+          obj.old_price
+            ? `<p class="apartments__item-old-price">${(obj.old_price * 1)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽</p>`
+            : ``
+        }
+
+      </div>  
+    </a>
+  `;
+  return li; // возвращаем li
+}
+// -------------------------------------- end функция создания карточки квартиры: --------------------------------------
+
+console.log("allAparstInfo", allAparstInfo[0]);
+// -------------------------------------- start полуаем граничные значения для фильтров: --------------------------------------
+function getMaxMinForFilters() {
+  // получаем граничные значения из allAparstInfo:
+  const minPrice = Math.floor(
+    Math.min(...allAparstInfo.map((item) => item.price))
+  );
+  const maxPrice = Math.ceil(
+    Math.max(...allAparstInfo.map((item) => item.price))
+  );
+  const minSquare = Math.floor(
+    Math.min(...allAparstInfo.map((item) => item.square))
+  );
+  const maxSquare = Math.ceil(
+    Math.max(...allAparstInfo.map((item) => item.square))
+  );
+  const rooms = [...new Set(allAparstInfo.map((item) => item.rooms))].sort(
+    (a, b) => a - b
+  );
+  const minFloor = Math.floor(
+    Math.min(...allAparstInfo.map((item) => item.floor))
+  );
+  const maxFloor = Math.ceil(
+    Math.max(...allAparstInfo.map((item) => item.floor))
+  );
+  const projects = [...new Set(allAparstInfo.map((item) => item.project_name))];
+  const houses = [...new Set(allAparstInfo.map((item) => item.house_title))];
+  const sections = [...new Set(allAparstInfo.map((item) => item.section))];
+  // const deadline = [... new Set(allAparstInfo.map((item) => new Date(item.house_building_end).toLocaleString()))];
+  const deadline = [
+    ...new Set(
+      allAparstInfo.map((item) => getQuarter(new Date(item.house_building_end)))
+    ),
+  ];
+
+  // console.log("minPrice", minPrice);
+  // console.log("maxPrice", maxPrice);
+  // console.log("minSquare", minSquare);
+  // console.log("maxSquare", maxSquare);
+  // console.log("rooms", rooms);
+  // console.log("minFloor", minFloor);
+  // console.log("maxFloor", maxFloor);
+  // console.log("projects", projects);
+  // console.log("houses", houses);
+  // console.log("sections", sections);
+  // console.log("deadline", deadline);
+
+  const filterAllInfo = [
+    {
+      name: "Проект",
+      value: projects,
+    },
+    {
+      name: "Комнат",
+      value: rooms,
+    },
+    {
+      name: "Площадь, м2",
+      value: {
+        from: minSquare,
+        to: maxSquare,
+      },
+    },
+    {
+      name: "Стоимость, ₽",
+      value: {
+        from: minPrice,
+        to: maxPrice,
+      },
+    },
+    {
+      name: "Дом",
+      value: houses,
+    },
+    {
+      name: "Секция",
+      value: sections,
+    },
+    {
+      name: "Срок сдачи",
+      value: deadline,
+    },
+    {
+      name: "Этаж",
+      value: {
+        from: minFloor,
+        to: maxFloor,
+      },
+    },
+  ];
+
+  console.log("filterAllInfo", filterAllInfo);
+
+  return filterAllInfo;
+}
+
+// getMaxMinForFilters();
+// -------------------------------------- end полуаем граничные значения для фильтров: --------------------------------------
+
+// -------------------------------------- start устанавливаем граничные значения в фильтры: --------------------------------------
+function setMaxMinForFilters() {
+  const filterAllInfo = getMaxMinForFilters();
+  const choiceFilterForm = document.querySelector("[data-form]");
+  console.log("choiceFilterForm", choiceFilterForm);
+
+  if (!choiceFilterForm) {
+    return;
+  }
+
+  const projectFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_select_project .select__list"
+  );
+  const roomsFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_buttons_rooms .choice__buttons-select"
+  );
+  const squareFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_slider_square"
+  );
+  const costFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_slider_cost"
+  );
+  const houseFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_select_house .select__list"
+  );
+  const sectionFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_select_section .select__list"
+  );
+  const deadlineFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_select_date .select__list"
+  );
+  const floorFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_slider_floor"
+  );
+  let allSelect = '<li class="select__item">Все</li>';
+
+  if (projectFilter) {
+    projectFilter.innerHTML = "";
+    projectFilter.innerHTML =
+      allSelect +
+      filterAllInfo
+        .find((item) => item.name === "Проект")
+        .value.map((item) => `<li class="select__item">${item}</li>`)
+        .join("");
+    // projectFilter.innerHTML = allSelect + projectFilter.innerHTML;
+  }
+
+  if (houseFilter) {
+    houseFilter.innerHTML = "";
+    houseFilter.innerHTML =
+      allSelect +
+      filterAllInfo
+        .find((item) => item.name === "Дом")
+        .value.map((item) => `<li class="select__item">${item}</li>`)
+        .join("");
+  }
+
+  if (sectionFilter) {
+    sectionFilter.innerHTML = "";
+    sectionFilter.innerHTML =
+      allSelect +
+      filterAllInfo
+        .find((item) => item.name === "Секция")
+        .value.map((item) => `<li class="select__item">${item}</li>`)
+        .join("");
+  }
+
+  if (deadlineFilter) {
+    deadlineFilter.innerHTML = "";
+    deadlineFilter.innerHTML =
+      allSelect +
+      filterAllInfo
+        .find((item) => item.name === "Срок сдачи")
+        .value.map((item) => `<li class="select__item">${item}</li>`)
+        .join("");
+  }
+
+  if (roomsFilter) {
+    const btns = roomsFilter.querySelectorAll(".choice__buttons-select-item");
+    btns.forEach((item) => {
+      if (
+        filterAllInfo
+          .find((item) => item.name === "Комнат")
+          .value.includes(Number(item.getAttribute("data-id")))
+      ) {
+        item.classList.add("choice__buttons-select-item_available");
+      }
+    });
+  }
+
+  if (costFilter) {
+    let minFilterCost = filterAllInfo.find(
+      (item) => item.name === "Стоимость, ₽"
+    ).value.from;
+    let maxFilterCost =
+      filterAllInfo.find((item) => item.name === "Стоимость, ₽").value.to +
+      10000;
+    rangeSliderInit(costFilter, 10000, minFilterCost, maxFilterCost);
+  }
+
+  if (squareFilter) {
+    let minFilterSquare = filterAllInfo.find(
+      (item) => item.name === "Площадь, м2"
+    ).value.from;
+    let maxFilterSquare = filterAllInfo.find(
+      (item) => item.name === "Площадь, м2"
+    ).value.to;
+    rangeSliderInit(squareFilter, 1, minFilterSquare, maxFilterSquare);
+  }
+
+  if (floorFilter) {
+    let minFilterFloor = filterAllInfo.find((item) => item.name === "Этаж")
+      .value.from;
+    let maxFilterFloor = filterAllInfo.find((item) => item.name === "Этаж")
+      .value.to;
+    rangeSliderInit(floorFilter, 0, minFilterFloor, maxFilterFloor);
+  }
+}
+setMaxMinForFilters();
+
+setNowFilters();
+function setNowFilters(arr) {
+  // arr = [
+  //   { name: "Проект", value: "Сосновый" },
+  //   { name: "Комнат", value: [1, 2] },
+  //   { name: "Площадь, м2", value: { from: 36, to: 60 } },
+  //   { name: "Стоимость, ₽", value: { from: 1860000, to: 6250000 } },
+  //   { name: "Дом", value: 1 },
+  //   { name: "Секция", value: 1 },
+  //   { name: "Срок сдачи", value: "IV квартал 2025" },
+  //   { name: "Этаж", value: { from: 2, to: 3 } },
+  //   { name: "btns", value: [] },
+  // ];
+
+  if (!choiceFilterForm) {
+    return;
+  }
+
+  const projectFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_select_project .select__text"
+  );
+  let roomsFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_buttons_rooms .choice__buttons-select"
+  );
+
+  if (roomsFilter) {
+    roomsFilter = [
+      ...choiceFilterForm.querySelector(
+        ".choice__input-block_buttons_rooms .choice__buttons-select"
+      ).children
+    ];
+  }
+
+  const squareInputFrom = choiceFilterForm.querySelector(
+    ".choice__input-block_slider_square .select__input_from"
+  );
+  const squareInputTo = choiceFilterForm.querySelector(
+    ".choice__input-block_slider_square .select__input_to"
+  );
+
+  const costInputFrom = choiceFilterForm.querySelector(
+    ".choice__input-block_slider_cost .select__input_from"
+  );
+  const costInputTo = choiceFilterForm.querySelector(
+    ".choice__input-block_slider_cost .select__input_to"
+  );
+
+  const houseFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_select_house .select__text"
+  );
+  const sectionFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_select_section .select__text"
+  );
+  const deadlineFilter = choiceFilterForm.querySelector(
+    ".choice__input-block_select_date .select__text"
+  );
+
+  const floorInputFrom = choiceFilterForm.querySelector(
+    ".choice__input-block_slider_floor .select__input_from"
+  );
+  const floorInputTo = choiceFilterForm.querySelector(
+    ".choice__input-block_slider_floor .select__input_to"
+  );
+  // const floorRangeSlider = choiceFilterForm.querySelector(
+  //   ".choice__input-block_slider_floor .range-slider"
+  // );
+  // const floorRangePointFrom = choiceFilterForm.querySelector(
+  //   ".choice__input-block_slider_floor .min-range"
+  // );
+  // const floorRangePointTo = choiceFilterForm.querySelector(
+  //   ".choice__input-block_slider_floor .max-range"
+  // );
+
+  if (!arr) {
+    if (projectFilter) {
+      projectFilter.innerHTML = "Все";
+    }
+
+    if (roomsFilter) {
+      roomsFilter.forEach((item) =>
+        item.classList.remove("choice__buttons-select-item_active")
+      );
+    }
+
+    if (squareInputFrom) {
+      squareInputFrom.value = squareInputFrom.getAttribute("min");
+      squareInputTo.value = squareInputTo.getAttribute("max");
+      const squareFilter = choiceFilterForm.querySelector(".choice__input-block_slider_square");
+      rangeSliderUpdate(squareFilter);
+    }
+
+    if (costInputFrom) {
+      costInputFrom.value = costInputFrom.getAttribute("min");
+      costInputTo.value = costInputTo.getAttribute("max");
+      const costFilter = choiceFilterForm.querySelector(".choice__input-block_slider_cost");
+      rangeSliderUpdate(costFilter);
+    }
+
+    if (houseFilter) {
+      houseFilter.innerHTML = "Все";
+    }
+
+    if (sectionFilter) {
+      sectionFilter.innerHTML = "Все";
+    }
+
+    if (deadlineFilter) {
+      deadlineFilter.innerHTML = "Все";
+    }
+
+    if (floorInputFrom) {
+      floorInputFrom.value = floorInputFrom.getAttribute("min");
+      floorInputTo.value = floorInputTo.getAttribute("max");
+      const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
+      rangeSliderUpdate(floorFilter);
+
+    }
+    
+    // return;
+  }
+
+  // projectFilter.innerHTML = arr.find(item => item.name === "Проект").value;
+  // console.log(arr.find(item => item.name === "Проект").value);
+  // console.log(projectFilter);
+  // roomsFilter.innerHTML = arr.find(item => item.name === "Комнат").value;
+  // squareFilter.innerHTML = arr.find(item => item.name === "Площадь, м2").value;
+  // costFilter.innerHTML = arr.find(item => item.name === "Стоимость, ₽").value;
+  // houseFilter.innerHTML = arr.find(item => item.name === "Дом").value;
+  // sectionFilter.innerHTML = arr.find(item => item.name === "Секция").value;
+  // deadlineFilter.innerHTML = arr.find(item => item.name === "Срок сдачи").value;
+  // floorFilter.innerHTML = arr.find(item => item.name === "Этаж").value;
+
+  if (projectFilter) {
+    projectFilter.innerHTML = arr.find((item) => item.name === "Проект").value;
+    if (projectFilter.innerHTML !== "") {
+      projectFilter.classList.add("select__text_active");
+      projectFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'none';
+    } else {
+      projectFilter.classList.remove("select__text_active");
+      projectFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'block';
+    }
+    // console.log(projectFilter);
+    // console.log(projectFilter.innerHTML);
+    // console.log(arr.find((item) => item.name === "Проект").value);
+  }
+
+  if (roomsFilter) {
+    roomsFilter.forEach((item) =>
+      arr
+        .find((item) => item.name === "Комнат")
+        .value.includes(Number(item.innerText))
+        ? item.classList.add("choice__buttons-select-item_active")
+        : item.classList.remove("choice__buttons-select-item_active")
+    );
+  }
+
+  if (squareInputFrom) {
+    squareInputFrom.value = arr.find((item) => item.name === "Площадь, м2").value.from;
+    squareInputTo.value = arr.find((item) => item.name === "Площадь, м2").value.to;
+    const squareFilter = choiceFilterForm.querySelector(".choice__input-block_slider_square");
+    rangeSliderUpdate(squareFilter);
+  }
+
+  if (costInputFrom) {
+    costInputFrom.value = arr.find((item) => item.name === "Стоимость, ₽").value.from;
+    costInputTo.value = arr.find((item) => item.name === "Стоимость, ₽").value.to;
+    const costFilter = choiceFilterForm.querySelector(".choice__input-block_slider_cost");
+    rangeSliderUpdate(costFilter);
+  }
+
+  if (houseFilter) {
+    houseFilter.innerHTML = arr.find((item) => item.name === "Дом").value;
+    if (houseFilter.innerHTML !== "") {
+      houseFilter.classList.add("select__text_active");
+      houseFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'none';
+    } else {
+      houseFilter.classList.remove("select__text_active");
+      houseFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'block';
+    }
+  }
+
+  if (sectionFilter) {
+    sectionFilter.innerHTML = arr.find((item) => item.name === "Секция").value;
+    if (sectionFilter.innerHTML !== "") {
+      sectionFilter.classList.add("select__text_active");
+      sectionFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'none';
+    } else {
+      sectionFilter.classList.remove("select__text_active");
+      sectionFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'block';
+    }
+  }
+
+  if (deadlineFilter) {
+    deadlineFilter.innerHTML = arr.find((item) => item.name === "Срок сдачи").value;
+    if (deadlineFilter.innerHTML !== "") {
+      deadlineFilter.classList.add("select__text_active");
+      deadlineFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'none';
+    } else {
+      deadlineFilter.classList.remove("select__text_active");
+      deadlineFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'block';
+    }
+  }
+
+  if (floorInputFrom) {
+    floorInputFrom.value = arr.find((item) => item.name === "Этаж").value.from;
+    floorInputTo.value = arr.find((item) => item.name === "Этаж").value.to;
+    const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
+    rangeSliderUpdate(floorFilter);
+  }
+}
+// -------------------------------------- end устанавливаем граничные значения в фильтры: --------------------------------------
+// функция перевода даты в квартал:
+function getQuarter(date) {
+  const quarter = Math.ceil(date.getMonth() / 3);
+  const rim = { 1: "I", 2: "II", 3: "III", 4: "IV" };
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  // console.log("getQuarter", `${rim[quarter]} квартал ${year}`);
+  return `${rim[quarter]} квартал ${year}`;
+}
+
+// начальные параметры вывода квартир
+let limit = 12;
+let offset = 0;
+let filtredApartList = [];
+
+// функция вывода дополнительных квартир
+function getNewItems(filtredApartList) {
+  console.log("getNewItems");
+  let copyArr = [...filtredApartList];
+  offset = offset + limit;
+  limit = 8;
+
+  console.log("limit", limit);
+  console.log("offset", offset);
+
+  copyArr = [...copyArr].splice(offset, limit);
+
+  copyArr.forEach((item) => {
+    list.append(getli(item));
+  });
+
+  if (filtredApartList.length <= offset + limit) {
+    addApartBtn.style.display = "none";
+  } else {
+    addApartBtn.style.display = "block";
+  }
+}
+
+// кнопка показа дополнительных квартир
+const addApartBtn = document.getElementById("addApartrs");
+if (addApartBtn) {
+  addApartBtn.addEventListener("click", function () {
+    getNewItems(filtredApartList);
+  });
+}
+
+// первичный рендеринг квартир:
+const list = document.querySelector(".apartments__list");
+if (list) {
+  apartRender(allAparstInfo);
+}
+
+// очищаем локальное хранилище если находимся на главной странице:
+if (window.location.pathname === "/") {
+  localStorage.removeItem("filter");
+}
+
+// ------------------------------------------ start функция рендеринга квартир: --------------------------------------
+function apartRender(arr) {
+  limit = 12;
+  offset = 0;
+
+  list.innerHTML = "";
+  let copyList = [...arr]; // создаем копию массива
+  // console.log(copyList);
+
+  console.log("render");
+
+  if (choiceFilterForm) {
+    // если есть форма c фильтрами
+    // console.log(choiceForm);
+
+    // // проверяем наличие филтров в локальном хранилище:
+    // if (localStorage.getItem('filter')) {
+    //   console.log(localStorage.getItem('filter'));
+    // const filterArr = [];
+    // filterArr.push(...JSON.parse(localStorage.getItem("filter")));
+    // } else {
+    // }
+    const filterArr = getFilters();
+
+    // Фильтрация таблицы:
+    if (filterArr.find((item) => item.name === "Проект")) {
+      const projectFilter = filterArr.find(
+        (item) => item.name === "Проект"
+      ).value;
+      if (projectFilter && projectFilter !== "Все") {
+        copyList = filterTable(projectFilter, "project_name", copyList);
+      }
+    }
+
+    if (filterArr.find((item) => item.name === "Комнат")) {
+      const roomFilter = filterArr.find((item) => item.name === "Комнат").value;
+      if (roomFilter.length) {
+        copyList = filterTableArr(roomFilter, "rooms", copyList);
+      }
+    }
+
+    if (filterArr.find((item) => item.name === "Дом")) {
+      const houseFilter = filterArr.find((item) => item.name === "Дом").value;
+      if (houseFilter && houseFilter !== "Все") {
+        copyList = filterTable(houseFilter, "house_title", copyList);
+      }
+    }
+
+    if (filterArr.find((item) => item.name === "Секция")) {
+      const sectionFilter = filterArr.find(
+        (item) => item.name === "Секция"
+      ).value;
+      if (sectionFilter && sectionFilter !== "Все") {
+        copyList = filterTable(sectionFilter, "section", copyList);
+      }
+    }
+
+    if (filterArr.find((item) => item.name === "Срок сдачи")) {
+      const deadlineFilter = filterArr.find(
+        (item) => item.name === "Срок сдачи"
+      ).value;
+      if (deadlineFilter && deadlineFilter !== "Все") {
+        copyList = filterTableDate(
+          deadlineFilter,
+          "house_building_end",
+          copyList
+        );
+      }
+    }
+
+    if (filterArr.find((item) => item.name === "Этаж")) {
+      const floorFilter = filterArr.find((item) => item.name === "Этаж").value;
+      if (floorFilter.from || floorFilter.to) {
+        copyList = filterTableSlider(floorFilter, "floor", copyList);
+      }
+    }
+
+    if (filterArr.find((item) => item.name === "Стоимость, ₽")) {
+      const priceFilter = filterArr.find(
+        (item) => item.name === "Стоимость, ₽"
+      ).value;
+      if (priceFilter.from || priceFilter.to) {
+        copyList = filterTableSlider(priceFilter, "price", copyList);
+      }
+    }
+
+    if (filterArr.find((item) => item.name === "Площадь, м2")) {
+      const squareFilter = filterArr.find(
+        (item) => item.name === "Площадь, м2"
+      ).value;
+      if (squareFilter.from || squareFilter.to) {
+        copyList = filterTableSlider(squareFilter, "square", copyList);
+      }
+    }
+
+    console.log("copyList", copyList);
+    // console.log('difference ',  allAparstInfo.filter(item => !copyList.includes(item)));
+
+    const choiceSearchText = document.querySelector(".choice__search-text");
+    if (choiceSearchText) {
+      choiceSearchText.textContent = `Найдено ${copyList.length} квартир`;
+    }
+  }
+
+  filtredApartList = [...copyList];
+  // getSliderValues(copyList);
+
+  copyList = [...copyList].splice(offset, limit);
+  // console.log('copyList', copyList);
+
+  // console.log('limit', limit);
+  // console.log('offset', offset);
+  const addApartBtn = document.getElementById("addApartrs");
+  if (addApartBtn) {
+    if (filtredApartList.length <= offset + limit) {
+      addApartBtn.style.display = "none";
+    } else {
+      addApartBtn.style.display = "block";
+    }
+  }
+
+  copyList.forEach((item) => {
+    list.append(getli(item));
+  });
+}
+// ----------------------------------------- end функция рендеринга квартир: -------------------------------------
+
+// ----------------------------------------- start функциb фильтрации массива квартир: --------------------------------------
+function filterTableArr(filter, param, arr) {
+  // console.log(param);
+  return arr.filter((item) => filter.indexOf(String(item[param])) !== -1);
+}
+
+function filterTable(filter, param, arr) {
+  // console.log(param);
+  return arr.filter((item) => item[param] == filter);
+}
+
+function filterTableDate(filter, param, arr) {
+  return arr.filter((item) => getQuarter(new Date(item[param])) == filter);
+}
+
+function filterTableSlider(filter, param, arr) {
+  return arr.filter(
+    (item) => item[param] >= filter["from"] && item[param] <= filter["to"]
+  );
+
+  // return arr.filter(function(item) {
+  //   console.log(item[param]);
+  //   console.log(filter['to']);
+  //   return Math.round(item[param]) == Math.round(filter['to']);
+  // });
+}
+// ----------------------------------------- end функциb фильтрации массива квартир: --------------------------------------
+
+// ----------------------------------------- start заполнение фильтров: --------------------------------------
+if (choiceFilterForm) {
+  // если есть форма c фильтрами
+  const houseSelect = choiceFilterForm.querySelector(
+    ".choice__input-block_select_house .select__list"
+  );
+  const sectionSelect = choiceFilterForm.querySelector(
+    ".choice__input-block_select_section .select__list"
+  );
+  const projectSelect = choiceFilterForm.querySelector(
+    ".choice__input-block_select_project .select__list"
+  );
+  const deadlineSelect = choiceFilterForm.querySelector(
+    ".choice__input-block_select_date .select__list"
+  );
+  const roomsSelect = choiceFilterForm.querySelector(
+    ".choice__input-block_buttons_rooms .choice__buttons-select"
+  );
+  // const squareSlider = choiceFilterForm.querySelector(".choice__slider-select_square");
+  // const costSlider = choiceFilterForm.querySelector(".choice__slider-select_cost");
+  // const floorSlider = choiceFilterForm.querySelector(".choice__slider-select_floor");
+  // const floorSelect = choiceFilterForm.querySelector(".choice__input-block_select_floor .select__list");
+  // const priceSelect = choiceFilterForm.querySelector(".choice__input-block_select_price .select__list");
+  // const squareSelect = choiceFilterForm.querySelector(".choice__input-block_select_square .select__list");
+  // const filterArr = getFilters("reset");
+  // console.log('houseSelect', houseSelect);
+  // console.log('sectionSelect', sectionSelect);
+  // console.log('projectSelect', projectSelect);
+  // console.log('deadlineSelect', deadlineSelect);
+  // console.log('roomsSelect', roomsSelect);
+  // console.log('squareSlider', squareSlider);
+  // console.log('costSlider', costSlider);
+  // console.log('floorSlider', floorSlider);
+  // console.log(filterArr);
+
+  function setSelect(select, arr) {
+    arr.forEach((item) => {
+      select.append(new Option(item, item));
+    });
+  }
+
+  // получаем граничные значения слайдеров из Api:
+  // getSliderValues(allAparstInfo);
+
+  // TODO написать функцию создания селектов для фильтров:
+
+  // TODO написать функцию активных кнопок для кнопочного фильтра:
+
+  // TODO запрограммировать адаптив филтров.
+
+  // TODO подключить гитхаб
+}
+
+// // функция инициализации рэндж слайдеров:
+// function getSliderValues(arr) {
+//   console.log(arr);
+//   const squareSlider = choiceFilterForm.querySelector(
+//     ".choice__slider-select_square"
+//   );
+//   const costSlider = choiceFilterForm.querySelector(
+//     ".choice__slider-select_cost"
+//   );
+//   const floorSlider = choiceFilterForm.querySelector(
+//     ".choice__slider-select_floor"
+//   );
+
+//   let priceRange = [];
+//   let squareRange = [];
+//   let floorRange = [];
+//   arr.forEach((item) => {
+//     priceRange.push(item.price);
+//     squareRange.push(item.square);
+//     floorRange.push(item.floor);
+//   });
+
+//   if (costSlider) {
+//     let minFilterCost = Math.min(...priceRange);
+//     let maxFilterCost = Math.max(...priceRange) + 10000;
+//     rangeSliderInit(costSlider, 10000, minFilterCost, maxFilterCost);
+//   }
+
+//   if (squareSlider) {
+//     let minFilterSquare = Math.floor(Math.min(...squareRange));
+//     let maxFilterSquare = Math.ceil(Math.max(...squareRange));
+//     rangeSliderInit(squareSlider, 1, minFilterSquare, maxFilterSquare);
+//   }
+
+//   if (floorSlider) {
+//     let minFilterFloor = Math.min(...floorRange);
+//     let maxFilterFloor = Math.max(...floorRange);
+//     rangeSliderInit(floorSlider, 0, minFilterFloor, maxFilterFloor);
+//   }
+// }
+
+// console.log(allAparstInfo.filter((item) => Math.round(item.price) === Math.round(6250000)));
+
+// ----------------------------------------- end заполнение фильтров: --------------------------------------
+
+//   let copyArr = [...allAparstInfo].splice(offset, limit);
+//   apartRender(copyArr);
+
+// copyArr.forEach((item) => {
+// const classes = [
+//   "apartments__item",
+//   "swiper-slide",
+// ]
+// });
+
+// получаем информацию о квартирах в обьектах строительствах:
+// формируем массивы информации о домах и квартирах:
+// allHouseArr.forEach(item => {
+// })
+
+// async function processArray(array) {
+//   for (const item of array) {
+//     console.log("item.house_id", item.house_id);
+//     const houseInfo = await getRealty(item.house_id);
+//     allAparstInfo.push(houseInfo);
+//   }
+// }
+
+// await processArray(allHouseArr);
+
+// console.log("allAparstInfo", allAparstInfo);
+// console.log('item', allAparstInfo);
+
+// const houseArr = [];
+// allAparstInfo.forEach(item => {
+//   // houseArr.push(item[1]);
+// })
+
+// console.log('houseArr', houseArr);
+
+// idHouseArr.forEach(item => {
+// })
+
+// запрос информации о квартирах:
+
+// -------------------------------------------- start вывод квартир: ---------------------------------------------
+
+// const btn = document.getElementById("addApartrs");
+// console.log(btn);
+
+// let limit = 8;
+// let offset = 0;
+
+// if (btn) {
+//   btn.addEventListener("click", getNewItems);
+// }
+
+// function getNewItems() {
+//   offset = offset + limit;
+//   getItems(limit, offset);
+// }
+
+// let allApart = [];
+
+// async function getItems(limit = 8, offset = 0) {
+//   let query = `SELECT * FROM apartments ORDER BY area ASC LIMIT ${limit} OFFSET ${offset}`;
+
+//   let response = await fetch("/backend/items.php", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json;charset=utf-8",
+//     },
+//     body: JSON.stringify(query),
+//   });
+
+//   if (response.ok) {
+//     let result = await response.json();
+//     apartrender(result);
+//     // allApart.push(...result);
+//     // console.log(result);
+//     // form.reset();
+//     // popupOpen(document.getElementById("success"));
+//     // form.classList.remove("_sending");
+//   } else {
+//     // popupOpen(document.getElementById("error"));
+//     // form.classList.remove("_sending");
+//   }
+// }
+
+// const list = document.querySelector(".apartments__list");
+// if (list) {
+//   getItems();
+// }
+
+// function apartrender(arr) {
+//   const list = document.querySelector(".apartments__list");
+
+//   arr.forEach((item) => {
+//     // console.log(item);
+//     const li = document.createElement("li");
+//     li.classList.add("apartments__item");
+
+//     li.innerHTML = `
+//       <li class="apartments__item">
+//       <a class="apartments__item-link" href="/pages/apartments-item/?id=${
+//         item.id
+//       }">
+//         <h5 class="apartments__item-title">
+//           ${item.complex} | ГП  ${item.house} | ${
+//       item.stage
+//     } этаж
+//         </h5>
+//         <div class="apartments__item-img">
+//             <img src="/assets/img/${item.image}" alt="планировка квартиры">
+//         </div>
+
+//         <p class="apartments__item-desc">
+//           ${item.number_of_rooms}-комнатная ${item.area}м<sup>2</sup>
+//         </p>
+
+//         <div class="apartments__item-price-wrap">
+//           <p class="apartments__item-new-price">
+//             ${(item.price * 1)
+//               .toString()
+//               .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽
+//           </p>
+//           <p class="apartments__item-old-price">
+//           ${(item.price * 1.2)
+//             .toString()
+//             .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽
+//           </p>
+//         </div>
+
+//         <ul class="apartments__item-footer">
+//           <li class="apartments__item-footer-item">
+//             <p class="apartments__item-footer-item-text">
+//               Акция
+//             </p>
+//             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+//               <rect x="0.5" y="0.5" width="18" height="18" rx="9" stroke="#56693E" />
+//               <path
+//                 d="M8.41903 11.8409V11.7855C8.42519 11.1977 8.48674 10.7299 8.60369 10.3821C8.72064 10.0343 8.88684 9.75272 9.10227 9.53729C9.31771 9.32185 9.57623 9.12334 9.87784 8.94176C10.0594 8.83097 10.2225 8.70017 10.3672 8.54936C10.5118 8.39548 10.6257 8.21851 10.7088 8.01847C10.795 7.81842 10.8381 7.59683 10.8381 7.35369C10.8381 7.05208 10.7673 6.79048 10.6257 6.56889C10.4841 6.3473 10.2949 6.17649 10.0579 6.05646C9.8209 5.93643 9.55777 5.87642 9.26847 5.87642C9.0161 5.87642 8.77296 5.92874 8.53906 6.03338C8.30516 6.13802 8.10973 6.30268 7.95277 6.52734C7.79581 6.75201 7.70502 7.04593 7.6804 7.40909H6.51705C6.54167 6.88589 6.67708 6.43809 6.9233 6.0657C7.17259 5.6933 7.50036 5.40862 7.90661 5.21165C8.31593 5.01468 8.76989 4.91619 9.26847 4.91619C9.81013 4.91619 10.281 5.02391 10.6811 5.23935C11.0843 5.45478 11.3951 5.75024 11.6136 6.12571C11.8352 6.50118 11.946 6.92898 11.946 7.40909C11.946 7.74763 11.8937 8.05386 11.7891 8.32777C11.6875 8.60168 11.5398 8.84635 11.3459 9.06179C11.1551 9.27723 10.9242 9.46804 10.6534 9.63423C10.3826 9.8035 10.1656 9.98201 10.0025 10.1697C9.83937 10.3544 9.72088 10.5745 9.64702 10.8299C9.57315 11.0853 9.53314 11.4039 9.52699 11.7855V11.8409H8.41903ZM9.00994 14.5739C8.7822 14.5739 8.58677 14.4923 8.42365 14.3292C8.26054 14.1661 8.17898 13.9706 8.17898 13.7429C8.17898 13.5152 8.26054 13.3197 8.42365 13.1566C8.58677 12.9935 8.7822 12.9119 9.00994 12.9119C9.23769 12.9119 9.43312 12.9935 9.59624 13.1566C9.75935 13.3197 9.84091 13.5152 9.84091 13.7429C9.84091 13.8937 9.80244 14.0322 9.7255 14.1584C9.65163 14.2846 9.55161 14.3861 9.42543 14.4631C9.30232 14.5369 9.16383 14.5739 9.00994 14.5739Z"
+//                 fill="#56693E" />
+//             </svg>
+//           </li>
+
+//           <!-- <li class="apartments__item-footer-item">
+//           <p class="apartments__item-footer-item-text">
+//             Ключи сегодня
+//           </p>
+//           <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+//             <rect x="0.5" y="0.5" width="18" height="18" rx="9" stroke="#56693E"/>
+//             <path d="M8.41903 11.8409V11.7855C8.42519 11.1977 8.48674 10.7299 8.60369 10.3821C8.72064 10.0343 8.88684 9.75272 9.10227 9.53729C9.31771 9.32185 9.57623 9.12334 9.87784 8.94176C10.0594 8.83097 10.2225 8.70017 10.3672 8.54936C10.5118 8.39548 10.6257 8.21851 10.7088 8.01847C10.795 7.81842 10.8381 7.59683 10.8381 7.35369C10.8381 7.05208 10.7673 6.79048 10.6257 6.56889C10.4841 6.3473 10.2949 6.17649 10.0579 6.05646C9.8209 5.93643 9.55777 5.87642 9.26847 5.87642C9.0161 5.87642 8.77296 5.92874 8.53906 6.03338C8.30516 6.13802 8.10973 6.30268 7.95277 6.52734C7.79581 6.75201 7.70502 7.04593 7.6804 7.40909H6.51705C6.54167 6.88589 6.67708 6.43809 6.9233 6.0657C7.17259 5.6933 7.50036 5.40862 7.90661 5.21165C8.31593 5.01468 8.76989 4.91619 9.26847 4.91619C9.81013 4.91619 10.281 5.02391 10.6811 5.23935C11.0843 5.45478 11.3951 5.75024 11.6136 6.12571C11.8352 6.50118 11.946 6.92898 11.946 7.40909C11.946 7.74763 11.8937 8.05386 11.7891 8.32777C11.6875 8.60168 11.5398 8.84635 11.3459 9.06179C11.1551 9.27723 10.9242 9.46804 10.6534 9.63423C10.3826 9.8035 10.1656 9.98201 10.0025 10.1697C9.83937 10.3544 9.72088 10.5745 9.64702 10.8299C9.57315 11.0853 9.53314 11.4039 9.52699 11.7855V11.8409H8.41903ZM9.00994 14.5739C8.7822 14.5739 8.58677 14.4923 8.42365 14.3292C8.26054 14.1661 8.17898 13.9706 8.17898 13.7429C8.17898 13.5152 8.26054 13.3197 8.42365 13.1566C8.58677 12.9935 8.7822 12.9119 9.00994 12.9119C9.23769 12.9119 9.43312 12.9935 9.59624 13.1566C9.75935 13.3197 9.84091 13.5152 9.84091 13.7429C9.84091 13.8937 9.80244 14.0322 9.7255 14.1584C9.65163 14.2846 9.55161 14.3861 9.42543 14.4631C9.30232 14.5369 9.16383 14.5739 9.00994 14.5739Z" fill="#56693E"/>
+//           </svg>
+//         </li> -->
+
+//           <li class="apartments__item-footer-item">
+//             <p class="apartments__item-footer-item-text">
+//               Окна на 2 стороны
+//             </p>
+//           </li>
+
+//           <!-- <li class="apartments__item-footer-item">
+//           <p class="apartments__item-footer-item-text">
+//             Гостевой санузел
+//           </p>
+//         </li> -->
+
+//           <li class="apartments__item-footer-item">
+//             <p class="apartments__item-footer-item-text">
+//               Кухня-гостинная
+//             </p>
+//           </li>
+//         </ul>
+//       </a>
+//     </li>
+//     `;
+
+//     list.append(li);
+//   });
+// }
+// ------------------------- end вывод квартир: ---------------------------
+// ---------------------------------- start отправка и валидация формы ----------------------------------
+
+const formAll = document.querySelectorAll(".main-form");
+
+if (formAll) {
+  formAll.forEach((form) => {
+    form.addEventListener("submit", sendForm);
+
+    async function sendForm(e) {
+      e.preventDefault();
+
+      let errore = formvalidation(form);
+
+      if (errore === 0) {
+        form.classList.add("_sending");
+        let formData = new FormData(form);
+
+        let response = await fetch("files/post-mail.php", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          let result = await response.json();
+          form.reset();
+          popupOpen(document.getElementById("success"));
+          form.classList.remove("_sending");
+        } else {
+          popupOpen(document.getElementById("error"));
+          form.classList.remove("_sending");
+        }
+      } else {
+        alert("Заполните обязательные поля");
+      }
+    }
+  });
+
+  function formvalidation(item) {
+    let error = 0;
+    let formReq = item.querySelectorAll("._req");
+
+    for (let index = 0; index < formReq.length; index++) {
+      const input = formReq[index];
+
+      formRemoveError(input);
+
+      if (input.classList.contains("_email")) {
+        if (emailTest(input)) {
+          formAddError(input);
+          error++;
+        }
+      } else if (
+        input.getAttribute("type") === "checkbox" &&
+        input.checked === false
+      ) {
+        formAddError(input);
+        error++;
+      } else {
+        if (input.value === "") {
+          formAddError(input);
+          error++;
+        }
+      }
+    }
+    return error;
+  }
+
+  function formAddError(input) {
+    input.parentElement.classList.add("_error");
+    input.classList.add("_error");
+  }
+
+  function formRemoveError(input) {
+    input.parentElement.classList.remove("_error");
+    input.classList.remove("_error");
+  }
+
+  function emailTest(input) {
+    return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+  }
+}
+
+// ---------------------------------- end отправка и валидация формы ----------------------------------
+// --------------------------------------- start FILTERS: ----------------------------------------
+// const form = document.querySelector("[data-form]");
+// if (form) {
+//   form.addEventListener("click", (e) => {
+//     getFilters();
+//   });
+// }
+
+const choiceTitle = document.querySelector(".choice__title");
+// console.log(choiceTitle);
+if (choiceTitle) {
+  // const form = document.querySelector("[data-form]");
+  choiceTitle.addEventListener("click", (e) => {
+    console.log("тест");
+    // getFilters();
+    // const debouncedDoSomething  = debounce(apartRender, 1000);
+    // debouncedDoSomething (allAparstInfo);
+    // filterAparts()
+  });
+}
+
+const resetFiltersBtn = document.querySelector(".choice__btn-reset");
+if (resetFiltersBtn) {
+  resetFiltersBtn.addEventListener("click", (e) => {
+    // getFilters("reset");
+    setNowFilters();
+    apartRender(allAparstInfo);
+    // getSliderValues(allAparstInfo);
+  });
+}
+
+// TODO вывод количества квартир
+
+/* <p class="choice__search-text">
+Найдено 20 квартир
+</p> */
+
+function getFilters() {
+  const filterArr = [];
+  const filters = document.querySelectorAll(".choice__input-block");
+  filters.forEach((item) => {
+    const name = item.querySelector(".choice__label").textContent.trim();
+
+    if (item.classList.contains("choice__input-block_select")) {
+      const valueBlock = item.querySelector(".select__text");
+      const value = valueBlock.textContent.trim();
+      const filterObj = {
+        name: name,
+        value: value,
+      };
+      // if (param == "reset") {
+      //   filterObj.value = "";
+      //   valueBlock.textContent = "Все";
+      // }
+      filterArr.push(filterObj);
+      // console.log(name, value);
+    }
+
+    if (item.classList.contains("choice__input-block_buttons")) {
+      const valueBtns = item.querySelectorAll(
+        ".choice__buttons-select-item_active"
+      );
+      const value = [];
+      valueBtns.forEach((item) => {
+        value.push(item.getAttribute("data-id"));
+      });
+      const filterObj = {
+        name: name,
+        value: value,
+      };
+      // if (param == "reset") {
+      //   filterObj.value = [];
+      //   valueBtns.forEach((item) => {
+      //     item.classList.remove("choice__buttons-select-item_active");
+      //   });
+      // }
+      filterArr.push(filterObj);
+      // console.log(name, value);
+    }
+
+    if (item.classList.contains("choice__input-block_slider")) {
+      const valueTo = item.querySelector(".select__input_to").value;
+      const valueFrom = item.querySelector(".select__input_from").value;
+      const value = {
+        from: valueFrom,
+        to: valueTo,
+      };
+
+      // if (param == "reset") {
+      //   value.from = "";
+      //   value.to = "";
+
+      //   // getSliderValues(allAparstInfo);
+      // }
+
+      const filterObj = {
+        name: name,
+        value: value,
+      };
+      filterArr.push(filterObj);
+      // console.log(name, value);
+    }
+  });
+  const btns = document.querySelectorAll(".choice__btn-filter_active");
+  if (btns) {
+    const value = [];
+    btns.forEach((item) => {
+      value.push(item.getAttribute("data-id"));
+    });
+    const filterObj = {
+      name: "btns",
+      value: value,
+    };
+    // if (param === "reset") {
+    //   filterObj.value = [];
+    // }
+    filterArr.push(filterObj);
+  }
+  console.log(filterArr);
+
+  // запишем фильр в локальное хранилище:
+  localStorage.setItem("filter", JSON.stringify(filterArr));
+
+  return filterArr;
+}
+
+// function filterAparts() {
+//   list.innerHTML = "";
+//   let copyArr = [...allAparstInfo];
+
+//   const filterArr = getFilters();
+
+//   if (filterArr.find((item) => item.name === "Комнат").value) {
+//     let kv = filterArr.find((item) => item.name === "Комнат").value;
+//     // console.log(item.rooms);
+//     // console.log(copyArr.filter((item) => item.rooms ));
+//     copyArr = copyArr.filter((item) => kv.indexOf(String(item.rooms)) !== -1);
+//     // copyArr = copyArr.filter(function(item) {
+//     //   return kv.indexOf(String(item.rooms)) !== -1;
+//     // });
+//   }
+//   console.log(copyArr);
+//   // let copyArr = [...copyArr].splice(offset, limit);
+
+//   apartRender(copyArr);
+// }
+
+// далее отправляем запрос на сервер и выбираем по фильтру квартиры,
+// рендерим квартиры на странице
+// заменяем текущий запрос на рендеринг
+
+// ------------------------- end FILTERS: ---------------------------
+// ------------------------- start WEBP: ---------------------------
 
 function testWebP(callback) {
   let webP = new Image();
@@ -12,10 +1372,13 @@ testWebP(function (support) {
   document.documentElement.classList.add(className);
 });
 
+// ------------------------- end WEBP: ---------------------------
+// ------------------------- start FANCYBOX: ---------------------------
 const body = document.querySelector("body");
 Fancybox.bind("[data-fancybox]", {
   // Your custom options
 });
+// ------------------------- end FANCYBOX: ---------------------------
 
 const projectMapBtn = document.querySelector(".project-page__button_map");
 if (projectMapBtn) {
@@ -34,13 +1397,17 @@ if (apartmentsPage) {
 
   const choiceTop = apartmentsPage.querySelector(".choice__inputs-list_top");
   const choiceBot = apartmentsPage.querySelector(".choice__inputs-list_bot");
+  const section__apartments = apartmentsPage.querySelector(
+    ".section__apartments"
+  );
+  const height = choice.getBoundingClientRect().height;
 
   // const el = Array.from(choiceBot.children)[3];
   const el = apartmentsPage
     .querySelector(".choice__inputs-list_bot")
     .querySelector(".choice__input-block_slider_floor"); //
-  console.log(el);
-  console.log(window.scrollY);
+  // console.log(el);
+  // console.log(window.scrollY);
 
   if (window.innerWidth >= 1512) {
     if (window.scrollY > 500) {
@@ -49,14 +1416,15 @@ if (apartmentsPage) {
     }
 
     window.addEventListener("scroll", () => {
-      console.log("scroll");
       if (window.scrollY > 500) {
         choiceTop.append(el);
         choice.classList.add("choice_fixed");
+        section__apartments.style.marginTop = height + "px";
       } else {
         // choiceTop.prepend(el);
         choiceBot.append(el);
         choice.classList.remove("choice_fixed");
+        section__apartments.style.marginTop = "0px";
       }
     });
   }
@@ -317,7 +1685,7 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
 
   // обработка событий текстовых инпутов:
   priceInputs.forEach((input) => {
-    input.addEventListener("input", (e) => {
+    input.addEventListener("change", (e) => {
       //получаем значения из текстовых инпутов:
       let minVal = parseInt(textInputMin.value);
       let maxVal = parseInt(textInputMax.value);
@@ -362,15 +1730,34 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
           ((minVal - minRange) * 100) / (maxRange - minRange)
         }%`;
       }
+      // apartRender = debounce(apartRender, 1000);
+      apartRender(allAparstInfo);
     });
   });
 
   rangeInputs.forEach((input) => {
+    // сброс ползунков при инициализации:
+    let minVal = parseInt(rangeInputMin.value);
+    let maxVal = parseInt(rangeInputMax.value);
+    let diff = maxVal - minVal;
+    // вычисляем положение рендж инпутов:
+    if (diff >= gap) {
+      textInputMin.value = minVal;
+      textInputMax.value = maxVal;
+      rangeSlider.style.right = `${
+        100 - ((maxVal - minRange) * 100) / (maxRange - minRange)
+      }%`;
+      rangeSlider.style.left = `${
+        ((minVal - minRange) * 100) / (maxRange - minRange)
+      }%`;
+    }
+
+    // изменение положения ползунков при перетаскивании:
     input.addEventListener("input", (e) => {
-      //получаем значения из текстовых инпутов:
       let minVal = parseInt(rangeInputMin.value);
       let maxVal = parseInt(rangeInputMax.value);
       let diff = maxVal - minVal;
+      //получаем значения из текстовых инпутов:
 
       // ограничиваем значение min инпута:
       if (minVal < minRange) {
@@ -411,24 +1798,118 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
           ((minVal - minRange) * 100) / (maxRange - minRange)
         }%`;
       }
+
+      // setTimeout(() => {
+      //   apartRender(allAparstInfo);
+      // }, 500);
+      // })
+
+      // debounce(apartRender(allAparstInfo), 1000);
+      // apartRender = debounce(apartRender, 1000);
+    });
+
+    input.addEventListener("change", (e) => {
+      apartRender(allAparstInfo);
     });
   });
 }
 
-const squareSlider = document.querySelector(".choice__slider-select_square");
-if (squareSlider) {
-  rangeSliderInit(squareSlider, 1, 26, 81);
+function rangeSliderUpdate(slider) {
+
+  // ползунок:
+  const rangeSlider = slider.querySelector(".range-slider");
+
+  // текстовые инпуты:
+  const textInputMin = slider.querySelector(".select__input_from");
+  const textInputMax = slider.querySelector(".select__input_to");
+
+  // рендж инпуты:  
+  const rangeInputMin = slider.querySelector(".min-range");
+  const rangeInputMax = slider.querySelector(".max-range");
+
+  let minVal = textInputMin.value;
+  let maxVal = textInputMax.value;
+  let minRange = textInputMin.min;
+  let maxRange = textInputMax.max;
+
+  // присваиваем значения инпутам:
+  rangeInputMin.value = textInputMin.value;
+  rangeInputMax.value = textInputMax.value;
+
+  // вычисляем положение рендж инпутов:
+  rangeSlider.style.right = `${
+    100 - ((maxVal - minRange) * 100) / (maxRange - minRange)
+  }%`;
+  rangeSlider.style.left = `${
+    ((minVal - minRange) * 100) / (maxRange - minRange)
+  }%`;
+
 }
 
-const costSlider = document.querySelector(".choice__slider-select_cost");
-if (costSlider) {
-  rangeSliderInit(costSlider, 1, 2300000, 7000000);
-}
+// TODO можно выбирать из текущего массива для рендеринга крайние значений для ползунков и других фильтров
 
-const floorSlider = document.querySelector(".choice__slider-select_floor");
-if (floorSlider) {
-  rangeSliderInit(floorSlider, 1, 1, 4);
-}
+// const debounce = (fn, ms) => {
+//   let timeout;
+//   return function () {
+//     const fnCall = () => { fn.apply(this, arguments) }
+//     clearTimeout(timeout);
+//     timeout = setTimeout(fnCall, ms)
+//   };
+// }
+
+// function debounce(callee, timeoutMs) {
+//   return function perform(...args) {
+//     let previousCall = this.lastCall
+//     this.lastCall = Date.now()
+
+//     if (previousCall && ((this.lastCall - previousCall) <= timeoutMs)) {
+//       clearTimeout(this.lastCallTimer)
+//     }
+
+//     this.lastCallTimer = setTimeout(() => callee(...args), timeoutMs)
+//   }
+// }
+
+// function debounce(action, timeoutMs) {
+//   console.log("debounce");
+//   let timeoutId;
+//   return function (...args) {
+//     if (timeoutId) {
+//       clearTimeout(timeoutId);
+//     }
+//     timeoutId = setTimeout(() => {
+//       action(...args);
+//     }, timeoutMs);
+//   };
+// }
+
+// function debounce(f, delay){
+//   var lastTimeout;
+//   return function(){
+//     if(lastTimeout){
+//       clearTimeout(lastTimeout);
+//     }
+//     var args = Array.from(arguments);
+//     lastTimeout = setTimeout(function(){
+//       f.apply(null, args);
+//     }, delay);
+//   }
+// }
+
+// const squareSlider = document.querySelector(".choice__slider-select_square");
+// if (squareSlider) {
+//   rangeSliderInit(squareSlider, 1, 26, 81);
+// }
+
+// const costSlider = document.querySelector(".choice__slider-select_cost");
+// if (costSlider) {
+//   rangeSliderInit(costSlider, 1, 2300000, 7000000);
+// }
+
+// const floorSlider = document.querySelector(".choice__slider-select_floor");
+// if (floorSlider) {
+//   rangeSliderInit(floorSlider, 1, 1, 4);
+// }
 
 // -------------------------------------------- end range-slider: ---------------------------------------------
 // -------------------------------------------- start checkbox-lable: ---------------------------------------------
@@ -1826,6 +3307,7 @@ if (choiceForm) {
             // console.log(queryParams);
             selectProject.classList.remove("select_open");
             selectProject.classList.add("select_active");
+            apartRender(allAparstInfo);
           });
         });
       }
@@ -1865,6 +3347,7 @@ if (choiceForm) {
                 item.getAttribute("data-id");
             }
           });
+          apartRender(allAparstInfo);
           // console.log(queryParams);
         });
       });
@@ -2127,10 +3610,12 @@ if (projectPage) {
   const content = projectChoice.querySelector(".choice__container");
   const popup = document.querySelector("#filter");
   // console.log(popup);
-  const button = projectChoice.querySelector(".choice__btn-request_mobile");
+  const filterMobileBtn = projectChoice.querySelector(
+    ".choice__btn-request_mobile"
+  );
 
   // открытие popup и заполнение его формой
-  button.addEventListener("click", () => {
+  filterMobileBtn.addEventListener("click", () => {
     console.log("тест");
     popupOpen(popup);
     bodyLock();
@@ -2712,7 +4197,7 @@ document.addEventListener("click", (event) => {
 // if (previews) {
 //   previews.forEach((item) => {
 //     item.addEventListener("click", function () {
-console.log("тест");
+// console.log("тест");
 //       const imgBox = document.querySelector(".plans__img").querySelector("img");
 //       const img = item.querySelector("img").getAttribute("src");
 //       imgBox.setAttribute("src", img);
@@ -2790,7 +4275,7 @@ function previewPlansRender(arr, key = "Студия") {
   });
 }
 
-previewPlansRender(apartmentsForRender, "Студия");
+// previewPlansRender(apartmentsForRender, "Студия");
 
 function getPreviewPlansItem(obj) {
   const previewList = document.querySelector(".plans__list");
@@ -2841,7 +4326,7 @@ function setInfo() {
   // imgBox.setAttribute("src", img);
   // });
 }
-setInfo();
+// setInfo();
 
 // }
 

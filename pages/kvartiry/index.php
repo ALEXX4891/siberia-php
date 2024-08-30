@@ -22,7 +22,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           Квартиры
         </h1>
 
-        <div class="choice__form" action="#" method="post" enctype="multipart/form-data">
+        <div class="choice__form" action="#" method="post" enctype="multipart/form-data" data-form>
 
           <ul class="choice__inputs-list choice__inputs-list_top">
             <li class="choice__input-block choice__input-block_select choice__input-block_select_project">
@@ -42,10 +42,11 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       stroke-linejoin="round" />
                   </svg>
                 </span>
-                <ul class="select__list select__list_carton">
-                  <li class="select__item" data-id="sosnoviy">Сосновый</li>
-                  <!-- <li class="select__item" data-id="duboviy">Дубовый</li> -->
-                  <!-- <li class="select__item" data-id="berezoviy">Березовый</li> -->
+                <ul class="select__list">
+                  <!-- <li class="select__item">Все</li> -->
+                  <!-- <li class="select__item">Сосновый</li>
+                  <li class="select__item">Дубовый</li>
+                  <li class="select__item">Березовый</li> -->
                 </ul>
               </div>
             </li>
@@ -55,19 +56,19 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 Комнат
               </p>
               <div class="choice__buttons-select select-frame">
-                <button class="choice__buttons-select-item" data-id="studio">
+                <button class="choice__buttons-select-item" data-id="s">
                   Студия
                 </button>
-                <button class="choice__buttons-select-item" data-id="1-k">
+                <button class="choice__buttons-select-item" data-id="1">
                   1
                 </button>
-                <button class="choice__buttons-select-item" data-id="2-k">
+                <button class="choice__buttons-select-item" data-id="2">
                   2
                 </button>
-                <button class="choice__buttons-select-item" data-id="3-k">
+                <button class="choice__buttons-select-item" data-id="3">
                   3
                 </button>
-                <button class="choice__buttons-select-item" data-id="3+">
+                <button class="choice__buttons-select-item" data-id="4">
                   3+
                 </button>
               </div>
@@ -166,10 +167,12 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       stroke-linejoin="round" />
                   </svg>
                 </span>
-                <ul class="select__list select__list_carton">
-                  <li class="select__item" data-id="sosnoviy">Все</li>
-                  <li class="select__item" data-id="duboviy">1</li>
-                  <li class="select__item" data-id="berezoviy">2</li>
+                <ul class="select__list">
+                  <!-- <li class="select__item">Все</li> -->
+                  <!-- <li class="select__item">1</li>
+                  <li class="select__item">2</li>
+                  <li class="select__item">3</li> -->
+
                 </ul>
               </div>
             </li>
@@ -191,13 +194,15 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       stroke-linejoin="round" />
                   </svg>
                 </span>
-                <ul class="select__list select__list_carton">
-                  <li class="select__item" data-id="sosnoviy">Все</li>
-                  <li class="select__item" data-id="duboviy">5</li>
-                  <li class="select__item" data-id="berezoviy">8</li>
+                <ul class="select__list">
+                  <!-- <li class="select__item">Все</li> -->
+                  <!-- <li class="select__item" data-id="duboviy">1</li>
+                  <li class="select__item" data-id="berezoviy">2</li>
+                  <li class="select__item" data-id="berezoviy">3</li> -->
                 </ul>
               </div>
             </li>
+            <!-- TODO Динамическ формировать содержимое фильтров -->
 
             <li class="choice__input-block choice__input-block_select choice__input-block_select_date">
               <p class="choice__label">
@@ -216,11 +221,11 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       stroke-linejoin="round" />
                   </svg>
                 </span>
-                <ul class="select__list select__list_carton">
-                  <li class="select__item" data-id="sosnoviy">Все</li>
-                  <li class="select__item" data-id="sosnoviy">II квартал 2025</li>
+                <ul class="select__list">
+                  <!-- <li class="select__item">Все</li> -->
+                  <!-- <li class="select__item" data-id="sosnoviy">II квартал 2025</li>
                   <li class="select__item" data-id="sosnoviy">II квартал 2026</li>
-                  <li class="select__item" data-id="sosnoviy">II квартал 2027</li>
+                  <li class="select__item" data-id="sosnoviy">IV квартал 2025</li> -->
 
                   <!-- <li class="select__item" data-id="duboviy">Дубовый</li> -->
                   <!-- <li class="select__item" data-id="berezoviy">Березовый</li> -->
@@ -266,7 +271,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </li>
           </ul>
 
-          <div class="choice__btns-block">
+          <div class="choice__btns-block" style="display: none;">
             <p class="choice__btns-block-title">
               Особенности
             </p>
@@ -316,18 +321,18 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <div class="choice__reset-wrap">
 
             <button class="choice__btn-additional">
-              <a class="choice__btn-text" href="/pages/kvartiry/">
+              <p class="choice__btn-text">
                 Еще параметры
-              </a>
+              </p>
               <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L7.2069 7L13 1" stroke="#363636" stroke-linejoin="round" />
               </svg>
             </button>
 
-            <button class="choice__btn-reset" href="#popup-form">
-              <a class="choice__btn-text" href="/pages/kvartiry/">
+            <button class="choice__btn-reset">
+              <p class="choice__btn-text">
                 Сбросить фильтры
-              </a>
+              </p>
               <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 0.5L15 14.5M1 14.5L15 0.5" stroke="black" />
               </svg>
@@ -350,94 +355,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
     <section class="section section__apartments apartments">
       <div class="container apartments__container">
         <ul class="apartments__list">
-        <?
-            $result = mysqli_query($db, "SELECT * FROM apartments");
-            $row = mysqli_fetch_array($result);
-
-            // if ($row == '') {
-            //   echo 'Ничего не нашлось';
-            // }
-
-            // echo '<pre>';
-            // print_r($row);
-            // echo '</pre>';
-
-            // Сосновый | ГП 8 | 1 / 2 этаж
-
-            if (mysqli_num_rows($result) > 0) {
-              do {
-                echo '
-                <li class="apartments__item">
-                <a class="apartments__item-link" href="/pages/apartments-item/?id=' . $row['id'] . '">
-                  <h5 class="apartments__item-title">
-                    ' . $row['complex'] . ' | ГП ' . $row['house'] . ' | ' . $row['stage'] . ' этаж' . '                    
-                  </h5>
-                  <div class="apartments__item-img">
-                      <img src="/assets/img/' . $row['image'] . '" alt="планировка квартиры">
-                  </div>
-    
-                  <p class="apartments__item-desc">
-                    ' . $row['number_of_rooms'] . '-комнатная ' . $row['area'] . 'м2
-                  </p>
-    
-                  <div class="apartments__item-price-wrap">
-                    <p class="apartments__item-new-price">
-                      ' . number_format($row['price'], 0, '', ' ') . ' ₽
-                    </p>
-                    <p class="apartments__item-old-price">
-                    ' . number_format($row['price'] * 1.2, 0, '', ' ') . ' ₽
-                    </p>
-                  </div>
-    
-                  <ul class="apartments__item-footer">
-                    <li class="apartments__item-footer-item">
-                      <p class="apartments__item-footer-item-text">
-                        Акция
-                      </p>
-                      <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="0.5" y="0.5" width="18" height="18" rx="9" stroke="#56693E" />
-                        <path
-                          d="M8.41903 11.8409V11.7855C8.42519 11.1977 8.48674 10.7299 8.60369 10.3821C8.72064 10.0343 8.88684 9.75272 9.10227 9.53729C9.31771 9.32185 9.57623 9.12334 9.87784 8.94176C10.0594 8.83097 10.2225 8.70017 10.3672 8.54936C10.5118 8.39548 10.6257 8.21851 10.7088 8.01847C10.795 7.81842 10.8381 7.59683 10.8381 7.35369C10.8381 7.05208 10.7673 6.79048 10.6257 6.56889C10.4841 6.3473 10.2949 6.17649 10.0579 6.05646C9.8209 5.93643 9.55777 5.87642 9.26847 5.87642C9.0161 5.87642 8.77296 5.92874 8.53906 6.03338C8.30516 6.13802 8.10973 6.30268 7.95277 6.52734C7.79581 6.75201 7.70502 7.04593 7.6804 7.40909H6.51705C6.54167 6.88589 6.67708 6.43809 6.9233 6.0657C7.17259 5.6933 7.50036 5.40862 7.90661 5.21165C8.31593 5.01468 8.76989 4.91619 9.26847 4.91619C9.81013 4.91619 10.281 5.02391 10.6811 5.23935C11.0843 5.45478 11.3951 5.75024 11.6136 6.12571C11.8352 6.50118 11.946 6.92898 11.946 7.40909C11.946 7.74763 11.8937 8.05386 11.7891 8.32777C11.6875 8.60168 11.5398 8.84635 11.3459 9.06179C11.1551 9.27723 10.9242 9.46804 10.6534 9.63423C10.3826 9.8035 10.1656 9.98201 10.0025 10.1697C9.83937 10.3544 9.72088 10.5745 9.64702 10.8299C9.57315 11.0853 9.53314 11.4039 9.52699 11.7855V11.8409H8.41903ZM9.00994 14.5739C8.7822 14.5739 8.58677 14.4923 8.42365 14.3292C8.26054 14.1661 8.17898 13.9706 8.17898 13.7429C8.17898 13.5152 8.26054 13.3197 8.42365 13.1566C8.58677 12.9935 8.7822 12.9119 9.00994 12.9119C9.23769 12.9119 9.43312 12.9935 9.59624 13.1566C9.75935 13.3197 9.84091 13.5152 9.84091 13.7429C9.84091 13.8937 9.80244 14.0322 9.7255 14.1584C9.65163 14.2846 9.55161 14.3861 9.42543 14.4631C9.30232 14.5369 9.16383 14.5739 9.00994 14.5739Z"
-                          fill="#56693E" />
-                      </svg>
-                    </li>
-    
-                    <!-- <li class="apartments__item-footer-item">
-                    <p class="apartments__item-footer-item-text">
-                      Ключи сегодня
-                    </p>
-                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="0.5" y="0.5" width="18" height="18" rx="9" stroke="#56693E"/>
-                      <path d="M8.41903 11.8409V11.7855C8.42519 11.1977 8.48674 10.7299 8.60369 10.3821C8.72064 10.0343 8.88684 9.75272 9.10227 9.53729C9.31771 9.32185 9.57623 9.12334 9.87784 8.94176C10.0594 8.83097 10.2225 8.70017 10.3672 8.54936C10.5118 8.39548 10.6257 8.21851 10.7088 8.01847C10.795 7.81842 10.8381 7.59683 10.8381 7.35369C10.8381 7.05208 10.7673 6.79048 10.6257 6.56889C10.4841 6.3473 10.2949 6.17649 10.0579 6.05646C9.8209 5.93643 9.55777 5.87642 9.26847 5.87642C9.0161 5.87642 8.77296 5.92874 8.53906 6.03338C8.30516 6.13802 8.10973 6.30268 7.95277 6.52734C7.79581 6.75201 7.70502 7.04593 7.6804 7.40909H6.51705C6.54167 6.88589 6.67708 6.43809 6.9233 6.0657C7.17259 5.6933 7.50036 5.40862 7.90661 5.21165C8.31593 5.01468 8.76989 4.91619 9.26847 4.91619C9.81013 4.91619 10.281 5.02391 10.6811 5.23935C11.0843 5.45478 11.3951 5.75024 11.6136 6.12571C11.8352 6.50118 11.946 6.92898 11.946 7.40909C11.946 7.74763 11.8937 8.05386 11.7891 8.32777C11.6875 8.60168 11.5398 8.84635 11.3459 9.06179C11.1551 9.27723 10.9242 9.46804 10.6534 9.63423C10.3826 9.8035 10.1656 9.98201 10.0025 10.1697C9.83937 10.3544 9.72088 10.5745 9.64702 10.8299C9.57315 11.0853 9.53314 11.4039 9.52699 11.7855V11.8409H8.41903ZM9.00994 14.5739C8.7822 14.5739 8.58677 14.4923 8.42365 14.3292C8.26054 14.1661 8.17898 13.9706 8.17898 13.7429C8.17898 13.5152 8.26054 13.3197 8.42365 13.1566C8.58677 12.9935 8.7822 12.9119 9.00994 12.9119C9.23769 12.9119 9.43312 12.9935 9.59624 13.1566C9.75935 13.3197 9.84091 13.5152 9.84091 13.7429C9.84091 13.8937 9.80244 14.0322 9.7255 14.1584C9.65163 14.2846 9.55161 14.3861 9.42543 14.4631C9.30232 14.5369 9.16383 14.5739 9.00994 14.5739Z" fill="#56693E"/>
-                    </svg>                  
-                  </li> -->
-    
-                    <li class="apartments__item-footer-item">
-                      <p class="apartments__item-footer-item-text">
-                        Окна на 2 стороны
-                      </p>
-                    </li>
-    
-                    <!-- <li class="apartments__item-footer-item">
-                    <p class="apartments__item-footer-item-text">
-                      Гостевой санузел
-                    </p>                 
-                  </li> -->
-    
-                    <li class="apartments__item-footer-item">
-                      <p class="apartments__item-footer-item-text">
-                        Кухня-гостинная
-                      </p>
-                    </li>
-                  </ul>
-                </a>
-              </li>
-                ';
-              } while ($row = mysqli_fetch_array($result));
-            }
-            ?>
         </ul>
-        <button class="apartments__button btn btn_dark">
+        <button class="apartments__button btn btn_dark" id="addApartrs">
           Показать еще 8 планировок
         </button>
       </div>
@@ -447,34 +366,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
   <?
   include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php';
   ?>
-
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 

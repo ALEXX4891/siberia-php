@@ -1,5 +1,7 @@
 <?
 include $_SERVER["DOCUMENT_ROOT"] . '/backend/db.php';
+include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
+
 ?>
 
 <!DOCTYPE html>

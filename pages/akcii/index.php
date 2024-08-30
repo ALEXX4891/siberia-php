@@ -32,7 +32,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
         <ul class="promo-page__cards-list">
             <?
-            include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
+            // include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
             // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
             $result = mysqli_query($db, "SELECT * FROM events");
 
