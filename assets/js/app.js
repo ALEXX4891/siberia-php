@@ -152,7 +152,7 @@ console.log("allAparstInfo", allAparstInfo);
 
 // -------------------------------------- start функция создания карточки квартиры: --------------------------------------
 function getli(obj) {
-  console.log("obj"); // имя функции
+  console.log("Старт функции  getli"); // имя функции
 
   const li = document.createElement("li"); // создаем li
   const classes = ["apartments__item", "swiper-slide"];
@@ -477,7 +477,7 @@ function setNowFilters(arr) {
     roomsFilter = [
       ...choiceFilterForm.querySelector(
         ".choice__input-block_buttons_rooms .choice__buttons-select"
-      ).children
+      ).children,
     ];
   }
 
@@ -536,14 +536,18 @@ function setNowFilters(arr) {
     if (squareInputFrom) {
       squareInputFrom.value = squareInputFrom.getAttribute("min");
       squareInputTo.value = squareInputTo.getAttribute("max");
-      const squareFilter = choiceFilterForm.querySelector(".choice__input-block_slider_square");
+      const squareFilter = choiceFilterForm.querySelector(
+        ".choice__input-block_slider_square"
+      );
       rangeSliderUpdate(squareFilter);
     }
 
     if (costInputFrom) {
       costInputFrom.value = costInputFrom.getAttribute("min");
       costInputTo.value = costInputTo.getAttribute("max");
-      const costFilter = choiceFilterForm.querySelector(".choice__input-block_slider_cost");
+      const costFilter = choiceFilterForm.querySelector(
+        ".choice__input-block_slider_cost"
+      );
       rangeSliderUpdate(costFilter);
     }
 
@@ -562,11 +566,12 @@ function setNowFilters(arr) {
     if (floorInputFrom) {
       floorInputFrom.value = floorInputFrom.getAttribute("min");
       floorInputTo.value = floorInputTo.getAttribute("max");
-      const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
+      const floorFilter = choiceFilterForm.querySelector(
+        ".choice__input-block_slider_floor"
+      );
       rangeSliderUpdate(floorFilter);
-
     }
-    
+
     return;
   }
 
@@ -585,10 +590,14 @@ function setNowFilters(arr) {
     projectFilter.innerHTML = arr.find((item) => item.name === "Проект").value;
     if (projectFilter.innerHTML !== "") {
       projectFilter.classList.add("select__text_active");
-      projectFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'none';
+      projectFilter
+        .closest(".select__wrapper")
+        .querySelector(".select__placeholder").style.display = "none";
     } else {
       projectFilter.classList.remove("select__text_active");
-      projectFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'block';
+      projectFilter
+        .closest(".select__wrapper")
+        .querySelector(".select__placeholder").style.display = "block";
     }
     // console.log(projectFilter);
     // console.log(projectFilter.innerHTML);
@@ -606,16 +615,28 @@ function setNowFilters(arr) {
   }
 
   if (squareInputFrom) {
-    squareInputFrom.value = arr.find((item) => item.name === "Площадь, м2").value.from;
-    squareInputTo.value = arr.find((item) => item.name === "Площадь, м2").value.to;
-    const squareFilter = choiceFilterForm.querySelector(".choice__input-block_slider_square");
+    squareInputFrom.value = arr.find(
+      (item) => item.name === "Площадь, м2"
+    ).value.from;
+    squareInputTo.value = arr.find(
+      (item) => item.name === "Площадь, м2"
+    ).value.to;
+    const squareFilter = choiceFilterForm.querySelector(
+      ".choice__input-block_slider_square"
+    );
     rangeSliderUpdate(squareFilter);
   }
 
   if (costInputFrom) {
-    costInputFrom.value = arr.find((item) => item.name === "Стоимость, ₽").value.from;
-    costInputTo.value = arr.find((item) => item.name === "Стоимость, ₽").value.to;
-    const costFilter = choiceFilterForm.querySelector(".choice__input-block_slider_cost");
+    costInputFrom.value = arr.find(
+      (item) => item.name === "Стоимость, ₽"
+    ).value.from;
+    costInputTo.value = arr.find(
+      (item) => item.name === "Стоимость, ₽"
+    ).value.to;
+    const costFilter = choiceFilterForm.querySelector(
+      ".choice__input-block_slider_cost"
+    );
     rangeSliderUpdate(costFilter);
   }
 
@@ -623,10 +644,14 @@ function setNowFilters(arr) {
     houseFilter.innerHTML = arr.find((item) => item.name === "Дом").value;
     if (houseFilter.innerHTML !== "") {
       houseFilter.classList.add("select__text_active");
-      houseFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'none';
+      houseFilter
+        .closest(".select__wrapper")
+        .querySelector(".select__placeholder").style.display = "none";
     } else {
       houseFilter.classList.remove("select__text_active");
-      houseFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'block';
+      houseFilter
+        .closest(".select__wrapper")
+        .querySelector(".select__placeholder").style.display = "block";
     }
   }
 
@@ -634,28 +659,40 @@ function setNowFilters(arr) {
     sectionFilter.innerHTML = arr.find((item) => item.name === "Секция").value;
     if (sectionFilter.innerHTML !== "") {
       sectionFilter.classList.add("select__text_active");
-      sectionFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'none';
+      sectionFilter
+        .closest(".select__wrapper")
+        .querySelector(".select__placeholder").style.display = "none";
     } else {
       sectionFilter.classList.remove("select__text_active");
-      sectionFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'block';
+      sectionFilter
+        .closest(".select__wrapper")
+        .querySelector(".select__placeholder").style.display = "block";
     }
   }
 
   if (deadlineFilter) {
-    deadlineFilter.innerHTML = arr.find((item) => item.name === "Срок сдачи").value;
+    deadlineFilter.innerHTML = arr.find(
+      (item) => item.name === "Срок сдачи"
+    ).value;
     if (deadlineFilter.innerHTML !== "") {
       deadlineFilter.classList.add("select__text_active");
-      deadlineFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'none';
+      deadlineFilter
+        .closest(".select__wrapper")
+        .querySelector(".select__placeholder").style.display = "none";
     } else {
       deadlineFilter.classList.remove("select__text_active");
-      deadlineFilter.closest('.select__wrapper').querySelector('.select__placeholder').style.display = 'block';
+      deadlineFilter
+        .closest(".select__wrapper")
+        .querySelector(".select__placeholder").style.display = "block";
     }
   }
 
   if (floorInputFrom) {
     floorInputFrom.value = arr.find((item) => item.name === "Этаж").value.from;
     floorInputTo.value = arr.find((item) => item.name === "Этаж").value.to;
-    const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
+    const floorFilter = choiceFilterForm.querySelector(
+      ".choice__input-block_slider_floor"
+    );
     rangeSliderUpdate(floorFilter);
   }
 }
@@ -1833,7 +1870,6 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
 }
 
 function rangeSliderUpdate(slider) {
-
   // ползунок:
   const rangeSlider = slider.querySelector(".range-slider");
 
@@ -1841,7 +1877,7 @@ function rangeSliderUpdate(slider) {
   const textInputMin = slider.querySelector(".select__input_from");
   const textInputMax = slider.querySelector(".select__input_to");
 
-  // рендж инпуты:  
+  // рендж инпуты:
   const rangeInputMin = slider.querySelector(".min-range");
   const rangeInputMax = slider.querySelector(".max-range");
 
@@ -1861,7 +1897,6 @@ function rangeSliderUpdate(slider) {
   rangeSlider.style.left = `${
     ((minVal - minRange) * 100) / (maxRange - minRange)
   }%`;
-
 }
 
 // TODO можно выбирать из текущего массива для рендеринга крайние значений для ползунков и других фильтров
@@ -3821,7 +3856,7 @@ async function initMap() {
   markerElement.innerText = "I'm marker!";
   markerElement.style.width = "42px";
   markerElement.style.height = "58px";
-  markerElement.src = "img/pin.svg";
+  markerElement.src = "/assets/img/pin.svg";
 
   const marker = new YMapMarker(
     {
@@ -3872,7 +3907,7 @@ async function initMap() {
   markerElement2.innerText = "I'm marker!";
   markerElement2.style.width = "100%";
   markerElement2.style.height = "100%";
-  markerElement2.src = "img/pin-office.svg";
+  markerElement2.src = "/assets/img/pin-office.svg";
 
   const marker2 = new YMapMarker(
     {
