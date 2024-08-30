@@ -217,7 +217,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
         <div class="choice__form" data-form>
 
-          <div class="choice__input-block choice__input-block_select choice__input-block_select_project">
+          <div class="choice__input-block choice__input-block_select choice__input-block_project">
             <p class="choice__label">
               Проект
             </p>
@@ -342,7 +342,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             <p class="choice__search-text">
               найдено 5 квартир
             </p>
-            <a class="choice__btn-request btn btn_dark" href="/pages/kvartiry/">
+            <a class="choice__btn-request btn btn_dark" href="/pages/kvartiry/" onclick='getUrl()'>
               Смотреть квартиры
             </a>
 

@@ -734,6 +734,13 @@ function apartRender(arr) {
   });
 }
 // ----------------------------------------- end функция рендеринга квартир: -------------------------------------
+console.log(window.location.href);
+function getUrl(e) {
+  e.preventDefault();
+  let url = window.location.href;
+  console.log(url);
+  // window.location.href = url;
+}
 // ----------------------------------------- start функция парсинга url и формирования фильтров: -------------------------------------
 function parseUrlQuery() {
   // let urlParams = new URLSearchParams(window.location.search);
