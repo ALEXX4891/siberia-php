@@ -174,7 +174,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
             <div class="choice__form" action="#" method="post" enctype="multipart/form-data">
 
-              <div class="choice__input-block choice__input-block_project">
+              <div class="choice__input-block choice__input-block_select_project">
                 <p class="choice__label">
                   Проект
                 </p>
@@ -198,7 +198,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </div>
               </div>
 
-              <div class="choice__input-block choice__input-block_rooms">
+              <div class="choice__input-block choice__input-block_buttons_rooms">
                 <p class="choice__label">
                   Комнат
                 </p>
@@ -221,7 +221,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </div>
               </div>
 
-              <div class="choice__input-block choice__input-block_square">
+              <div class="choice__input-block choice__input-block_slider_square">
                 <p class="choice__label">
                   Площадь, м2
                 </p>

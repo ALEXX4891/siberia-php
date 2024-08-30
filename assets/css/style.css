@@ -2330,7 +2330,7 @@ a {
   .filter
   .choice__container
   .choice__form
-  .choice__input-block.choice__input-block_project {
+  .choice__input-block.choice__input-block_select_project {
   display: -ms-grid;
   display: grid;
 }
@@ -2373,7 +2373,7 @@ a {
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item {
-pointer-events: none;
+  pointer-events: none;
   width: 100%;
   height: 100%;
   font-family: Inter;
@@ -2392,7 +2392,7 @@ pointer-events: none;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_active {
-pointer-events: all;
+  pointer-events: all;
   color: #000;
   border-color: #56693e;
 }
@@ -2404,7 +2404,7 @@ pointer-events: all;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_available {
-pointer-events: all;
+  pointer-events: all;
   color: #000;
 }
 
@@ -4441,14 +4441,14 @@ pointer-events: all;
   .apartments__list
   .apartments__item
   .apartments__item-price-wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    gap: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  gap: 10px;
 }
 
 .glavnaya
@@ -5614,7 +5614,7 @@ pointer-events: all;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item {
-pointer-events: none;
+  pointer-events: none;
   width: 100%;
   height: 100%;
   font-family: Inter;
@@ -5633,7 +5633,7 @@ pointer-events: none;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_active {
-pointer-events: all;
+  pointer-events: all;
   color: #000;
   border-color: #56693e;
 }
@@ -5645,7 +5645,7 @@ pointer-events: all;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_available {
-pointer-events: all;
+  pointer-events: all;
   color: #000;
 }
 
@@ -7298,7 +7298,7 @@ pointer-events: all;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item {
-pointer-events: none;
+  pointer-events: none;
   width: 100%;
   height: 100%;
   font-family: Inter;
@@ -7317,7 +7317,7 @@ pointer-events: none;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_active {
-pointer-events: all;
+  pointer-events: all;
   color: #000;
   border-color: #56693e;
 }
@@ -7329,8 +7329,8 @@ pointer-events: all;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_available {
-pointer-events: all;
-    pointer-events: all;
+  pointer-events: all;
+  pointer-events: all;
   color: #000;
 }
 
@@ -7613,7 +7613,7 @@ pointer-events: all;
   .choice__form
   .choice__reset-wrap
   .choice__btn-reset {
-    position: relative;
+  position: relative;
   display: -ms-grid;
   display: grid;
   grid-auto-flow: column;
@@ -7628,9 +7628,9 @@ pointer-events: all;
   .choice__form
   .choice__reset-wrap
   .choice__btn-reset::after {
-    content: '';
-    position: absolute;
-    inset: -15px -5px;
+  content: "";
+  position: absolute;
+  inset: -15px -5px;
 }
 
 .apartments-page
@@ -7838,14 +7838,14 @@ pointer-events: all;
   .apartments__item
   .apartments__item-link
   .apartments__item-price-wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    gap: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  gap: 10px;
 }
 
 .apartments-page
@@ -9167,14 +9167,14 @@ pointer-events: all;
   .apartments__list
   .apartments__item
   .apartments__item-price-wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    gap: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  gap: 10px;
 }
 
 .apartments-item-page
@@ -10826,7 +10826,7 @@ pointer-events: all;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item {
-pointer-events: none;
+  pointer-events: none;
   width: 100%;
   height: 100%;
   font-family: Inter;
@@ -10848,7 +10848,7 @@ pointer-events: none;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_active {
-pointer-events: all;
+  pointer-events: all;
   color: #000;
   border-color: #56693e;
 }
@@ -10863,7 +10863,7 @@ pointer-events: all;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_available {
-pointer-events: all;
+  pointer-events: all;
   color: #000;
 }
 
@@ -12707,7 +12707,7 @@ pointer-events: all;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item {
-pointer-events: none;
+  pointer-events: none;
   width: 100%;
   height: 100%;
   font-family: Inter;
@@ -12726,7 +12726,7 @@ pointer-events: none;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_active {
-pointer-events: all;
+  pointer-events: all;
   color: #000;
   border-color: #56693e;
 }
@@ -12738,7 +12738,7 @@ pointer-events: all;
   .choice__input-block
   .choice__buttons-select
   .choice__buttons-select-item_available {
-pointer-events: all;
+  pointer-events: all;
   color: #000;
 }
 
@@ -17609,7 +17609,7 @@ pointer-events: all;
     .choice__container
     .choice__wrap
     .choice__form
-    .choice__input-block.choice__input-block_project {
+    .choice__input-block.choice__input-block_select_project {
     display: none;
   }
 
@@ -20881,7 +20881,7 @@ pointer-events: all;
     .choice__input-block
     .choice__buttons-select
     .choice__buttons-select-item {
-pointer-events: none;
+    pointer-events: none;
     font-family: Inter;
     font-size: 15px;
     font-weight: 400;
@@ -21211,7 +21211,7 @@ pointer-events: none;
     .choice__input-block
     .choice__buttons-select
     .choice__buttons-select-item {
-pointer-events: none;
+    pointer-events: none;
     font-family: Inter;
     font-size: 15px;
     font-weight: 400;
@@ -21371,7 +21371,7 @@ pointer-events: none;
     .choice__input-block
     .choice__buttons-select
     .choice__buttons-select-item {
-pointer-events: none;
+    pointer-events: none;
     font-family: Inter;
     font-size: 15px;
     font-weight: 400;
@@ -22496,7 +22496,7 @@ pointer-events: none;
     .choice
     .choice__container
     .choice__form
-    .choice__input-block.choice__input-block_project {
+    .choice__input-block.choice__input-block_select_project {
     display: none;
   }
 
@@ -22719,7 +22719,6 @@ pointer-events: none;
   }
 }
 
-
 body::after {
   position: absolute;
   left: 0;
@@ -22729,15 +22728,15 @@ body::after {
   /* display: block; */
   content: "";
   z-index: 1;
-  background: rgba(0, 0, 0, 0.5) url(/assets/img/loading.gif) center/50px no-repeat;
+  background: rgba(0, 0, 0, 0.5) url(/assets/img/loading.gif) center/50px
+    no-repeat;
   /* border-radius: 10px; */
   opacity: 0;
   visibility: hidden;
-
 }
 
 body._sending::after {
-/* body::after { */
+  /* body::after { */
   opacity: 1;
   visibility: visible;
 }

@@ -152,6 +152,8 @@ console.log("allAparstInfo", allAparstInfo);
 
 // -------------------------------------- start функция создания карточки квартиры: --------------------------------------
 function getli(obj) {
+  console.log("obj"); // имя функции
+
   const li = document.createElement("li"); // создаем li
   const classes = ["apartments__item", "swiper-slide"];
 
@@ -208,6 +210,8 @@ function getli(obj) {
 console.log("allAparstInfo", allAparstInfo[0]);
 // -------------------------------------- start полуаем граничные значения для фильтров: --------------------------------------
 function getMaxMinForFilters() {
+  console.log("Старт функции getMaxMinForFilters"); // имя функции
+
   // получаем граничные значения из allAparstInfo:
   const minPrice = Math.floor(
     Math.min(...allAparstInfo.map((item) => item.price))
@@ -306,11 +310,13 @@ function getMaxMinForFilters() {
 
 // -------------------------------------- start устанавливаем граничные значения в фильтры: --------------------------------------
 function setMaxMinForFilters() {
+  console.log("Старт функции setMaxMinForFilters"); // имя функции
   const filterAllInfo = getMaxMinForFilters();
   const choiceFilterForm = document.querySelector("[data-form]");
   console.log("choiceFilterForm", choiceFilterForm);
 
   if (!choiceFilterForm) {
+    console.log("choiceFilterForm not found");
     return;
   }
 
@@ -349,6 +355,8 @@ function setMaxMinForFilters() {
         .value.map((item) => `<li class="select__item">${item}</li>`)
         .join("");
     // projectFilter.innerHTML = allSelect + projectFilter.innerHTML;
+  } else {
+    console.log("projectFilter not found");
   }
 
   if (houseFilter) {
@@ -359,6 +367,8 @@ function setMaxMinForFilters() {
         .find((item) => item.name === "Дом")
         .value.map((item) => `<li class="select__item">${item}</li>`)
         .join("");
+  } else {
+    console.log("houseFilter not found");
   }
 
   if (sectionFilter) {
@@ -369,6 +379,8 @@ function setMaxMinForFilters() {
         .find((item) => item.name === "Секция")
         .value.map((item) => `<li class="select__item">${item}</li>`)
         .join("");
+  } else {
+    console.log("sectionFilter not found");
   }
 
   if (deadlineFilter) {
@@ -379,6 +391,8 @@ function setMaxMinForFilters() {
         .find((item) => item.name === "Срок сдачи")
         .value.map((item) => `<li class="select__item">${item}</li>`)
         .join("");
+  } else {
+    console.log("deadlineFilter not found");
   }
 
   if (roomsFilter) {
@@ -392,6 +406,8 @@ function setMaxMinForFilters() {
         item.classList.add("choice__buttons-select-item_available");
       }
     });
+  } else {
+    console.log("roomsFilter not found");
   }
 
   if (costFilter) {
@@ -402,6 +418,8 @@ function setMaxMinForFilters() {
       filterAllInfo.find((item) => item.name === "Стоимость, ₽").value.to +
       10000;
     rangeSliderInit(costFilter, 10000, minFilterCost, maxFilterCost);
+  } else {
+    console.log("costFilter not found");
   }
 
   if (squareFilter) {
@@ -412,6 +430,8 @@ function setMaxMinForFilters() {
       (item) => item.name === "Площадь, м2"
     ).value.to;
     rangeSliderInit(squareFilter, 1, minFilterSquare, maxFilterSquare);
+  } else {
+    console.log("squareFilter not found");
   }
 
   if (floorFilter) {
@@ -420,12 +440,15 @@ function setMaxMinForFilters() {
     let maxFilterFloor = filterAllInfo.find((item) => item.name === "Этаж")
       .value.to;
     rangeSliderInit(floorFilter, 0, minFilterFloor, maxFilterFloor);
+  } else {
+    console.log("floorFilter not found");
   }
 }
 setMaxMinForFilters();
 
 setNowFilters();
 function setNowFilters(arr) {
+  console.log("Старт функции setNowFilters"); // имя функции
   // arr = [
   //   { name: "Проект", value: "Сосновый" },
   //   { name: "Комнат", value: [1, 2] },
@@ -439,6 +462,7 @@ function setNowFilters(arr) {
   // ];
 
   if (!choiceFilterForm) {
+    console.log("choiceFilterForm not found");
     return;
   }
 
@@ -498,6 +522,7 @@ function setNowFilters(arr) {
   // );
 
   if (!arr) {
+    console.log("arrFilter not found");
     if (projectFilter) {
       projectFilter.innerHTML = "Все";
     }
@@ -542,7 +567,7 @@ function setNowFilters(arr) {
 
     }
     
-    // return;
+    return;
   }
 
   // projectFilter.innerHTML = arr.find(item => item.name === "Проект").value;
@@ -652,7 +677,7 @@ let filtredApartList = [];
 
 // функция вывода дополнительных квартир
 function getNewItems(filtredApartList) {
-  console.log("getNewItems");
+  console.log("Старт функции getNewItems"); // имя функции
   let copyArr = [...filtredApartList];
   offset = offset + limit;
   limit = 8;
@@ -694,14 +719,14 @@ if (window.location.pathname === "/") {
 
 // ------------------------------------------ start функция рендеринга квартир: --------------------------------------
 function apartRender(arr) {
+  console.log("Старт функции apartRender"); // имя функции
+
   limit = 12;
   offset = 0;
 
   list.innerHTML = "";
   let copyList = [...arr]; // создаем копию массива
   // console.log(copyList);
-
-  console.log("render");
 
   if (choiceFilterForm) {
     // если есть форма c фильтрами
@@ -821,12 +846,10 @@ function apartRender(arr) {
 
 // ----------------------------------------- start функциb фильтрации массива квартир: --------------------------------------
 function filterTableArr(filter, param, arr) {
-  // console.log(param);
   return arr.filter((item) => filter.indexOf(String(item[param])) !== -1);
 }
 
 function filterTable(filter, param, arr) {
-  // console.log(param);
   return arr.filter((item) => item[param] == filter);
 }
 
@@ -838,12 +861,6 @@ function filterTableSlider(filter, param, arr) {
   return arr.filter(
     (item) => item[param] >= filter["from"] && item[param] <= filter["to"]
   );
-
-  // return arr.filter(function(item) {
-  //   console.log(item[param]);
-  //   console.log(filter['to']);
-  //   return Math.round(item[param]) == Math.round(filter['to']);
-  // });
 }
 // ----------------------------------------- end функциb фильтрации массива квартир: --------------------------------------
 
@@ -1243,6 +1260,7 @@ if (resetFiltersBtn) {
 </p> */
 
 function getFilters() {
+  console.log("Старт функции getFilters"); // имя функции
   const filterArr = [];
   const filters = document.querySelectorAll(".choice__input-block");
   filters.forEach((item) => {
