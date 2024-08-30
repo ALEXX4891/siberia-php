@@ -6801,12 +6801,24 @@ a {
 
 .news-page-item .news-page-item__news-slider .swiper-navigation {
   position: absolute;
-  top: 100px;
-  right: 95px;
+  top: 174px;
+  right: 103px;
+  width: 130px;
+  height: 56px;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 20px;
 }
 
 .news-page-item .news-page-item__news-slider .swiper-navigation .swiper-button {
-  width: auto;
+  width: 56px;
+  height: 56px;
+  position: relative;
+  top: initial;
+  right: initial;
+  left: initial;
+  bottom: initial;
+  margin: 0;
 }
 
 .news-page-item
@@ -6893,7 +6905,7 @@ a {
   grid-auto-flow: row;
   -ms-grid-rows: auto 15px auto 15px 1fr;
   -ms-grid-columns: 100px 10px 1fr;
-  grid-template: auto auto 1fr/100px 1fr;
+  grid-template: auto auto 1fr/140px 1fr;
   gap: 15px 10px;
 }
 

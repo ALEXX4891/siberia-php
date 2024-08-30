@@ -30,66 +30,43 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </a>
         </div>
         <ul class="news-page__cards-list">
-          <li class="news-page__cards-item">
-            <div class="news-page__card-img-wrapper">
-              <picture>
-                <source srcset="/assets/img/news-img-1.webp" type="image/webp"><img src="/assets/img/news-img-1.jpg" alt="Проект">
-              </picture>
-            </div>
-            <p class="news-page__card-date">
-              01 мая 2024
-            </p>
-            <a class="news-page__card-link" href="novosti-item.html">
-              <h2 class="news-page__card-title">
-                Динамика строительства «Сосновый». Апрель 2024.
-              </h2>
-            </a>
-          </li>
-          <li class="news-page__cards-item">
-            <div class="news-page__card-img-wrapper">
-              <picture>
-                <source srcset="/assets/img/news-img-2.webp" type="image/webp"><img src="/assets/img/news-img-2.jpg" alt="Проект">
-              </picture>
-            </div>
-            <p class="news-page__card-date">
-              01 мая 2024
-            </p>
-            <a class="news-page__card-link" href="novosti-item.html">
-              <h2 class="news-page__card-title">
-                Сибирь разрабатывает новый проект ЖК «Успенка»
-              </h2>
-            </a>
-          </li>
-          <li class="news-page__cards-item">
-            <div class="news-page__card-img-wrapper">
-              <picture>
-                <source srcset="/assets/img/news-img-3.webp" type="image/webp"><img src="/assets/img/news-img-3.jpg" alt="Проект">
-              </picture>
-            </div>
-            <p class="news-page__card-date">
-              01 мая 2024
-            </p>
-            <a class="news-page__card-link" href="novosti-item.html">
-              <h2 class="news-page__card-title">
-                Динамика строительства Сосновый. Апрель 2024.
-              </h2>
-            </a>
-          </li>
-          <li class="news-page__cards-item">
-            <div class="news-page__card-img-wrapper">
-              <picture>
-                <source srcset="/assets/img/news-img-4.webp" type="image/webp"><img src="/assets/img/news-img-4.jpg" alt="Проект">
-              </picture>
-            </div>
-            <p class="news-page__card-date">
-              01 мая 2024
-            </p>
-            <a class="news-page__card-link" href="novosti-item.html">
-              <h2 class="news-page__card-title">
-                Сибирь объявляет об операционных результатах первого квартала 2024
-              </h2>
-            </a>
-          </li>
+
+          <?
+          // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
+          $result = mysqli_query($db, "SELECT * FROM news ORDER BY DATE DESC");
+
+          $row = mysqli_fetch_array($result);
+
+          // if ($row == '') {
+          //   echo 'Ничего не нашлось';
+          // }
+
+          // echo '<pre>';
+          // print_r($row);
+          // echo '</pre>';
+
+          // Сосновый | ГП 8 | 1 / 2 этаж
+
+          if (mysqli_num_rows($result) > 0) {
+            do {
+              echo '
+                <li class="news-page__cards-item">
+                <div class="news-page__card-img-wrapper">
+                  <img src="/assets/img/' . $row['photo'] . '" alt="' . $row['title'] . '">
+                </div>
+                <p class="news-page__card-date">
+                ' . date("d.m.Y", strtotime($row['date'])) . '
+                </p>
+                <a class="news-page__card-link" href="/pages/novosti-item/?id=' . $row['id'] . '">
+                  <h2 class="news-page__card-title">
+                  ' . $row['title'] . '
+                  </h2>
+                </a>
+              </li>
+                ';
+            } while ($row = mysqli_fetch_array($result));
+          }
+          ?>
         </ul>
       </div>
     </section>
