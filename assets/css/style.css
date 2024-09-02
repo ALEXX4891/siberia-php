@@ -16004,8 +16004,8 @@ a {
 .cooperation-page .cooperation__container .cooperation__list {
   display: -ms-grid;
   display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: repeat(auto-fill, minmax(557.33px, 1fr));
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(257.33px, 1fr));
   gap: 20px;
 }
 
@@ -16014,6 +16014,7 @@ a {
   .cooperation__list
   .cooperation__list-item
   .cooperation__list-link {
+    height: 100%;
   position: relative;
   padding: 40px;
   display: -ms-grid;
