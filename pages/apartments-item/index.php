@@ -145,7 +145,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </div>
         </div>
 
-        <div class="about__right choice__form">
+        <div class="about__right choice__form" data-form>
           <button class="about__btn-complex">
             <div class="about__btn-complex-img">
               <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">

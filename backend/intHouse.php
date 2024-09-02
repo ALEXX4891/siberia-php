@@ -11,6 +11,7 @@ function getRequest($url) {
 
 $apiKey = "29f8fcf87bc0605d57ca8d0c5e776f03";
 $url = "https://crm.m2lab.ru/api/getHouseList?token={$apiKey}";
+// https://crm.m2lab.ru/api/getHouseList?token=29f8fcf87bc0605d57ca8d0c5e776f03
 $response = getRequest($url);
 
 echo $response;

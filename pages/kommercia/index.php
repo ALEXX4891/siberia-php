@@ -26,7 +26,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           Найдите помещение для своего бизнеса
         </p>
 
-        <div class="choice__form" action="#" method="post" enctype="multipart/form-data">
+        <div class="choice__form" data-form>
 
           <ul class="choice__inputs-list choice__inputs-list_top">
             <li class="choice__input-block choice__input-block_select">

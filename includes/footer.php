@@ -273,4 +273,5 @@ include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/popup.php';
 <script src="/assets/js/lib/swiper-bundle.min.js"></script>
 <script src="/assets/js/lib/fancybox.umd.js"></script>
 <script src="/assets/js/lib/jquery.maskedinput.min.js"></script>
+<script type="module" src="/assets/js/api.js"></script>
 <script type="module" src="/assets/js/app.js"></script>

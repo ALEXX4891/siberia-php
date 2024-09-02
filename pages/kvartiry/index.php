@@ -22,7 +22,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           Квартиры
         </h1>
 
-        <div class="choice__form" action="#" method="post" enctype="multipart/form-data" data-form>
+        <div class="choice__form" data-form>
 
           <ul class="choice__inputs-list choice__inputs-list_top">
             <li class="choice__input-block choice__input-block_select choice__input-block_select_project">
@@ -320,11 +320,20 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           <div class="choice__reset-wrap">
 
-            <button class="choice__btn-additional">
+            <button class="choice__btn-additional choice__btn-additional_show">
               <p class="choice__btn-text">
                 Еще параметры
               </p>
               <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7.2069 7L13 1" stroke="#363636" stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <button class="choice__btn-additional choice__btn-additional_hide" style="display: none;">
+              <p class="choice__btn-text">
+                Скрыть дополнительные параметры
+              </p>
+              <svg style="transform: rotate(180deg);" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L7.2069 7L13 1" stroke="#363636" stroke-linejoin="round" />
               </svg>
             </button>

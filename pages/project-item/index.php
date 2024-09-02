@@ -172,7 +172,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Выбрать квартиру мечты
             </h2>
 
-            <div class="choice__form" action="#" method="post" enctype="multipart/form-data">
+            <div class="choice__form" data-form>
 
               <div class="choice__input-block choice__input-block_select_project">
                 <p class="choice__label">
