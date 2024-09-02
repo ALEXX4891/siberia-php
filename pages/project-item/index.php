@@ -303,7 +303,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   Смотреть квартиры
                 </a>
 
-                <button class="choice__btn-request choice__btn-request_mobile btn btn_dark">
+                <button class="choice__btn-request choice__btn-request_mobile choice__btn-request_mobile_filter btn btn_dark">
                   Фильтр
                 </button>
               </div>

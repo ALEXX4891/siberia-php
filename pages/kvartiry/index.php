@@ -351,8 +351,12 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Найдено 20 квартир
             </p>
 
-            <button class="choice__btn-request choice__btn-request_mobile btn btn_dark">
+            <button class="choice__btn-request choice__btn-request_mobile choice__btn-request_mobile_filter btn btn_dark">
               Фильтр
+            </button>
+
+            <button class="choice__btn-request choice__btn-request_mobile choice__btn-request_mobile_apply btn btn_dark" style="display: none;">
+              Применить
             </button>
 
           </div>

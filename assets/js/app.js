@@ -349,6 +349,8 @@ if (apartmentsPage) {
   const height = choice.getBoundingClientRect().height;
   const showAllParams = document.querySelector(".choice__btn-additional_show");
   const hideAddParams = document.querySelector(".choice__btn-additional_hide"); 
+  const dropFilters = document.querySelector(".choice__btn-reset .choice__btn-text");
+  const searchCounter = document.querySelector(".choice__search-text");
 
   // const el = Array.from(choiceBot.children)[3];
   const el = document
@@ -400,11 +402,19 @@ if (apartmentsPage) {
   // const choice = document.querySelector(".choice");
   const content = choice.querySelector(".choice__container");
   const popup = document.querySelector("#filter");
-  const filterMobileBtn = choice.querySelector(".choice__btn-request_mobile");
+  const filterMobileBtn = choice.querySelector(".choice__btn-request_mobile_filter");
+  const filterAplyBtn = choice.querySelector(".choice__btn-request_mobile_apply");
 
   // открытие popup и заполнение его формой
   filterMobileBtn.addEventListener("click", () => {
+    dropFilters.innerHTML = "Сбросить";
+    searchCounter.style.display = "none";
+    filterMobileBtn.style.display = "none";
+    filterAplyBtn.style.display = "block";
     console.log("тест");
+    // choiceBot.style.display = "none";
+    hideAddParams.style.display = "none";
+    showAllParams.style.display = "none";
     popupOpen(popup);
     bodyLock();
 
@@ -412,10 +422,25 @@ if (apartmentsPage) {
     popup.querySelector(".popup__content").append(content);
   });
 
+  filterAplyBtn.addEventListener("click", () => {
+    dropFilters.innerHTML = "Сбросить фильтры";
+    searchCounter.style.display = "none";
+    filterMobileBtn.style.display = "grid";
+    filterAplyBtn.style.display = "none";
+    console.log("тест");
+    // choiceBot.style.display = "none";
+    hideAddParams.style.display = "none";
+    showAllParams.style.display = "none";
+    popupClose(popup);
+    choice.append(content);
+  })
+
   // закрытие popup по Esc
   document.addEventListener("keydown", function (e) {
     console.log("тест");
-    if (e.key === "Escape") {
+    if (e.key === "Escape") {      
+      // choiceBot.style.display = "none";
+      // hideAddParams.style.display = "none";
       popupClose(popup);
       // bodyUnLock()
 
@@ -455,6 +480,18 @@ if (apartmentsPage) {
       bodyUnLock();
       popup.classList.remove("open");
       // передача формы обратно на главную страницу
+      choice.append(content);
+
+
+      dropFilters.innerHTML = "Сбросить фильтры";
+      searchCounter.style.display = "none";
+      filterMobileBtn.style.display = "grid";
+      filterAplyBtn.style.display = "none";
+      console.log("тест");
+      // choiceBot.style.display = "none";
+      hideAddParams.style.display = "none";
+      showAllParams.style.display = "none";
+      popupClose(popup);
       choice.append(content);
     }
   });
@@ -2341,7 +2378,7 @@ if (projectPage || indexPage ) {
   const choice = document.querySelector(".choice");
   const content = choice.querySelector(".choice__container");
   const popup = document.querySelector("#filter");
-  const filterMobileBtn = choice.querySelector(".choice__btn-request_mobile");
+  const filterMobileBtn = choice.querySelector(".choice__btn-request_mobile_filter");
 
   // открытие popup и заполнение его формой
   filterMobileBtn.addEventListener("click", () => {
@@ -2406,7 +2443,7 @@ if (projectPage || indexPage ) {
 //   const choice = document.querySelector(".choice");
 //   const content = choice.querySelector(".choice__container");
 //   const popup = document.querySelector("#filter");
-//   const filterMobileBtn = choice.querySelector(".choice__btn-request_mobile");
+//   const filterMobileBtn = choice.querySelector(".choice__btn-request_mobile_filter");
 
 //   // открытие popup и заполнение его формой
 //   filterMobileBtn.addEventListener("click", () => {

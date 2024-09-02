@@ -1712,6 +1712,17 @@ a {
   color: #bababa;
 }
 
+.popup
+.choice__btn-reset {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.4;
+}
+
 .popup .request .request__btn {
   -ms-flex-item-align: end;
   -ms-grid-row-align: end;
@@ -2297,6 +2308,8 @@ a {
   border-radius: 10px;
   width: 100%;
   height: auto;
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 .popup .filter .choice__container {
@@ -19000,6 +19013,7 @@ a {
     .choice__form
     .choice__reset-wrap {
     grid-template-areas: "a b c ";
+    grid-template-columns: 300px 1fr 300px;
   }
 
   .apartments-page
@@ -19171,7 +19185,16 @@ a {
     -ms-grid-row-span: 1;
     -ms-grid-column: 3;
     -ms-grid-column-span: 1;
+    justify-content: end;
   }
+
+  .apartments-page 
+  .choice .choice__container 
+  .choice__form .choice__reset-wrap > 
+  .choice__btn-additional {
+    justify-content: start;
+  }
+
 
   .apartments-page
     .choice
@@ -19182,6 +19205,7 @@ a {
     -ms-grid-row: 1;
     -ms-grid-column: 2;
     -ms-grid-column-span: 1;
+    text-align: center;
   }
 }
 
@@ -20232,6 +20256,11 @@ a {
 }
 
 @media (max-width: 800px) {
+  .choice__reset-wrap {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
   .apartments-page .choice .choice__container .choice__form {
     gap: 15px;
   }
@@ -20295,6 +20324,30 @@ a {
     grid-template-areas: initial;
     -webkit-box-pack: initial;
     -ms-flex-pack: initial;
+    justify-content: initial;
+    grid-template-columns: 1fr;
+  }
+
+  .popup .choice__btn-request_mobile_apply {
+    max-width: 204px;
+    width: 100%;
+    justify-self: end;
+  }
+
+  .popup .choice__btn-reset { 
+    justify-content: start;
+  }
+
+  .popup .choice__inputs-list { 
+    gap: 20px;
+    display: grid;
+    gap: 27px;
+    grid-auto-flow: row;
+  }
+
+  .popup .choice__reset-wrap {
+    display: grid;
+    grid-auto-flow: column;
     justify-content: initial;
   }
 
