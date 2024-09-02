@@ -376,6 +376,7 @@ function setNowFilters(arr) {
   //   { name: "Этаж", value: { from: 2, to: 3 } },
   //   { name: "btns", value: [] },
   // ];
+  console.log(arr);
 
   if (!choiceFilterForm) {
     console.log("choiceFilterForm not found");
@@ -415,10 +416,10 @@ function setNowFilters(arr) {
     if (arr) {
       if (arr.find((item) => item.name === "Проект") && arr.find((item) => item.name === "Проект").value !== "") {
         projectFilter.innerHTML = arr.find((item) => item.name === "Проект").value;
+      } else {
+        projectFilter.innerHTML = "";
       }
     }
-
-    projectFilter.innerHTML = "";
 
     if (projectFilter.innerHTML !== "") {
       projectFilter.classList.add("select__text_active");
@@ -433,10 +434,10 @@ function setNowFilters(arr) {
     if (arr) {
       if (arr.find((item) => item.name === "Дом") && arr.find((item) => item.name === "Дом").value !== "") {
         houseFilter.innerHTML = arr.find((item) => item.name === "Дом").value;
+      } else {
+        houseFilter.innerHTML = "";
       }
     }
-
-    houseFilter.innerHTML = "";
 
     if (houseFilter.innerHTML !== "") {
       houseFilter.classList.add("select__text_active");
@@ -453,10 +454,10 @@ function setNowFilters(arr) {
     if (arr) {
       if (arr.find((item) => item.name === "Секция") && arr.find((item) => item.name === "Секция").value !== "") {
         sectionFilter.innerHTML = arr.find((item) => item.name === "Секция").value;
+      } else {
+        sectionFilter.innerHTML = "";
       }
     }
-
-    sectionFilter.innerHTML = "";
 
     if (sectionFilter.innerHTML !== "") {
       sectionFilter.classList.add("select__text_active");
@@ -474,10 +475,10 @@ function setNowFilters(arr) {
         arr.find((item) => item.name === "Срок сдачи").value !== ""
       ) {
         deadlineFilter.innerHTML = arr.find((item) => item.name === "Срок сдачи").value;
+      } else {
+        deadlineFilter.innerHTML = "";
       }
     }
-
-    deadlineFilter.innerHTML = "";
 
     if (deadlineFilter.innerHTML !== "") {
       deadlineFilter.classList.add("select__text_active");
@@ -493,10 +494,13 @@ function setNowFilters(arr) {
   if (roomsFilter) {
     if (arr) {
       if (arr.find((item) => item.name === "Комнат") && arr.find((item) => item.name === "Комнат").value !== "") {
-        roomsFilter.forEach((item) =>
-          arr.find((item) => item.name === "Комнат").value.includes(Number(item.innerText))
-            ? item.classList.add("choice__buttons-select-item_active")
-            : item.classList.remove("choice__buttons-select-item_active")
+        roomsFilter.forEach(
+          (item) =>
+            arr.find((item) => item.name === "Комнат").value.includes(Number(item.innerText))
+              // ? console.log(Number(item.innerText))
+              // : console.log(Number(item.innerText))
+          ? item.classList.add("choice__buttons-select-item_active")
+          : item.classList.remove("choice__buttons-select-item_active")
         );
       }
     } else {
@@ -607,9 +611,11 @@ if (addApartBtn) {
   });
 }
 
+let filterArr = parseUrlQuery();
 // первичный рендеринг квартир:
 const list = document.querySelector(".apartments__list");
 if (list) {
+  setNowFilters(filterArr);
   apartRender(allApartsInfo);
 }
 
@@ -643,10 +649,10 @@ function apartRender(arr) {
     // filterArr.push(...JSON.parse(localStorage.getItem("filter")));
     // } else {
     // }
-    // const filterArr = getFilters();
-    const filterArr = parseUrlQuery();
+    filterArr = getFilters();
+    // filterArr = parseUrlQuery();
     // setNowFilters(filterArr);
-    console.log(filterArr);
+    // console.log(filterArr);
 
     // Фильтрация таблицы:
     if (filterArr.find((item) => item.name === "Проект")) {
@@ -796,7 +802,7 @@ function parseUrlQuery() {
     const roomsFilter = filterArr.find((item) => item.name === "rooms").value;
     res.push({
       name: "Комнат",
-      value: roomsFilter.split(","),
+      value: roomsFilter.split(",").map(Number),
     });
   }
 
@@ -863,7 +869,7 @@ function parseUrlQuery() {
 // ----------------------------------------- end функция парсинга url и формирования фильтров: -------------------------------------
 // ----------------------------------------- start функциb фильтрации массива квартир: --------------------------------------
 function filterTableArr(filter, param, arr) {
-  return arr.filter((item) => filter.indexOf(String(item[param])) !== -1);
+  return arr.filter((item) => filter.indexOf(Number(item[param])) !== -1);
 }
 
 function filterTable(filter, param, arr) {
@@ -1248,7 +1254,7 @@ function getFilters() {
       const valueBtns = item.querySelectorAll(".choice__buttons-select-item_active");
       const value = [];
       valueBtns.forEach((item) => {
-        value.push(item.getAttribute("data-id"));
+        value.push(Number(item.getAttribute("data-id")));
       });
       const filterObj = {
         name: name,
@@ -1302,12 +1308,11 @@ function getFilters() {
     // }
     filterArr.push(filterObj);
   }
-  console.log(filterArr);
   // console.log(parseUrlQuery());
 
   // запишем фильр в локальное хранилище:
   localStorage.setItem("filter", JSON.stringify(filterArr));
-
+  console.log(filterArr);
   return filterArr;
 }
 
