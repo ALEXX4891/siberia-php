@@ -505,7 +505,7 @@
   </div>
 </div>
 
-<div class="popup sot-request sot-request_agent" id="-sot-agent">
+<div class="popup sot-request sot-request_agent" id="sot-agent">
   <div class="popup__body">
     <div class="popup__content">
       <form class="request__form">
@@ -598,7 +598,7 @@
   </div>
 </div>
 
-<div class="popup sot-bank" id="sot-agent">
+<div class="popup sot-bank" id="sot-bank">
   <div class="popup__body">
     <div class="popup__content">
       <form class="request__form">

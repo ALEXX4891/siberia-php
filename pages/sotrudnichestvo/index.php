@@ -69,7 +69,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
         <ul class="cooperation__list">
           <li class="cooperation__list-item">
-            <a href="#" class="cooperation__list-link">
+            <button href="#sot-agent" class="cooperation__list-link popup-link">
               <h3 class="cooperation__list-title">
                 Агенства
               </h3>
@@ -101,10 +101,10 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   </filter>
                 </defs>
               </svg>
-            </a>
+            </button>
           </li>
           <li class="cooperation__list-item">
-            <button href="#sot-agent" class="cooperation__list-link popup-link">
+            <button href="#sot-bank" class="cooperation__list-link popup-link">
 
 
               <h3 class="cooperation__list-title">
@@ -137,11 +137,11 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   </filter>
                 </defs>
               </svg>
-            </b>
+            </button>
 
           </li>
           <li class="cooperation__list-item">
-            <a href="#" class="cooperation__list-link">
+            <button href="#sot-business" class="cooperation__list-link popup-link">
 
               <h3 class="cooperation__list-title">
                 Поставщики и подрядчики
@@ -174,7 +174,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   </filter>
                 </defs>
               </svg>
-            </a>
+            </button>
 
           </li>
         </ul>
