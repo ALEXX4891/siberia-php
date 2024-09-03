@@ -409,3 +409,167 @@
     </div>
   </div>
 </div>
+
+<div class="popup" id="sot-agent">
+  <div class="popup__body">
+    <div class="popup__content popup-request">
+      <form class="request" id="request-form">
+        <h3 class="request__title">
+          Оставить заявку
+        </h3>
+        <p class="request__subtitle text">
+        Менеджер свяжется с вами в ближайшее время
+        </p>
+
+        <div class="request__label-block">
+          <label class="request__label request__label_readonly">
+            <span class="request__label-text">
+              Планировка
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+
+            <input class="request__input request__input_apartment" type="text" name="apartment"
+              placeholder="Выберите квартиру" readonly required>
+          </label>
+          <label class="request__label">
+            <span class="request__label-text">
+              ФИО
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+
+            <input class="request__input request__input_name" type="text" name="name" placeholder="Введите имя"
+              required>
+          </label>
+          <label class="request__label">
+            <span class="request__label-text">
+              Телефон
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+            <input class="request__input request__input_phone" type="tel" name="phone" placeholder="7" required
+              value="7">
+          </label>
+          <label class="request__label">
+            <span class="request__label-text">
+              E-mail
+            </span>
+            <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
+          </label>
+          <label class="request__label request__label_textarea">
+            <span class="request__label-text">
+              Комментарий
+            </span>
+            <textarea class="request__input request__input_textarea" name="text" placeholder="Сообщение"></textarea>
+          </label>
+        </div>
+
+        <button class="btn btn_green request__btn">
+          Отправить
+        </button>
+
+
+        <div class="request__agreement-wrap">
+          <span class="request__agreement-text">
+            Нажимая кнопку «Отправить», вы соглашаетесь с
+          </span>
+          <a class="request__agreement-link" href="/pages/policy/agreement/" target="_blank">
+            условиями обработки персональных данных
+          </a>
+        </div>
+
+        <span class="request__close-btn popup-close">
+          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+          </svg>
+        </span>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="sot-agent2">
+  <div class="popup__body">
+    <div class="popup__content popup-request">
+      <form class="request" id="request-form">
+        <h3 class="request__title">
+          Оставить заявку
+        </h3>
+
+        <div class="request__label-block">
+          <label class="request__label request__label_readonly">
+            <span class="request__label-text">
+              Планировка
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+
+            <input class="request__input request__input_apartment" type="text" name="apartment"
+              placeholder="Выберите квартиру" readonly required>
+          </label>
+          <label class="request__label">
+            <span class="request__label-text">
+              ФИО
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+
+            <input class="request__input request__input_name" type="text" name="name" placeholder="Введите имя"
+              required>
+          </label>
+          <label class="request__label">
+            <span class="request__label-text">
+              Телефон
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+            <input class="request__input request__input_phone" type="tel" name="phone" placeholder="7" required
+              value="7">
+          </label>
+          <label class="request__label">
+            <span class="request__label-text">
+              E-mail
+            </span>
+            <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
+          </label>
+          <label class="request__label request__label_textarea">
+            <span class="request__label-text">
+              Комментарий
+            </span>
+            <textarea class="request__input request__input_textarea" name="text" placeholder="Сообщение"></textarea>
+          </label>
+        </div>
+
+        <button class="btn btn_dark request__btn">
+          Отправить
+        </button>
+
+
+        <div class="request__agreement-wrap">
+          <span class="request__agreement-text">
+            Нажимая кнопку «Отправить», вы соглашаетесь с
+          </span>
+          <a class="request__agreement-link" href="/pages/policy/agreement/" target="_blank">
+            условиями обработки персональных данных
+          </a>
+        </div>
+
+        <span class="request__close-btn popup-close">
+          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+          </svg>
+        </span>
+
+      </form>
+    </div>
+  </div>
+</div>
+

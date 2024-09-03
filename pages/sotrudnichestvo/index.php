@@ -104,7 +104,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </a>
           </li>
           <li class="cooperation__list-item">
-            <a href="#" class="cooperation__list-link">
+            <button href="#sot-agent" class="cooperation__list-link popup-link">
 
 
               <h3 class="cooperation__list-title">
@@ -137,7 +137,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   </filter>
                 </defs>
               </svg>
-            </a>
+            </b>
 
           </li>
           <li class="cooperation__list-item">
