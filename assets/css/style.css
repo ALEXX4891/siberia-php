@@ -16159,8 +16159,12 @@ a {
   grid-column: 2 span;
 }
 
+.cooperation-page .cooperation {
+  padding: 40px 104px 100px;
+}
+
 .cooperation-page .cooperation__container {
-  padding: 40px 0 100px;
+  /* padding: 40px 0 100px; */
   display: -ms-grid;
   display: grid;
   grid-auto-flow: row;
@@ -16273,6 +16277,7 @@ a {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: row;
+  align-content: start;
   gap: 30px;
   max-width: 323px;
   width: 100%;
@@ -16412,8 +16417,8 @@ a {
   .cooperation__list-link
   svg {
   position: absolute;
-  bottom: 40px;
-  right: 40px;
+  bottom: 37px;
+  right: 37px;
 }
 
 .cooperation-page
@@ -17350,6 +17355,132 @@ a {
   .section {
     padding: 100px 116px;
   }
+
+  .cooperation-page .cooperation {
+    padding: 40px 116px 95px;
+  }
+
+  .cooperation-page
+  .cooperation__container
+  .cooperation__content
+  .cooperation__left-block
+  .cooperation__card
+  .cooperation__card-title {
+  font-family: Inter;
+  font-size: 70px;
+  font-weight: 600;
+  line-height: 110%;
+  text-align: left;
+  color: #56693e;
+}
+
+.cooperation-page
+  .cooperation__container
+  .cooperation__content
+  .cooperation__left-block
+  .cooperation__card {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  align-content: start;
+  gap: 24px;
+  max-width: 249px;
+  width: 100%;
+}
+
+.cooperation-page
+  .cooperation__container
+  .cooperation__content
+  .cooperation__right-block
+  .cooperation__right-block-title {
+  -ms-flex-item-align: end;
+  -ms-grid-row-align: end;
+  align-self: end;
+  font-size: 35px;
+}
+
+.cooperation-page
+  .cooperation__container
+  .cooperation__list
+  .cooperation__list-item
+  .cooperation__list-link {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 36px 30px;
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: row;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+    gap: 20px;
+    max-width: 557.33px;
+    min-height: 250px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cooperation-page
+  .cooperation__container
+  .cooperation__list
+  .cooperation__list-item
+  .cooperation__list-link
+  svg {
+  position: absolute;
+  bottom: 27px;
+  right: 28px;
+  width: 50px;
+  /* height: 41px; */
+}
+
+.cooperation-page
+  .cooperation__container
+  .cooperation__list
+  .cooperation__list-item
+  .cooperation__list-link
+  .cooperation__list-title {
+  font-family: Inter;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 110%;
+  text-align: left;
+  color: #363636;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+.cooperation-page .cooperation__container .cooperation__title {
+  font-size: 22px;
+}
+
+.cooperation-page
+  .cooperation__container
+  .cooperation__content
+  .cooperation__right-block {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 23px;
+  max-width: 589px;
+  -ms-grid-column-align: end;
+  justify-self: end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: start;
+  align-content: start;
+  padding-top: 12px;
+}
+
+
+.cooperation-page .cooperation__container {
+  /* padding: 40px 0 100px; */
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 65px;
+}
 
   .title.title_25 {
     font-family: Inter;
@@ -18989,6 +19120,10 @@ a {
     padding: 0 30px;
   }
 
+  .cooperation-page .cooperation {
+    padding: 40px 30px 100px;
+  }
+
   .footer .footer__section {
     padding: 60px 30px;
   }
@@ -19801,6 +19936,152 @@ a {
     line-height: 19.36px;
     text-align: left;
   }
+}
+
+@media (max-width: 1060px) {
+  .cooperation-page .cooperation__container .cooperation__content {
+    margin-bottom: 20px;
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 43px;
+  }
+
+  .cooperation-page
+  .cooperation__container
+  .cooperation__content
+  .cooperation__right-block {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 18px;
+  max-width: 690px;
+  -ms-grid-column-align: end;
+  justify-self: start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: start;
+  align-content: start;
+  padding-top: 0px;
+  order: -1;
+}
+
+.cooperation-page
+.cooperation__container
+.cooperation__content
+.cooperation__left-block
+.cooperation__card
+.cooperation__card-title {font-family: Inter;font-size: 50px;font-weight: 600;line-height: 110%;text-align: left;color: #56693e;}
+
+.cooperation-page
+  .cooperation__container
+  .cooperation__content
+  .cooperation__left-block
+  .cooperation__card {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  align-content: start;
+  gap: 20px;
+  max-width: 375px;
+  width: 100%;
+}
+
+.cooperation-page
+  .cooperation__container
+  .cooperation__content
+  .cooperation__left-block
+  .cooperation__card
+  .cooperation__card-text {
+  color: #363636;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 23.2px;
+  text-align: left;
+  color: #363636;
+  padding-top: 4px;
+}
+
+.cooperation-page
+  .cooperation__container
+  .cooperation__content
+  .cooperation__left-block {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 90px;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+}
+
+.cooperation-page .cooperation__container {
+  /* padding: 40px 0 100px; */
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 62px;
+}
+
+.cooperation-page
+  .cooperation__container
+  .cooperation__content
+  .cooperation__right-block
+  .cooperation__right-block-title {
+  -ms-flex-item-align: end;
+  -ms-grid-row-align: end;
+  align-self: end;
+  font-size: 30px;
+}
+
+.cooperation-page .cooperation__container .cooperation__list {
+  display: -ms-grid;
+  display: grid;
+  grid-template-rows: initial;
+  grid-template-columns: initial;
+  grid-auto-flow: row;
+  gap: 2px;
+}
+
+.cooperation-page
+  .cooperation__container
+  .cooperation__list
+  .cooperation__list-item
+  .cooperation__list-link {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 36px 30px;
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: row;
+    -ms-flex-line-pack: justify;
+    align-content: start;
+    gap: 20px;
+    max-width: 100%;
+    min-height: initial;
+    background: #f5f5f5;
+    border-radius: 5px;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 @media (max-width: 1000px) {
