@@ -295,39 +295,39 @@
         </div>
 
         <ul class="promo__list">
-            <?
-            // include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
-            // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
-            $result = mysqli_query($db, "SELECT * FROM events");
+          <?
+          // include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
+          // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
+          $result = mysqli_query($db, "SELECT * FROM events");
 
-            $row = mysqli_fetch_array($result);
+          $row = mysqli_fetch_array($result);
 
-            // if ($row == '') {
-            //   echo 'Ничего не нашлось';
-            // }
+          // if ($row == '') {
+          //   echo 'Ничего не нашлось';
+          // }
 
-            // echo '<pre>';
-            // print_r($row);
-            // echo '</pre>';
+          // echo '<pre>';
+          // print_r($row);
+          // echo '</pre>';
 
-            // Сосновый | ГП 8 | 1 / 2 этаж
-            
-            if (mysqli_num_rows($result) > 0) {
-              do {
-                $now = date('Y-m-d H:i:s');
-                $time = date('Y-m-d H:i:s', strtotime($row['time']));
-                $dateDiff = date_diff(date_create($now), date_create($time));
-                // echo $dateDiff->format("%a");
-                echo '
+          // Сосновый | ГП 8 | 1 / 2 этаж
+
+          if (mysqli_num_rows($result) > 0) {
+            do {
+              $now = date('Y-m-d H:i:s');
+              $time = date('Y-m-d H:i:s', strtotime($row['time']));
+              $dateDiff = date_diff(date_create($now), date_create($time));
+              // echo $dateDiff->format("%a");
+              echo '
                   <li class="promo__item">
                     <div class="promo__item-img">
                       <img src="/assets/img/' . $row['image'] . '" alt="promo_1">
                     </div>
 
                     <p class="promo__item-date">
-                      До ' . date("d", strtotime($row['time'])) . ' ' 
-                      . monthRus(date("m", strtotime($row['time'])), 'rod', 2) . ' ' 
-                      . date("Y", strtotime($row['time'])) . '
+                      До ' . date("d", strtotime($row['time'])) . ' '
+                . monthRus(date("m", strtotime($row['time'])), 'rod', 2) . ' '
+                . date("Y", strtotime($row['time'])) . '
                     </p>
                     <p class="promo__item-period">
                       Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']) . ' 
@@ -345,9 +345,9 @@
                     </a>
                   </li>
                 ';
-              } while ($row = mysqli_fetch_array($result));
-            }
-            ?>
+            } while ($row = mysqli_fetch_array($result));
+          }
+          ?>
         </ul>
 
         <p class="promo__desc">
@@ -410,29 +410,18 @@
   </div>
 </div>
 
-<div class="popup" id="sot-agent">
+<div class="popup sot-request sot-request_business" id="sot-business">
   <div class="popup__body">
-    <div class="popup__content popup-request">
-      <form class="request" id="request-form">
+    <div class="popup__content">
+      <form class="request__form">
         <h3 class="request__title">
           Оставить заявку
         </h3>
-        <p class="request__subtitle text">
-        Менеджер свяжется с вами в ближайшее время
+        <p class="request__desc text">
+          Менеджер свяжется с вами в ближайшее время
         </p>
 
         <div class="request__label-block">
-          <label class="request__label request__label_readonly">
-            <span class="request__label-text">
-              Планировка
-            </span>
-            <span class="request__label-star">
-              *
-            </span>
-
-            <input class="request__input request__input_apartment" type="text" name="apartment"
-              placeholder="Выберите квартиру" readonly required>
-          </label>
           <label class="request__label">
             <span class="request__label-text">
               ФИО
@@ -451,22 +440,231 @@
             <span class="request__label-star">
               *
             </span>
-            <input class="request__input request__input_phone" type="tel" name="phone" placeholder="7" required
+            <input class="request__input request__input_phone phone" type="tel" name="phone" placeholder="7" required
               value="7">
           </label>
           <label class="request__label">
+
+            <span class="request__label-text">
+              Виды работ
+            </span>
+            <span class="request__label-star">
+              
+            </span>
+
+            <input class="request__input request__input_name" type="text" name="work-type" placeholder=""
+              required>
+          </label>
+          <!-- <label class="request__label">
             <span class="request__label-text">
               E-mail
             </span>
             <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
-          </label>
+          </label> -->
+          <div class="request__file-label-wrap">
+            <span class="request__file-label-title">
+              Коммерческое предложения
+            </span>
+            <label class="request__file-label">
+              <span class="request__file-label-text">
+                Прикрепить файл
+              </span>
+              <input class="request__file-input" type="file" name="file" hidden>
+            </label>
+          </div>
           <label class="request__label request__label_textarea">
             <span class="request__label-text">
-              Комментарий
+            Расскажите о вашей компании
             </span>
-            <textarea class="request__input request__input_textarea" name="text" placeholder="Сообщение"></textarea>
+            <textarea class="request__input request__input_textarea" name="text"></textarea>
           </label>
         </div>
+
+        <button class="btn btn_green request__btn">
+          Отправить
+        </button>
+
+
+        <div class="request__agreement-wrap">
+          <span class="request__agreement-text">
+            Нажимая кнопку «Отправить», вы соглашаетесь с
+          </span>
+          <a class="request__agreement-link" href="/pages/policy/agreement/" target="_blank">
+            условиями обработки персональных данных
+          </a>
+        </div>
+
+        <span class="request__close-btn popup-close">
+          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+          </svg>
+        </span>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="popup sot-request sot-request_agent" id="-sot-agent">
+  <div class="popup__body">
+    <div class="popup__content">
+      <form class="request__form">
+        <h3 class="request__title">
+          Оставить заявку
+        </h3>
+        <p class="request__desc text">
+          Менеджер свяжется с вами в ближайшее время
+        </p>
+
+        <div class="request__label-block">
+          <label class="request__label">
+            <span class="request__label-text">
+              ФИО представителя
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+
+            <input class="request__input request__input_name" type="text" name="name" placeholder="Введите имя"
+              required>
+          </label>
+          <label class="request__label">
+            <span class="request__label-text">
+              Название агенства
+            </span>
+            <span class="request__label-star"> 
+              *
+            </span>
+            <input class="request__input request__input_name" type="text" name="work-type" placeholder="Введите название"
+              required>
+          </label>
+          <label class="request__label">
+            <span class="request__label-text">
+              Телефон
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+            <input class="request__input request__input_phone phone" type="tel" name="phone" placeholder="7" required
+              value="7">
+          </label>
+          <!-- <label class="request__label">
+            <span class="request__label-text">
+              E-mail
+            </span>
+            <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
+          </label> -->
+          <div class="request__file-label-wrap">
+            <span class="request__file-label-title">
+              Коммерческое предложения
+            </span>
+            <label class="request__file-label">
+              <span class="request__file-label-text">
+                Прикрепить файл
+              </span>
+              <input class="request__file-input" type="file" name="file" hidden>
+            </label>
+          </div>
+          <label class="request__label request__label_textarea">
+            <span class="request__label-text">
+            Расскажите о вашей компании
+            </span>
+            <textarea class="request__input request__input_textarea" name="text"></textarea>
+          </label>
+        </div>
+
+        <button class="btn btn_green request__btn">
+          Отправить
+        </button>
+
+
+        <div class="request__agreement-wrap">
+          <span class="request__agreement-text">
+            Нажимая кнопку «Отправить», вы соглашаетесь с
+          </span>
+          <a class="request__agreement-link" href="/pages/policy/agreement/" target="_blank">
+            условиями обработки персональных данных
+          </a>
+        </div>
+
+        <span class="request__close-btn popup-close">
+          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+          </svg>
+        </span>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="popup sot-bank" id="sot-agent">
+  <div class="popup__body">
+    <div class="popup__content">
+      <form class="request__form">
+        <h3 class="request__title">
+          Оставить заявку
+        </h3>
+        <!-- <p class="request__desc text">
+          Менеджер свяжется с вами в ближайшее время
+        </p> -->
+
+        <!-- <div class="request__label-block"> -->
+          <!-- <label class="request__label">
+            <span class="request__label-text">
+              ФИО представителя
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+
+            <input class="request__input request__input_name" type="text" name="name" placeholder="Введите имя"
+              required>
+          </label>
+          <label class="request__label">
+            <span class="request__label-text">
+              Название агенства
+            </span>
+            <span class="request__label-star"> 
+              *
+            </span>
+            <input class="request__input request__input_name" type="text" name="work-type" placeholder="Введите название"
+              required>
+          </label> -->
+          <label class="request__label">
+            <span class="request__label-text">
+              Телефон
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+            <input class="request__input request__input_phone phone" type="tel" name="phone" placeholder="7" required
+              value="7">
+          </label>
+          <!-- <label class="request__label">
+            <span class="request__label-text">
+              E-mail
+            </span>
+            <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
+          </label> -->
+          <!-- <div class="request__file-label-wrap">
+            <span class="request__file-label-title">
+              Коммерческое предложения
+            </span>
+            <label class="request__file-label">
+              <span class="request__file-label-text">
+                Прикрепить файл
+              </span>
+              <input class="request__file-input" type="file" name="file" hidden>
+            </label>
+          </div> -->
+          <!-- <label class="request__label request__label_textarea">
+            <span class="request__label-text">
+            Расскажите о вашей компании
+            </span>
+            <textarea class="request__input request__input_textarea" name="text"></textarea>
+          </label> -->
+        <!-- </div> -->
 
         <button class="btn btn_green request__btn">
           Отправить
@@ -572,4 +770,3 @@
     </div>
   </div>
 </div>
-
