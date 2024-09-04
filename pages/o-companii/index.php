@@ -45,7 +45,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </p>
           </div>
 
-          <div class="slider__right slider_swiper">
+          <div class="slider__right swiper slider_swiper">
             <ul class="slider__list swiper-wrapper">
               <li class="slider__item swiper-slide">
                 <picture>
@@ -105,10 +105,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
         </div>
       </div>
-      </div>
-
-
-
     </section>
 
     <section class="section section__standarts standarts">
@@ -133,7 +129,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </p>
             </div>
             <div class="standarts__img">
-                <img src="/assets/img/standarts-img.jpg" alt="стендарты">
+              <img src="/assets/img/standarts-img.jpg" alt="стендарты">
             </div>
           </li>
           <li class="standarts__item swiper-slide">
@@ -210,7 +206,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Работа подрядчиком крупных строительных компаний
             </h5>
             <p class="history__item-text">
-            Участие в строительстве более 20 проектов ЖК на территории РФ у таких застройщиков как TIS, ИНКО и Создатели
+              Участие в строительстве более 20 проектов ЖК на территории РФ у таких застройщиков как TIS, ИНКО и Создатели
             </p>
           </li>
 
@@ -254,7 +250,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </svg>
           </div>
         </div>
-        
+
       </div>
     </section>
 
@@ -365,9 +361,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               <div class="project-page__card-img">
                 <img src="/assets/img/building-3.jpg" alt="">
                 <div class="project-page__card-info">
-                <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M19.6839 3C15.1194 3 14.3348 8.48069 14.3348 9.5C14.3348 8.48069 13.5495 3 8.98504 3C0.696778 3 3.79711 16.6757 14.3348 25C24.2533 17.8649 27.9728 3.59459 19.6839 3Z" stroke="white" stroke-width="3"/>
-</svg>
+                  <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.6839 3C15.1194 3 14.3348 8.48069 14.3348 9.5C14.3348 8.48069 13.5495 3 8.98504 3C0.696778 3 3.79711 16.6757 14.3348 25C24.2533 17.8649 27.9728 3.59459 19.6839 3Z" stroke="white" stroke-width="3" />
+                  </svg>
 
                   <p class="project-page__card-label project-page__card-label_small">
                     Чистополье
@@ -379,7 +375,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
               <div class="project-page__card-content">
                 <h3 class="project-page__card-title title title_25">
-                Чистополье
+                  Чистополье
                 </h3>
                 <div class="project-page__card-footer">
                   <div class="project-page__card-bot-wrap">
@@ -415,12 +411,12 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               <div class="project-page__card-img">
                 <img src="/assets/img/building-4.jpg" alt="">
                 <div class="project-page__card-info">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.9698 3.17654C14.9698 2.63146 14.9698 2.06387 14.9629 1.5C15.025 6.99586 14.4491 10.0182 13.035 11.5782C11.5693 13.1984 8.93432 13.5142 4.875 13.5142V13.4445C14.7698 13.4445 14.7733 17.1322 14.7802 23.8235C14.7802 24.3685 14.8062 24.8203 14.7871 25.5C14.725 20.0041 15.3009 16.9818 16.715 15.4218C18.1807 13.8016 20.8157 13.4858 24.875 13.4858V13.5555C14.9802 13.5555 14.9767 9.8678 14.9698 3.17654Z" stroke="white" stroke-width="3"/>
-</svg>
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.9698 3.17654C14.9698 2.63146 14.9698 2.06387 14.9629 1.5C15.025 6.99586 14.4491 10.0182 13.035 11.5782C11.5693 13.1984 8.93432 13.5142 4.875 13.5142V13.4445C14.7698 13.4445 14.7733 17.1322 14.7802 23.8235C14.7802 24.3685 14.8062 24.8203 14.7871 25.5C14.725 20.0041 15.3009 16.9818 16.715 15.4218C18.1807 13.8016 20.8157 13.4858 24.875 13.4858V13.5555C14.9802 13.5555 14.9767 9.8678 14.9698 3.17654Z" stroke="white" stroke-width="3" />
+                  </svg>
 
                   <p class="project-page__card-label project-page__card-label_small">
-                  Европейский берег
+                    Европейский берег
                   </p>
                   <div class="project-page__card-info-btn">
                     Сдан
@@ -429,7 +425,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
               <div class="project-page__card-content">
                 <h3 class="project-page__card-title title title_25">
-                Европейский берег
+                  Европейский берег
                 </h3>
                 <div class="project-page__card-footer">
                   <div class="project-page__card-bot-wrap">

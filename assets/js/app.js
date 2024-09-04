@@ -1180,13 +1180,13 @@ new Swiper(".slider_swiper", {
   direction: "horizontal",
   // loop: true,
   // allowTouchMove: true,
-  // slidesPerView: auto, // сколько слайдов показывать, можно дробно
+  // slidesPerView: 1, // сколько слайдов показывать, можно дробно
   slidesPerView: "auto", // сколько слайдов показывать, можно дробно
   // slidersPerGroup: 3, // сколько слайдов в группе
   // centeredSlides: true, //выравнивание слайдов по центру
   // initialSlide: 0, //начальный слайд (c нуля)
 
-  // spaceBetween: 40,
+  spaceBetween: 20,
   // slideToClickedSlide: true, //перелистывание слайдов по клику
   // grabCursor: true, //меняет курсор при наведении на руку
   // watchOverflow: true, //отключает слайдер если все слайды входят в область видимости
@@ -1268,6 +1268,7 @@ new Swiper(".standarts-slider", {
     },
   },
 });
+
 
 new Swiper(".projects-slider", {
   // Optional parameters

@@ -16614,9 +16614,21 @@ a {
 .company .about .about__container .about__content .slider_swiper .slider__list {
   height: 820px;
   width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
+  /* border-radius: 10px; */
+  /* overflow: hidden; */
 }
+
+.company
+  .about
+  .about__container
+  .about__content
+  .slider_swiper
+  .slider__list
+  .slider__item {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
 
 .company
   .about
@@ -16820,18 +16832,18 @@ a {
 
 .company .projects .projects__container .swiper-navigation {
   position: absolute;
-  top: 60px;
+  top: 80px;
   right: 0;
   display: grid;
   grid-auto-flow: column;
-  gap: 10px;
+  gap: 20px;
   justify-content: start;
   width: max-content;
   z-index: 1;
 }
 
 .company .projects .projects__container .swiper-button {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   cursor: pointer;
 }
 
@@ -20606,7 +20618,7 @@ a {
   width: max-content;
   position: absolute;
   /* bottom: 30px; */
-  top: 35px;
+  top: 40px;
   right: 0px;
   z-index: 1;
 }
@@ -21995,6 +22007,11 @@ a {
   height: 35px;
 }
 
+.company .about .about__container .about__content .slider_swiper .slider__list .slider__item {
+  border-radius: 0;
+  overflow: hidden;
+}
+
 .company .projects .projects__container .project-page__list .project-page__item {
   width: 100%;
   min-height: 475px;
@@ -22094,7 +22111,7 @@ a {
   height: initial;
   width: 100%;
   border-radius: 0px;
-  overflow: hidden;
+  /* overflow: hidden; */
   aspect-ratio: 375/293;
 }
 
