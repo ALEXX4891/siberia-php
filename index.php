@@ -201,7 +201,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </g>
             </svg>
           </div>
-
         </div>
 
       </div>

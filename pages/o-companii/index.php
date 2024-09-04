@@ -112,49 +112,109 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
     </section>
 
     <section class="section section__standarts standarts">
-      <div class="container standarts__container">
-        <div class="standarts__content">
-          <p class="standarts__head-text">
-            Принципы и стандарты
-          </p>
+      <div class="container standarts__container swiper standarts-slider">
+        <ul class="standarts__list swiper-wrapper">
+          <li class="standarts__item swiper-slide">
+            <div class="standarts__content">
+              <p class="standarts__head-text">
+                Принципы и стандарты
+              </p>
 
-          <h2 class="standarts__title title title_40">
-            Мы – команда, которая строит качественные и современные объекты для жизни и работы
-          </h2>
+              <h2 class="standarts__title title title_40">
+                Мы – команда, которая строит качественные и современные объекты для жизни и работы
+              </h2>
 
-          <p class="standarts__text">
-            При разработке проектных планов мы во многом опираемся на потребности жильцов. Чтобы обеспечить комфорт и
-            спокойствие для всех членов семей мы тщательно выбираем технические решения, ориентируясь на долговечность и
-            эффективность. Проводим проерку качества на каждом этапе от закупки материалов до сдачи дома.
-            Эргономичность жилых и общественных пространств наших проектов – основные стандарты которых мы придерживаемся
-            на всех этапах строительства.
-          </p>
-        </div>
+              <p class="standarts__text">
+                При разработке проектных планов мы во многом опираемся на потребности жильцов. Чтобы обеспечить комфорт и
+                спокойствие для всех членов семей мы тщательно выбираем технические решения, ориентируясь на долговечность и
+                эффективность. Проводим проерку качества на каждом этапе от закупки материалов до сдачи дома.
+                <br>Эргономичность жилых и общественных пространств наших проектов – основные стандарты которых мы придерживаемся
+                на всех этапах строительства.
+              </p>
+            </div>
+            <div class="standarts__img">
+                <img src="/assets/img/standarts-img.jpg" alt="стендарты">
+            </div>
+          </li>
+          <li class="standarts__item swiper-slide">
+            <div class="standarts__content">
+              <p class="standarts__head-text">
+                Принципы и стандарты
+              </p>
 
-        <div class="standarts__img">
-          <picture>
-            <source srcset="/assets/img/standarts-img.webp" type="image/webp"><img src="/assets/img/standarts-img.jpg" alt="стендарты">
-          </picture>
+              <h2 class="standarts__title title title_40">
+                Свежий взгляд на архитектуру жилых пространств
+              </h2>
+
+              <p class="standarts__text">
+                Мы верим в баланс простоты современных технических решений и дизайна. Наша задача вписать актуальные инженерные и архитектурные решения в успешную экономическую модель.
+              </p>
+            </div>
+            <div class="standarts__img">
+              <img src="/assets/img/standarts-img-2.jpg" alt="стендарты">
+            </div>
+          </li>
+          <li class="standarts__item swiper-slide">
+            <div class="standarts__content">
+              <p class="standarts__head-text">
+                Принципы и стандарты
+              </p>
+
+              <h2 class="standarts__title title title_40">
+                Семья – самое важное
+              </h2>
+
+              <p class="standarts__text">
+                Мы чтим семейные ценности при разработке проектов, создавая комфортную среду для жизни, где есть всё необходимое для гармоничного развития детей и поддержания семейных традиций.
+                <br><br>
+                Для каждого жилого комплекса мы предусматриваем благоустроенные дворы, детские площадкие, спортивные зоны и места для отдыха.
+              </p>
+            </div>
+            <div class="standarts__img">
+              <img src="/assets/img/standarts-img-3.jpg" alt="стендарты">
+            </div>
+          </li>
+        </ul>
+        <div class="swiper-navigation">
+          <div class="swiper-button swiper-button-prev_stand">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M32.25 20.5L23.25 28L32.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
+
+          <div class="swiper-button swiper-button-next_stand">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M23.25 20.5L32.25 28L23.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section section__history history">
-      <div class="container history__container">
+      <div class="container history__container swiper swiper_history">
         <h2 class="history__title title title_40">
           История
         </h2>
-        <ul class="history__list">
-          <li class="history__item">
+        <ul class="history__list swiper-wrapper">
+          <li class="history__item swiper-slide">
             <h5 class="history__item-title">
               Работа подрядчиком крупных строительных компаний
             </h5>
             <p class="history__item-text">
-              Участие в строительстве более 20 проектов ЖК на территории РФ
+            Участие в строительстве более 20 проектов ЖК на территории РФ у таких застройщиков как TIS, ИНКО и Создатели
             </p>
           </li>
 
-          <li class="history__item">
+          <li class="history__item swiper-slide">
             <h5 class="history__item-title">
               Девелопмент загородной недвижимости
             </h5>
@@ -163,7 +223,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </p>
           </li>
 
-          <li class="history__item">
+          <li class="history__item swiper-slide">
             <h5 class="history__item-title">
               Ввод ЖК Сосновый
             </h5>
@@ -172,16 +232,39 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </p>
           </li>
         </ul>
+
+        <div class="swiper-navigation">
+          <div class="swiper-button swiper-button-prev_history">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M32.25 20.5L23.25 28L32.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
+
+          <div class="swiper-button swiper-button-next_history">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M23.25 20.5L32.25 28L23.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
+        </div>
+        
       </div>
     </section>
 
     <section class="section section__projects projects">
-      <div class="container projects__container">
+      <div class="container projects__container swiper projects-slider">
         <h2 class="projects__title title title_40">
           Наши проекты
         </h2>
-        <ul class="project-page__list">
-          <li class="project-page__item">
+        <ul class="project-page__list swiper-wrapper">
+          <li class="project-page__item swiper-slide">
             <a class="project-page__link" href="/pages/project-item/">
               <div class="project-page__card-img">
                 <picture>
@@ -223,7 +306,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
             </a>
           </li>
-          <li class="project-page__item">
+          <li class="project-page__item swiper-slide">
             <a class="project-page__link" href="/pages/project-item/?id=2">
 
               <div class="project-page__card-img">
@@ -276,21 +359,18 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </a>
 
           </li>
-          <li class="project-page__item">
+          <li class="project-page__item swiper-slide">
             <a class="project-page__link" href="/pages/project-item/">
 
               <div class="project-page__card-img">
-                <picture>
-                  <source srcset="/assets/img/building-2.webp" type="image/webp"><img src="/assets/img/building-2.jpg" alt="">
-                </picture>
+                <img src="/assets/img/building-3.jpg" alt="">
                 <div class="project-page__card-info">
-                  <svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M12 0C12 2 8 6 4.80015 6M12 0V6.75M12 0C12 2 16 6 19.1998 6M12 27V14.625M12 6.75C10.6666 9.25 7.99983 14 1.59997 14M12 6.75V14.625M12 6.75C13.3334 9.25 16.0002 14 22.4 14M12 14.625C10.4 17.4583 5.75988 22.5 0 22.5M12 14.625C13.6001 17.4583 18.2401 22.5 24 22.5"
-                      stroke="white" stroke-width="3" />
-                  </svg>
+                <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.6839 3C15.1194 3 14.3348 8.48069 14.3348 9.5C14.3348 8.48069 13.5495 3 8.98504 3C0.696778 3 3.79711 16.6757 14.3348 25C24.2533 17.8649 27.9728 3.59459 19.6839 3Z" stroke="white" stroke-width="3"/>
+</svg>
+
                   <p class="project-page__card-label project-page__card-label_small">
-                    Сосновый
+                    Чистополье
                   </p>
                   <div class="project-page__card-info-btn">
                     Сдан
@@ -299,7 +379,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
               <div class="project-page__card-content">
                 <h3 class="project-page__card-title title title_25">
-                  Сосновый
+                Чистополье
                 </h3>
                 <div class="project-page__card-footer">
                   <div class="project-page__card-bot-wrap">
@@ -310,9 +390,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       Сдан
                     </p>
                   </div>
-                  <p class="project-page__card-link">
+                  <!-- <p class="project-page__card-link">
                     128 квартир
-                  </p>
+                  </p> -->
                   <!-- <div class="project-page__card-bot-wrap">
                   <p class="project-page__card-key">
                     Площадь
@@ -329,21 +409,18 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </a>
 
           </li>
-          <li class="project-page__item">
+          <li class="project-page__item swiper-slide">
             <a class="project-page__link" href="/pages/project-item/">
 
               <div class="project-page__card-img">
-                <picture>
-                  <source srcset="/assets/img/building-2.webp" type="image/webp"><img src="/assets/img/building-2.jpg" alt="">
-                </picture>
+                <img src="/assets/img/building-4.jpg" alt="">
                 <div class="project-page__card-info">
-                  <svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M12 0C12 2 8 6 4.80015 6M12 0V6.75M12 0C12 2 16 6 19.1998 6M12 27V14.625M12 6.75C10.6666 9.25 7.99983 14 1.59997 14M12 6.75V14.625M12 6.75C13.3334 9.25 16.0002 14 22.4 14M12 14.625C10.4 17.4583 5.75988 22.5 0 22.5M12 14.625C13.6001 17.4583 18.2401 22.5 24 22.5"
-                      stroke="white" stroke-width="3" />
-                  </svg>
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.9698 3.17654C14.9698 2.63146 14.9698 2.06387 14.9629 1.5C15.025 6.99586 14.4491 10.0182 13.035 11.5782C11.5693 13.1984 8.93432 13.5142 4.875 13.5142V13.4445C14.7698 13.4445 14.7733 17.1322 14.7802 23.8235C14.7802 24.3685 14.8062 24.8203 14.7871 25.5C14.725 20.0041 15.3009 16.9818 16.715 15.4218C18.1807 13.8016 20.8157 13.4858 24.875 13.4858V13.5555C14.9802 13.5555 14.9767 9.8678 14.9698 3.17654Z" stroke="white" stroke-width="3"/>
+</svg>
+
                   <p class="project-page__card-label project-page__card-label_small">
-                    Сосновый
+                  Европейский берег
                   </p>
                   <div class="project-page__card-info-btn">
                     Сдан
@@ -352,7 +429,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
               <div class="project-page__card-content">
                 <h3 class="project-page__card-title title title_25">
-                  Сосновый
+                Европейский берег
                 </h3>
                 <div class="project-page__card-footer">
                   <div class="project-page__card-bot-wrap">
@@ -363,9 +440,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       Сдан
                     </p>
                   </div>
-                  <p class="project-page__card-link">
+                  <!-- <p class="project-page__card-link">
                     128 квартир
-                  </p>
+                  </p> -->
                   <!-- <div class="project-page__card-bot-wrap">
                   <p class="project-page__card-key">
                     Площадь
@@ -383,6 +460,27 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           </li>
         </ul>
+        <div class="swiper-navigation">
+          <div class="swiper-button swiper-button-prev_projects">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M32.25 20.5L23.25 28L32.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
+
+          <div class="swiper-button swiper-button-next_projects">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M23.25 20.5L32.25 28L23.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
+        </div>
       </div>
     </section>
   </main>

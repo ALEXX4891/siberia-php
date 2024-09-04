@@ -62,7 +62,7 @@ if (
   // ГП2 house_id 943
   // ГП3 house_id 945
 
-  const idHouse = [933, 943, 945];
+  const idHouse = [1052, 1053, 1054];
   const projectById = [{ 933: "Сосновый" }, { 943: "Сосновый" }, { 945: "Сосновый" }];
 
   function getProjectName(id) {
