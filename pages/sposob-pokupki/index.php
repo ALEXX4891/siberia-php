@@ -25,7 +25,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </h2>
 
 
-          <li class="top__content" data-id="1">
+          <div class="top__content" data-id="1">
             <h2 class="top__subtitle title title_40">
               Ипотека
             </h2>
@@ -47,7 +47,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 <source srcset="/assets/img/buy-slide-1.webp" type="image/webp"><img src="/assets/img/buy-slide-1.jpg" alt="Сибирь. Способ покупки">
               </picture>
             </div>
-          </li>
+          </div>
 
 
           <ul class="top__facts-list">
@@ -220,9 +220,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </button>
             </div>
 
-            <picture>
-              <source srcset="/assets/img/buy-man.webp" type="image/webp"><img class="simple__background" src="/assets/img/buy-man.png" alt="баннер">
-            </picture>
+            <img class="simple__background" src="/assets/img/buy-man.png" alt="баннер">
 
           </div>
 
@@ -272,7 +270,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           <div class="simple__banner-text-wrap">
             <h3 class="simple__banner-title title title_40">
-              Рассрочка
+              Сертификаты
             </h3>
             <p class="simple__banner-desc text">
               В качестве оплаты покупатели могут использовать государственные жилищные сертификаты, материнский семейный
