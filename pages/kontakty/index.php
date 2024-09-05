@@ -28,7 +28,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="contacts-page__left-block">
 
           <div class="contacts-page__left-wrap">
-            <div class="address__wrapper">
+            <div class="address__wrapper address__wrapper_close">
 
               <div class="address__item address__item_office">
                 <h2 class="address__item-title title title_25">

@@ -2,6 +2,8 @@
 include $_SERVER["DOCUMENT_ROOT"] . '/backend/db.php';
 include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
 
+$yandexMapApiKey = '9e0bbb5f-9b5e-4f9e-8eb8-b98592b9e414';
+
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +78,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
   <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
   <link rel="stylesheet" href="/assets/css/fancybox.css">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="https://api-maps.yandex.ru/v3/?apikey=9e0bbb5f-9b5e-4f9e-8eb8-b98592b9e414&lang=ru_RU"></script>
+  <script src="https://api-maps.yandex.ru/v3/?apikey=<?= $yandexMapApiKey ?>&lang=ru_RU"></script>
   <!-- <script src="https://api-maps.yandex.ru/3.0/?apikey=9e0bbb5f-9b5e-4f9e-8eb8-b98592b9e414&lang=ru_RU"></script> -->
   <!-- <script src="https://api-maps.yandex.ru/v3/?apikey=9e0bbb5f-9b5e-4f9e-8eb8-b98592b9e414&lang=ru_RU&_v=20240819113010"></script> -->
 
