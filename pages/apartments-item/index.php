@@ -387,7 +387,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
     <section class="section section_geo geo">
       <div class="container geo__container">
         <h2 class="geo__title title title_40">
-          Мы рядом
+          Все рядом
         </h2>
 
         <div class="geo__map map">
@@ -591,7 +591,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="form__wrapper">
           <form class="form__form" action="#" method="post" enctype="multipart/form-data">
             <label class="form__label">
-              <input class="form__input" name="name" type="text" placeholder="Ваше имя">
+              <input class="form__input" name="name" type="text" placeholder="Как вас зовут?">
             </label>
             <label class="form__label">
               <input class="form__input" name="phone" type="tel" placeholder="Tелефон">
@@ -710,30 +710,30 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           ?>
 
         </ul>
+        <div class="swiper-navigation">
+          <div class="swiper-button swiper-button-prev swiper-button-prev_apart">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M32.25 20.5L23.25 28L32.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
+  
+          <div class="swiper-button swiper-button-next swiper-button-next_apart">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M23.25 20.5L32.25 28L23.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
+  
+        </div>
       </div>
 
-      <div class="swiper-navigation">
-        <div class="swiper-button swiper-button-prev swiper-button-prev_apart">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.8">
-              <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
-                stroke="#CBCBCB" />
-              <path d="M32.25 20.5L23.25 28L32.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
-            </g>
-          </svg>
-        </div>
-
-        <div class="swiper-button swiper-button-next swiper-button-next_apart">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.8">
-              <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
-                stroke="#CBCBCB" />
-              <path d="M23.25 20.5L32.25 28L23.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
-            </g>
-          </svg>
-        </div>
-
-      </div>
 
     </section>
 
