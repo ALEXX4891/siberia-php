@@ -2215,7 +2215,9 @@ async function initMap() {
   // Иницилиазируем карту
   const map = new YMap(
     // Передаём ссылку на HTMLElement контейнера
+    // document.querySelector(".map-yandex"),
     document.getElementById("map"),
+
     // Передаём параметры инициализации карты
 
     {

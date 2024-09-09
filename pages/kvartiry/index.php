@@ -86,7 +86,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   <input class="select__input select__input_from" type="number">
                 </div>
 
-                <span class="select__arrow">
+                <span class="select__separator">
                   |
                 </span>
                 <div class="select__wrapper">
@@ -123,7 +123,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   <input class="select__input select__input_from" type="number">
                 </div>
 
-                <span class="select__arrow">
+                <span class="select__separator">
                   |
                 </span>
                 <div class="select__wrapper">
@@ -245,7 +245,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   <input class="select__input select__input_from" type="number">
                 </div>
 
-                <span class="select__arrow">
+                <span class="select__separator">
                   |
                 </span>
                 <div class="select__wrapper">
