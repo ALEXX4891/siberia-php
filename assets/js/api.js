@@ -1104,14 +1104,10 @@ if (
           rangeSlider.style.right = `${100 - ((maxVal - minRange) * 100) / (maxRange - minRange)}%`;
           rangeSlider.style.left = `${((minVal - minRange) * 100) / (maxRange - minRange)}%`;
         }
+      });
 
-        // setTimeout(() => {
-        //   apartRender(allAparstInfo);
-        // }, 500);
-        // })
-
-        // debounce(apartRender(allAparstInfo), 1000);
-        // apartRender = debounce(apartRender, 1000);
+      // рендер при перетаскивании:
+      input.addEventListener("change", (e) => {
         apartRender(allApartsInfo);
       });
 
