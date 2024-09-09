@@ -81,11 +81,11 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']) . ' 
                     </p>
                   </span>
-                  <a class="promo-page__card-link" href="/pages/promo-item/?id=' . $row['id'] . '">
+                  <button class="promo-page__card-link promo-link" data-id="' . $row['id'] . '">
                     <h2 class="promo-page__card-title">
                     ' . $row['title'] . '
                     </h2>
-                  </a>
+                  </button>
                 </li>
                 ';
               } while ($row = mysqli_fetch_array($result));

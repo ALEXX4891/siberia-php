@@ -294,7 +294,7 @@
           </picture>
         </div>
 
-        <ul class="promo__list">
+        <!-- <ul class="promo__list">
           <?
           // include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
           // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
@@ -340,15 +340,15 @@
                         <path d="M10.295 11.5L7.5 8.705V4H8.5V8.29L11 10.795L10.295 11.5Z" fill="black" />
                       </svg>
                     </p>
-                    <a class="promo__item-title popup-link" href="#promo">
+                    <button class="promo__item-title promo-link" data-id="' . $row['id'] . '">
                       ' . $row['title'] . '
-                    </a>
+                    </button>
                   </li>
                 ';
             } while ($row = mysqli_fetch_array($result));
           }
           ?>
-        </ul>
+        </ul> -->
 
         <p class="promo__desc">
           Срок предложения ограничен. <br><br>

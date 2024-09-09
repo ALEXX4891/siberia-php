@@ -15,21 +15,20 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
   include $_SERVER["DOCUMENT_ROOT"] . '/includes/header.php';
   ?>
 
-  <main class="main apartments-page__main">
-    <section class="section section_choice choice">
+  <main class="main commercial-page__main">
+  <section class="section section_choice choice">
       <div class="container choice__container">
         <h1 class="choice__title title title_40">
-          Коммерческая недвижимость
-        </h1>
-
-        <p class="choice__desc">
           Найдите помещение для своего бизнеса
+        </h1>
+        <p class="choice__subtitle">
+          Коммерческая недвижимость
         </p>
 
         <div class="choice__form" data-form>
 
           <ul class="choice__inputs-list choice__inputs-list_top">
-            <li class="choice__input-block choice__input-block_select">
+            <li class="choice__input-block choice__input-block_select choice__input-block_select_project">
               <p class="choice__label">
                 Проект
               </p>
@@ -46,15 +45,16 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       stroke-linejoin="round" />
                   </svg>
                 </span>
-                <ul class="select__list select__list_carton">
-                  <li class="select__item" data-id="sosnoviy">Сосновый</li>
-                  <!-- <li class="select__item" data-id="duboviy">Дубовый</li> -->
-                  <!-- <li class="select__item" data-id="berezoviy">Березовый</li> -->
+                <ul class="select__list">
+                  <!-- <li class="select__item">Все</li> -->
+                  <!-- <li class="select__item">Сосновый</li>
+                  <li class="select__item">Дубовый</li>
+                  <li class="select__item">Березовый</li> -->
                 </ul>
               </div>
             </li>
 
-            <li class="choice__input-block choice__input-block_buttons">
+            <li class="choice__input-block choice__input-block_buttons choice__input-block_buttons_rooms">
               <p class="choice__label">
                 Комнат
               </p>
@@ -77,7 +77,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
             </li>
 
-            <li class="choice__input-block choice__input-block_slider">
+            <li class="choice__input-block choice__input-block_slider choice__input-block_slider_square">
               <p class="choice__label">
                 Площадь, м2
               </p>
@@ -114,7 +114,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
             </li>
 
-            <li class="choice__input-block choice__input-block_slider">
+            <li class="choice__input-block choice__input-block_slider choice__input-block_slider_cost">
               <p class="choice__label">
                 Стоимость, ₽
               </p>
@@ -153,14 +153,14 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </ul>
 
           <ul class="choice__inputs-list choice__inputs-list_bot">
-            <li class="choice__input-block choice__input-block_select">
+            <li class="choice__input-block choice__input-block_select choice__input-block_select_house">
               <p class="choice__label">
-                Проект
+                Дом
               </p>
               <div class="choice__select select select-frame">
                 <div class="select__wrapper">
                   <span class="select__placeholder">
-                    Сосновый
+                    Все
                   </span>
                   <p class="select__text select__text_carton"></p>
                 </div>
@@ -170,22 +170,24 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       stroke-linejoin="round" />
                   </svg>
                 </span>
-                <ul class="select__list select__list_carton">
-                  <li class="select__item" data-id="sosnoviy">Сосновый</li>
-                  <!-- <li class="select__item" data-id="duboviy">Дубовый</li> -->
-                  <!-- <li class="select__item" data-id="berezoviy">Березовый</li> -->
+                <ul class="select__list">
+                  <!-- <li class="select__item">Все</li> -->
+                  <!-- <li class="select__item">1</li>
+                  <li class="select__item">2</li>
+                  <li class="select__item">3</li> -->
+
                 </ul>
               </div>
             </li>
 
-            <li class="choice__input-block choice__input-block_select">
+            <li class="choice__input-block choice__input-block_select choice__input-block_select_section">
               <p class="choice__label">
-                Проект
+                Секция
               </p>
               <div class="choice__select select select-frame">
                 <div class="select__wrapper">
                   <span class="select__placeholder">
-                    Сосновый
+                    Все
                   </span>
                   <p class="select__text select__text_carton"></p>
                 </div>
@@ -195,15 +197,17 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       stroke-linejoin="round" />
                   </svg>
                 </span>
-                <ul class="select__list select__list_carton">
-                  <li class="select__item" data-id="sosnoviy">Сосновый</li>
-                  <!-- <li class="select__item" data-id="duboviy">Дубовый</li> -->
-                  <!-- <li class="select__item" data-id="berezoviy">Березовый</li> -->
+                <ul class="select__list">
+                  <!-- <li class="select__item">Все</li> -->
+                  <!-- <li class="select__item" data-id="duboviy">1</li>
+                  <li class="select__item" data-id="berezoviy">2</li>
+                  <li class="select__item" data-id="berezoviy">3</li> -->
                 </ul>
               </div>
             </li>
+            <!-- TODO Динамическ формировать содержимое фильтров -->
 
-            <li class="choice__input-block choice__input-block_select">
+            <li class="choice__input-block choice__input-block_select choice__input-block_select_date">
               <p class="choice__label">
                 Срок сдачи
               </p>
@@ -220,11 +224,11 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       stroke-linejoin="round" />
                   </svg>
                 </span>
-                <ul class="select__list select__list_carton">
-                  <li class="select__item" data-id="sosnoviy">Все</li>
-                  <li class="select__item" data-id="sosnoviy">II квартал 2025</li>
+                <ul class="select__list">
+                  <!-- <li class="select__item">Все</li> -->
+                  <!-- <li class="select__item" data-id="sosnoviy">II квартал 2025</li>
                   <li class="select__item" data-id="sosnoviy">II квартал 2026</li>
-                  <li class="select__item" data-id="sosnoviy">II квартал 2027</li>
+                  <li class="select__item" data-id="sosnoviy">IV квартал 2025</li> -->
 
                   <!-- <li class="select__item" data-id="duboviy">Дубовый</li> -->
                   <!-- <li class="select__item" data-id="berezoviy">Березовый</li> -->
@@ -232,7 +236,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
             </li>
 
-            <li class="choice__input-block choice__input-block_slider">
+            <li class="choice__input-block choice__input-block_slider choice__input-block_slider_floor">
               <p class="choice__label">
                 Этаж
               </p>
@@ -318,17 +322,46 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </div>
 
           <div class="choice__reset-wrap">
-            <button class="choice__btn-reset" href="#popup-form">
-              <a class="choice__btn-text" href="/pages/kvartiry/">
+
+            <button class="choice__btn-additional choice__btn-additional_show">
+              <p class="choice__btn-text">
+                Еще параметры
+              </p>
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7.2069 7L13 1" stroke="#363636" stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <button class="choice__btn-additional choice__btn-additional_hide" style="display: none;">
+              <p class="choice__btn-text">
+                Скрыть дополнительные параметры
+              </p>
+              <svg style="transform: rotate(180deg);" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7.2069 7L13 1" stroke="#363636" stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <button class="choice__btn-reset">
+              <p class="choice__btn-text">
                 Сбросить фильтры
-              </a>
+              </p>
               <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 0.5L15 14.5M1 14.5L15 0.5" stroke="black" />
               </svg>
             </button>
+
             <p class="choice__search-text">
               Найдено 20 квартир
             </p>
+
+            <button class="choice__btn-request choice__btn-request_mobile choice__btn-request_mobile_filter btn btn_dark">
+              Фильтр
+            </button>
+
+            <button class="choice__btn-request choice__btn-request_mobile choice__btn-request_mobile_apply btn btn_dark" style="display: none;">
+              Применить
+            </button>
+
           </div>
 
         </div>
@@ -457,6 +490,16 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <div class="map__map" id="map">
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section__commercial commercial">
+      <div class="container commercial__container">
+        <ul class="commercial__list">
+        </ul>
+        <button class="commercial__button btn btn_dark" id="addApartrs">
+          Показать еще 8 планировок
+        </button>
       </div>
     </section>
 

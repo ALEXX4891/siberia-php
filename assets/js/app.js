@@ -868,6 +868,7 @@ new Swiper(".regions_swiper_small", {
   direction: "horizontal",
   // loop: true,
   // allowTouchMove: true,
+  autoHeight: true,
   slidesPerView: 3, // сколько слайдов показывать, можно дробно
   // slidesPerView: "auto", // сколько слайдов показывать, можно дробно
   // slidersPerGroup: 3, // сколько слайдов в группе
@@ -3213,3 +3214,18 @@ function setInfo() {
 // }
 
 // -------------------------------------------- end Планы ---------------------------------------------
+
+// -------------------------------------------- start Модалка промо ---------------------------------------------
+const promoLink = document.querySelectorAll(".promo-link");
+if (promoLink.length > 0) {
+  promoLink.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const popupPromo = document.querySelector("#promo");
+      // const evetns = popupPromo.querySelectorAll(.popup__content);
+
+      popupOpen(popupPromo);
+    });
+  });
+}
+// -------------------------------------------- end Модалка промо ---------------------------------------------

@@ -62,70 +62,70 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <h2 class="news-slider__title title title_40">
           Другие новости
         </h2>
-      </div>
-      <div class="container news-slider__container-bot news-slider_swiper">
-        <ul class="news-slider__cards-list swiper-wrapper">
-          <?
-          // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
-          $result = mysqli_query($db, "SELECT * FROM news WHERE publish = 1 ORDER BY DATE DESC LIMIT 8");
+        <div class="container news-slider__container-bot news-slider_swiper">
+          <ul class="news-slider__cards-list swiper-wrapper">
+            <?
+            // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
+            $result = mysqli_query($db, "SELECT * FROM news WHERE publish = 1 ORDER BY DATE DESC LIMIT 8");
 
-          $row = mysqli_fetch_array($result);
+            $row = mysqli_fetch_array($result);
 
-          // if ($row == '') {
-          //   echo 'Ничего не нашлось';
-          // }
+            // if ($row == '') {
+            //   echo 'Ничего не нашлось';
+            // }
 
-          // echo '<pre>';
-          // print_r($row);
-          // echo '</pre>';
+            // echo '<pre>';
+            // print_r($row);
+            // echo '</pre>';
 
-          // Сосновый | ГП 8 | 1 / 2 этаж
+            // Сосновый | ГП 8 | 1 / 2 этаж
 
-          if (mysqli_num_rows($result) > 0) {
-            do {
-              echo '
+            if (mysqli_num_rows($result) > 0) {
+              do {
+                echo '
                 <li class="news-slider__cards-item swiper-slide">
                 <div class="news-slider__card-img-wrapper">
-                  <img src="/assets/img/' . $row['photo'] . '" alt="' . $row['title'] . '">
+                <img src="/assets/img/' . $row['photo'] . '" alt="' . $row['title'] . '">
                 </div>
                 <p class="news-slider__card-date">
-                  ' . date("d", strtotime($row['date'])) . ' '
-                . monthRus(date("m", strtotime($row['date'])), 'rod', 2) . ' '
-                . date("Y", strtotime($row['date'])) . '
+                ' . date("d", strtotime($row['date'])) . ' '
+                  . monthRus(date("m", strtotime($row['date'])), 'rod', 2) . ' '
+                  . date("Y", strtotime($row['date'])) . '
                 </p>
                 <a class="news-slider__card-link" href="/pages/novosti-item/?id=' . $row['id'] . '">
-                  <h2 class="news-slider__card-title">
-                  ' . $row['title'] . '
-                  </h2>
+                <h2 class="news-slider__card-title">
+                ' . $row['title'] . '
+                </h2>
                 </a>
-              </li>
+                </li>
                 ';
-            } while ($row = mysqli_fetch_array($result));
-          }
-          ?>
-        </ul>
-      </div>
-
-      <div class="swiper-navigation">
-        <div class="swiper-button swiper-button-prev">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.8">
-              <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
-                stroke="#CBCBCB" />
-              <path d="M32.25 20.5L23.25 28L32.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
-            </g>
-          </svg>
-        </div>
-        <div class="swiper-button swiper-button-next">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.8">
-              <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
-                stroke="#CBCBCB" />
-              <path d="M23.25 20.5L32.25 28L23.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
-            </g>
-          </svg>
+              } while ($row = mysqli_fetch_array($result));
+            }
+            ?>
+          </ul>
         </div>
 
+        <div class="swiper-navigation">
+          <div class="swiper-button swiper-button-prev">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M32.25 20.5L23.25 28L32.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
+          <div class="swiper-button swiper-button-next">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M23.25 20.5L32.25 28L23.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
+
+        </div>
       </div>
     </section>
   </main>
@@ -135,7 +135,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
   ?>
 
   <script>
-
     const title = document.querySelector('.news-content__title');
     let transTitle = transliterate(title.textContent);
     // title.textContent = transTitle;
@@ -145,72 +144,72 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
     function transliterate(word) {
       var answer = "",
         a = {};
-        a["А"] = "A";
-        a["Б"] = "B";
-        a["В"] = "V";
-        a["Г"] = "G";
-        a["Д"] = "D";
-        a["Е"] = "E";
-        a["Ё"] = "E";
-        a["Ж"] = "ZH";
-        a["З"] = "Z";
-        a["И"] = "I";
-        a["Й"] = "Y";
-        a["К"] = "K";
-        a["Л"] = "L";
-        a["М"] = "M";
-        a["Н"] = "N";
-        a["О"] = "O";
-        a["П"] = "P";
-        a["Р"] = "R";
-        a["С"] = "S";
-        a["Т"] = "T";
-        a["У"] = "U";
-        a["Ф"] = "F";
-        a["Х"] = "KH";
-        a["Ц"] = "TS";
-        a["Ч"] = "CH";
-        a["Ш"] = "SH";
-        a["Щ"] = "SHCH";
-        a["Ъ"] = "";
-        a["Ы"] = "Y";
-        a["Ь"] = "";
-        a["Э"] = "E";
-        a["Ю"] = "YU";
-        a["Я"] = "YA";
-        a["а"] = "a";
-        a["б"] = "b";
-        a["в"] = "v";
-        a["г"] = "g";
-        a["д"] = "d";
-        a["е"] = "e";
-        a["ё"] = "e";
-        a["ж"] = "zh";
-        a["з"] = "z";
-        a["и"] = "i";
-        a["й"] = "y";
-        a["к"] = "k";
-        a["л"] = "l";
-        a["м"] = "m";
-        a["н"] = "n";
-        a["о"] = "o";
-        a["п"] = "p";
-        a["р"] = "r";
-        a["с"] = "s";
-        a["т"] = "t";
-        a["у"] = "u";
-        a["ф"] = "f";
-        a["х"] = "kh";
-        a["ц"] = "ts"; 
-        a["ч"] = "ch";
-        a["ш"] = "sh";  
-        a["щ"] = "shch";
-        a["ъ"] = "";
-        a["ы"] = "y";
-        a["ь"] = "";
-        a["э"] = "e";
-        a["ю"] = "yu";
-        a["я"] = "ya";
+      a["А"] = "A";
+      a["Б"] = "B";
+      a["В"] = "V";
+      a["Г"] = "G";
+      a["Д"] = "D";
+      a["Е"] = "E";
+      a["Ё"] = "E";
+      a["Ж"] = "ZH";
+      a["З"] = "Z";
+      a["И"] = "I";
+      a["Й"] = "Y";
+      a["К"] = "K";
+      a["Л"] = "L";
+      a["М"] = "M";
+      a["Н"] = "N";
+      a["О"] = "O";
+      a["П"] = "P";
+      a["Р"] = "R";
+      a["С"] = "S";
+      a["Т"] = "T";
+      a["У"] = "U";
+      a["Ф"] = "F";
+      a["Х"] = "KH";
+      a["Ц"] = "TS";
+      a["Ч"] = "CH";
+      a["Ш"] = "SH";
+      a["Щ"] = "SHCH";
+      a["Ъ"] = "";
+      a["Ы"] = "Y";
+      a["Ь"] = "";
+      a["Э"] = "E";
+      a["Ю"] = "YU";
+      a["Я"] = "YA";
+      a["а"] = "a";
+      a["б"] = "b";
+      a["в"] = "v";
+      a["г"] = "g";
+      a["д"] = "d";
+      a["е"] = "e";
+      a["ё"] = "e";
+      a["ж"] = "zh";
+      a["з"] = "z";
+      a["и"] = "i";
+      a["й"] = "y";
+      a["к"] = "k";
+      a["л"] = "l";
+      a["м"] = "m";
+      a["н"] = "n";
+      a["о"] = "o";
+      a["п"] = "p";
+      a["р"] = "r";
+      a["с"] = "s";
+      a["т"] = "t";
+      a["у"] = "u";
+      a["ф"] = "f";
+      a["х"] = "kh";
+      a["ц"] = "ts";
+      a["ч"] = "ch";
+      a["ш"] = "sh";
+      a["щ"] = "shch";
+      a["ъ"] = "";
+      a["ы"] = "y";
+      a["ь"] = "";
+      a["э"] = "e";
+      a["ю"] = "yu";
+      a["я"] = "ya";
 
 
       for (i in word) {
