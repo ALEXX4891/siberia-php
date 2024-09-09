@@ -1,4 +1,5 @@
 const url = window.location.href;
+let urlParams = new URLSearchParams(window.location.search);
 // console.log(url.split("/"));
 if (
   !url.split("/").includes("novosti") &&
@@ -14,7 +15,6 @@ if (
   console.log("------------- Старт Api ------------------");
 
   const choiceFilterForm = document.querySelector("[data-form]");
-  let urlParams = new URLSearchParams(window.location.search);
 
   // функция проверки работы Api
   function checkApiData() {
@@ -420,7 +420,7 @@ if (
     //   { name: "Этаж", value: { from: 2, to: 3 } },
     //   { name: "btns", value: [] },
     // ];
-    console.log(arr);
+    // console.log(arr);
 
     if (!choiceFilterForm) {
       console.log("choiceFilterForm not found");
@@ -430,6 +430,7 @@ if (
     if (!arr) {
       window.history.pushState({}, document.title, window.location.pathname);
       urlParams = new URLSearchParams(window.location.search);
+      console.log("сброс фильтров");
     }
 
     const projectFilter = choiceFilterForm.querySelector(".choice__input-block_select_project .select__text");
@@ -460,9 +461,9 @@ if (
       if (arr) {
         if (arr.find((item) => item.name === "Проект") && arr.find((item) => item.name === "Проект").value !== "") {
           projectFilter.innerHTML = arr.find((item) => item.name === "Проект").value;
-        } else {
-          projectFilter.innerHTML = "";
         }
+      } else {
+        projectFilter.innerHTML = "";
       }
 
       if (projectFilter.innerHTML !== "") {
@@ -478,9 +479,9 @@ if (
       if (arr) {
         if (arr.find((item) => item.name === "Дом") && arr.find((item) => item.name === "Дом").value !== "") {
           houseFilter.innerHTML = arr.find((item) => item.name === "Дом").value;
-        } else {
-          houseFilter.innerHTML = "";
         }
+      } else {
+        houseFilter.innerHTML = "";
       }
 
       if (houseFilter.innerHTML !== "") {
@@ -498,9 +499,9 @@ if (
       if (arr) {
         if (arr.find((item) => item.name === "Секция") && arr.find((item) => item.name === "Секция").value !== "") {
           sectionFilter.innerHTML = arr.find((item) => item.name === "Секция").value;
-        } else {
-          sectionFilter.innerHTML = "";
         }
+      } else {
+        sectionFilter.innerHTML = "";
       }
 
       if (sectionFilter.innerHTML !== "") {
@@ -519,9 +520,9 @@ if (
           arr.find((item) => item.name === "Срок сдачи").value !== ""
         ) {
           deadlineFilter.innerHTML = arr.find((item) => item.name === "Срок сдачи").value;
-        } else {
-          deadlineFilter.innerHTML = "";
         }
+      } else {
+        deadlineFilter.innerHTML = "";
       }
 
       if (deadlineFilter.innerHTML !== "") {
@@ -1375,6 +1376,334 @@ if (resetFiltersBtn) {
 
 // ------------------------- end FILTERS: ---------------------------
 
+// -------------------------------------------- start Селект: ---------------------------------------------
+
+// let queryParams = {
+//   name: "",
+//   phone: "",
+//   email: "",
+//   message: "",
+//   project: "sosnoviy",
+//   numbers_of_rooms: "",
+//   area: "",
+//   balcony: "",
+//   dressing_room: "",
+//   side_2: "",
+//   side_3: "",
+//   guest_bathroom: "",
+//   kitchen_living_room: "",
+// };
+
+// console.log(selects);
+
+const choiceForm = document.querySelector(".choice__form");
+if (choiceForm) {
+  const selectProjectList = document.querySelectorAll(".choice__select");
+  if (selectProjectList.length > 0) {
+    selectProjectList.forEach((selectProject) => {
+      selectProject.addEventListener("click", (event) => {
+        console.log("тест");
+        if (selectProject.classList.contains("select_open")) {
+          selectProjectList.forEach((selectProject) => {
+            selectProject.classList.remove("select_open");
+          });
+        } else {
+          selectProjectList.forEach((selectProject) => {
+            selectProject.classList.remove("select_open");
+          });
+          selectProject.classList.add("select_open");
+        }
+      });
+      const selectOptions = selectProject.querySelectorAll(".select__item");
+      if (selectOptions.length > 0) {
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", (event) => {
+            console.log("тест");
+            const input = selectProject.querySelector(".select__text");
+            event.stopPropagation(); // отменяем всплытие, что бы повторно не сработало событие на самом селекте
+            input.innerHTML = item.innerHTML;
+            input.classList.add("select__text_active");
+            input.setAttribute("data-id", item.getAttribute("data-id"));
+            selectProject.classList.remove("select_open");
+            selectProject.classList.add("select_active");
+
+            if (selectProject.closest(".choice__input-block_select_project")) {
+              urlParams.set("project", input.innerHTML);
+            }
+            if (selectProject.closest(".choice__input-block_select_house")) {
+              urlParams.set("house", input.innerHTML);
+            }
+
+            if (selectProject.closest(".choice__input-block_select_section")) {
+              urlParams.set("section", input.innerHTML);
+            }
+
+            if (selectProject.closest(".choice__input-block_select_date")) {
+              urlParams.set("date", input.innerHTML);
+            }
+
+            window.history.pushState({}, "", "?" + urlParams.toString());
+            apartRender(allApartsInfo);
+          });
+        });
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".choice__select")) {
+        selectProjectList.forEach((selectProject) => {
+          selectProject.classList.remove("select_open");
+        });
+      }
+    });
+  }
+  // selects.forEach((select) => {
+  // });
+
+  const choiceButtonsSelect = document.querySelector(".choice__buttons-select");
+  if (choiceButtonsSelect) {
+    // const btns = choiceButtonsSelect.querySelectorAll(".choice__buttons-select-item");
+
+    const choiceBtns = document.querySelectorAll(".choice__buttons-select-item");
+
+    if (choiceBtns) {
+      choiceBtns.forEach((item) => {
+        item.addEventListener("click", (event) => {
+          console.log("тест");
+          item.classList.toggle("choice__buttons-select-item_active");
+          const valueBtns = choiceButtonsSelect.querySelectorAll(".choice__buttons-select-item_active");
+          const value = [];
+          valueBtns.forEach((item) => {
+            value.push(item.getAttribute("data-id"));
+          });
+
+          console.log(urlParams);
+          urlParams.set("rooms", value);
+          window.history.pushState({}, "", "?" + urlParams.toString());
+          apartRender(allApartsInfo);
+
+          // window.location.search = urlParams;
+          // console.log(window.location.search);
+          // console.log(queryParams);
+        });
+      });
+    }
+  }
+
+  const choiceForm = document.querySelector("#choice-form");
+  // console.log(choiceForm);
+  if (choiceForm) {
+    const submitBtn = choiceForm.querySelector(".form__btn");
+    // console.log(submitBtn);
+    submitBtn.addEventListener("click", (event) => {
+      // choiceForm.addEventListener("submit", (event) => {
+      // console.log("click");
+      // choiceForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      queryParams.name = choiceForm.querySelector(".form__input_name").value;
+      queryParams.phone = choiceForm.querySelector(".form__input_phone").value;
+      queryParams.email = choiceForm.querySelector(".form__input_email").value;
+      queryParams.message = choiceForm.querySelector(".form__input_textarea").value;
+      // console.log(queryParams);
+      if (queryParams.name === "" || queryParams.phone === "") {
+        alert("Заполните обязательные поля");
+        return;
+      } else {
+        postForm(queryParams).then((res) => {
+          if (res === "OK!") {
+            const popupSuccess = document.querySelector("#success");
+            popupOpen(popupSuccess);
+          } else {
+            alert("Произошла ошибка, попробуйте позже.");
+            // const popupError = document.querySelector("#error");
+            // popupOpen(popupError);
+          }
+        });
+      }
+      // const popupSuccess = document.querySelector("#success");
+      // popupOpen(popupSuccess);
+      // postForm(queryParams);
+      // const popupActive = document.querySelector(".popup.open");
+      // popupClose(popupActive);
+      // return false;
+    });
+  }
+
+  const requestForm = document.querySelector("#request-form");
+  if (requestForm) {
+    const submitBtn = requestForm.querySelector(".request__btn");
+    // console.log(submitBtn);
+    submitBtn.addEventListener("click", (event) => {
+      // console.log("click");
+      // requestForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const queryParams = {
+        apartment: "",
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+      };
+      queryParams.apartment = requestForm.querySelector(".request__input_apartment").value;
+      queryParams.name = requestForm.querySelector(".request__input_name").value;
+      queryParams.phone = requestForm.querySelector(".request__input_phone").value;
+      queryParams.email = requestForm.querySelector(".request__input_email").value;
+      queryParams.message = requestForm.querySelector(".request__input_textarea").value;
+      // console.log(queryParams);
+      if (queryParams.apartment === "" || queryParams.name === "" || queryParams.phone === "") {
+        alert("Заполните обязательные поля");
+        return;
+      } else {
+        postRequest(queryParams).then((res) => {
+          if (res === "OK!") {
+            const popupSuccess = document.querySelector("#success");
+            popupOpen(popupSuccess);
+            // return false;
+          } else {
+            alert("Произошла ошибка, попробуйте позже.");
+            // return false;
+
+            // const popupError = document.querySelector("#error");
+            // popupOpen(popupError);
+          }
+        });
+      }
+
+      // if (queryParams.phone === "") {
+      //   queryParams.apartment = "Отсутствует";
+      // }
+
+      // postRequest(queryParams);
+      // const popupActive = document.querySelector(".popup.open");
+      // popupClose(popupActive);
+      // const popupSuccess = document.querySelector("#success");
+      // popupOpen(popupSuccess);
+
+      // return false;
+    });
+  }
+
+  const notificationForm = document.querySelector("#notification-form");
+  if (notificationForm) {
+    const submitBtn = notificationForm.querySelector(".notification__btn");
+    // console.log(submitBtn);
+    submitBtn.addEventListener("click", (event) => {
+      // console.log("click");
+      // notificationForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const queryParams = {
+        agency: "",
+        agentName: "",
+        agentPhone: "",
+        clientName: "",
+        clientPhone: "",
+        message: "",
+      };
+      // queryParams.apartment = notificationForm.querySelector(".notification__input_apartment").value;
+      // queryParams.name = notificationForm.querySelector(".notification__input_name").value;
+      // queryParams.phone = notificationForm.querySelector(".notification__input_phone").value;
+      // queryParams.email = notificationForm.querySelector(".notification__input_email").value;
+      queryParams.agency = notificationForm.querySelector(".notification__input_agency").value;
+      queryParams.agentName = notificationForm.querySelector(".notification__input_agent-name").value;
+      queryParams.agentPhone = notificationForm.querySelector(".notification__input_agent-phone").value;
+      queryParams.clientName = notificationForm.querySelector(".notification__input_client-name").value;
+      queryParams.clientPhone = notificationForm.querySelector(".notification__input_client-phone").value;
+      queryParams.message = notificationForm.querySelector(".notification__input_textarea").value;
+      // console.log(queryParams);
+      if (
+        queryParams.agency === "" ||
+        queryParams.agentName === "" ||
+        queryParams.agentPhone === "" ||
+        queryParams.clientName === "" ||
+        queryParams.clientPhone === ""
+      ) {
+        alert("Заполните обязательные поля");
+        return;
+      } else {
+        postNotification(queryParams).then((res) => {
+          if (res === "OK!") {
+            const popupSuccess = document.querySelector("#success");
+            popupOpen(popupSuccess);
+          } else {
+            alert("Произошла ошибка, попробуйте позже.");
+            // const popupError = document.querySelector("#error");
+            // popupOpen(popupError);
+          }
+        });
+      }
+    });
+  }
+}
+
+const projectPage = document.querySelector(".project-item-page");
+const indexPage = document.querySelector(".glavnaya");
+
+if (projectPage || indexPage ) {
+  const choice = document.querySelector(".choice");
+  const content = choice.querySelector(".choice__container");
+  const popup = document.querySelector("#filter");
+  const filterMobileBtn = choice.querySelector(".choice__btn-request_mobile_filter");
+
+  // открытие popup и заполнение его формой
+  filterMobileBtn.addEventListener("click", () => {
+    console.log("тест");
+    popupOpen(popup);
+    bodyLock();
+
+    popup.classList.add("open");
+    popup.querySelector(".popup__content").append(content);
+  });
+
+  // закрытие popup по Esc
+  document.addEventListener("keydown", function (e) {
+    console.log("тест");
+    if (e.key === "Escape") {
+      popupClose(popup);
+      // bodyUnLock()
+
+      popup.classList.remove("open");
+      if (!popup.classList.contains("open")) {
+        // console.log("111");
+
+        // передача формы обратно на главную страницу
+        choice.append(content);
+      }
+    }
+  });
+
+  // закрытие popup по клику вне его
+  popup.addEventListener("click", function (e) {
+    console.log("тест");
+    if (!e.target.closest(".popup__content")) {
+      // если клик был по области вокруг попапа то ничего не делаем
+      if (popup.classList.contains("open")) {
+        popupClose(popup);
+        bodyUnLock();
+
+        popup.classList.remove("open");
+        // передача формы обратно на главную страницу
+        choice.append(content);
+      }
+    }
+  });
+
+  // закрытие popup по кнопке
+  const popupCloseIcon = popup.querySelector(".promo__close");
+  popupCloseIcon.addEventListener("click", function (e) {
+    console.log("тест");
+
+    if (popup.classList.contains("open")) {
+      popupClose(popup);
+      bodyUnLock();
+      popup.classList.remove("open");
+      // передача формы обратно на главную страницу
+      choice.append(content);
+    }
+  });
+}
+// -------------------------------------------- end Селект ---------------------------------------------
 
 
 }
