@@ -914,7 +914,11 @@ if (
   // ----------------------------------------- end функция парсинга url и формирования фильтров: -------------------------------------
   // ----------------------------------------- start функциb фильтрации массива квартир: --------------------------------------
   function filterTableArr(filter, param, arr) {
-    return arr.filter((item) => filter.indexOf(Number(item[param])) !== -1);
+    console.log(filter);
+    return arr.filter(function (item) {
+      return filter.indexOf(Number(item[param])) !== -1
+      //TODO настроиль фильтрацию по логике, если комнат больше 3 или если студия
+    });
   }
 
   function filterTable(filter, param, arr) {
