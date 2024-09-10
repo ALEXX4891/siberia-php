@@ -367,7 +367,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
     <section class="section section__commercial commercial">
       <div class="container commercial__container">
-        <ul class="commercial__list">
+        <ul class="commercial__list commercial__list_grid">
           <li class="commercial__item swiper-slide">
             <a class="commercial__item-link" href="/pages/commercial-item/">
               <h5 class="commercial__item-title">

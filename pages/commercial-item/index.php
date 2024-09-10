@@ -330,140 +330,315 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
       </div>
     </section>
 
-    <section class="section section_apartments apartments">
-      <div class="container apartments__container apartments_swiper">
+    <section class="section section__commercial commercial">
+      <div class="container commercial__container swiper commercial-item_swiper">
         <h2 class="apartments__title title title_40">
           Другие помещения
         </h2>
 
-        <ul class="apartments__list swiper-wrapper">
+        <ul class="swiper-wrapper commercial__list commercial__list_slider">
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture>
+                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
+                </picture>
+              </div>
+            </a>
 
-          <?
-          // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
-          $result = mysqli_query($db, "SELECT * FROM apartments WHERE commerce = 1 LIMIT 8");
+          </li>
 
-          $row = mysqli_fetch_array($result);
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture>
+                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
+                </picture>
+              </div>
+            </a>
 
-          // if ($row == '') {
-          //   echo 'Ничего не нашлось';
-          // }
+          </li>
 
-          // echo '<pre>';
-          // print_r($row);
-          // echo '</pre>';
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture>
+                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
+                </picture>
+              </div>
+            </a>
 
-          // Сосновый | ГП 8 | 1 / 2 этаж
+          </li>
 
-          if (mysqli_num_rows($result) > 0) {
-            do {
-              echo '
-                <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="/pages/commercial-item/?id=' . $row['id'] . '">
-                  <h5 class="commercial__item-title">
-                  ' . $row['complex'] . ' | ГП ' . $row['house'] . '
-                  </h5>      
-                  <p class="commercial__item-desc">
-                    Помещение №1, ' . $row['area'] . 'м<sup>2</sup>
-                  </p>
-                  <div class="commercial__item-price-wrap">
-                    <p class="commercial__item-new-price">
-                    ' . number_format($row['price'], 0, '', ' ') . ' ₽
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture>
+                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
+                </picture>
+              </div>
+            </a>
 
-                    </p>
-                    <p class="commercial__item-old-price">
-                    ' . number_format($row['price'] * 1.2, 0, '', ' ') . ' ₽
+          </li>
 
-                    </p>
-                  </div>
-                  <p class="commercial__credit-pay">
-                    от 45 426₽/месяц
-                  </p>
-                  <div class="commercial__item-img">
-                    <img src="/assets/img/' . $row['image'] . '" alt="планировка помещения">
-                  </div>
-                </a>
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture>
+                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
+                </picture>
+              </div>
+            </a>
 
-              </li>
-            ';
-            } while ($row = mysqli_fetch_array($result));
-          }
-          ?>
+          </li>
+
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture>
+                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
+                </picture>
+              </div>
+            </a>
+
+          </li>
+
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture>
+                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
+                </picture>
+              </div>
+            </a>
+
+          </li>
+
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture>
+                  <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
+                </picture>
+              </div>
+            </a>
+
+          </li>
 
         </ul>
-      </div>
+        <div class="swiper-navigation">
+          <div class="swiper-button swiper-button-prev swiper-button-prev_com">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M32.25 20.5L23.25 28L32.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
 
-      <div class="swiper-navigation">
-        <div class="swiper-button swiper-button-prev swiper-button-prev_apart">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.8">
-              <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
-                stroke="#CBCBCB" />
-              <path d="M32.25 20.5L23.25 28L32.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
-            </g>
-          </svg>
+          <div class="swiper-button swiper-button-next swiper-button-next_com">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M23.25 20.5L32.25 28L23.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
+
         </div>
-
-        <div class="swiper-button swiper-button-next swiper-button-next_apart">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.8">
-              <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
-                stroke="#CBCBCB" />
-              <path d="M23.25 20.5L32.25 28L23.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
-            </g>
-          </svg>
-        </div>
-
       </div>
 
     </section>
 
-    <section class="section section_bot bot">
+    <section class="section section_bot bot" id="office">
       <div class="container bot__container">
-        <div class="bot__address address">
-          <h3 class="address__title title title_40">
-            Офис продаж
-          </h3>
-          <p class="address__desc">
-            Ежедневно с 10:00-17:00
-          </p>
+        <!-- <div class="bot__wrap bot__wrap_big wrap"> -->
+          <div class="bot__address address">
+            <h3 class="address__title title title_40">
+              Офис продаж
+            </h3>
+            <p class="address__desc">
+              Ежедневно с 10:00-17:00
+            </p>
 
-          <div class="address__wrapper">
-            <div class="address__item address__item_address">
-              <p class="address__item-title">
-                Адрес:
-              </p>
-              <p class="address__item-text">
-                Тюмень, ул. Клары Цеткин, д. 61, к2
-              </p>
+            <div class="address__wrapper">
+              <div class="address__item address__item_address">
+                <p class="address__item-title">
+                  Адрес:
+                </p>
+                <p class="address__item-text">
+                  Тюмень, ул. Клары Цеткин, д. 61, к2
+                </p>
+              </div>
+
+              <div class="address__item address__item_phone">
+                <p class="address__item-title">
+                  Телефон:
+                </p>
+                <a class="address__item-text" href="tel: 8 (3452) 611-157">
+                  8 (3452) 611-157                </a>
+              </div>
+
+              <div class="address__item address__item_mail">
+                <p class="address__item-title">
+                  Почта:
+                </p>
+                <a class="address__item-text" href="mailto: hello_sibir@yandex.ru">
+                  hello_sibir@yandex.ru
+                </a>
+              </div>
+
             </div>
 
-            <div class="address__item address__item_phone">
-              <p class="address__item-title">
-                Телефон:
-              </p>
-              <a class="address__item-text" href="tel: <?= $row1['phone']; ?>">
-                <?= $row1['phone']; ?>
-              </a>
-            </div>
-
-            <div class="address__item address__item_mail">
-              <p class="address__item-title">
-                Почта:
-              </p>
-              <a class="address__item-text" href="mailto: hello_sibir@yandex.ru">
-                hello_sibir@yandex.ru
-              </a>
-            </div>
-
+            <button class="btn btn_green address__btn popup-link" href="#popup-form">
+              Получить консультацию
+            </button>
           </div>
 
-          <button class="btn btn_green address__btn">
-            Получить консультацию
-          </button>
-        </div>
+          <div class="bot__map map-yandex" id="map">
+          </div>
+        <!-- </div> -->
 
-        <div class="bot__map" id="map2">
-        </div>
+        <!-- <aside class="bot__aside aside"> -->
+        <!-- </aside> -->
       </div>
     </section>
   </main>

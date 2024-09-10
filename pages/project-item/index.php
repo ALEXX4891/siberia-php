@@ -719,7 +719,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </a>
             </div>
 
-            <ul class="commercial__list swiper-wrapper">
+            <ul class="commercial__list commercial__list_slider swiper-wrapper">
               <li class="commercial__item swiper-slide">
                 <a class="commercial__item-link" href="commercial-item.html">
                   <h5 class="commercial__item-title">
@@ -1059,7 +1059,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </aside>
 
           <div class="swiper-navigation">
-            <div class="swiper-button swiper-button-prev swiper-button-prev_apart">
+            <div class="swiper-button swiper-button-prev swiper-button-prev_com">
               <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g opacity="0.8">
                   <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
@@ -1069,7 +1069,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </svg>
             </div>
 
-            <div class="swiper-button swiper-button-next swiper-button-next_apart">
+            <div class="swiper-button swiper-button-next swiper-button-next_com">
               <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g opacity="0.8">
                   <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
