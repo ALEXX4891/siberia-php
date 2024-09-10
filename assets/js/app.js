@@ -1091,7 +1091,8 @@ new Swiper(".regions_swiper_small", {
   },
 });
 
-if (window.innerWidth >= 560) {
+// if (window.innerWidth >= 560) {
+
   new Swiper(".apartments_swiper", {
     // Optional parameters
     direction: "horizontal",
@@ -1138,7 +1139,7 @@ if (window.innerWidth >= 560) {
       },
     },
   });
-}
+// }
 
 new Swiper(".commercial_swiper", {
   // Optional parameters

@@ -369,7 +369,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
       <div class="container commercial__container">
         <ul class="commercial__list">
           <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
               <h5 class="commercial__item-title">
                 Сосновый | ГП 8 |
               </h5>
@@ -395,7 +395,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </li>
 
           <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
               <h5 class="commercial__item-title">
                 Сосновый | ГП 8 |
               </h5>
@@ -421,7 +421,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </li>
 
           <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
               <h5 class="commercial__item-title">
                 Сосновый | ГП 8 |
               </h5>
@@ -447,7 +447,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </li>
 
           <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
               <h5 class="commercial__item-title">
                 Сосновый | ГП 8 |
               </h5>
@@ -473,7 +473,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </li>
 
           <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
               <h5 class="commercial__item-title">
                 Сосновый | ГП 8 |
               </h5>
@@ -499,7 +499,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </li>
 
           <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
               <h5 class="commercial__item-title">
                 Сосновый | ГП 8 |
               </h5>
@@ -525,7 +525,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </li>
 
           <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
               <h5 class="commercial__item-title">
                 Сосновый | ГП 8 |
               </h5>
@@ -551,7 +551,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </li>
 
           <li class="commercial__item swiper-slide">
-            <a class="commercial__item-link" href="commercial-item.html">
+            <a class="commercial__item-link" href="/pages/commercial-item/">
               <h5 class="commercial__item-title">
                 Сосновый | ГП 8 |
               </h5>

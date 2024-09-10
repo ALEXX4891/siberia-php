@@ -4710,6 +4710,10 @@ a {
   border-radius: 5px;
 }
 
+.swiper-notification {
+  display: none !important;
+}
+
 .glavnaya .glavnaya__main_top .news .news__container .news__list .swiper-slide .news-slider__card-date {
   font-family: Inter;
   font-size: 15px;
@@ -7179,9 +7183,9 @@ a {
 /* .apartments-page */
 .apartments .apartments__container .apartments__list {
   display: -ms-grid;
-  display: grid;
+  /* display: grid; */
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 10px;
+  /* gap: 10px; */
 }
 
 /* .apartments-page */
@@ -8334,7 +8338,11 @@ a {
   top: 0;
   left: 0;
   bottom: 0;
+  width: 305px;
+  /* padding: 33px; */
   /* grid-area: 1 / 2; */
+  display: grid;
+  place-items: center;
 }
 
 .apartments-item-page .form .form__container .form__img::after {
@@ -8351,11 +8359,11 @@ a {
 }
 
 .apartments-item-page .form .form__container .form__img img {
-  padding: 35px 49px;
-  width: 100%;
-  height: 97%;
+  /* padding: 35px 49px; */
+  width: 68%;
+  /* height: 97%; */
   -o-object-fit: cover;
-  object-fit: cover;
+  object-fit: contain;
   -o-object-position: center;
   object-position: center;
   position: relative;
@@ -8433,16 +8441,19 @@ a {
 
 .apartments-item-page .form .form__container .form__wrapper .form__desc {
   display: -ms-grid;
-  display: grid;
+  display: flex;
+  flex-flow: row wrap;
   grid-auto-flow: column;
   gap: 5px;
+  max-width: 100%;
+  width: 100%;
 }
 
 .apartments-item-page .form .form__container .form__wrapper .form__desc .form__desc-text {
   font-family: Inter;
   font-size: 14px;
   font-weight: 400;
-  line-height: 19.6px;
+  line-height: 14.6px;
   text-align: left;
   color: #fff;
   opacity: 0.5;
@@ -8471,12 +8482,12 @@ a {
 }
 
 .apartments-item-page .apartments .apartments__container .apartments__title {
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 
 .apartments-item-page .apartments .apartments__container .apartments__list {
   -ms-grid-column-span: 3;
-  grid-column: 3 span;
+  /* grid-column: 3 span; */
   min-width: 0;
 }
 
@@ -13750,7 +13761,7 @@ a {
 .main .section.section_bot {
   position: relative;
   /* background: #f5f5f5; */
-  padding: 99px 104px 99px;
+  padding: 81px 104px 78px;
 }
 
 .buy-page .main .top .top__container .top__wrap .top__content .top__img img {
@@ -15173,7 +15184,7 @@ a {
     overflow: hidden;
     min-height: 236px;
     align-content: center;
-    padding-right: 60px;
+    padding: 30px 60px 30px;
   }
 
   .apartments-item-page .form .form__container .form__wrapper .form__form {
@@ -15621,8 +15632,8 @@ a {
 
   .apartments-item-page .form .form__container .form__img img {
     padding: 0;
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    /* height: 100%; */
     -o-object-fit: cover;
     object-fit: contain;
     -o-object-position: center;
@@ -15636,8 +15647,11 @@ a {
     top: 0;
     left: 0;
     bottom: 0;
+    width: 346px;
     /* grid-area: 1 / 2; */
-    padding: 76px;
+    /* padding: 76px; */
+    /* display: grid; */
+    /* place-items: center; */
   }
 
   .apartments-item-page .form .form__container .form__wrapper .form__form {
@@ -15651,7 +15665,7 @@ a {
 
   .apartments-item-page .form .form__container .form__wrapper .form__form .form__input {
     padding: 16px 51px 16px 22px;
-    max-width: 310px;
+    max-width: 100%;
     width: 100%;
     height: 52px;
     background: #ffffff;
@@ -15667,7 +15681,7 @@ a {
   .apartments-item-page .apartments {
     position: relative;
     background: #f5f5f5;
-    padding: 80px 116px 79px;
+    padding: 80px 116px 81px;
   }
 
   .apartments-item-page .apartments .apartments__container .apartments__list .apartments__item .apartments__item-link {
@@ -17506,8 +17520,8 @@ line-height: 110%;
 
   .apartments-item-page .form .form__container .form__img img {
     padding: 0;
-    width: 200px;
-    height: auto;
+    width: 203px;
+    /* height: auto; */
     -o-object-fit: cover;
     object-fit: contain;
     -o-object-position: center;
@@ -18541,7 +18555,7 @@ margin-bottom: 25px;
     overflow: hidden;
     min-height: 243px;
     align-content: center;
-    padding: 44px 40px 37px;
+    padding: 42px 40px 37px;
   }
 
   .apartments-item-page .form .form__container .form__img::after {
@@ -18550,8 +18564,8 @@ margin-bottom: 25px;
     position: absolute;
     width: 1500px;
     height: 1500px;
-    left: -1178px;
-    top: calc(50% - 750px);
+    left: -1197px;
+    top: calc(53% - 750px);
     background: #ffffff;
     border-radius: 50%;
     z-index: 1;
@@ -18584,12 +18598,14 @@ margin-bottom: 25px;
 
   .apartments-item-page .form .form__container .form__img {
     position: absolute;
-    top: 49px;
-    left: -19px;
+    top: 0;
+    left: 0;
     bottom: 0;
     /* grid-area: 1 / 2; */
     /* padding: 76px; */
-    width: 40%;
+    width: 344px;
+    display: grid;
+    place-items: center;
   }
 
   .apartments-item-page .form .form__container .form__title {
@@ -18760,7 +18776,7 @@ margin-bottom: 25px;
   .apartments-item-page .apartments {
     position: relative;
     background: #f5f5f5;
-    padding: 80px 30px 79px;
+    padding: 80px 30px 78px;
   }
 
   .apartments-item-page .bot {
@@ -18780,7 +18796,7 @@ margin-bottom: 25px;
   .main .section.section_bot {
     position: relative;
     /* background: #f5f5f5; */
-    padding: 59px 30px 78px;
+    padding: 59px 30px 59px;
   }
 
   .main .bot .bot__container .bot__wrap {
@@ -20762,6 +20778,40 @@ margin-bottom: 25px;
     min-height: 60px;
   }
 
+  .apartments-item-page .form .form__container .form__wrapper .form__desc .form__desc-text {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14.6px;
+    text-align: left;
+    color: #fff;
+    opacity: 0.5;
+    text-wrap: nowrap;
+}
+
+.apartments-item-page .form .form__container .form__wrapper .form__desc .form__desc-link {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26.6px;
+  text-align: left;
+  color: #fff;
+  text-wrap: nowrap;
+}
+
+.apartments-item-page .form .form__container .form__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  /* grid-area: 1 / 2; */
+  /* padding: 76px; */
+  padding-top: 32px;
+  width: 264px;
+  display: grid;
+  place-items: center;
+}
+
   .glavnaya .glavnaya__main_top .apartments .apartments__container .swiper-navigation {
     left: initial;
     right: 0;
@@ -21088,6 +21138,7 @@ margin-bottom: 25px;
 @media (max-width: 800px) {
   .apartments-item-page .form .form__container .form__wrapper .form__desc .form__desc-link {
     text-wrap: wrap;
+    line-height: 15px;
   }
 
   .choice .choice__container .choice__form .choice__input-block.choice__input-block_select_project.choice__input-block_select_project_com {
@@ -21118,7 +21169,7 @@ margin-bottom: 25px;
   }
 
   .section.apartments-item-page__section {
-    padding: 11px 0 60px;
+    padding: 3px 0 60px;
   }
 
   .apartments-item-page .about .about__container .about__left {
@@ -21152,7 +21203,7 @@ margin-bottom: 25px;
     -ms-flex-line-pack: start;
     align-content: start;
     gap: 8px;
-    margin: 0 15px;
+    margin: 0 30px;
   }
 
   .apartments-item-page .about .about__container .about__right .about__right-price-wrap {
@@ -21203,8 +21254,26 @@ margin-bottom: 25px;
     gap: 17px;
     -ms-flex-line-pack: start;
     align-content: start;
-    padding: 15px;
+    padding: 30px;
   }
+
+  .apartments-item-page .form .form__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: auto 25px auto;
+    -ms-grid-columns: 406px 80px 1fr;
+    grid-template: auto auto / 1fr;
+    position: relative;
+    padding: 0;
+    background: #748d55;
+    border: 1px solid #e7f0db;
+    border-radius: 10px;
+    gap: 18px 70px;
+    overflow: hidden;
+    min-height: 660px;
+    align-content: end;
+    padding: 324px 19px 20px;
+}
 
   .apartments-item-page .slider .slider__container .slider__left .slider__text {
     font-family: Inter;
@@ -21240,32 +21309,25 @@ margin-bottom: 25px;
     /* padding: 0px 30px 0px; */
   }
 
-  .apartments-item-page .geo {
-    -ms-grid-row: 3;
-    -ms-grid-row-span: 1;
-    grid-row: 3 / 4;
-    padding: 18px 15px 0;
-  }
+
 
   .apartments-item-page .geo .geo__container .geo__title {
     margin-bottom: 19px;
   }
 
-  .apartments-item-page .form {
-    padding: 80px 15px 60px;
-  }
+
 
   .apartments-item-page .form .form__container .form__img::after {
     content: "";
     display: block;
     position: absolute;
     width: 1500px;
-    height: 1500px;
+    height: 1464px;
     left: 50%;
     top: 50%;
     right: initial;
     bottom: initial;
-    transform: translate(-50%, -91%);
+    transform: translate(-50%, -90%);
     /* top: -1178px; */
     background: #ffffff;
     border-radius: 50%;
@@ -21310,7 +21372,7 @@ margin-bottom: 25px;
 
   .apartments-item-page .about .about__container .about__left {
     position: relative;
-    padding: 23px 15px;
+    padding: 23px 30px;
     background: #ffffff;
     border-radius: 10px;
     display: -ms-grid;
@@ -21323,13 +21385,16 @@ margin-bottom: 25px;
   .apartments-item-page .form .form__container .form__img {
     /* padding-top: 125px; */
     position: absolute;
-    top: -9px;
+    top: -11px;
     left: 0px;
     bottom: initial;
     right: 0px;
     grid-area: initial;
     /* padding: 76px; */
     width: 100%;
+    height: 281px;
+    display: grid;
+    place-items: center;
   }
   .choice__reset-wrap {
     display: grid;
@@ -21351,6 +21416,7 @@ margin-bottom: 25px;
     text-align: left;
     width: 100%;
     max-width: 100%;
+    margin-bottom: -1px;
   }
 
   .apartments-item-page .form .form__container .form__subtitle {
@@ -21406,6 +21472,7 @@ margin-bottom: 25px;
     color: #fff;
     opacity: 0.5;
     text-wrap: wrap;
+    display: inline;
   }
 
   .form__desc-link {
@@ -21502,7 +21569,7 @@ margin-bottom: 25px;
   }
 
   .apartments-item-page .apartments .apartments__container .apartments__title {
-    margin-bottom: 32px;
+    margin-bottom: -8px;
   }
 
   .bot .bot__container .address__wrapper {
@@ -21517,15 +21584,12 @@ margin-bottom: 25px;
   .apartments-item-page .form .form__container .form__wrapper .form__desc {
     display: initial;
     display: initial;
+    line-height: 18px;
     grid-auto-flow: initial;
     gap: initial;
   }
 
-  .apartments-item-page .apartments {
-    position: relative;
-    background: #f5f5f5;
-    padding: 73px 15px 17px;
-  }
+ 
 
   /* .apartments-page */
   .choice .choice__container .choice__form .choice__inputs-list {
@@ -21652,7 +21716,7 @@ margin-bottom: 25px;
   /* .apartments-page */
   .apartments .apartments__container .apartments__list {
     -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
   }
 
   /* .apartments-page */
@@ -21847,7 +21911,7 @@ margin-bottom: 25px;
   .main .section.section_bot {
     position: relative;
     /* background: #f5f5f5; */
-    padding: 60px 15px 44px;
+    padding: 60px 15px 57px;
   }
 
   .main .bot .bot__container .bot__wrap .address__title {
@@ -24108,6 +24172,58 @@ margin-bottom: 25px;
   -webkit-transition: height 0.3s ease-in-out, padding 0.3s ease-in-out;
   transition: height 0.3s ease-in-out, padding 0.3s ease-in-out; */
     /* height: auto; */
+  }
+
+  .apartments-item-page .geo {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3 / 4;
+    padding: 18px 15px 0;
+  }
+
+  .apartments-item-page .form {
+    padding: 80px 15px 60px;
+  }
+
+  .apartments-item-page .apartments {
+    position: relative;
+    background: #f5f5f5;
+    padding: 73px 15px 60px;
+  }
+
+  .apartments-item-page .about .about__container .about__right {
+    padding: 19px;
+    background: #ffffff;
+    border-radius: 10px;
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: row;
+    -ms-flex-line-pack: start;
+    align-content: start;
+    gap: 8px;
+    margin: 0 15px;
+  }
+
+  .apartments-item-page .about .about__container .about__left {
+    position: relative;
+    padding: 23px 15px;
+    background: #ffffff;
+    border-radius: 10px;
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 71px;
+    align-content: start;
+  }
+
+  .apartments-item-page .slider .slider__container .slider__left {
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 17px;
+    -ms-flex-line-pack: start;
+    align-content: start;
+    padding: 15px;
   }
 
   .header .header__section .header__container .header__top-block {
