@@ -46,10 +46,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   </svg>
                 </span>
                 <ul class="select__list">
-                  <!-- <li class="select__item">Все</li> -->
-                  <!-- <li class="select__item">Сосновый</li>
-                  <li class="select__item">Дубовый</li>
-                  <li class="select__item">Березовый</li> -->
                 </ul>
               </div>
             </li>
@@ -72,13 +68,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   </svg>
                 </span>
                 <ul class="select__list">
-                  <!-- <li class="select__item">Все</li> -->
-                  <!-- <li class="select__item" data-id="sosnoviy">II квартал 2025</li>
-                  <li class="select__item" data-id="sosnoviy">II квартал 2026</li>
-                  <li class="select__item" data-id="sosnoviy">IV квартал 2025</li> -->
-
-                  <!-- <li class="select__item" data-id="duboviy">Дубовый</li> -->
-                  <!-- <li class="select__item" data-id="berezoviy">Березовый</li> -->
                 </ul>
               </div>
             </li>
@@ -101,10 +90,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   </svg>
                 </span>
                 <ul class="select__list">
-                  <!-- <li class="select__item">Все</li> -->
-                  <!-- <li class="select__item">1</li>
-                  <li class="select__item">2</li>
-                  <li class="select__item">3</li> -->
 
                 </ul>
               </div>
@@ -137,12 +122,10 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   </div>
                 </div>
 
-
                 <div class="range-inputs-wrap">
                   <input class="min-range" type="range">
                   <input class="max-range" type="range">
                 </div>
-
 
               </div>
             </li>
@@ -174,58 +157,20 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   </div>
                 </div>
 
-
                 <div class="range-inputs-wrap">
                   <input class="min-range" type="range">
                   <input class="max-range" type="range">
                 </div>
 
-
               </div>
             </li>
-
-
-
-
-
-
           </ul>
 
           <ul class="choice__inputs-list choice__inputs-list_bot choice__inputs-list_bot_com">
-
-
-            <!-- <li class="choice__input-block choice__input-block_select choice__input-block_select_section">
-              <p class="choice__label">
-                Секция
-              </p>
-              <div class="choice__select select select-frame">
-                <div class="select__wrapper">
-                  <span class="select__placeholder">
-                    Все
-                  </span>
-                  <p class="select__text select__text_carton"></p>
-                </div>
-                <span class="select__arrow">
-                  <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.3335 1L7.54039 7L13.3335 1" stroke="#363636" stroke-width="1.5"
-                      stroke-linejoin="round" />
-                  </svg>
-                </span>
-                <ul class="select__list">
-                  <li class="select__item">Все</li>
-                  <li class="select__item" data-id="duboviy">1</li>
-                  <li class="select__item" data-id="berezoviy">2</li>
-                  <li class="select__item" data-id="berezoviy">3</li>
-                </ul>
-              </div>
-            </li> -->
-            <!-- TODO Динамическ формировать содержимое фильтров -->
-
             <li class="choice__input-block choice__input-block_buttons choice__input-block_buttons_method">
               <p class="choice__label">
                 Способ приобретения
               </p>
-              <!-- <div class="choice__buttons-select select-frame"> -->
               <div class="choice__buttons-wrapp select-frame select-frame_com">
 
                 <button class="choice__buttons-select-item" data-id="rent">
@@ -239,45 +184,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </button>
               </div>
             </li>
-
-            <!-- <li class="choice__input-block choice__input-block_slider choice__input-block_slider_floor">
-              <p class="choice__label">
-                Этаж
-              </p>
-              <div class="choice__slider-select choice__slider-select_floor select-frame">
-                <div class="select__wrapper">
-                  <span class="select__placeholder">
-                    от
-                  </span>
-                  <input class="select__input select__input_from" type="number">
-                </div>
-
-                <span class="select__separator">
-                  |
-                </span>
-                <div class="select__wrapper">
-                  <span class="select__placeholder">
-                    до
-                  </span>
-                  <input class="select__input select__input_to" type="number">
-                </div>
-
-                <div class="slider-container">
-                  <div class="range-slider">
-                  </div>
-                </div>
-
-
-                <div class="range-inputs-wrap">
-                  <input class="min-range" type="range">
-                  <input class="max-range" type="range">
-                </div>
-
-
-              </div>
-            </li> -->
-
-            <!-- <div class="choice__btns-block" style="display: none;"> -->
             <div class="choice__btns-block choice__btns-block_com">
 
               <p class="choice__btns-block-title">
@@ -330,51 +236,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Показать 6 помещений
             </button>
           </ul>
-
-
-          <!-- <div class="choice__reset-wrap">
-
-            <button class="choice__btn-additional choice__btn-additional_show">
-              <p class="choice__btn-text">
-                Еще параметры
-              </p>
-              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L7.2069 7L13 1" stroke="#363636" stroke-linejoin="round" />
-              </svg>
-            </button>
-
-            <button class="choice__btn-additional choice__btn-additional_hide" style="display: none;">
-              <p class="choice__btn-text">
-                Скрыть дополнительные параметры
-              </p>
-              <svg style="transform: rotate(180deg);" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L7.2069 7L13 1" stroke="#363636" stroke-linejoin="round" />
-              </svg>
-            </button>
-
-            <button class="choice__btn-reset">
-              <p class="choice__btn-text">
-                Сбросить фильтры
-              </p>
-              <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 0.5L15 14.5M1 14.5L15 0.5" stroke="black" />
-              </svg>
-            </button>
-
-            <p class="choice__search-text">
-              Найдено 20 квартир
-            </p>
-
-            <button class="choice__btn-request choice__btn-request_mobile choice__btn-request_mobile_filter btn btn_dark">
-              Фильтр
-            </button>
-
-            <button class="choice__btn-request choice__btn-request_mobile choice__btn-request_mobile_apply btn btn_dark" style="display: none;">
-              Применить
-            </button>
-
-          </div> -->
-
         </div>
       </div>
     </section>
@@ -485,13 +346,13 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           <div class="map__btn-wrap">
             <h4 class="map__btn-title title title_25">
-              Остались вопросы?
+            Помочь с выбором?
             </h4>
             <p class="map__btn-desc">
-              Отправьте заявку и мы свяжемся с вами для уточнения деталей
+            Подберем лучшее место для вашего бизнеса
             </p>
             <button class="map__btn popup-link" href="#popup-form">
-              Оставить заявку
+            Получить консультацию
             </button>
           </div>
 
@@ -504,74 +365,219 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
       </div>
     </section>
 
-    <!-- <section class="section section__commercial commercial">
+    <section class="section section__commercial commercial">
       <div class="container commercial__container">
         <ul class="commercial__list">
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="commercial-item.html">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture><source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира"></picture>
+              </div>
+            </a>
+
+          </li>
+
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="commercial-item.html">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture><source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира"></picture>
+              </div>
+            </a>
+
+          </li>
+
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="commercial-item.html">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture><source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира"></picture>
+              </div>
+            </a>
+
+          </li>
+
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="commercial-item.html">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture><source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира"></picture>
+              </div>
+            </a>
+
+          </li>
+
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="commercial-item.html">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture><source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира"></picture>
+              </div>
+            </a>
+
+          </li>
+
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="commercial-item.html">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture><source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира"></picture>
+              </div>
+            </a>
+
+          </li>
+
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="commercial-item.html">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture><source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира"></picture>
+              </div>
+            </a>
+
+          </li>
+
+          <li class="commercial__item swiper-slide">
+            <a class="commercial__item-link" href="commercial-item.html">
+              <h5 class="commercial__item-title">
+                Сосновый | ГП 8 |
+              </h5>
+              <p class="commercial__item-desc">
+                Помещение №1, 151,67м<sup>2</sup>
+              </p>
+              <div class="commercial__item-price-wrap">
+                <p class="commercial__item-new-price">
+                  5 662 000 ₽
+                </p>
+                <p class="commercial__item-old-price">
+                  9 331 000 ₽
+                </p>
+              </div>
+              <p class="commercial__credit-pay">
+                от 45 426₽/месяц
+              </p>
+              <div class="commercial__item-img">
+                <picture><source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира"></picture>
+              </div>
+            </a>
+
+          </li>
+
         </ul>
-        <button class="commercial__button btn btn_dark" id="addApartrs">
-          Показать еще 8 планировок
-        </button>
-      </div>
-    </section> -->
-
-    <section class="section section__apartments apartments">
-      <div class="container apartments__container">
-
-        <ul class="apartments__list">
-
-          <?
-          // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
-          $result = mysqli_query($db, "SELECT * FROM apartments WHERE commerce = 1 LIMIT 8");
-
-          $row = mysqli_fetch_array($result);
-
-          // if ($row == '') {
-          //   echo 'Ничего не нашлось';
-          // }
-
-          // echo '<pre>';
-          // print_r($row);
-          // echo '</pre>';
-
-          // Сосновый | ГП 8 | 1 / 2 этаж
-
-          if (mysqli_num_rows($result) > 0) {
-            do {
-              echo '
-                <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="/pages/commercial-item/?id=' . $row['id'] . '">
-                  <h5 class="commercial__item-title">
-                  ' . $row['complex'] . ' | ГП ' . $row['house'] . '
-                  </h5>      
-                  <p class="commercial__item-desc">
-                    Помещение №1, ' . $row['area'] . 'м<sup>2</sup>
-                  </p>
-                  <div class="commercial__item-price-wrap">
-                    <p class="commercial__item-new-price">
-                    ' . number_format($row['price'], 0, '', ' ') . ' ₽
-
-                    </p>
-                    <p class="commercial__item-old-price">
-                    ' . number_format($row['price'] * 1.2, 0, '', ' ') . ' ₽
-
-                    </p>
-                  </div>
-                  <p class="commercial__credit-pay">
-                    от 45 426₽/месяц
-                  </p>
-                  <div class="commercial__item-img">
-                    <img src="/assets/img/' . $row['image'] . '" alt="планировка помещения">
-                  </div>
-                </a>
-
-              </li>
-            ';
-            } while ($row = mysqli_fetch_array($result));
-          }
-          ?>
-
-        </ul>
-        <button class="apartments__button btn btn_dark">
+        <button class="commercial__button btn btn_dark">
           Показать еще 8 планировок
         </button>
       </div>
@@ -579,7 +585,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
     <section class="section section_bot bot" id="office">
       <div class="container bot__container">
-        <div class="bot__wrap wrap">
+        <!-- <div class="bot__wrap bot__wrap_big wrap"> -->
           <div class="bot__address address">
             <h3 class="address__title title title_40">
               Офис продаж
@@ -624,10 +630,10 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           <div class="bot__map map-yandex" id="map2">
           </div>
-        </div>
+        <!-- </div> -->
 
-        <aside class="bot__aside aside">
-        </aside>
+        <!-- <aside class="bot__aside aside"> -->
+        <!-- </aside> -->
       </div>
     </section>
   </main>
@@ -635,34 +641,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
   <?
   include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php';
   ?>
-
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 

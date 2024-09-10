@@ -503,6 +503,168 @@ if (apartmentsPage) {
     }
   });
 }
+
+const commercialPage = document.querySelector(".commercial-page");
+if (commercialPage) {
+  const choice = document.querySelector(".choice");
+  const choiceTop = document.querySelector(".choice__inputs-list_top");
+  const choiceBot = document.querySelector(".choice__inputs-list_bot");
+  // const section__apartments = document.querySelector(".section__apartments");
+  // const height = choice.getBoundingClientRect().height;
+  // const showAllParams = document.querySelector(".choice__btn-additional_show");
+  // const hideAddParams = document.querySelector(".choice__btn-additional_hide"); 
+  // const dropFilters = document.querySelector(".choice__btn-reset .choice__btn-text");
+  // const searchCounter = document.querySelector(".choice__search-text");
+
+  // const el = Array.from(choiceBot.children)[3];
+  const el = document.querySelector('.choice__input-block_buttons_method'); //
+  // console.log(el);
+  // console.log(window.scrollY);
+
+  if (window.innerWidth <= 1500) {
+    choiceTop.append(el);
+  } else {
+    choiceBot.prepend(el);
+  }
+
+
+
+
+    // choice.classList.add("choice_fixed");
+    // if (window.scrollY > 500) {
+    // }
+
+    // window.addEventListener("scroll", () => {
+    //   if (window.scrollY > 500) {
+    //     choiceTop.append(el);
+    //     choice.classList.add("choice_fixed");
+    //     section__apartments.style.marginTop = height + "px";
+    //   } else {
+    //     // choiceTop.prepend(el);
+    //     choiceBot.append(el);
+    //     choice.classList.remove("choice_fixed");
+    //     section__apartments.style.marginTop = "0px";
+    //   }
+    // });
+  // }
+
+  // if (showAllParams) {
+  //   showAllParams.addEventListener("click", function () {
+  //     console.log("тест");
+  //     choiceBot.style.display = "grid";
+  //     showAllParams.style.display = "none";
+  //     hideAddParams.style.display = "grid";
+  //     // choiceTop.append(el);
+  //     // choice.classList.add("choice_fixed");
+  //   });
+
+  //   hideAddParams.addEventListener("click", function () {
+  //     console.log("тест");
+  //     choiceBot.style.display = "none";
+  //     showAllParams.style.display = "grid";
+  //     hideAddParams.style.display = "none";
+  //     // choiceTop.append(el);
+  //     // choice.classList.add("choice_fixed");
+  //   });
+  // }
+
+  // // const choice = document.querySelector(".choice");
+  // const content = choice.querySelector(".choice__container");
+  // const popup = document.querySelector("#filter");
+  // const filterMobileBtn = choice.querySelector(".choice__btn-request_mobile_filter");
+  // const filterAplyBtn = choice.querySelector(".choice__btn-request_mobile_apply");
+
+  // // открытие popup и заполнение его формой
+  // filterMobileBtn.addEventListener("click", () => {
+  //   dropFilters.innerHTML = "Сбросить";
+  //   searchCounter.style.display = "none";
+  //   filterMobileBtn.style.display = "none";
+  //   filterAplyBtn.style.display = "block";
+  //   console.log("тест");
+  //   // choiceBot.style.display = "none";
+  //   hideAddParams.style.display = "none";
+  //   showAllParams.style.display = "none";
+  //   popupOpen(popup);
+  //   bodyLock();
+
+  //   popup.classList.add("open");
+  //   popup.querySelector(".popup__content").append(content);
+  // });
+
+  // filterAplyBtn.addEventListener("click", () => {
+  //   dropFilters.innerHTML = "Сбросить фильтры";
+  //   searchCounter.style.display = "none";
+  //   filterMobileBtn.style.display = "grid";
+  //   filterAplyBtn.style.display = "none";
+  //   console.log("тест");
+  //   // choiceBot.style.display = "none";
+  //   hideAddParams.style.display = "none";
+  //   showAllParams.style.display = "none";
+  //   popupClose(popup);
+  //   choice.append(content);
+  // })
+
+  // // закрытие popup по Esc
+  // document.addEventListener("keydown", function (e) {
+  //   console.log("тест");
+  //   if (e.key === "Escape") {      
+  //     // choiceBot.style.display = "none";
+  //     // hideAddParams.style.display = "none";
+  //     popupClose(popup);
+  //     // bodyUnLock()
+
+  //     popup.classList.remove("open");
+  //     if (!popup.classList.contains("open")) {
+  //       // console.log("111");
+
+  //       // передача формы обратно на главную страницу
+  //       choice.append(content);
+  //     }
+  //   }
+  // });
+
+  // // закрытие popup по клику вне его
+  // popup.addEventListener("click", function (e) {
+  //   console.log("тест");
+  //   if (!e.target.closest(".popup__content")) {
+  //     // если клик был по области вокруг попапа то ничего не делаем
+  //     if (popup.classList.contains("open")) {
+  //       popupClose(popup);
+  //       bodyUnLock();
+
+  //       popup.classList.remove("open");
+  //       // передача формы обратно на главную страницу
+  //       choice.append(content);
+  //     }
+  //   }
+  // });
+
+  // // закрытие popup по кнопке
+  // const popupCloseIcon = popup.querySelector(".promo__close");
+  // popupCloseIcon.addEventListener("click", function (e) {
+  //   console.log("тест");
+
+  //   if (popup.classList.contains("open")) {
+  //     popupClose(popup);
+  //     bodyUnLock();
+  //     popup.classList.remove("open");
+  //     // передача формы обратно на главную страницу
+  //     choice.append(content);
+
+
+  //     dropFilters.innerHTML = "Сбросить фильтры";
+  //     searchCounter.style.display = "none";
+  //     filterMobileBtn.style.display = "grid";
+  //     filterAplyBtn.style.display = "none";
+  //     console.log("тест");
+  //     // choiceBot.style.display = "none";
+  //     hideAddParams.style.display = "none";
+  //     showAllParams.style.display = "none";
+  //     popupClose(popup);
+  //     choice.append(content);
+  //   }
+  // });
+}
 //------------------- end трансформация фильтра----------------
 
 // --------------------------------------- start карта: ---------------------------------------------
