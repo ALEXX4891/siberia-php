@@ -3669,12 +3669,13 @@ a {
 }
 
 .glavnaya .glavnaya__main_top .banner .banner__container .banner__list .banner__item .banner__item-text {
-  font-family: Inter Tight;
+  font-family: 'Inter';
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 16px;
   text-align: left;
   color: #fff;
+  align-self: start;
 }
 
 .glavnaya .glavnaya__main_top .banner .banner__container .banner__text {
@@ -7235,9 +7236,9 @@ a {
 /* .apartments-page */
 .apartments .apartments__container .apartments__list {
   display: -ms-grid;
-  /* display: grid; */
+  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  /* gap: 10px; */
+  gap: 10px;
 }
 
 /* .apartments-page */

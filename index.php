@@ -298,8 +298,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </div>
           </div>
 
-          <div class="choice__btns-block" style="display: none;">
-            <button class="choice__btn-filter" data-id="promotion">
+          <div class="choice__btns-block">
+            <button class="choice__btn-filter" data-id="promotion" style="display: none;">
               Акция
               <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.75" y="1.25" width="17.5" height="17.5" rx="8.75" stroke="#56693E" stroke-width="1.5" />
@@ -308,7 +308,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   fill="#56693E" />
               </svg>
             </button>
-            <button class="choice__btn-filter" data-id="today">
+            <button class="choice__btn-filter" data-id="today" style="display: none;">
               Ключи сегодня
               <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.75" y="1.25" width="17.5" height="17.5" rx="8.75" stroke="#56693E" stroke-width="1.5" />
@@ -317,22 +317,22 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   fill="#56693E" />
               </svg>
             </button>
-            <button class="choice__btn-filter" data-id="balcony">
+            <button class="choice__btn-filter" data-id="balcony" style="display: none;">
               Балкон
             </button>
-            <button class="choice__btn-filter" data-id="dressing_room">
+            <button class="choice__btn-filter" data-id="dressing_room" style="display: none;">
               Гардеробная
             </button>
-            <button class="choice__btn-filter" data-id="two_side">
+            <button class="choice__btn-filter" data-id="two_side" style="display: none;">
               Окна на 2 стороны
             </button>
             <!-- <button class="choice__btn-filter" data-id="three_side">
               Окна на 3 стороны
             </button> -->
-            <button class="choice__btn-filter" data-id="guest_bathroom">
+            <button class="choice__btn-filter" data-id="guest_bathroom" style="display: none;">
               Гостевой санузел
             </button>
-            <button class="choice__btn-filter" data-id="kitchen_living_room">
+            <button class="choice__btn-filter" data-id="kitchen_living_room" style="display: none;">
               Кухня-гостиная
             </button>
           </div>

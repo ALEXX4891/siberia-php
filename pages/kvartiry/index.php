@@ -271,11 +271,11 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </li>
           </ul>
 
-          <div class="choice__btns-block" style="display: none;">
-            <p class="choice__btns-block-title">
+          <div class="choice__btns-block" >
+            <p class="choice__btns-block-title" style="display: none;">
               Особенности
             </p>
-            <div class="choice__btns-wrap">
+            <div class="choice__btns-wrap" style="display: none;">
               <button class="choice__btn-filter" data-id="promotion">
                 Акция
                 <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
