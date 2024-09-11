@@ -38,7 +38,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               документов квартира бронируется, цена фиксируется.
             </p>
 
-            <button class="top__btn btn btn_green">
+            <button class="top__btn btn btn_green popup-link" href="#popup-request">
               Оставить заявку
             </button>
 
@@ -94,13 +94,13 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </h2>
 
             <ul class="programms__list">
-              <li class="programms__white-box">
+              <li class="programms__white-box popup-link" href="#actual-program-1">
                 <p class="programms__text">
                   IT-ипотека от 5%
                 </p>
               </li>
 
-              <li class="programms__white-box">
+              <li class="programms__white-box popup-link" href="#actual-program-1">
                 <p class="programms__text">
                   Семейная от 6%
                 </p>

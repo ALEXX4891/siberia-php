@@ -449,7 +449,7 @@
               Виды работ
             </span>
             <span class="request__label-star">
-              
+
             </span>
 
             <input class="request__input request__input_name" type="text" name="work-type" placeholder=""
@@ -474,7 +474,7 @@
           </div>
           <label class="request__label request__label_textarea">
             <span class="request__label-text">
-            Расскажите о вашей компании
+              Расскажите о вашей компании
             </span>
             <textarea class="request__input request__input_textarea" name="text"></textarea>
           </label>
@@ -532,7 +532,7 @@
             <span class="request__label-text">
               Название агенства
             </span>
-            <span class="request__label-star"> 
+            <span class="request__label-star">
               *
             </span>
             <input class="request__input request__input_name" type="text" name="work-type" placeholder="Введите название"
@@ -567,7 +567,7 @@
           </div>
           <label class="request__label request__label_textarea">
             <span class="request__label-text">
-            Расскажите о вашей компании
+              Расскажите о вашей компании
             </span>
             <textarea class="request__input request__input_textarea" name="text"></textarea>
           </label>
@@ -610,7 +610,7 @@
         </p> -->
 
         <!-- <div class="request__label-block"> -->
-          <!-- <label class="request__label">
+        <!-- <label class="request__label">
             <span class="request__label-text">
               ФИО представителя
             </span>
@@ -631,23 +631,23 @@
             <input class="request__input request__input_name" type="text" name="work-type" placeholder="Введите название"
               required>
           </label> -->
-          <label class="request__label">
-            <span class="request__label-text">
-              Телефон
-            </span>
-            <span class="request__label-star">
-              *
-            </span>
-            <input class="request__input request__input_phone phone" type="tel" name="phone" placeholder="7" required
-              value="7">
-          </label>
-          <!-- <label class="request__label">
+        <label class="request__label">
+          <span class="request__label-text">
+            Телефон
+          </span>
+          <span class="request__label-star">
+            *
+          </span>
+          <input class="request__input request__input_phone phone" type="tel" name="phone" placeholder="7" required
+            value="7">
+        </label>
+        <!-- <label class="request__label">
             <span class="request__label-text">
               E-mail
             </span>
             <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
           </label> -->
-          <!-- <div class="request__file-label-wrap">
+        <!-- <div class="request__file-label-wrap">
             <span class="request__file-label-title">
               Коммерческое предложения
             </span>
@@ -658,7 +658,7 @@
               <input class="request__file-input" type="file" name="file" hidden>
             </label>
           </div> -->
-          <!-- <label class="request__label request__label_textarea">
+        <!-- <label class="request__label request__label_textarea">
             <span class="request__label-text">
             Расскажите о вашей компании
             </span>
@@ -767,6 +767,51 @@
         </span>
 
       </form>
+    </div>
+  </div>
+</div>
+
+<div class="popup program" id="actual-program-1">
+  <div class="popup__body">
+    <div class="popup__content">
+        <h3 class="program__title">
+          IT-ипотека от 5%
+        </h3>
+
+        <div class="program__content">
+          <p class="program__desc text">
+            Вам подходит эта программа, если вы гражданин России в возрасте от 18 до 50 лет. Работаете в аккредитованной ИТ-компании, которая пользуется налоговыми льготами. Получаете зарплату от 120 тыс. рублей.
+          </p>
+  
+          <ul class="program__list">
+            <li class="program__item">
+              <h2 class="program__item-title">
+              20%
+              </h2>
+              <p class="program__item-text">
+              Первый взнос
+              </p>
+            </li>
+            <li class="program__item">
+              <h2 class="program__item-title">
+              16 млн ₽
+              </h2>
+              <p class="program__item-text">
+              Максимальная сумма
+              </p>
+            </li>
+          </ul>
+
+        </div>
+        <button class="btn btn_green program__btn popup-link" href="popup-request">
+          Отправить заявку
+        </button>
+
+        <span class="program__close-btn popup-close">
+          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+          </svg>
+        </span>
     </div>
   </div>
 </div>
