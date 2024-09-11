@@ -172,7 +172,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Выбрать квартиру мечты
             </h2>
 
-            <div class="choice__form" data-form>
+            <div class="choice__form" choice-form>
 
               <div class="choice__input-block choice__input-block_select_project">
                 <p class="choice__label">
@@ -299,9 +299,11 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 <p class="choice__search-text">
                   Найдено 5 квартир
                 </p>
-                <a class="choice__btn-request btn btn_dark" href="/pages/kvartiry/">
+                <a class="choice__btn-request choice__btn-request_link btn btn_dark" href="/pages/kvartiry/">
                   Смотреть квартиры
                 </a>
+
+                <!-- TODO фильтры не считываются из строки -->
 
                 <button class="choice__btn-request choice__btn-request_mobile choice__btn-request_mobile_filter btn btn_dark">
                   Фильтр

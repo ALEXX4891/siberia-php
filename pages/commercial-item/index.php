@@ -138,7 +138,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </div>
         </div>
 
-        <div class="about__right choice__form" data-form>
+        <div class="about__right choice__form" choice-form>
           <button class="about__btn-complex">
             <div class="about__btn-complex-img">
               <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -591,50 +591,50 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
     <section class="section section_bot bot" id="office">
       <div class="container bot__container">
         <!-- <div class="bot__wrap bot__wrap_big wrap"> -->
-          <div class="bot__address address">
-            <h3 class="address__title title title_40">
-              Офис продаж
-            </h3>
-            <p class="address__desc">
-              Ежедневно с 10:00-17:00
-            </p>
+        <div class="bot__address address">
+          <h3 class="address__title title title_40">
+            Офис продаж
+          </h3>
+          <p class="address__desc">
+            Ежедневно с 10:00-17:00
+          </p>
 
-            <div class="address__wrapper">
-              <div class="address__item address__item_address">
-                <p class="address__item-title">
-                  Адрес:
-                </p>
-                <p class="address__item-text">
-                  Тюмень, ул. Клары Цеткин, д. 61, к2
-                </p>
-              </div>
-
-              <div class="address__item address__item_phone">
-                <p class="address__item-title">
-                  Телефон:
-                </p>
-                <a class="address__item-text" href="tel: 8 (3452) 611-157">
-                  8 (3452) 611-157                </a>
-              </div>
-
-              <div class="address__item address__item_mail">
-                <p class="address__item-title">
-                  Почта:
-                </p>
-                <a class="address__item-text" href="mailto: hello_sibir@yandex.ru">
-                  hello_sibir@yandex.ru
-                </a>
-              </div>
-
+          <div class="address__wrapper">
+            <div class="address__item address__item_address">
+              <p class="address__item-title">
+                Адрес:
+              </p>
+              <p class="address__item-text">
+                Тюмень, ул. Клары Цеткин, д. 61, к2
+              </p>
             </div>
 
-            <button class="btn btn_green address__btn popup-link" href="#popup-request">
-              Получить консультацию
-            </button>
+            <div class="address__item address__item_phone">
+              <p class="address__item-title">
+                Телефон:
+              </p>
+              <a class="address__item-text" href="tel: 8 (3452) 611-157">
+                8 (3452) 611-157 </a>
+            </div>
+
+            <div class="address__item address__item_mail">
+              <p class="address__item-title">
+                Почта:
+              </p>
+              <a class="address__item-text" href="mailto: hello_sibir@yandex.ru">
+                hello_sibir@yandex.ru
+              </a>
+            </div>
+
           </div>
 
-          <div class="bot__map map-yandex" id="map">
-          </div>
+          <button class="btn btn_green address__btn popup-link" href="#popup-request">
+            Получить консультацию
+          </button>
+        </div>
+
+        <div class="bot__map map-yandex" id="map">
+        </div>
         <!-- </div> -->
 
         <!-- <aside class="bot__aside aside"> -->

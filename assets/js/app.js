@@ -1,13 +1,6 @@
-
-
-
-
-
-const choiceFilterForm = document.querySelector("[data-form]");
+// const choiceFilterForm = document.querySelector("[choice-form]");
 // let urlParams = new URLSearchParams(window.location.search);
 
-
-// TODO запрограммировать адаптив филтров.
 // ----------------------------------------- start заполнение фильтров: --------------------------------------
 
 // // функция инициализации рэндж слайдеров:
@@ -355,14 +348,12 @@ if (apartmentsPage) {
   const section__apartments = document.querySelector(".section__apartments");
   const height = choice.getBoundingClientRect().height;
   const showAllParams = document.querySelector(".choice__btn-additional_show");
-  const hideAddParams = document.querySelector(".choice__btn-additional_hide"); 
+  const hideAddParams = document.querySelector(".choice__btn-additional_hide");
   const dropFilters = document.querySelector(".choice__btn-reset .choice__btn-text");
   const searchCounter = document.querySelector(".choice__search-text");
 
   // const el = Array.from(choiceBot.children)[3];
-  const el = document
-    .querySelector(".choice__inputs-list_bot")
-    .querySelector(".choice__input-block_slider_floor"); //
+  const el = document.querySelector(".choice__inputs-list_bot").querySelector(".choice__input-block_slider_floor"); //
   // console.log(el);
   // console.log(window.scrollY);
 
@@ -440,12 +431,12 @@ if (apartmentsPage) {
     showAllParams.style.display = "none";
     popupClose(popup);
     choice.append(content);
-  })
+  });
 
   // закрытие popup по Esc
   document.addEventListener("keydown", function (e) {
     console.log("тест");
-    if (e.key === "Escape") {      
+    if (e.key === "Escape") {
       // choiceBot.style.display = "none";
       // hideAddParams.style.display = "none";
       popupClose(popup);
@@ -489,7 +480,6 @@ if (apartmentsPage) {
       // передача формы обратно на главную страницу
       choice.append(content);
 
-
       dropFilters.innerHTML = "Сбросить фильтры";
       searchCounter.style.display = "none";
       filterMobileBtn.style.display = "grid";
@@ -512,12 +502,12 @@ if (commercialPage) {
   // const section__apartments = document.querySelector(".section__apartments");
   // const height = choice.getBoundingClientRect().height;
   // const showAllParams = document.querySelector(".choice__btn-additional_show");
-  // const hideAddParams = document.querySelector(".choice__btn-additional_hide"); 
+  // const hideAddParams = document.querySelector(".choice__btn-additional_hide");
   // const dropFilters = document.querySelector(".choice__btn-reset .choice__btn-text");
   // const searchCounter = document.querySelector(".choice__search-text");
 
   // const el = Array.from(choiceBot.children)[3];
-  const el = document.querySelector('.choice__input-block_buttons_method'); //
+  const el = document.querySelector(".choice__input-block_buttons_method"); //
   // console.log(el);
   // console.log(window.scrollY);
 
@@ -527,25 +517,22 @@ if (commercialPage) {
     choiceBot.prepend(el);
   }
 
+  // choice.classList.add("choice_fixed");
+  // if (window.scrollY > 500) {
+  // }
 
-
-
-    // choice.classList.add("choice_fixed");
-    // if (window.scrollY > 500) {
-    // }
-
-    // window.addEventListener("scroll", () => {
-    //   if (window.scrollY > 500) {
-    //     choiceTop.append(el);
-    //     choice.classList.add("choice_fixed");
-    //     section__apartments.style.marginTop = height + "px";
-    //   } else {
-    //     // choiceTop.prepend(el);
-    //     choiceBot.append(el);
-    //     choice.classList.remove("choice_fixed");
-    //     section__apartments.style.marginTop = "0px";
-    //   }
-    // });
+  // window.addEventListener("scroll", () => {
+  //   if (window.scrollY > 500) {
+  //     choiceTop.append(el);
+  //     choice.classList.add("choice_fixed");
+  //     section__apartments.style.marginTop = height + "px";
+  //   } else {
+  //     // choiceTop.prepend(el);
+  //     choiceBot.append(el);
+  //     choice.classList.remove("choice_fixed");
+  //     section__apartments.style.marginTop = "0px";
+  //   }
+  // });
   // }
 
   // if (showAllParams) {
@@ -607,7 +594,7 @@ if (commercialPage) {
   // // закрытие popup по Esc
   // document.addEventListener("keydown", function (e) {
   //   console.log("тест");
-  //   if (e.key === "Escape") {      
+  //   if (e.key === "Escape") {
   //     // choiceBot.style.display = "none";
   //     // hideAddParams.style.display = "none";
   //     popupClose(popup);
@@ -650,7 +637,6 @@ if (commercialPage) {
   //     popup.classList.remove("open");
   //     // передача формы обратно на главную страницу
   //     choice.append(content);
-
 
   //     dropFilters.innerHTML = "Сбросить фильтры";
   //     searchCounter.style.display = "none";
@@ -1093,52 +1079,52 @@ new Swiper(".regions_swiper_small", {
 
 // if (window.innerWidth >= 560) {
 
-  new Swiper(".apartments_swiper", {
-    // Optional parameters
-    direction: "horizontal",
-    // loop: true,
-    // allowTouchMove: true,
-    // slidesPerView: auto, // сколько слайдов показывать, можно дробно
-    slidesPerView: "auto", // сколько слайдов показывать, можно дробно
-    // slidersPerGroup: 3, // сколько слайдов в группе
-    // centeredSlides: true, //выравнивание слайдов по центру
-    // initialSlide: 0, //начальный слайд (c нуля)
+new Swiper(".apartments_swiper", {
+  // Optional parameters
+  direction: "horizontal",
+  // loop: true,
+  // allowTouchMove: true,
+  // slidesPerView: auto, // сколько слайдов показывать, можно дробно
+  slidesPerView: "auto", // сколько слайдов показывать, можно дробно
+  // slidersPerGroup: 3, // сколько слайдов в группе
+  // centeredSlides: true, //выравнивание слайдов по центру
+  // initialSlide: 0, //начальный слайд (c нуля)
 
-    spaceBetween: 10,
-    // slideToClickedSlide: true, //перелистывание слайдов по клику
-    // grabCursor: true, //меняет курсор при наведении на руку
-    watchOverflow: true, //отключает слайдер если все слайды входят в область видимости
+  spaceBetween: 10,
+  // slideToClickedSlide: true, //перелистывание слайдов по клику
+  // grabCursor: true, //меняет курсор при наведении на руку
+  watchOverflow: true, //отключает слайдер если все слайды входят в область видимости
 
-    // Navigation arrows
-    navigation: {
-      nextEl: ".swiper-button-next_apart",
-      prevEl: ".swiper-button-prev_apart",
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next_apart",
+    prevEl: ".swiper-button-prev_apart",
+  },
+  // pagination: {
+  //   el: ".swiper-pagination",
+  //   clickable: true,
+  // },
+  // mousewheel: { //перелистывание слайдов по мышке
+  //   sensitivity: 1,
+  //   eventsTarget: ".news__slider",
+  // },
+  // keyboard: { //перелистывание слайдов по нажатию клавиш
+  //   enabled: true,
+  //   onlyInViewport: true,
+  //   // pageUpDown: true,
+  // },
+  breakpoints: {
+    0: {
+      // slidesPerView: 1,
     },
-    // pagination: {
-    //   el: ".swiper-pagination",
-    //   clickable: true,
-    // },
-    // mousewheel: { //перелистывание слайдов по мышке
-    //   sensitivity: 1,
-    //   eventsTarget: ".news__slider",
-    // },
-    // keyboard: { //перелистывание слайдов по нажатию клавиш
-    //   enabled: true,
-    //   onlyInViewport: true,
-    //   // pageUpDown: true,
-    // },
-    breakpoints: {
-      0: {
-        // slidesPerView: 1,
-      },
-      500: {
-        // slidesPerView: 2,
-      },
-      800: {
-        // slidesPerView: 3.35,
-      },
+    500: {
+      // slidesPerView: 2,
     },
-  });
+    800: {
+      // slidesPerView: 3.35,
+    },
+  },
+});
 // }
 
 new Swiper(".commercial_swiper", {
@@ -1496,13 +1482,12 @@ new Swiper(".standarts-slider", {
   },
 });
 
-
 new Swiper(".projects-slider", {
   // Optional parameters
   direction: "horizontal",
   // loop: true,
   // allowTouchMove: true,
-  slidesPerView: 'auto', // сколько слайдов показывать, можно дробно
+  slidesPerView: "auto", // сколько слайдов показывать, можно дробно
   // slidesPerView: "4", // сколько слайдов показывать, можно дробно
   // slidersPerGroup: 4, // сколько слайдов в группе
   // centeredSlides: true, //выравнивание слайдов по центру
@@ -1549,7 +1534,7 @@ new Swiper(".swiper_history", {
   direction: "horizontal",
   // loop: true,
   // allowTouchMove: true,
-  slidesPerView: 'auto', // сколько слайдов показывать, можно дробно
+  slidesPerView: "auto", // сколько слайдов показывать, можно дробно
   // slidesPerView: "4", // сколько слайдов показывать, можно дробно
   // slidersPerGroup: 4, // сколько слайдов в группе
   // centeredSlides: true, //выравнивание слайдов по центру
@@ -2863,6 +2848,5 @@ function getLinkCatalogApart(e) {
   link.setAttribute("href", `/pages/kvartiry${query}`);
   console.log(link);
   link.click();
-
 }
 // -------------------------------------------- end Передача поисковой строки ---------------------------------------------

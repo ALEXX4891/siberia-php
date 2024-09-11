@@ -14,7 +14,7 @@ if (
 ) {
   console.log("------------- Старт Api ------------------");
 
-  const choiceFilterForm = document.querySelector("[data-form]");
+  const choiceFilterForm = document.querySelector("[choice-form]");
 
   // функция проверки работы Api
   function checkApiData() {
@@ -297,7 +297,7 @@ if (
   function setMaxMinForFilters(filterAllInfo) {
     console.log("*************** Старт функции setMaxMinForFilters ***************"); // имя функции
     // const filterAllInfo = getMaxMinForFilters();
-    const choiceFilterForm = document.querySelector("[data-form]");
+    const choiceFilterForm = document.querySelector("[choice-form]");
     console.log("choiceFilterForm", choiceFilterForm);
 
     if (!choiceFilterForm) {
@@ -1315,7 +1315,7 @@ if (
   }
 
   // --------------------------------------- start FILTERS: ----------------------------------------
-// const form = document.querySelector("[data-form]");
+// const form = document.querySelector("[choice-form]");
 // if (form) {
 //   form.addEventListener("click", (e) => {
 //     getFilters();
@@ -1325,7 +1325,7 @@ if (
 const choiceTitle = document.querySelector(".choice__title");
 // console.log(choiceTitle);
 if (choiceTitle) {
-  // const form = document.querySelector("[data-form]");
+  // const form = document.querySelector("[choice-form]");
   choiceTitle.addEventListener("click", (e) => {
     console.log("тест");
     // getFilters();

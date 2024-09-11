@@ -145,7 +145,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </div>
         </div>
 
-        <div class="about__right choice__form" data-form>
+        <div class="about__right choice__form" choice-form>
           <button class="about__btn-complex">
             <div class="about__btn-complex-img">
               <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -720,7 +720,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </g>
             </svg>
           </div>
-  
+
           <div class="swiper-button swiper-button-next swiper-button-next_apart">
             <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g opacity="0.8">
@@ -730,7 +730,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </g>
             </svg>
           </div>
-  
+
         </div>
       </div>
 
