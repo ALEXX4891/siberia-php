@@ -9,8 +9,8 @@ function getRequest($url) {
   return $response;
 }
 
-$apiKey = "29f8fcf87bc0605d57ca8d0c5e776f03";
-// $apiKey = "a2a837c238adf8f115947e9b1cbebd2a";
+// $apiKey = "29f8fcf87bc0605d57ca8d0c5e776f03";
+$apiKey = "a2a837c238adf8f115947e9b1cbebd2a";
 
 $url = "https://crm.m2lab.ru/api/getHouseList?token={$apiKey}";
 // https://crm.m2lab.ru/api/getHouseList?token=29f8fcf87bc0605d57ca8d0c5e776f03

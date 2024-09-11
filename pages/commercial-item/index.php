@@ -313,7 +313,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </fieldset>
 
           <div class="about__right-bot-btn-wrap">
-            <button class="about__right-bot-btn btn btn_dark">
+            <button class="about__right-bot-btn btn btn_dark popup-link" href="#popup-request">
               Заказать звонок
             </button>
 
@@ -628,7 +628,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
             </div>
 
-            <button class="btn btn_green address__btn popup-link" href="#popup-form">
+            <button class="btn btn_green address__btn popup-link" href="#popup-request">
               Получить консультацию
             </button>
           </div>

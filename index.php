@@ -246,7 +246,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Комнат
             </p>
             <div class="choice__buttons-select select-frame">
-              <button class="choice__buttons-select-item" data-id="s">
+              <button class="choice__buttons-select-item" data-id="11">
                 Студия
               </button>
               <button class="choice__buttons-select-item" data-id="1">

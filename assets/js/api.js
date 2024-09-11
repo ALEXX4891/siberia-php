@@ -62,10 +62,10 @@ if (
   // ГП2 house_id 943
   // ГП3 house_id 945
 
-  // const idHouse = [1052, 1053, 1054];
-  const idHouse = [933, 943, 945];
+  const idHouse = [1052, 1053, 1054];
+  // const idHouse = [933, 943, 945];
 
-  const projectById = [{ 933: "Сосновый" }, { 943: "Сосновый" }, { 945: "Сосновый" }];
+  const projectById = [{ 1052: "Сосновый" }, { 1053: "Сосновый" }, { 1054: "Сосновый" }];
 
   function getProjectName(id) {
     return projectById.find((item) => item[id])[id];
@@ -156,6 +156,8 @@ if (
     item.house_title_rus = houseInfo.find((house) => house.house_id == item.house_id).house_title;
     item.object_type_code = houseInfo.find((house) => house.house_id == item.house_id).object_type_code;
     item.object_type_title = houseInfo.find((house) => house.house_id == item.house_id).object_type_title;
+    item.apart_rooms = item.rooms == 1 ? 1 : item.rooms == 2 ? 2 : item.rooms == 3 ? 3 : item.rooms > 3 ? 4 : '';
+    item.apart_rooms = item.roomsList.find((room) => room.title == 'Жилая комната') ? item.apart_rooms : 11;
   });
 
   // console.log("allAparstInfo", allApartsInfo);
@@ -217,7 +219,8 @@ if (
     const maxPrice = Math.ceil(Math.max(...allApartsInfo.map((item) => item.price)));
     const minSquare = Math.floor(Math.min(...allApartsInfo.map((item) => item.square)));
     const maxSquare = Math.ceil(Math.max(...allApartsInfo.map((item) => item.square)));
-    const rooms = [...new Set(allApartsInfo.map((item) => item.rooms))].sort((a, b) => a - b);
+    // const rooms = [...new Set(allApartsInfo.map((item) => item.rooms))].sort((a, b) => a - b);
+    const rooms = [...new Set(allApartsInfo.map((item) => item.apart_rooms))].sort((a, b) => a - b);
     const minFloor = Math.floor(Math.min(...allApartsInfo.map((item) => item.floor)));
     const maxFloor = Math.ceil(Math.max(...allApartsInfo.map((item) => item.floor)));
     const projects = [...new Set(allApartsInfo.map((item) => item.project_name))];
@@ -230,7 +233,7 @@ if (
     // console.log("maxPrice", maxPrice);
     // console.log("minSquare", minSquare);
     // console.log("maxSquare", maxSquare);
-    // console.log("rooms", rooms);
+    console.log("rooms", rooms);
     // console.log("minFloor", minFloor);
     // console.log("maxFloor", maxFloor);
     // console.log("projects", projects);
@@ -540,10 +543,8 @@ if (
       if (arr) {
         if (arr.find((item) => item.name === "Комнат") && arr.find((item) => item.name === "Комнат").value !== "") {
           roomsFilter.forEach((item) =>
-            arr.find((item) => item.name === "Комнат").value.includes(Number(item.innerText))
-              ? // ? console.log(Number(item.innerText))
-                // : console.log(Number(item.innerText))
-                item.classList.add("choice__buttons-select-item_active")
+            arr.find((item) => item.name === "Комнат").value.includes(Number(item.getAttribute("data-id")))
+              ? item.classList.add("choice__buttons-select-item_active")
               : item.classList.remove("choice__buttons-select-item_active")
           );
         }
@@ -710,7 +711,7 @@ if (
         const roomFilter = filterArr.find((item) => item.name === "Комнат").value;
         if (roomFilter.length && roomFilter[0] !== "") {
           // console.log(roomFilter.length && roomFilter[0] !== "");
-          copyList = filterTableArr(roomFilter, "rooms", copyList);
+          copyList = filterTableArr(roomFilter, "apart_rooms", copyList);
         }
       }
 

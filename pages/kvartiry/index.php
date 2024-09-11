@@ -56,7 +56,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 Комнат
               </p>
               <div class="choice__buttons-select select-frame">
-                <button class="choice__buttons-select-item" data-id="s">
+                <button class="choice__buttons-select-item" data-id="11">
                   Студия
                 </button>
                 <button class="choice__buttons-select-item" data-id="1">
@@ -271,7 +271,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </li>
           </ul>
 
-          <div class="choice__btns-block" >
+          <div class="choice__btns-block">
             <p class="choice__btns-block-title" style="display: none;">
               Особенности
             </p>

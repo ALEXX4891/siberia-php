@@ -133,7 +133,79 @@
 </div>
 
 
-<div class="popup" id="popup-request">
+<div class="popup popup_request" id="popup-request">
+  <div class="popup__body">
+    <div class="popup__content popup-form">
+      <form class="popup__form">
+        <h3 class="form__title">
+          Оставить заявку
+        </h3>
+
+        <div class="form__label-block">
+
+          <label class="form__label">
+            <span class="form__label-text">
+              ФИО
+            </span>
+            <span class="form__label-star">
+              *
+            </span>
+
+            <input class="form__input form__input_name _req" type="text" name="name" placeholder="Введите имя">
+          </label>
+
+          <label class="form__label">
+            <span class="form__label-text">
+              Телефон
+            </span>
+            <span class="form__label-star">
+              *
+            </span>
+            <input class="form__input form__input_phone _req" type="tel" name="phone" placeholder="7" value="7">
+          </label>
+
+          <!-- <label class="form__label">
+            <span class="form__label-text">
+              E-mail
+            </span>
+            <input class="form__input form__input_email" type="email" name="email" placeholder="Введите e-mail">
+          </label> -->
+
+          <label class="form__label form__label_textarea">
+            <span class="form__label-text">
+              Комментарий
+            </span>
+            <textarea class="form__input form__input_textarea" name="text" placeholder="Сообщение"></textarea>
+          </label>
+
+        </div>
+
+        <button class="btn btn_green form__btn">
+          Отправить
+        </button>
+
+
+        <div class="form__agreement-wrap">
+          <span class="form__agreement-text">
+            Нажимая кнопку «Отправить», вы соглашаетесь с
+          </span>
+          <a class="form__agreement-link" href="/pages/policy/agreement/" target="_blank">
+            условиями обработки персональных данных
+          </a>
+        </div>
+
+        <span class="form__close-btn popup-close">
+          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+          </svg>
+        </span>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="popup" id="popup-request">
   <div class="popup__body">
     <div class="popup__content popup-request">
       <form class="request" id="request-form">
@@ -211,7 +283,7 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="popup" id="popup-notification">
   <div class="popup__body">
