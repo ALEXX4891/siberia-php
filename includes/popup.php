@@ -24,7 +24,7 @@
             <span class="form__label-star">
               *
             </span>
-            <input class="form__input form__input_phone _req" type="tel" name="phone" placeholder="7" value="7">
+            <input class="form__input form__input_phone _req phone" type="tel" name="phone" placeholder="7" value="7">
           </label>
           <label class="form__label">
             <span class="form__label-text">
@@ -96,7 +96,7 @@
             <span class="form__label-star">
               *
             </span>
-            <input class="form__input form__input_phone _req" type="tel" name="phone" placeholder="Номер телефона">
+            <input class="form__input form__input_phone _req phone" type="tel" name="phone" placeholder="Номер телефона">
           </label>
 
           <label class="form__label">
@@ -161,7 +161,7 @@
             <span class="form__label-star">
               *
             </span>
-            <input class="form__input form__input_phone _req" type="tel" name="phone" placeholder="7" value="7">
+            <input class="form__input form__input_phone _req phone" type="tel" name="phone" placeholder="7" value="7">
           </label>
 
           <!-- <label class="form__label">
@@ -205,7 +205,7 @@
   </div>
 </div>
 
-<!-- <div class="popup" id="popup-request">
+<div class="popup popup_booking" id="popup-booking">
   <div class="popup__body">
     <div class="popup__content popup-request">
       <form class="request" id="request-form">
@@ -214,6 +214,7 @@
         </h3>
 
         <div class="request__label-block">
+
           <label class="request__label request__label_readonly">
             <span class="request__label-text">
               Планировка
@@ -225,6 +226,7 @@
             <input class="request__input request__input_apartment" type="text" name="apartment"
               placeholder="Выберите квартиру" readonly required>
           </label>
+
           <label class="request__label">
             <span class="request__label-text">
               ФИО
@@ -233,9 +235,10 @@
               *
             </span>
 
-            <input class="request__input request__input_name" type="text" name="name" placeholder="Введите имя"
+            <input class="request__input request__input_name _req" type="text" name="name" placeholder="Введите имя"
               required>
           </label>
+
           <label class="request__label">
             <span class="request__label-text">
               Телефон
@@ -243,21 +246,24 @@
             <span class="request__label-star">
               *
             </span>
-            <input class="request__input request__input_phone" type="tel" name="phone" placeholder="7" required
+            <input class="request__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" required
               value="7">
           </label>
+
           <label class="request__label">
             <span class="request__label-text">
               E-mail
             </span>
             <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
           </label>
+
           <label class="request__label request__label_textarea">
             <span class="request__label-text">
               Комментарий
             </span>
             <textarea class="request__input request__input_textarea" name="message" placeholder="Сообщение"></textarea>
           </label>
+
         </div>
 
         <button class="btn btn_dark request__btn">
@@ -283,7 +289,7 @@
       </form>
     </div>
   </div>
-</div> -->
+</div>
 
 <div class="popup" id="popup-notification">
   <div class="popup__body">
@@ -324,7 +330,7 @@
             <span class="notification__label-star">
               *
             </span>
-            <input class="notification__input notification__input_agent-phone" type="tel" name="agent-phone"
+            <input class="notification__input notification__input_agent-phone phone" type="tel" name="agent-phone"
               placeholder="7" required value="7">
           </label>
 
@@ -346,7 +352,7 @@
             <span class="notification__label-star">
               *
             </span>
-            <input class="notification__input notification__input_client-phone" type="tel" name="client-phone"
+            <input class="notification__input notification__input_client-phone phone" type="tel" name="client-phone"
               placeholder="7" required value="7">
           </label>
 
@@ -586,7 +592,7 @@
             <span class="request__label-star">
               *
             </span>
-            <input class="request__input request__input_phone phone" type="tel" name="phone" placeholder="7" required
+            <input class="request__input request__input_phone phone phone" type="tel" name="phone" placeholder="7" required
               value="7">
           </label>
           <label class="request__label">
