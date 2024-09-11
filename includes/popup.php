@@ -36,7 +36,7 @@
             <span class="form__label-text">
               Комментарий
             </span>
-            <textarea class="form__input form__input_textarea" name="text" placeholder="Сообщение"></textarea>
+            <textarea class="form__input form__input_textarea" name="message" placeholder="Сообщение"></textarea>
           </label>
         </div>
 
@@ -175,7 +175,7 @@
             <span class="form__label-text">
               Комментарий
             </span>
-            <textarea class="form__input form__input_textarea" name="text" placeholder="Сообщение"></textarea>
+            <textarea class="form__input form__input_textarea" name="message" placeholder="Сообщение"></textarea>
           </label>
 
         </div>
@@ -256,7 +256,7 @@
             <span class="request__label-text">
               Комментарий
             </span>
-            <textarea class="request__input request__input_textarea" name="text" placeholder="Сообщение"></textarea>
+            <textarea class="request__input request__input_textarea" name="message" placeholder="Сообщение"></textarea>
           </label>
         </div>
 
@@ -354,7 +354,7 @@
             <span class="notification__label-text">
               Сообщение
             </span>
-            <textarea class="notification__input notification__input_textarea" name="text"
+            <textarea class="notification__input notification__input_textarea" name="message"
               placeholder="Сообщение"></textarea>
           </label>
         </div>
@@ -622,7 +622,7 @@
             <span class="request__label-text">
               Расскажите о вашей компании
             </span>
-            <textarea class="request__input request__input_textarea" name="text"></textarea>
+            <textarea class="request__input request__input_textarea" name="message"></textarea>
           </label>
         </div>
 
@@ -715,7 +715,7 @@
             <span class="request__label-text">
               Расскажите о вашей компании
             </span>
-            <textarea class="request__input request__input_textarea" name="text"></textarea>
+            <textarea class="request__input request__input_textarea" name="message"></textarea>
           </label>
         </div>
 

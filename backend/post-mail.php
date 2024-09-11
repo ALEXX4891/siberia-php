@@ -12,7 +12,7 @@ $mail->setLanguage('ru', 'PHPMailer/language/'); //задать язык для 
 $mail->isHTML(true); // включить html теги в письме
 
 // от кого письмо
-$mail->setFrom('admin@siberia-dev.ru/', 'Сибирь');
+$mail->setFrom('admin@siberia-dev.ru', 'Сибирь');
 
 // кому письмо
 $recipients = [
@@ -87,3 +87,39 @@ echo json_encode($response);
 // $body .= 'Сообщение: ' . $_POST['message'] . '<br />';
 // $body .= 'Интересует проект: ' . $_POST['project'] . '<br />';
 // $mail->Body = $body;
+
+//cURL запрос: 
+$fieldsArr = [
+  'key'       => 'a2a837c238adf8f115947e9b1cbebd2a',
+  'comment'   => 'comment',
+  'name'      => 'name',
+  'phone'     => '766666666666',
+  'domain'    => 'domain',
+  'type'      => 'call'
+];
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://crm.m2lab.ru/ats/sites_hook/leadEventCallBack',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS => $fieldsArr,
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+// echo $response;
+
+// Отправляем
+if (!$response == "success" && !$mail->send()) {
+  $message = 'Ошибка';
+} else {
+  $message = 'Данные отправлены';
+}
