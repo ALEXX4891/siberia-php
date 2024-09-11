@@ -1,7 +1,7 @@
 <div class="popup" id="popup-form">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="form" id="choice-form">
+      <form class="popup__form" id="choice-form">
         <h3 class="form__title">
           Запросить планировки
         </h3>
@@ -15,7 +15,7 @@
               *
             </span>
 
-            <input class="form__input form__input_name" type="text" name="name" placeholder="Введите имя" required>
+            <input class="form__input form__input_name _req" type="text" name="name" placeholder="Введите имя">
           </label>
           <label class="form__label">
             <span class="form__label-text">
@@ -24,7 +24,7 @@
             <span class="form__label-star">
               *
             </span>
-            <input class="form__input form__input_phone" type="tel" name="phone" placeholder="7" required value="7">
+            <input class="form__input form__input_phone _req" type="tel" name="phone" placeholder="7" value="7">
           </label>
           <label class="form__label">
             <span class="form__label-text">
@@ -64,6 +64,74 @@
     </div>
   </div>
 </div>
+
+<div class="popup popup_call" id="popup-call">
+  <div class="popup__body">
+    <div class="popup__content popup-form">
+      <form class="popup__form">
+        <h3 class="form__title">
+          Заказать звонок
+        </h3>
+
+        <p class="form__desc">
+          Оставьте ваши данные и наш менеджер свяжется с вами
+        </p>
+
+        <div class="form__label-block">
+
+          <label class="form__label">
+            <span class="form__label-text">
+              Имя
+            </span>
+            <span class="form__label-star">
+              *
+            </span>
+            <input class="form__input form__input_name _req" type="text" name="name" placeholder="Как вас зовут?">
+          </label>
+
+          <label class="form__label">
+            <span class="form__label-text">
+              Телефон
+            </span>
+            <span class="form__label-star">
+              *
+            </span>
+            <input class="form__input form__input_phone _req" type="tel" name="phone" placeholder="Номер телефона">
+          </label>
+
+          <label class="form__label">
+            <span class="form__label-text">
+              E-mail
+            </span>
+            <input class="form__input form__input_email" type="email" name="email" placeholder="E-mail">
+          </label>
+
+        </div>
+
+        <button class="btn btn_dark form__btn">
+          Отправить
+        </button>
+
+        <div class="form__agreement-wrap">
+          <span class="form__agreement-text">
+            Нажимая кнопку «Отправить», вы соглашаетесь с
+          </span>
+          <a class="form__agreement-link" href="/pages/policy/agreement/" target="_blank">
+            условиями обработки персональных данных
+          </a>
+        </div>
+
+        <span class="form__close-btn popup-close">
+          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+          </svg>
+        </span>
+
+      </form>
+    </div>
+  </div>
+</div>
+
 
 <div class="popup" id="popup-request">
   <div class="popup__body">
@@ -244,7 +312,7 @@
   </div>
 </div>
 
-<div class="popup" id="success">
+<div class="popup popup_success" id="success">
   <div class="popup__body">
     <div class="popup__content popup-success">
       <h3 class="popup-success__title">
@@ -257,6 +325,12 @@
       <button class="popup-success__close popup-close">
         Хорошо
       </button>
+
+      <span class="popup__close-btn popup-close">
+        <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+        </svg>
+      </span>
 
     </div>
   </div>
@@ -615,7 +689,7 @@
           <input class="request__input request__input_phone phone" type="tel" name="phone" placeholder="7" required
             value="7">
         </label>
-        
+
         <button class="btn btn_green request__btn">
           Отправить
         </button>
@@ -641,127 +715,47 @@
   </div>
 </div>
 
-<div class="popup" id="sot-agent2">
-  <div class="popup__body">
-    <div class="popup__content popup-request">
-      <form class="request" id="request-form">
-        <h3 class="request__title">
-          Оставить заявку
-        </h3>
-
-        <div class="request__label-block">
-          <label class="request__label request__label_readonly">
-            <span class="request__label-text">
-              Планировка
-            </span>
-            <span class="request__label-star">
-              *
-            </span>
-
-            <input class="request__input request__input_apartment" type="text" name="apartment"
-              placeholder="Выберите квартиру" readonly required>
-          </label>
-          <label class="request__label">
-            <span class="request__label-text">
-              ФИО
-            </span>
-            <span class="request__label-star">
-              *
-            </span>
-
-            <input class="request__input request__input_name" type="text" name="name" placeholder="Введите имя"
-              required>
-          </label>
-          <label class="request__label">
-            <span class="request__label-text">
-              Телефон
-            </span>
-            <span class="request__label-star">
-              *
-            </span>
-            <input class="request__input request__input_phone" type="tel" name="phone" placeholder="7" required
-              value="7">
-          </label>
-          <label class="request__label">
-            <span class="request__label-text">
-              E-mail
-            </span>
-            <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
-          </label>
-          <label class="request__label request__label_textarea">
-            <span class="request__label-text">
-              Комментарий
-            </span>
-            <textarea class="request__input request__input_textarea" name="text" placeholder="Сообщение"></textarea>
-          </label>
-        </div>
-
-        <button class="btn btn_dark request__btn">
-          Отправить
-        </button>
-
-
-        <div class="request__agreement-wrap">
-          <span class="request__agreement-text">
-            Нажимая кнопку «Отправить», вы соглашаетесь с
-          </span>
-          <a class="request__agreement-link" href="/pages/policy/agreement/" target="_blank">
-            условиями обработки персональных данных
-          </a>
-        </div>
-
-        <span class="request__close-btn popup-close">
-          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
-          </svg>
-        </span>
-
-      </form>
-    </div>
-  </div>
-</div>
-
-<div class="popup program" id="actual-program-1">
+<div class="popup popup_program" id="actual-program-1">
   <div class="popup__body">
     <div class="popup__content">
-        <h3 class="program__title">
-          IT-ипотека от 5%
-        </h3>
+      <h3 class="program__title">
+        IT-ипотека от 5%
+      </h3>
 
-        <div class="program__content">
-          <p class="program__desc text">
-            Вам подходит эта программа, если вы гражданин России в возрасте от 18 до 50 лет. Работаете в аккредитованной ИТ-компании, которая пользуется налоговыми льготами. Получаете зарплату от 120 тыс. рублей.
-          </p>
-  
-          <ul class="program__list">
-            <li class="program__item">
-              <h2 class="program__item-title">
+      <div class="program__content">
+        <p class="program__desc text">
+          Вам подходит эта программа, если вы гражданин России в возрасте от 18 до 50 лет. Работаете в аккредитованной ИТ-компании, которая пользуется налоговыми льготами. Получаете зарплату от 120 тыс. рублей.
+        </p>
+
+        <ul class="program__list">
+          <li class="program__item">
+            <h2 class="program__item-title">
               20%
-              </h2>
-              <p class="program__item-text">
+            </h2>
+            <p class="program__item-text">
               Первый взнос
-              </p>
-            </li>
-            <li class="program__item">
-              <h2 class="program__item-title">
+            </p>
+          </li>
+          <li class="program__item">
+            <h2 class="program__item-title">
               16 млн ₽
-              </h2>
-              <p class="program__item-text">
+            </h2>
+            <p class="program__item-text">
               Максимальная сумма
-              </p>
-            </li>
-          </ul>
+            </p>
+          </li>
+        </ul>
 
-        </div>
-        <button class="btn btn_green program__btn popup-link" href="popup-form">
-          Отправить заявку
-        </button>
+      </div>
+      <button class="btn btn_green program__btn popup-link" href="popup-form">
+        Отправить заявку
+      </button>
 
-        <span class="program__close-btn popup-close">
-          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
-          </svg>
-        </span>
+      <span class="program__close-btn popup-close">
+        <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+        </svg>
+      </span>
     </div>
   </div>
 </div>
