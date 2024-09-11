@@ -605,32 +605,6 @@
         <h3 class="request__title">
           Оставить заявку
         </h3>
-        <!-- <p class="request__desc text">
-          Менеджер свяжется с вами в ближайшее время
-        </p> -->
-
-        <!-- <div class="request__label-block"> -->
-        <!-- <label class="request__label">
-            <span class="request__label-text">
-              ФИО представителя
-            </span>
-            <span class="request__label-star">
-              *
-            </span>
-
-            <input class="request__input request__input_name" type="text" name="name" placeholder="Введите имя"
-              required>
-          </label>
-          <label class="request__label">
-            <span class="request__label-text">
-              Название агенства
-            </span>
-            <span class="request__label-star"> 
-              *
-            </span>
-            <input class="request__input request__input_name" type="text" name="work-type" placeholder="Введите название"
-              required>
-          </label> -->
         <label class="request__label">
           <span class="request__label-text">
             Телефон
@@ -641,31 +615,7 @@
           <input class="request__input request__input_phone phone" type="tel" name="phone" placeholder="7" required
             value="7">
         </label>
-        <!-- <label class="request__label">
-            <span class="request__label-text">
-              E-mail
-            </span>
-            <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
-          </label> -->
-        <!-- <div class="request__file-label-wrap">
-            <span class="request__file-label-title">
-              Коммерческое предложения
-            </span>
-            <label class="request__file-label">
-              <span class="request__file-label-text">
-                Прикрепить файл
-              </span>
-              <input class="request__file-input" type="file" name="file" hidden>
-            </label>
-          </div> -->
-        <!-- <label class="request__label request__label_textarea">
-            <span class="request__label-text">
-            Расскажите о вашей компании
-            </span>
-            <textarea class="request__input request__input_textarea" name="text"></textarea>
-          </label> -->
-        <!-- </div> -->
-
+        
         <button class="btn btn_green request__btn">
           Отправить
         </button>
@@ -803,7 +753,7 @@
           </ul>
 
         </div>
-        <button class="btn btn_green program__btn popup-link" href="popup-request">
+        <button class="btn btn_green program__btn popup-link" href="popup-form">
           Отправить заявку
         </button>
 
