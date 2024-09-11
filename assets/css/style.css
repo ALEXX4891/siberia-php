@@ -1672,7 +1672,7 @@ a {
   line-height: 48.41px;
   text-align: left;
   color: #56693E;
-
+  max-width: 80%;
 }
 
 .popup .popup__form .form__desc {
@@ -24554,6 +24554,16 @@ margin-bottom: 25px;
   .section {
     padding: 100px 15px;
   }
+
+  .popup .popup__form {
+    display: grid;
+    gap: 14px;
+    position: relative;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    max-width: 544px;
+}
 
   .main .section.section_bot {
     position: relative;
