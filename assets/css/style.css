@@ -26026,3 +26026,7 @@ body._sending::after {
   opacity: 1;
   visibility: visible;
 }
+
+.popup .popup__form .form__input._error {
+  border: 1px solid #ca2020;
+}
