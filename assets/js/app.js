@@ -234,7 +234,7 @@ const choiceFilterForm = document.querySelector("[data-form]");
 // ------------------------- end вывод квартир: ---------------------------
 // ---------------------------------- start отправка и валидация формы ----------------------------------
 
-const formAll = document.querySelectorAll(".main-form");
+const formAll = document.querySelectorAll(".popup__form");
 
 if (formAll) {
   formAll.forEach((form) => {
@@ -249,7 +249,7 @@ if (formAll) {
         form.classList.add("_sending");
         let formData = new FormData(form);
 
-        let response = await fetch("files/post-mail.php", {
+        let response = await fetch("/backend/post-mail.php", {
           method: "POST",
           body: formData,
         });
@@ -260,7 +260,7 @@ if (formAll) {
           popupOpen(document.getElementById("success"));
           form.classList.remove("_sending");
         } else {
-          popupOpen(document.getElementById("error"));
+          // popupOpen(document.getElementById("error"));
           form.classList.remove("_sending");
         }
       } else {

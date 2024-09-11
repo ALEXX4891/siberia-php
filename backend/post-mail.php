@@ -12,11 +12,11 @@ $mail->setLanguage('ru', 'PHPMailer/language/'); //задать язык для 
 $mail->isHTML(true); // включить html теги в письме
 
 // от кого письмо
-$mail->setFrom('admin@marchel.ru', 'Автопомощь');
+$mail->setFrom('admin@siberia-dev.ru/', 'Сибирь');
 
 // кому письмо
 $recipients = [
-  'direktor-info.alfa@yandex.ru' => 'Person One',
+  'ALEXX4891@mail.ru' => 'Person One',
   // 'direktor-info.alfa@yandex.ru' => 'Person Two',
 ];
 
@@ -28,10 +28,10 @@ foreach ($recipients as $email => $name) {
 // $mailer->AddBCC('Ящик 3'); 
 
 // тема письма
-$mail->Subject = 'Заявка с marchel.ru';
+$mail->Subject = 'Заявка с сайта siberia-dev.ru/';
 
 // текст письма
-$body = '<h1>Уведомление с сайта marchel:</h1><br/><br/>';
+$body = '<h1>Уведомление с сайта siberia-dev.ru/:</h1><br/><br/>';
 
 if (trim(!empty($_POST['name']))) {
   $body .= '<p><strong>Имя:</strong> ' . $_POST['name'] . '</p><br/>';
@@ -43,6 +43,10 @@ if (trim(!empty($_POST['phone']))) {
 
 if (trim(!empty($_POST['message']))) {
   $body .= '<p><strong>Сообщение:</strong> ' . $_POST['message'] . '</p><br/>';
+}
+
+if (trim(!empty($_POST['email']))) {
+  $body .= '<p><strong>Email:</strong> ' . $_POST['email'] . '</p><br/>';
 }
 
 //------------прикрепить файл:

@@ -26010,3 +26010,19 @@ body._sending::after {
   opacity: 1;
   visibility: visible;
 }
+
+.popup .popup__form::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5) url(../img/loading.gif) center/50px no-repeat;
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.popup .popup__form._sending::after {
+  opacity: 1;
+  visibility: visible;
+}
