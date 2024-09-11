@@ -207,80 +207,80 @@
 
 <div class="popup popup_booking" id="popup-booking">
   <div class="popup__body">
-    <div class="popup__content popup-request">
-      <form class="request" id="request-form">
-        <h3 class="request__title">
+    <div class="popup__content popup-form">
+      <form class="popup__form">
+        <h3 class="form__title">
           Оставить заявку
         </h3>
 
-        <div class="request__label-block">
+        <div class="form__label-block">
 
-          <label class="request__label request__label_readonly">
-            <span class="request__label-text">
+          <label class="form__label form__label_readonly">
+            <span class="form__label-text">
               Планировка
             </span>
-            <span class="request__label-star">
+            <span class="form__label-star">
               *
             </span>
 
-            <input class="request__input request__input_apartment" type="text" name="apartment"
+            <input class="form__input form__input_apartment" type="text" name="apartment"
               placeholder="Выберите квартиру" readonly required>
           </label>
 
-          <label class="request__label">
-            <span class="request__label-text">
+          <label class="form__label">
+            <span class="form__label-text">
               ФИО
             </span>
-            <span class="request__label-star">
+            <span class="form__label-star">
               *
             </span>
 
-            <input class="request__input request__input_name _req" type="text" name="name" placeholder="Введите имя"
+            <input class="form__input form__input_name _req" type="text" name="name" placeholder="Введите имя"
               required>
           </label>
 
-          <label class="request__label">
-            <span class="request__label-text">
+          <label class="form__label">
+            <span class="form__label-text">
               Телефон
             </span>
-            <span class="request__label-star">
+            <span class="form__label-star">
               *
             </span>
-            <input class="request__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" required
+            <input class="form__input form__input_phone phone _req" type="tel" name="phone" placeholder="7" required
               value="7">
           </label>
 
-          <label class="request__label">
-            <span class="request__label-text">
+          <label class="form__label">
+            <span class="form__label-text">
               E-mail
             </span>
-            <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
+            <input class="form__input form__input_email" type="email" name="email" placeholder="Введите e-mail">
           </label>
 
-          <label class="request__label request__label_textarea">
-            <span class="request__label-text">
+          <label class="form__label form__label_textarea">
+            <span class="form__label-text">
               Комментарий
             </span>
-            <textarea class="request__input request__input_textarea" name="message" placeholder="Сообщение"></textarea>
+            <textarea class="form__input form__input_textarea" name="message" placeholder="Сообщение"></textarea>
           </label>
 
         </div>
 
-        <button class="btn btn_dark request__btn">
+        <button class="btn btn_dark form__btn">
           Отправить
         </button>
 
 
-        <div class="request__agreement-wrap">
-          <span class="request__agreement-text">
+        <div class="form__agreement-wrap">
+          <span class="form__agreement-text">
             Нажимая кнопку «Отправить», вы соглашаетесь с
           </span>
-          <a class="request__agreement-link" href="/pages/policy/agreement/" target="_blank">
+          <a class="form__agreement-link" href="/pages/policy/agreement/" target="_blank">
             условиями обработки персональных данных
           </a>
         </div>
 
-        <span class="request__close-btn popup-close">
+        <span class="form__close-btn popup-close">
           <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
           </svg>

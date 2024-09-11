@@ -1812,6 +1812,10 @@ a {
   max-width: 495px;
 }
 
+.popup_booking .popup__form {
+  max-width: 495px;
+}
+
 
 .popup .popup__form .form__agreement-wrap {
   -ms-flex-item-align: end;
