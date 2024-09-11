@@ -215,8 +215,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </h2>
 
         <div class="choice__form" data-form>
-
-          <div class="choice__input-block choice__input-block_select choice__input-block_project">
+          <div class="choice__input-block choice__input-block_select choice__input-block_select_project">
             <p class="choice__label">
               Проект
             </p>
@@ -229,13 +228,15 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
               <span class="select__arrow">
                 <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1.3335 1L7.54039 7L13.3335 1" stroke="#363636" stroke-width="1.5" stroke-linejoin="round" />
+                  <path d="M1.3335 1L7.54039 7L13.3335 1" stroke="#363636" stroke-width="1.5"
+                    stroke-linejoin="round" />
                 </svg>
               </span>
-              <ul class="select__list select__list_carton">
-                <li class="select__item" data-id="sosnoviy">Сосновый</li>
-                <!-- <li class="select__item" data-id="duboviy">Дубовый</li> -->
-                <!-- <li class="select__item" data-id="berezoviy">Березовый</li> -->
+              <ul class="select__list">
+                <!-- <li class="select__item">Все</li> -->
+                <!-- <li class="select__item">Сосновый</li>
+                  <li class="select__item">Дубовый</li>
+                  <li class="select__item">Березовый</li> -->
               </ul>
             </div>
           </div>
@@ -341,7 +342,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             <p class="choice__search-text">
               найдено 5 квартир
             </p>
-            <a class="choice__btn-request btn btn_dark" href="/pages/kvartiry/" onclick='getUrl()'>
+            <a class="choice__btn-request choice__btn-request_link btn btn_dark" href="/pages/kvartiry/">
               Смотреть квартиры
             </a>
 

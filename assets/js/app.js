@@ -2993,3 +2993,23 @@ if (promoLink.length > 0) {
   });
 }
 // -------------------------------------------- end Модалка промо ---------------------------------------------
+// -------------------------------------------- start Передача поисковой строки ---------------------------------------------
+const link = document.querySelector(".choice__btn-request_link");
+if (link) {
+  link.addEventListener("click", getLinkCatalogApart);
+}
+
+function getLinkCatalogApart(e) {
+  // e.preventDefault();
+  console.log("тест");
+  const query = window.location.search;
+  console.log(query);
+  // const urlParams = new URLSearchParams(query);
+  // console.log(urlParams);
+  // const searchInput = document.querySelector(".search__input");
+  link.setAttribute("href", `/pages/kvartiry${query}`);
+  console.log(link);
+  link.click();
+
+}
+// -------------------------------------------- end Передача поисковой строки ---------------------------------------------
