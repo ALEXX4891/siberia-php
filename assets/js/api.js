@@ -23,12 +23,11 @@ if (
       if (!item) {
         errors++;
       }
-
     });
 
     if (errors > 0) {
       console.log("%%%% Ошибка получения данных из API %%%%");
-      console.log('errors:', errors);
+      console.log("errors:", errors);
       console.log(allInfo);
       return false;
     } else {
@@ -156,8 +155,17 @@ if (
     item.house_title_rus = houseInfo.find((house) => house.house_id == item.house_id).house_title;
     item.object_type_code = houseInfo.find((house) => house.house_id == item.house_id).object_type_code;
     item.object_type_title = houseInfo.find((house) => house.house_id == item.house_id).object_type_title;
-    item.apart_rooms = item.rooms == 1 ? 1 : item.rooms == 2 ? 2 : item.rooms == 3 ? 3 : item.rooms > 3 ? 4 : '';
-    item.apart_rooms = item.roomsList.find((room) => room.title == 'Жилая комната') ? item.apart_rooms : 11;
+    item.apart_rooms = item.rooms == 1 ? 1 : item.rooms == 2 ? 2 : item.rooms == 3 ? 3 : item.rooms > 3 ? 4 : "";
+    item.apart_rooms = item.roomsList.find((room) => room.title == "Жилая комната") ? item.apart_rooms : 11;
+    item.balcony = item.roomsList.find((room) => room.title == "Лоджия") ? 1 : 0;
+    item.kitchenLiving = item.roomsList.find((room) => room.title == "Кухня-гостиная") ? 1 : 0;
+    item.dressRoom = item.roomsList.find((room) => room.title == "Гардеробная") ? 1 : 0;
+    item.guestBathroom = item.roomsList.filter((room) => room.title == "Санузел").length > 1 ? 1 : 0;
+    item.twoSide = item.roomsList.find((room) => room.title == "Две стороны") ? 1 : 0;
+    item.threeSide = item.roomsList.find((room) => room.title == "Три стороны") ? 1 : 0;
+    item.terrace = item.roomsList.find((room) => room.title == "Терраса") ? 1 : 0;
+    item.keyToday = item.roomsList.find((room) => room.title == "Ключи сегодня") ? 1 : 0;
+    item.promotion = item.roomsList.find((room) => room.title == "Акция") ? 1 : 0;
   });
 
   // console.log("allAparstInfo", allApartsInfo);
@@ -757,6 +765,14 @@ if (
         }
       }
 
+      if (filterArr.find((item) => item.name === "btns")) {
+        const btnsFilter = filterArr.find((item) => item.name === "btns").value;
+        if (btnsFilter.length && btnsFilter[0] !== "") {
+          // console.log(btnsFilter.length && btnsFilter[0] !== "");
+          copyList = filterTableBtns(btnsFilter, copyList);
+        }
+      }
+
       console.log("copyList", copyList);
       // console.log('difference ',  allAparstInfo.filter(item => !copyList.includes(item)));
 
@@ -917,9 +933,38 @@ if (
   function filterTableArr(filter, param, arr) {
     console.log(filter);
     return arr.filter(function (item) {
-      return filter.indexOf(Number(item[param])) !== -1
-      //TODO настроиль фильтрацию по логике, если комнат больше 3 или если студия
+      return filter.indexOf(Number(item[param])) !== -1;
     });
+  }
+
+  function filterTableBtns(filter, arr) {
+    arr = [{ name: 1, value1: "1" },
+    { name: 2, value2: "1" },
+    { name: 3, value3: "1" },
+    { name: 6, value3: "1" },
+    { name: 4, value3: "0" },
+    { name: 5, value2: "0" },];
+
+    filter = [value2, value3];
+
+    arr.filter(function (item) {
+
+
+
+
+
+
+
+    // console.log(filter);
+    // return arr.filter(function (item) {
+      // return item.includes
+      // console.log(item);
+      // console.log(filter.indexOf(item));
+      // return filter.indexOf(item) !== -1;
+    // })
+    // return arr.filter(function (item) {
+    //   return filter.indexOf(Number(item[param])) !== -1;
+    // });
   }
 
   function filterTable(filter, param, arr) {
@@ -1232,7 +1277,7 @@ if (
     const filters = document.querySelectorAll(".choice__input-block");
     filters.forEach((item) => {
       const name = item.querySelector(".choice__label").textContent.trim();
-  
+
       if (item.classList.contains("choice__input-block_select")) {
         const valueBlock = item.querySelector(".select__text");
         const value = valueBlock.textContent.trim();
@@ -1247,7 +1292,7 @@ if (
         filterArr.push(filterObj);
         // console.log(name, value);
       }
-  
+
       if (item.classList.contains("choice__input-block_buttons")) {
         const valueBtns = item.querySelectorAll(".choice__buttons-select-item_active");
         const value = [];
@@ -1267,7 +1312,7 @@ if (
         filterArr.push(filterObj);
         // console.log(name, value);
       }
-  
+
       if (item.classList.contains("choice__input-block_slider")) {
         const valueTo = item.querySelector(".select__input_to").value;
         const valueFrom = item.querySelector(".select__input_from").value;
@@ -1275,14 +1320,14 @@ if (
           from: valueFrom,
           to: valueTo,
         };
-  
+
         // if (param == "reset") {
         //   value.from = "";
         //   value.to = "";
-  
+
         //   // getSliderValues(allAparstInfo);
         // }
-  
+
         const filterObj = {
           name: name,
           value: value,
@@ -1307,7 +1352,7 @@ if (
       filterArr.push(filterObj);
     }
     // console.log(parseUrlQuery());
-  
+
     // запишем фильр в локальное хранилище:
     localStorage.setItem("filter", JSON.stringify(filterArr));
     console.log(filterArr);
@@ -1315,400 +1360,423 @@ if (
   }
 
   // --------------------------------------- start FILTERS: ----------------------------------------
-// const form = document.querySelector("[choice-form]");
-// if (form) {
-//   form.addEventListener("click", (e) => {
-//     getFilters();
-//   });
-// }
-
-const choiceTitle = document.querySelector(".choice__title");
-// console.log(choiceTitle);
-if (choiceTitle) {
   // const form = document.querySelector("[choice-form]");
-  choiceTitle.addEventListener("click", (e) => {
-    console.log("тест");
-    // getFilters();
-    // const debouncedDoSomething  = debounce(apartRender, 1000);
-    // debouncedDoSomething (allAparstInfo);
-    // filterAparts()
-  });
-}
+  // if (form) {
+  //   form.addEventListener("click", (e) => {
+  //     getFilters();
+  //   });
+  // }
 
-const resetFiltersBtn = document.querySelector(".choice__btn-reset");
-if (resetFiltersBtn) {
-  resetFiltersBtn.addEventListener("click", (e) => {
-    console.log("сброс фильтров");
-    // getFilters("reset");
-    setNowFilters();
-    apartRender(allApartsInfo);
-    // getSliderValues(allAparstInfo);
-  });
-}
+  const choiceTitle = document.querySelector(".choice__title");
+  // console.log(choiceTitle);
+  if (choiceTitle) {
+    // const form = document.querySelector("[choice-form]");
+    choiceTitle.addEventListener("click", (e) => {
+      console.log("тест");
+      // getFilters();
+      // const debouncedDoSomething  = debounce(apartRender, 1000);
+      // debouncedDoSomething (allAparstInfo);
+      // filterAparts()
+    });
+  }
 
-// TODO вывод количества квартир
+  const resetFiltersBtn = document.querySelector(".choice__btn-reset");
+  if (resetFiltersBtn) {
+    resetFiltersBtn.addEventListener("click", (e) => {
+      console.log("сброс фильтров");
+      // getFilters("reset");
+      setNowFilters();
+      apartRender(allApartsInfo);
+      // getSliderValues(allAparstInfo);
+    });
+  }
 
-/* <p class="choice__search-text">
+  // TODO вывод количества квартир
+
+  /* <p class="choice__search-text">
 Найдено 20 квартир
 </p> */
 
+  // function filterAparts() {
+  //   list.innerHTML = "";
+  //   let copyArr = [...allAparstInfo];
 
+  //   const filterArr = getFilters();
 
-// function filterAparts() {
-//   list.innerHTML = "";
-//   let copyArr = [...allAparstInfo];
+  //   if (filterArr.find((item) => item.name === "Комнат").value) {
+  //     let kv = filterArr.find((item) => item.name === "Комнат").value;
+  //     // console.log(item.rooms);
+  //     // console.log(copyArr.filter((item) => item.rooms ));
+  //     copyArr = copyArr.filter((item) => kv.indexOf(String(item.rooms)) !== -1);
+  //     // copyArr = copyArr.filter(function(item) {
+  //     //   return kv.indexOf(String(item.rooms)) !== -1;
+  //     // });
+  //   }
+  //   console.log(copyArr);
+  //   // let copyArr = [...copyArr].splice(offset, limit);
 
-//   const filterArr = getFilters();
+  //   apartRender(copyArr);
+  // }
 
-//   if (filterArr.find((item) => item.name === "Комнат").value) {
-//     let kv = filterArr.find((item) => item.name === "Комнат").value;
-//     // console.log(item.rooms);
-//     // console.log(copyArr.filter((item) => item.rooms ));
-//     copyArr = copyArr.filter((item) => kv.indexOf(String(item.rooms)) !== -1);
-//     // copyArr = copyArr.filter(function(item) {
-//     //   return kv.indexOf(String(item.rooms)) !== -1;
-//     // });
-//   }
-//   console.log(copyArr);
-//   // let copyArr = [...copyArr].splice(offset, limit);
+  // далее отправляем запрос на сервер и выбираем по фильтру квартиры,
+  // рендерим квартиры на странице
+  // заменяем текущий запрос на рендеринг
 
-//   apartRender(copyArr);
-// }
+  // ------------------------- end FILTERS: ---------------------------
 
-// далее отправляем запрос на сервер и выбираем по фильтру квартиры,
-// рендерим квартиры на странице
-// заменяем текущий запрос на рендеринг
+  // -------------------------------------------- start Селект: ---------------------------------------------
 
-// ------------------------- end FILTERS: ---------------------------
+  // let queryParams = {
+  //   name: "",
+  //   phone: "",
+  //   email: "",
+  //   message: "",
+  //   project: "sosnoviy",
+  //   numbers_of_rooms: "",
+  //   area: "",
+  //   balcony: "",
+  //   dressing_room: "",
+  //   side_2: "",
+  //   side_3: "",
+  //   guest_bathroom: "",
+  //   kitchen_living_room: "",
+  // };
 
-// -------------------------------------------- start Селект: ---------------------------------------------
+  // console.log(selects);
 
-// let queryParams = {
-//   name: "",
-//   phone: "",
-//   email: "",
-//   message: "",
-//   project: "sosnoviy",
-//   numbers_of_rooms: "",
-//   area: "",
-//   balcony: "",
-//   dressing_room: "",
-//   side_2: "",
-//   side_3: "",
-//   guest_bathroom: "",
-//   kitchen_living_room: "",
-// };
+  const choiceForm = document.querySelector(".choice__form");
+  if (choiceForm) {
+    const selectProjectList = document.querySelectorAll(".choice__select");
+    if (selectProjectList.length > 0) {
+      selectProjectList.forEach((selectProject) => {
+        selectProject.addEventListener("click", (event) => {
+          console.log("тест");
+          if (selectProject.classList.contains("select_open")) {
+            selectProjectList.forEach((selectProject) => {
+              selectProject.classList.remove("select_open");
+            });
+          } else {
+            selectProjectList.forEach((selectProject) => {
+              selectProject.classList.remove("select_open");
+            });
+            selectProject.classList.add("select_open");
+          }
+        });
+        const selectOptions = selectProject.querySelectorAll(".select__item");
+        if (selectOptions.length > 0) {
+          selectOptions.forEach((item) => {
+            item.addEventListener("click", (event) => {
+              console.log("тест");
+              const input = selectProject.querySelector(".select__text");
+              event.stopPropagation(); // отменяем всплытие, что бы повторно не сработало событие на самом селекте
+              input.innerHTML = item.innerHTML;
+              input.classList.add("select__text_active");
+              input.setAttribute("data-id", item.getAttribute("data-id"));
+              selectProject.classList.remove("select_open");
+              selectProject.classList.add("select_active");
 
-// console.log(selects);
+              if (selectProject.closest(".choice__input-block_select_project")) {
+                urlParams.set("project", input.innerHTML);
+              }
+              if (selectProject.closest(".choice__input-block_select_house")) {
+                urlParams.set("house", input.innerHTML);
+              }
 
-const choiceForm = document.querySelector(".choice__form");
-if (choiceForm) {
-  const selectProjectList = document.querySelectorAll(".choice__select");
-  if (selectProjectList.length > 0) {
-    selectProjectList.forEach((selectProject) => {
-      selectProject.addEventListener("click", (event) => {
-        console.log("тест");
-        if (selectProject.classList.contains("select_open")) {
-          selectProjectList.forEach((selectProject) => {
-            selectProject.classList.remove("select_open");
+              if (selectProject.closest(".choice__input-block_select_section")) {
+                urlParams.set("section", input.innerHTML);
+              }
+
+              if (selectProject.closest(".choice__input-block_select_date")) {
+                urlParams.set("date", input.innerHTML);
+              }
+
+              window.history.pushState({}, "", "?" + urlParams.toString());
+              apartRender(allApartsInfo);
+            });
           });
-        } else {
-          selectProjectList.forEach((selectProject) => {
-            selectProject.classList.remove("select_open");
-          });
-          selectProject.classList.add("select_open");
         }
       });
-      const selectOptions = selectProject.querySelectorAll(".select__item");
-      if (selectOptions.length > 0) {
-        selectOptions.forEach((item) => {
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".choice__select")) {
+          selectProjectList.forEach((selectProject) => {
+            selectProject.classList.remove("select_open");
+          });
+        }
+      });
+    }
+    // selects.forEach((select) => {
+    // });
+
+    const choiceButtonsSelect = document.querySelector(".choice__buttons-select");
+    if (choiceButtonsSelect) {
+      // const btns = choiceButtonsSelect.querySelectorAll(".choice__buttons-select-item");
+
+      const choiceBtns = document.querySelectorAll(".choice__buttons-select-item");
+
+      if (choiceBtns) {
+        choiceBtns.forEach((item) => {
           item.addEventListener("click", (event) => {
             console.log("тест");
-            const input = selectProject.querySelector(".select__text");
-            event.stopPropagation(); // отменяем всплытие, что бы повторно не сработало событие на самом селекте
-            input.innerHTML = item.innerHTML;
-            input.classList.add("select__text_active");
-            input.setAttribute("data-id", item.getAttribute("data-id"));
-            selectProject.classList.remove("select_open");
-            selectProject.classList.add("select_active");
+            item.classList.toggle("choice__buttons-select-item_active");
+            const valueBtns = choiceButtonsSelect.querySelectorAll(".choice__buttons-select-item_active");
+            const value = [];
+            valueBtns.forEach((item) => {
+              value.push(item.getAttribute("data-id"));
+            });
 
-            if (selectProject.closest(".choice__input-block_select_project")) {
-              urlParams.set("project", input.innerHTML);
-            }
-            if (selectProject.closest(".choice__input-block_select_house")) {
-              urlParams.set("house", input.innerHTML);
-            }
-
-            if (selectProject.closest(".choice__input-block_select_section")) {
-              urlParams.set("section", input.innerHTML);
-            }
-
-            if (selectProject.closest(".choice__input-block_select_date")) {
-              urlParams.set("date", input.innerHTML);
-            }
-
+            console.log(urlParams);
+            urlParams.set("rooms", value);
             window.history.pushState({}, "", "?" + urlParams.toString());
             apartRender(allApartsInfo);
+
+            // window.location.search = urlParams;
+            // console.log(window.location.search);
+            // console.log(queryParams);
           });
         });
       }
-    });
+    }
 
-    document.addEventListener("click", (event) => {
-      if (!event.target.closest(".choice__select")) {
-        selectProjectList.forEach((selectProject) => {
-          selectProject.classList.remove("select_open");
-        });
-      }
-    });
-  }
-  // selects.forEach((select) => {
-  // });
-
-  const choiceButtonsSelect = document.querySelector(".choice__buttons-select");
-  if (choiceButtonsSelect) {
-    // const btns = choiceButtonsSelect.querySelectorAll(".choice__buttons-select-item");
-
-    const choiceBtns = document.querySelectorAll(".choice__buttons-select-item");
-
-    if (choiceBtns) {
-      choiceBtns.forEach((item) => {
-        item.addEventListener("click", (event) => {
-          console.log("тест");
-          item.classList.toggle("choice__buttons-select-item_active");
-          const valueBtns = choiceButtonsSelect.querySelectorAll(".choice__buttons-select-item_active");
-          const value = [];
-          valueBtns.forEach((item) => {
-            value.push(item.getAttribute("data-id"));
+    const choiceForm = document.querySelector("#choice-form");
+    // console.log(choiceForm);
+    if (choiceForm) {
+      const submitBtn = choiceForm.querySelector(".form__btn");
+      // console.log(submitBtn);
+      submitBtn.addEventListener("click", (event) => {
+        // choiceForm.addEventListener("submit", (event) => {
+        // console.log("click");
+        // choiceForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        queryParams.name = choiceForm.querySelector(".form__input_name").value;
+        queryParams.phone = choiceForm.querySelector(".form__input_phone").value;
+        queryParams.email = choiceForm.querySelector(".form__input_email").value;
+        queryParams.message = choiceForm.querySelector(".form__input_textarea").value;
+        // console.log(queryParams);
+        if (queryParams.name === "" || queryParams.phone === "") {
+          alert("Заполните обязательные поля");
+          return;
+        } else {
+          postForm(queryParams).then((res) => {
+            if (res === "OK!") {
+              const popupSuccess = document.querySelector("#success");
+              popupOpen(popupSuccess);
+            } else {
+              alert("Произошла ошибка, попробуйте позже.");
+              // const popupError = document.querySelector("#error");
+              // popupOpen(popupError);
+            }
           });
+        }
+        // const popupSuccess = document.querySelector("#success");
+        // popupOpen(popupSuccess);
+        // postForm(queryParams);
+        // const popupActive = document.querySelector(".popup.open");
+        // popupClose(popupActive);
+        // return false;
+      });
+    }
 
-          console.log(urlParams);
-          urlParams.set("rooms", value);
-          window.history.pushState({}, "", "?" + urlParams.toString());
-          apartRender(allApartsInfo);
+    const requestForm = document.querySelector("#request-form");
+    if (requestForm) {
+      const submitBtn = requestForm.querySelector(".request__btn");
+      // console.log(submitBtn);
+      submitBtn.addEventListener("click", (event) => {
+        // console.log("click");
+        // requestForm.addEventListener("submit", (event) => {
+        event.preventDefault();
 
-          // window.location.search = urlParams;
-          // console.log(window.location.search);
-          // console.log(queryParams);
-        });
+        const queryParams = {
+          apartment: "",
+          name: "",
+          phone: "",
+          email: "",
+          message: "",
+        };
+        queryParams.apartment = requestForm.querySelector(".request__input_apartment").value;
+        queryParams.name = requestForm.querySelector(".request__input_name").value;
+        queryParams.phone = requestForm.querySelector(".request__input_phone").value;
+        queryParams.email = requestForm.querySelector(".request__input_email").value;
+        queryParams.message = requestForm.querySelector(".request__input_textarea").value;
+        // console.log(queryParams);
+        if (queryParams.apartment === "" || queryParams.name === "" || queryParams.phone === "") {
+          alert("Заполните обязательные поля");
+          return;
+        } else {
+          postRequest(queryParams).then((res) => {
+            if (res === "OK!") {
+              const popupSuccess = document.querySelector("#success");
+              popupOpen(popupSuccess);
+              // return false;
+            } else {
+              alert("Произошла ошибка, попробуйте позже.");
+              // return false;
+
+              // const popupError = document.querySelector("#error");
+              // popupOpen(popupError);
+            }
+          });
+        }
+
+        // if (queryParams.phone === "") {
+        //   queryParams.apartment = "Отсутствует";
+        // }
+
+        // postRequest(queryParams);
+        // const popupActive = document.querySelector(".popup.open");
+        // popupClose(popupActive);
+        // const popupSuccess = document.querySelector("#success");
+        // popupOpen(popupSuccess);
+
+        // return false;
+      });
+    }
+
+    const notificationForm = document.querySelector("#notification-form");
+    if (notificationForm) {
+      const submitBtn = notificationForm.querySelector(".notification__btn");
+      // console.log(submitBtn);
+      submitBtn.addEventListener("click", (event) => {
+        // console.log("click");
+        // notificationForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const queryParams = {
+          agency: "",
+          agentName: "",
+          agentPhone: "",
+          clientName: "",
+          clientPhone: "",
+          message: "",
+        };
+        // queryParams.apartment = notificationForm.querySelector(".notification__input_apartment").value;
+        // queryParams.name = notificationForm.querySelector(".notification__input_name").value;
+        // queryParams.phone = notificationForm.querySelector(".notification__input_phone").value;
+        // queryParams.email = notificationForm.querySelector(".notification__input_email").value;
+        queryParams.agency = notificationForm.querySelector(".notification__input_agency").value;
+        queryParams.agentName = notificationForm.querySelector(".notification__input_agent-name").value;
+        queryParams.agentPhone = notificationForm.querySelector(".notification__input_agent-phone").value;
+        queryParams.clientName = notificationForm.querySelector(".notification__input_client-name").value;
+        queryParams.clientPhone = notificationForm.querySelector(".notification__input_client-phone").value;
+        queryParams.message = notificationForm.querySelector(".notification__input_textarea").value;
+        // console.log(queryParams);
+        if (
+          queryParams.agency === "" ||
+          queryParams.agentName === "" ||
+          queryParams.agentPhone === "" ||
+          queryParams.clientName === "" ||
+          queryParams.clientPhone === ""
+        ) {
+          alert("Заполните обязательные поля");
+          return;
+        } else {
+          postNotification(queryParams).then((res) => {
+            if (res === "OK!") {
+              const popupSuccess = document.querySelector("#success");
+              popupOpen(popupSuccess);
+            } else {
+              alert("Произошла ошибка, попробуйте позже.");
+              // const popupError = document.querySelector("#error");
+              // popupOpen(popupError);
+            }
+          });
+        }
       });
     }
   }
 
-  const choiceForm = document.querySelector("#choice-form");
-  // console.log(choiceForm);
-  if (choiceForm) {
-    const submitBtn = choiceForm.querySelector(".form__btn");
-    // console.log(submitBtn);
-    submitBtn.addEventListener("click", (event) => {
-      // choiceForm.addEventListener("submit", (event) => {
-      // console.log("click");
-      // choiceForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      queryParams.name = choiceForm.querySelector(".form__input_name").value;
-      queryParams.phone = choiceForm.querySelector(".form__input_phone").value;
-      queryParams.email = choiceForm.querySelector(".form__input_email").value;
-      queryParams.message = choiceForm.querySelector(".form__input_textarea").value;
-      // console.log(queryParams);
-      if (queryParams.name === "" || queryParams.phone === "") {
-        alert("Заполните обязательные поля");
-        return;
-      } else {
-        postForm(queryParams).then((res) => {
-          if (res === "OK!") {
-            const popupSuccess = document.querySelector("#success");
-            popupOpen(popupSuccess);
-          } else {
-            alert("Произошла ошибка, попробуйте позже.");
-            // const popupError = document.querySelector("#error");
-            // popupOpen(popupError);
-          }
-        });
-      }
-      // const popupSuccess = document.querySelector("#success");
-      // popupOpen(popupSuccess);
-      // postForm(queryParams);
-      // const popupActive = document.querySelector(".popup.open");
-      // popupClose(popupActive);
-      // return false;
+  const projectPage = document.querySelector(".project-item-page");
+  const indexPage = document.querySelector(".glavnaya");
+
+  if (projectPage || indexPage) {
+    const choice = document.querySelector(".choice");
+    const content = choice.querySelector(".choice__container");
+    const popup = document.querySelector("#filter");
+    const filterMobileBtn = choice.querySelector(".choice__btn-request_mobile_filter");
+
+    // открытие popup и заполнение его формой
+    filterMobileBtn.addEventListener("click", () => {
+      console.log("тест");
+      popupOpen(popup);
+      bodyLock();
+
+      popup.classList.add("open");
+      popup.querySelector(".popup__content").append(content);
     });
-  }
 
-  const requestForm = document.querySelector("#request-form");
-  if (requestForm) {
-    const submitBtn = requestForm.querySelector(".request__btn");
-    // console.log(submitBtn);
-    submitBtn.addEventListener("click", (event) => {
-      // console.log("click");
-      // requestForm.addEventListener("submit", (event) => {
-      event.preventDefault();
+    // закрытие popup по Esc
+    document.addEventListener("keydown", function (e) {
+      console.log("тест");
+      if (e.key === "Escape") {
+        popupClose(popup);
+        // bodyUnLock()
 
-      const queryParams = {
-        apartment: "",
-        name: "",
-        phone: "",
-        email: "",
-        message: "",
-      };
-      queryParams.apartment = requestForm.querySelector(".request__input_apartment").value;
-      queryParams.name = requestForm.querySelector(".request__input_name").value;
-      queryParams.phone = requestForm.querySelector(".request__input_phone").value;
-      queryParams.email = requestForm.querySelector(".request__input_email").value;
-      queryParams.message = requestForm.querySelector(".request__input_textarea").value;
-      // console.log(queryParams);
-      if (queryParams.apartment === "" || queryParams.name === "" || queryParams.phone === "") {
-        alert("Заполните обязательные поля");
-        return;
-      } else {
-        postRequest(queryParams).then((res) => {
-          if (res === "OK!") {
-            const popupSuccess = document.querySelector("#success");
-            popupOpen(popupSuccess);
-            // return false;
-          } else {
-            alert("Произошла ошибка, попробуйте позже.");
-            // return false;
+        popup.classList.remove("open");
+        if (!popup.classList.contains("open")) {
+          // console.log("111");
 
-            // const popupError = document.querySelector("#error");
-            // popupOpen(popupError);
-          }
-        });
-      }
-
-      // if (queryParams.phone === "") {
-      //   queryParams.apartment = "Отсутствует";
-      // }
-
-      // postRequest(queryParams);
-      // const popupActive = document.querySelector(".popup.open");
-      // popupClose(popupActive);
-      // const popupSuccess = document.querySelector("#success");
-      // popupOpen(popupSuccess);
-
-      // return false;
-    });
-  }
-
-  const notificationForm = document.querySelector("#notification-form");
-  if (notificationForm) {
-    const submitBtn = notificationForm.querySelector(".notification__btn");
-    // console.log(submitBtn);
-    submitBtn.addEventListener("click", (event) => {
-      // console.log("click");
-      // notificationForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const queryParams = {
-        agency: "",
-        agentName: "",
-        agentPhone: "",
-        clientName: "",
-        clientPhone: "",
-        message: "",
-      };
-      // queryParams.apartment = notificationForm.querySelector(".notification__input_apartment").value;
-      // queryParams.name = notificationForm.querySelector(".notification__input_name").value;
-      // queryParams.phone = notificationForm.querySelector(".notification__input_phone").value;
-      // queryParams.email = notificationForm.querySelector(".notification__input_email").value;
-      queryParams.agency = notificationForm.querySelector(".notification__input_agency").value;
-      queryParams.agentName = notificationForm.querySelector(".notification__input_agent-name").value;
-      queryParams.agentPhone = notificationForm.querySelector(".notification__input_agent-phone").value;
-      queryParams.clientName = notificationForm.querySelector(".notification__input_client-name").value;
-      queryParams.clientPhone = notificationForm.querySelector(".notification__input_client-phone").value;
-      queryParams.message = notificationForm.querySelector(".notification__input_textarea").value;
-      // console.log(queryParams);
-      if (
-        queryParams.agency === "" ||
-        queryParams.agentName === "" ||
-        queryParams.agentPhone === "" ||
-        queryParams.clientName === "" ||
-        queryParams.clientPhone === ""
-      ) {
-        alert("Заполните обязательные поля");
-        return;
-      } else {
-        postNotification(queryParams).then((res) => {
-          if (res === "OK!") {
-            const popupSuccess = document.querySelector("#success");
-            popupOpen(popupSuccess);
-          } else {
-            alert("Произошла ошибка, попробуйте позже.");
-            // const popupError = document.querySelector("#error");
-            // popupOpen(popupError);
-          }
-        });
+          // передача формы обратно на главную страницу
+          choice.append(content);
+        }
       }
     });
-  }
-}
 
-const projectPage = document.querySelector(".project-item-page");
-const indexPage = document.querySelector(".glavnaya");
+    // закрытие popup по клику вне его
+    popup.addEventListener("click", function (e) {
+      console.log("тест");
+      if (!e.target.closest(".popup__content")) {
+        // если клик был по области вокруг попапа то ничего не делаем
+        if (popup.classList.contains("open")) {
+          popupClose(popup);
+          bodyUnLock();
 
-if (projectPage || indexPage ) {
-  const choice = document.querySelector(".choice");
-  const content = choice.querySelector(".choice__container");
-  const popup = document.querySelector("#filter");
-  const filterMobileBtn = choice.querySelector(".choice__btn-request_mobile_filter");
-
-  // открытие popup и заполнение его формой
-  filterMobileBtn.addEventListener("click", () => {
-    console.log("тест");
-    popupOpen(popup);
-    bodyLock();
-
-    popup.classList.add("open");
-    popup.querySelector(".popup__content").append(content);
-  });
-
-  // закрытие popup по Esc
-  document.addEventListener("keydown", function (e) {
-    console.log("тест");
-    if (e.key === "Escape") {
-      popupClose(popup);
-      // bodyUnLock()
-
-      popup.classList.remove("open");
-      if (!popup.classList.contains("open")) {
-        // console.log("111");
-
-        // передача формы обратно на главную страницу
-        choice.append(content);
+          popup.classList.remove("open");
+          // передача формы обратно на главную страницу
+          choice.append(content);
+        }
       }
-    }
-  });
+    });
 
-  // закрытие popup по клику вне его
-  popup.addEventListener("click", function (e) {
-    console.log("тест");
-    if (!e.target.closest(".popup__content")) {
-      // если клик был по области вокруг попапа то ничего не делаем
+    // закрытие popup по кнопке
+    const popupCloseIcon = popup.querySelector(".promo__close");
+    popupCloseIcon.addEventListener("click", function (e) {
+      console.log("тест");
+
       if (popup.classList.contains("open")) {
         popupClose(popup);
         bodyUnLock();
-
         popup.classList.remove("open");
         // передача формы обратно на главную страницу
         choice.append(content);
       }
-    }
-  });
+    });
+  }
+  // -------------------------------------------- end Селект ---------------------------------------------
 
-  // закрытие popup по кнопке
-  const popupCloseIcon = popup.querySelector(".promo__close");
-  popupCloseIcon.addEventListener("click", function (e) {
-    console.log("тест");
+  // -------------------------------------------- start фильтр по особенностям ---------------------------------------------
+  const btns = document.querySelectorAll(".choice__btn-filter");
+  if (btns) {
+    btns.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        console.log("тест");
+        item.classList.toggle("choice__btn-filter_active");
 
-    if (popup.classList.contains("open")) {
-      popupClose(popup);
-      bodyUnLock();
-      popup.classList.remove("open");
-      // передача формы обратно на главную страницу
-      choice.append(content);
-    }
-  });
-}
-// -------------------------------------------- end Селект ---------------------------------------------
+        btns.forEach((item) => {
+          if (item.classList.contains("choice__btn-filter_active")) {
+            urlParams.set(item.getAttribute("data-id"), 1);
+          } else {
+            urlParams.delete(item.getAttribute("data-id"));
+          }
+
+          window.history.pushState({}, "", "?" + urlParams.toString());
+          apartRender(allApartsInfo);
+        });
+      });
+    });
+  }
+  // -------------------------------------------- end фильтр по особенностям ---------------------------------------------
+
+
 
 
 }
