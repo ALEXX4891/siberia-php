@@ -351,7 +351,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             <p class="map__btn-desc">
               Подберем лучшее место для вашего бизнеса
             </p>
-            <button class="map__btn popup-link" href="#popup-form">
+            <button class="map__btn popup-link" href="#popup-call">
               Получить консультацию
             </button>
           </div>
@@ -639,7 +639,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           </div>
 
-          <button class="btn btn_green address__btn popup-link" href="#popup-form">
+          <button class="btn btn_green address__btn popup-link" href="#popup-call">
             Получить консультацию
           </button>
         </div>

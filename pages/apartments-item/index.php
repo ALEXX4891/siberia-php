@@ -640,16 +640,22 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           Отправьте заявку на консультацию и получите ответ на любой вопрос
         </p>
         <div class="form__wrapper">
-          <form class="form__form" action="#" method="post" enctype="multipart/form-data">
+          <form class="form__form popup__form" action="#">
+
+            <input type="text" name="theme" value="consultation" hidden>
+
             <label class="form__label">
-              <input class="form__input" name="name" type="text" placeholder="Как вас зовут?">
+              <input class="form__input _req" name="name" type="text" placeholder="Как вас зовут?">
             </label>
+
             <label class="form__label">
-              <input class="form__input" name="phone" type="tel" placeholder="Tелефон">
+              <input class="form__input phone _req" name="phone" type="tel" placeholder="Tелефон">
             </label>
+
             <button class="form__btn btn" type="submit">
               Отправить
             </button>
+
           </form>
           <div class="form__desc">
             <p class="form__desc-text">
@@ -828,7 +834,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           </div>
 
-          <button class="btn btn_green address__btn">
+          <button class="btn btn_green address__btn popup-link" href="#popup-request">
             Получить консультацию
           </button>
         </div>

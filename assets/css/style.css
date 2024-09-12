@@ -1772,7 +1772,7 @@ a {
 }
 
 .popup .popup__form .form__label-block .form__label.form__label_textarea .form__input_textarea {
-  max-width: 395px;
+  /* max-width: 395px; */
   min-height: 116px;
 }
 
@@ -26105,7 +26105,7 @@ body._sending::after {
   visibility: visible;
 }
 
-.popup .popup__form::after {
+.popup__form::after {
   position: absolute;
   inset: 0;
   content: "";
@@ -26116,15 +26116,19 @@ body._sending::after {
   visibility: hidden;
 }
 
-.popup .popup__form._sending::after {
+.popup__form._sending::after {
   opacity: 1;
   visibility: visible;
 }
 
-.popup .popup__form .form__input._error {
+.popup__form .form__input._error {
   border: 1px solid #ca2020;
 }
 
 .popup .notification .notification__label-block .notification__label .notification__input._error {
   border: 1px solid #ca2020;
+}
+
+.popup textarea {
+  resize: vertical;
 }

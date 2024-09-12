@@ -248,9 +248,10 @@ if (formAll) {
         });
 
         if (response.ok) {
-          let result = await response.json();
+          // let result = await response.json();
           form.reset();
           popupOpen(document.getElementById("success"));
+          // TODO добавить логику показа разный сообщений об успешной отправке  через поле темы
           form.classList.remove("_sending");
         } else {
           // popupOpen(document.getElementById("error"));
