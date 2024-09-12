@@ -227,9 +227,10 @@
 // ------------------------- end вывод квартир: ---------------------------
 // ---------------------------------- start отправка и валидация формы ----------------------------------
 
-const formAll = document.querySelectorAll(".popup__form");
+const formAll = document.querySelectorAll(".os-form");
 
 if (formAll) {
+  console.log("formAll", formAll);
   formAll.forEach((form) => {
     form.addEventListener("submit", sendForm);
 
@@ -246,6 +247,10 @@ if (formAll) {
           method: "POST",
           body: formData,
         });
+
+        for (var pair of formData.entries()) {
+          console.log(pair[0] + ", " + pair[1]);
+        }
 
         if (response.ok) {
           // let result = await response.json();
@@ -2858,7 +2863,57 @@ if (slideBtn) {
         } else {
           item.style.display = "none";
         }
-      })
+      });
     });
   });
 }
+
+// ------------------------------------- start передача в модалку данных -------------------------------
+const bookingButton = document.querySelector(".booking-btn");
+if (bookingButton) {
+  bookingButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    const bookingPopup = document.querySelector("#popup-booking");
+    console.log("тест");
+    const floor = bookingButton.closest(".choice__form").querySelector('.select__text').innerHTML;
+    // checkbox__label_active
+    const payment = bookingButton.closest(".choice__form").querySelector('.checkbox__label_active').querySelector('.checkbox__tite').innerHTML.trim() + ' - ' +
+    bookingButton.closest(".choice__form").querySelector('.checkbox__label_active').querySelector('.checkbox__desc').innerHTML.trim();
+
+    const house = bookingButton.closest(".choice__form").querySelector('.about__right-info-text-section').innerHTML.trim();
+    const project = bookingButton.closest(".choice__form").querySelector('.about__btn-complex-text').innerHTML.trim();
+
+    // const payment = bookingButton.closest(".choice__form").querySelector('input[name="payment"]:checked').closest(".choice__input-block").querySelector('.select__text').innerHTML;
+    console.log('floor:', floor);
+    console.log('payment:', payment);
+    console.log('house:', house);
+    console.log('project:', project);
+
+    //floor
+    //payment
+    //house
+    //project
+    
+
+    const floorInput = bookingPopup.querySelector('input[name="floor"]');
+    const paymentInput = bookingPopup.querySelector('input[name="payment"]');
+    const houseInput = bookingPopup.querySelector('input[name="house"]');
+    const projectInput = bookingPopup.querySelector('input[name="project"]');
+
+    floorInput.value = floor;
+
+    console.log('bookingPopup', bookingPopup);
+    console.log('floorInput', floorInput);
+    console.log('floorInput.value', floorInput.value);
+    console.log('floor', floor);
+    // const id = bookingButton.getAttribute("data-id");
+    // const obj = apartmentsForRender.filter((item) => item.id == id)[0];
+    // console.log(obj);
+
+    // const requestInput = requestPopup.querySelector(".request__input_apartment");
+    // requestInput.value = `${obj.number_of_rooms}-комнатная ${obj.area}м2`;
+
+    // requestPopup.classList.add("open");
+  });
+}
+// ------------------------------------- end передача в модалку данных -------------------------------

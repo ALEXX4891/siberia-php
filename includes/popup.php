@@ -280,10 +280,10 @@
 
 <!-- ----- формы ОС: ----- -->
 
-<!-- <div class="popup" id="popup-form">
+<div class="popup" id="popup-form">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form">
+      <form class="popup__form os-form">
         <h3 class="form__title">
           Запросить планировки
         </h3>
@@ -348,12 +348,12 @@
       </form>
     </div>
   </div>
-</div> -->
+</div>
 
 <div class="popup popup_call" id="popup-call">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form">
+      <form class="popup__form os-form">
         <h3 class="form__title">
           Заказать звонок
         </h3>
@@ -422,7 +422,7 @@
 <div class="popup popup_call" id="popup-subscribe">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form" action="#">
+      <form class="popup__form os-form" action="#">
         <h3 class="form__title">
           Будь в курсе событий!
         </h3>
@@ -470,7 +470,7 @@
 <div class="popup popup_request" id="popup-request">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form">
+      <form class="popup__form os-form">
         <h3 class="form__title">
           Оставить заявку
         </h3>
@@ -544,7 +544,7 @@
 <div class="popup popup_booking" id="popup-booking">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form">
+      <form class="popup__form os-form">
         <h3 class="form__title">
           Оставить заявку
         </h3>
@@ -552,6 +552,10 @@
         <div class="form__label-block">
 
         <input type="text" name="theme" value="flat" hidden>
+        <input type="text" name="floor" value="" hidden>
+        <input type="text" name="payment" value="" hidden>
+        <input type="text" name="house" value="" hidden>
+        <input type="text" name="project" value="" hidden>
 
           <label class="form__label form__label_readonly">
             <span class="form__label-text">
@@ -561,8 +565,9 @@
               *
             </span>
 
-            <input class="form__input form__input_apartment" type="text" name="apartment"
-              placeholder="Выберите квартиру" readonly required>
+            <input class="form__input form__input_apartment _req" type="text" name="apartment"
+              placeholder="Выберите квартиру"  >
+              <!-- TODO добавить readonly  -->
           </label>
 
           <label class="form__label">
@@ -632,7 +637,7 @@
 <div class="popup popup-notification" id="popup-notification">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="popup__form notification">
+      <form class="popup__form os-form notification">
         <h3 class="notification__title">
           Форма уведомления
         </h3>
@@ -731,7 +736,7 @@
 <div class="popup sot-request sot-request_business" id="sot-business">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="request__form">
+      <form class="request__form os-form">
         <h3 class="request__title">
           Оставить заявку
         </h3>
@@ -752,7 +757,7 @@
               *
             </span>
 
-            <input class="request__input request__input_name" type="text" name="name" placeholder="Введите имя"
+            <input class="request__input request__input_name _req" type="text" name="name" placeholder="Введите имя"
               required>
           </label>
           <label class="request__label">
@@ -762,7 +767,7 @@
             <span class="request__label-star">
               *
             </span>
-            <input class="request__input request__input_phone phone phone" type="tel" name="phone" placeholder="7" required
+            <input class="request__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" required
               value="7">
           </label>
           <label class="request__label">
@@ -830,7 +835,7 @@
 <div class="popup sot-request sot-request_agent" id="sot-agent">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="request__form">
+      <form class="request__form os-form">
         <h3 class="request__title">
           Оставить заявку
         </h3>
@@ -850,7 +855,7 @@
               *
             </span>
 
-            <input class="request__input request__input_name" type="text" name="name" placeholder="Введите имя"
+            <input class="request__input request__input_name _req" type="text" name="name" placeholder="Введите имя"
               required>
           </label>
           <label class="request__label">
@@ -860,7 +865,7 @@
             <span class="request__label-star">
               *
             </span>
-            <input class="request__input request__input_name" type="text" name="work-type" placeholder="Введите название"
+            <input class="request__input request__input_name _req" type="text" name="work-type" placeholder="Введите название"
               required>
           </label>
           <label class="request__label">
@@ -870,7 +875,7 @@
             <span class="request__label-star">
               *
             </span>
-            <input class="request__input request__input_phone phone" type="tel" name="phone" placeholder="7" required
+            <input class="request__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" required
               value="7">
           </label>
           <!-- <label class="request__label">
@@ -926,7 +931,7 @@
 <div class="popup sot-bank" id="sot-bank">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="request__form">
+      <form class="request__form os-form">
         <h3 class="request__title">
           Оставить заявку
         </h3>
@@ -940,7 +945,7 @@
           <span class="request__label-star">
             *
           </span>
-          <input class="request__input request__input_phone phone" type="tel" name="phone" placeholder="7" required
+          <input class="request__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" required
             value="7">
         </label>
 

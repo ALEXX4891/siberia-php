@@ -313,13 +313,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </fieldset>
 
           <div class="about__right-bot-btn-wrap">
-            <button class="about__right-bot-btn btn btn_dark popup-link" href="#popup-request">
+            <button class="about__right-bot-btn btn btn_dark popup-link" href="#popup-call">
               Заказать звонок
             </button>
-
-            <!-- <button class="about__right-bot-btn btn btn_light-green">
-              Заказать звонок
-            </button> -->
           </div>
 
           <p class="about__right-desc">

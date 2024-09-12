@@ -145,7 +145,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </div>
         </div>
 
-        <div class="about__right choice__form" choice-form>
+        <div class="about__right choice__form">
           <button class="about__btn-complex">
             <div class="about__btn-complex-img">
               <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -193,7 +193,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             <div class="choice__select select select-frame">
               <div class="select__wrapper">
                 <span class="select__placeholder">
-                  Этаж 2 из 4
+                  Любой
                 </span>
                 <p class="select__text"></p>
               </div>
@@ -203,10 +203,11 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </svg>
               </span>
               <ul class="select__list">
-                <li class="select__item" data-id="sosnoviy">Этаж 1 из 4</li>
-                <li class="select__item" data-id="sosnoviy">Этаж 2 из 4</li>
-                <li class="select__item" data-id="sosnoviy">Этаж 3 из 4</li>
-                <li class="select__item" data-id="sosnoviy">Этаж 4 из 4</li>
+                <li class="select__item">Любой</li>
+                <li class="select__item" data-id="1">Этаж 1 из 4</li>
+                <li class="select__item" data-id="2">Этаж 2 из 4</li>
+                <li class="select__item" data-id="3">Этаж 3 из 4</li>
+                <li class="select__item" data-id="4">Этаж 4 из 4</li>
 
                 <!-- <li class="select__item" data-id="duboviy">Дубовый</li> -->
                 <!-- <li class="select__item" data-id="berezoviy">Березовый</li> -->
@@ -299,11 +300,11 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           <div class="about__right-bot-btn-wrap">
 
-            <button class="about__right-bot-btn btn btn_dark">
+            <button class="about__right-bot-btn btn btn_dark popup-link booking-btn" href="#popup-booking">
               Забронировать
             </button>
 
-            <button class="about__right-bot-btn btn btn_light-green">
+            <button class="about__right-bot-btn btn btn_light-green popup-link" href="#popup-call">
               Заказать звонок
             </button>
           </div>
@@ -640,7 +641,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           Отправьте заявку на консультацию и получите ответ на любой вопрос
         </p>
         <div class="form__wrapper">
-          <form class="form__form popup__form" action="#">
+          <form class="form__form os-form" action="#">
 
             <input type="text" name="theme" value="consultation" hidden>
 
