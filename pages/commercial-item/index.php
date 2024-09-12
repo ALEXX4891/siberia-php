@@ -228,7 +228,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </svg>
 
               </button> -->
-              <!-- <button class="about__right-btn-block-filter" data-id="today">
+              <!-- <button class="about__right-btn-block-filter" data-id="keyToday">
                 Ключи сегодня
                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="1" y="0.5" width="18" height="18" rx="9" stroke="#8CAB64"/>
@@ -246,22 +246,22 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </svg>
 
               </button> -->
-              <!-- <button class="about__right-btn-block-filter" data-id="dressing_room">
+              <!-- <button class="about__right-btn-block-filter" data-id="dressRoom">
                 Гардеробная
               </button> -->
-              <button class="about__right-btn-block-filter" data-id="two_side">
+              <button class="about__right-btn-block-filter" data-id="twoSide">
                 Окна на 2 стороны
               </button>
-              <!-- <button class="about__right-btn-block-filter" data-id="three_side">
+              <!-- <button class="about__right-btn-block-filter" data-id="threeSide">
                 Окна на 3 стороны
               </button> -->
-              <!-- <button class="about__right-btn-block-filter about__right-btn-block-filter_disabled" data-id="guest_bathroom">
+              <!-- <button class="about__right-btn-block-filter about__right-btn-block-filter_disabled" data-id="guestBathroom">
                 Гостевой санузел
               </button> -->
               <!-- <button class="about__right-btn-block-filter about__right-btn-block-filter_disabled" data-id="terrace">
                 Терраса
               </button> -->
-              <!-- <button class="about__right-btn-block-filter" data-id="kitchen_living_room">
+              <!-- <button class="about__right-btn-block-filter" data-id="kitchenLiving">
                 Кухня-гостиная
               </button> -->
             </div>

@@ -236,18 +236,50 @@ if (
     const sections = [...new Set(allApartsInfo.map((item) => item.section))];
     // const deadline = [... new Set(allAparstInfo.map((item) => new Date(item.house_building_end).toLocaleString()))];
     const deadline = [...new Set(allApartsInfo.map((item) => getQuarter(new Date(item.house_building_end))))];
+    const btnsElements = document.querySelectorAll(".choice__btn-filter");
+    let allBtns = [];
+    const allKeys = Object.keys(allApartsInfo[0]);
+    btnsElements.forEach((item) => {
+      // console.log(item);
+      const id = item.getAttribute("data-id");
+      // console.log("id", id);
+      allBtns = [...allBtns, id];
+      // btns.push.id;
+    });
+    
+    // console.log("allApartsInfo[0]", allApartsInfo[0]);
+    
+    // найдем те элементы которые фигурируют в массиве allApartsInfo:
+    
+    let btns = allBtns.filter(item => allKeys.includes(item));
+    console.log("allKeys", allKeys);
+    console.log("allBtns", allBtns);
+    console.log("btns", btns);
+
+    // let btns = allApartsInfo[0].filter((item) => allBtns.includes(item.item));
+
+
+
+    // filter(item => {
+    //   console.log("item", item);
+    //   console.log("allApartsInfo[0].item", allApartsInfo[0].item);
+    //   if (allApartsInfo[0].item) {
+    //     return true;
+    //   };
+    // });
 
     // console.log("minPrice", minPrice);
     // console.log("maxPrice", maxPrice);
     // console.log("minSquare", minSquare);
     // console.log("maxSquare", maxSquare);
-    console.log("rooms", rooms);
+    // console.log("rooms", rooms);
     // console.log("minFloor", minFloor);
     // console.log("maxFloor", maxFloor);
     // console.log("projects", projects);
     // console.log("houses", houses);
     // console.log("sections", sections);
     // console.log("deadline", deadline);
+
 
     const filterAllInfo = [
       {
@@ -290,6 +322,10 @@ if (
           from: minFloor,
           to: maxFloor,
         },
+      },
+      {
+        name: "btns",
+        value: btns,
       },
     ];
 
@@ -937,10 +973,10 @@ if (
   }
 
   function filterTableBtns(filter, arr) {
-    return arr.filter(function (item) {    
+    return arr.filter(function (item) {
       return filter.some(function (key) {
         return item[key] == 1;
-      })
+      });
     });
   }
 
@@ -1752,8 +1788,4 @@ if (
     });
   }
   // -------------------------------------------- end фильтр по особенностям ---------------------------------------------
-
-
-
-
 }

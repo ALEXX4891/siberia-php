@@ -100,7 +100,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </p>
               </li>
 
-              <li class="programms__white-box popup-link" href="#actual-program-1">
+              <li class="programms__white-box popup-link" href="#actual-program-2">
                 <p class="programms__text">
                   Семейная от 6%
                 </p>

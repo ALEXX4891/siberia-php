@@ -837,3 +837,48 @@
     </div>
   </div>
 </div>
+
+<div class="popup popup_program" id="actual-program-2">
+  <div class="popup__body">
+    <div class="popup__content">
+      <h3 class="program__title">
+      Семейная от 6%
+      </h3>
+
+      <div class="program__content">
+        <p class="program__desc text">
+        Для семей, в которых после 1 января 2018 года родился ребёнок или есть ребёнок с инвалидностью.
+      </p>
+
+        <ul class="program__list">
+          <li class="program__item">
+            <h2 class="program__item-title">
+              20%
+            </h2>
+            <p class="program__item-text">
+              Первый взнос
+            </p>
+          </li>
+          <li class="program__item">
+            <h2 class="program__item-title">
+              6 млн ₽
+            </h2>
+            <p class="program__item-text">
+              Максимальная сумма
+            </p>
+          </li>
+        </ul>
+
+      </div>
+      <button class="btn btn_green program__btn popup-link" href="popup-form">
+        Отправить заявку
+      </button>
+
+      <span class="program__close-btn popup-close">
+        <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
