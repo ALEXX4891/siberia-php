@@ -215,7 +215,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 Мы работаем с 5 крупнейшими банками страны. Для клиентов Сибири они разработали специальные предложения
                 со сниженными ставками.
               </p>
-              <button class="simple__banner-btn btn btn_green popup-link" href="#popup-form">
+              <button class="simple__banner-btn btn btn_green popup-link" href="#popup-request">
                 Оставить заявку
               </button>
             </div>
@@ -248,7 +248,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Рассрочка — тип оплаты, при котором клиент вносит первоначальный взнос, а остальное оплачивается равными
               платежами по согласованному графику, без процентов.
             </p>
-            <button class="simple__banner-btn btn btn_green popup-link" href="#popup-form">
+            <button class="simple__banner-btn btn btn_green popup-link" href="#popup-request">
               Оставить заявку
             </button>
           </div>
@@ -278,7 +278,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               остальную сумму можно взять в рассрочку или ипотеку. Проконсультироваться и узнать подробности можно на
               видеовстрече, а оформить документы ー через онлайн-сервисы.
             </p>
-            <button class="simple__banner-btn btn btn_green popup-link" href="#popup-form">
+            <button class="simple__banner-btn btn btn_green popup-link" href="#popup-request">
               Оставить заявку
             </button>
           </div>

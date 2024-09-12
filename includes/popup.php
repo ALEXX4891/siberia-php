@@ -132,6 +132,53 @@
   </div>
 </div>
 
+<div class="popup popup_call" id="popup-subscribe">
+  <div class="popup__body">
+    <div class="popup__content popup-form">
+      <form class="popup__form" action="#">
+        <h3 class="form__title">
+          Будь в курсе событий!
+        </h3>
+
+        <div class="form__label-block">
+
+          <input type="text" name="theme" value="Рассылка" hidden>
+
+          <label class="form__label">
+            <span class="form__label-text">
+              E-mail
+            </span>
+            <span class="form__label-star">
+              *
+            </span>
+            <input class="form__input form__input_email _req" type="email" name="email" placeholder="E-mail">
+          </label>
+
+        </div>
+
+        <button type="submit" class="btn btn_green form__btn popup-link" href="#popup-success-subscribe">
+          Подписаться на рассылку
+        </button>
+
+        <div class="form__agreement-wrap">
+          <span class="form__agreement-text">
+            Нажимая кнопку «Отправить», вы соглашаетесь с
+          </span>
+          <a class="form__agreement-link" href="/pages/policy/agreement/" target="_blank">
+            условиями обработки персональных данных
+          </a>
+        </div>
+
+        <span class="form__close-btn popup-close">
+          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+          </svg>
+        </span>
+
+      </form>
+    </div>
+  </div>
+</div>
 
 <div class="popup popup_request" id="popup-request">
   <div class="popup__body">
@@ -291,10 +338,10 @@
   </div>
 </div>
 
-<div class="popup" id="popup-notification">
+<div class="popup popup-notification" id="popup-notification">
   <div class="popup__body">
-    <div class="popup__content popup-notification">
-      <form class="notification" id="notification-form">
+    <div class="popup__content">
+      <form class="popup__form notification">
         <h3 class="notification__title">
           Форма уведомления
         </h3>
@@ -308,8 +355,8 @@
             <span class="notification__label-star">
               *
             </span>
-            <input class="notification__input notification__input_agency" type="text" name="agency"
-              placeholder="Введите название агенства" required>
+            <input class="notification__input notification__input_agency _req" type="text" name="agency"
+              placeholder="Введите название агенства">
           </label>
 
           <label class="notification__label notification__agent-name">
@@ -319,8 +366,8 @@
             <span class="notification__label-star">
               *
             </span>
-            <input class="notification__input notification__input_agent-name" type="text" name="agent-name"
-              placeholder="Введите имя" required>
+            <input class="notification__input notification__input_agent-name _req" type="text" name="agent-name"
+              placeholder="Введите имя">
           </label>
 
           <label class="notification__label notification__agent-phone">
@@ -330,8 +377,7 @@
             <span class="notification__label-star">
               *
             </span>
-            <input class="notification__input notification__input_agent-phone phone" type="tel" name="agent-phone"
-              placeholder="7" required value="7">
+            <input class="notification__input notification__input_agent-phone phone _req" type="tel" name="agent-phone">
           </label>
 
           <label class="notification__label notification__client-name">
@@ -341,8 +387,8 @@
             <span class="notification__label-star">
               *
             </span>
-            <input class="notification__input notification__input_client-name" type="text" name="client-name"
-              placeholder="Введите имя" required>
+            <input class="notification__input notification__input_client-name _req" type="text" name="client-name"
+              placeholder="Введите имя">
           </label>
 
           <label class="notification__label notification__client-phone">
@@ -352,8 +398,7 @@
             <span class="notification__label-star">
               *
             </span>
-            <input class="notification__input notification__input_client-phone phone" type="tel" name="client-phone"
-              placeholder="7" required value="7">
+            <input class="notification__input notification__input_client-phone phone _req" type="tel" name="client-phone">
           </label>
 
           <label class="notification__label notification__label_textarea">
@@ -404,6 +449,22 @@
         Хорошо
       </button>
 
+      <span class="popup__close-btn popup-close">
+        <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+        </svg>
+      </span>
+
+    </div>
+  </div>
+</div>
+
+<div class="popup popup_success popup_success-subscribe" id="popup-success-subscribe">
+  <div class="popup__body">
+    <div class="popup__content popup-success">
+      <h3 class="popup-success__title">
+      Спасибо, что вы с нами!
+      </h3>
       <span class="popup__close-btn popup-close">
         <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
@@ -825,7 +886,7 @@
         </ul>
 
       </div>
-      <button class="btn btn_green program__btn popup-link" href="popup-form">
+      <button class="btn btn_green program__btn popup-link" href="popup-request">
         Отправить заявку
       </button>
 
@@ -870,7 +931,7 @@
         </ul>
 
       </div>
-      <button class="btn btn_green program__btn popup-link" href="popup-form">
+      <button class="btn btn_green program__btn popup-link" href="popup-request">
         Отправить заявку
       </button>
 

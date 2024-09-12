@@ -2322,7 +2322,7 @@ a {
   transition: all 0.8s ease 0s;
   background: #ffffff;
   border-radius: 10px;
-  max-width: 544px;
+  max-width: 345px;
   min-height: 322px;
   padding: 50px;
 }
@@ -2649,6 +2649,15 @@ a {
   pointer-events: all;
   color: #000;
   border-color: #56693e;
+}
+
+.popup.popup_success-subscribe .popup-success__title {
+  text-align: center;
+}
+
+.popup.popup_success-subscribe .popup__content {
+  /* gap: 0; */
+  min-height: max-content;
 }
 
 .popup
@@ -26039,5 +26048,9 @@ body._sending::after {
 }
 
 .popup .popup__form .form__input._error {
+  border: 1px solid #ca2020;
+}
+
+.popup .notification .notification__label-block .notification__label .notification__input._error {
   border: 1px solid #ca2020;
 }

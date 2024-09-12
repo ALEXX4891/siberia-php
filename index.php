@@ -667,7 +667,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
         </div>
 
-        <a class="promo__link" href="/pages/akcii/">
+        <button class="promo__link popup-link" href="#popup-subscribe">
           <p class="promo__link-text">
             Подпишитесь на рассылку акций, новостей и многого другого
           </p>
@@ -695,7 +695,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </defs>
             </svg>
           </div>
-        </a>
+        </и>
 
         <div class="swiper-navigation">
           <div class="swiper-button swiper-button-prev swiper-button-prev_promo">
