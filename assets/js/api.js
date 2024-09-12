@@ -768,7 +768,6 @@ if (
       if (filterArr.find((item) => item.name === "btns")) {
         const btnsFilter = filterArr.find((item) => item.name === "btns").value;
         if (btnsFilter.length && btnsFilter[0] !== "") {
-          // console.log(btnsFilter.length && btnsFilter[0] !== "");
           copyList = filterTableBtns(btnsFilter, copyList);
         }
       }
@@ -938,33 +937,11 @@ if (
   }
 
   function filterTableBtns(filter, arr) {
-    arr = [{ name: 1, value1: "1" },
-    { name: 2, value2: "1" },
-    { name: 3, value3: "1" },
-    { name: 6, value3: "1" },
-    { name: 4, value3: "0" },
-    { name: 5, value2: "0" },];
-
-    filter = [value2, value3];
-
-    arr.filter(function (item) {
-
-
-
-
-
-
-
-    // console.log(filter);
-    // return arr.filter(function (item) {
-      // return item.includes
-      // console.log(item);
-      // console.log(filter.indexOf(item));
-      // return filter.indexOf(item) !== -1;
-    // })
-    // return arr.filter(function (item) {
-    //   return filter.indexOf(Number(item[param])) !== -1;
-    // });
+    return arr.filter(function (item) {    
+      return filter.some(function (key) {
+        return item[key] == 1;
+      })
+    });
   }
 
   function filterTable(filter, param, arr) {
