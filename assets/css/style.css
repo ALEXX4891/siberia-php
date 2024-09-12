@@ -7726,6 +7726,7 @@ a {
   font-weight: 400;
   line-height: 21.78px;
   text-align: center;
+  height: 42px;
   -webkit-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
@@ -8154,7 +8155,7 @@ a {
   color: rgba(0, 0, 0, 0.4);
 }
 
-.apartments-item-page .slider .slider__container {
+.apartments-item-page .slider .slider__container .rep-wrap {
   padding: 100px 0 40px;
   display: -ms-grid;
   display: grid;
@@ -8181,13 +8182,26 @@ a {
   text-align: left;
   color: #000;
   opacity: 0.5;
+  margin-bottom: 110px;
 }
 
 .apartments-item-page .slider .slider__container .slider__left .slider__btn-list {
   margin-bottom: 35px;
+  position: initial;
+  top: initial;
+  left: initial;
+  width: initial;
 }
 
-.apartments-item-page .slider .slider__container .slider__left .slider__btn-list .slider__btn {
+.apartments-item-page .slider .slider__container .slider__btn-list {
+  margin-bottom: 35px;
+  position: absolute;
+  top: 150px;
+  left: 0;
+  width: auto;
+}
+
+.apartments-item-page .slider .slider__container .slider__btn {
   padding: 14px 25px;
   border: 1px solid #363636;
   border-radius: 50px;
@@ -8202,19 +8216,19 @@ a {
   color: rgba(97, 97, 97, 0.8);
 }
 
-.apartments-item-page .slider .slider__container .slider__left .slider__btn-list .slider__btn:hover {
+.apartments-item-page .slider .slider__container .slider__btn:hover {
   color: #56693e;
   background-color: transparent;
   border-color: #748d55;
 }
 
-.apartments-item-page .slider .slider__container .slider__left .slider__btn-list .slider__btn:active {
+.apartments-item-page .slider .slider__container .slider__btn:active {
   background-color: transparent;
   border: 1px solid #363636;
   color: #363636;
 }
 
-.apartments-item-page .slider .slider__container .slider__left .slider__btn-list .slider__btn.slider__btn_active {
+.apartments-item-page .slider .slider__container .slider__btn.slider__btn_active {
   background-color: transparent;
   border: 1px solid #363636;
   color: #363636;
@@ -15263,6 +15277,10 @@ opacity: 0.8px;
   text-decoration: underline;
 }
 
+.reparation_swiper img {
+  border-radius: 10px;
+}
+
 @media (min-width: 1350px) {
   .header .header__section .header__container .header__top-block .nav .nav__list .nav__link_active {
     text-decoration-color: #56693e;
@@ -15537,6 +15555,17 @@ opacity: 0.8px;
 
   .commercial-item-page .about {
     padding: 14px 116px 50px;
+}
+
+.apartments-item-page .slider .slider__container .slider__btn-list {
+  margin-bottom: 35px;
+  position: absolute;
+  top: 144px;
+  left: 0;
+  width: auto;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 11px;
 }
 
 .commercial-item-page .about .about__container .about__left {
@@ -15829,7 +15858,7 @@ opacity: 0.8px;
     padding: 0px 116px 0px;
   }
 
-  .apartments-item-page .slider .slider__container {
+  .apartments-item-page .slider .slider__container .rep-wrap {
     padding: 100px 0 40px;
     display: -ms-grid;
     display: grid;
@@ -15847,7 +15876,7 @@ opacity: 0.8px;
     right: 28px;
   }
 
-  .apartments-item-page .slider .slider__container .slider__left .slider__btn-list .slider__btn {
+  .apartments-item-page .slider .slider__container .slider__btn {
     padding: 10px 20px;
     border: 1px solid #363636;
     border-radius: 50px;
@@ -19223,7 +19252,17 @@ margin-bottom: 25px;
     opacity: 0.5;
   }
 
-  .apartments-item-page .slider .slider__container {
+  .apartments-item-page .slider .slider__container .rep-wrap {
+    padding: 73px 0 40px;
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: row;
+    -ms-grid-columns: 40.33% 57.33%;
+    grid-template-columns: 1fr;
+    gap: 39px;
+  }
+
+  .apartments-item-page .slider .slider__container .rep-wrap {
     padding: 73px 0 40px;
     display: -ms-grid;
     display: grid;
@@ -19241,7 +19280,7 @@ margin-bottom: 25px;
     gap: 10px;
   }
 
-  .apartments-item-page .slider .slider__container .slider__left .slider__btn-list .slider__btn.slider__btn_active {
+  .apartments-item-page .slider .slider__container .slider__btn.slider__btn_active {
     /* padding: 6px 18px; */
     /* font-size: 14px; */
   }
@@ -19264,7 +19303,18 @@ margin-bottom: 25px;
     margin-bottom: 10px;
   }
 
-  .apartments-item-page .slider .slider__container .slider__left .slider__btn-list .slider__btn {
+  .apartments-item-page .slider .slider__container .slider__btn-list {
+    margin-bottom: 35px;
+    position: absolute;
+    top: 118px;
+    left: 0;
+    width: auto;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 11px;
+  }
+
+  .apartments-item-page .slider .slider__container .slider__btn {
     padding: 6px 19px;
     border: 1px solid #363636;
     border-radius: 50px;
@@ -19278,6 +19328,8 @@ margin-bottom: 25px;
     border: 1px solid #cbcbcb;
     color: rgba(97, 97, 97, 0.8);
   }
+
+  
 
   .slider__right.reparation_swiper .swiper-wrapper {
     position: relative;
@@ -21990,7 +22042,7 @@ margin-bottom: 25px;
     text-align: center;
   }
 
-  .apartments-item-page .slider .slider__container {
+  .apartments-item-page .slider .slider__container .rep-wrap {
     padding: 28px 0px 0px;
     display: -ms-grid;
     display: grid;
@@ -22006,6 +22058,17 @@ margin-bottom: 25px;
     flex-flow: row wrap;
     gap: 11px;
     align-items: flex-start;
+  }
+
+  .apartments-item-page .slider .slider__container .slider__btn-list {
+    margin-bottom: 35px;
+    position: absolute;
+    top: 102px;
+    left: 30px;
+    width: auto;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 11px;
   }
 
   .apartments-item-page .slider .slider__container .slider__left {
@@ -24573,6 +24636,17 @@ margin-bottom: 25px;
 @media (max-width: 560px) {
   .section {
     padding: 100px 15px;
+  }
+
+  .apartments-item-page .slider .slider__container .slider__btn-list {
+    margin-bottom: 35px;
+    position: absolute;
+    top: 87px;
+    left: 15px;
+    width: auto;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 11px;
   }
 
   .popup .popup__form {

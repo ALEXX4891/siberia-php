@@ -2843,3 +2843,21 @@ function getLinkCatalogApart(e) {
   link.click();
 }
 // -------------------------------------------- end Передача поисковой строки ---------------------------------------------
+
+const slideBtn = document.querySelectorAll(".slider__btn");
+if (slideBtn) {
+  const slides = document.querySelectorAll(".rep-wrap");
+  slideBtn.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      console.log("тест");
+      const id = item.getAttribute("data-id");
+      slides.forEach((item) => {
+        if (item.getAttribute("data-id") === id) {
+          item.style.display = "grid";
+        } else {
+          item.style.display = "none";
+        }
+      })
+    });
+  });
+}

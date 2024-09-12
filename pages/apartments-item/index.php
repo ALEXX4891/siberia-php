@@ -317,69 +317,122 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
     </section>
 
     <section class="section apartments-item-page__section slider">
-      <div class="container slider__container">
-        <div class="slider__left">
-          <h5 class="slider__head-title">
-            Отделка
-          </h5>
-          <div class="slider__btn-list">
-            <button class="slider__btn slider__btn_active">
-              Улучшеная черновая
-            </button>
-            <button class="slider__btn">
-              Квартара с отделкой
-            </button>
+      <div class="container slider__container slider__container_1">
+        <div class="rep-wrap" data-id="1">
+          <div class="slider__left">
+            <h5 class="slider__head-title">
+              Отделка
+            </h5>
+
+            <h2 class="slider__title title title_30">
+              Предчистовая отделка или White Box
+            </h2>
+            <p class="slider__text">
+              Стены и потолки в квартире выровнены шпаклёвкой, отсюда и название White Box. Мы позаботились о том,
+              чтобы подготовить квартиру к последнему — косметическому ремонту, после которого остаётся только покрыть
+              стены и расставить мебель. Установка унитаза, смесителей, межкомнатные двери, розетки
+              и выключателей.<br><br>
+              Есть несомненные плюсы, связанные с предчистовой отделкой квартир или квартир «белого ящика», например,
+              экономия денег и усилий, поскольку самая сложная и грязная работа уже сделана.
+            </p>
           </div>
 
-          <h2 class="slider__title title title_30">
-            Предчистовая отделка или White Box
-          </h2>
-          <p class="slider__text">
-            Стены и потолки в квартире выровнены шпаклёвкой, отсюда и название White Box. Мы позаботились о том,
-            чтобы подготовить квартиру к последнему — косметическому ремонту, после которого остаётся только покрыть
-            стены и расставить мебель. Установка унитаза, смесителей, межкомнатные двери, розетки
-            и выключателей.<br><br>
-            Есть несомненные плюсы, связанные с предчистовой отделкой квартир или квартир «белого ящика», например,
-            экономия денег и усилий, поскольку самая сложная и грязная работа уже сделана.
-          </p>
+          <div class="slider__right reparation_swiper">
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide">
+
+                <img src="/assets/img/rep_1.jpg" alt="promo_1">
+
+              </li>
+              <li class="swiper-slide">
+
+                <img src="/assets/img/rep_1.jpg" alt="promo_1">
+
+              </li>
+
+            </ul>
+
+            <div class="swiper-button swiper-button-prev swiper-button-prev_rep">
+              <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.8">
+                  <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54 0)"
+                    stroke="white" />
+                  <path d="M32 20L23 27.5L32 35" stroke="white" stroke-width="2" stroke-linejoin="round" />
+                </g>
+              </svg>
+            </div>
+
+            <div class="swiper-button swiper-button-next swiper-button-next_rep">
+              <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.8">
+                  <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54 0)"
+                    stroke="white" />
+                  <path d="M23 20L32 27.5L23 35" stroke="white" stroke-width="2" stroke-linejoin="round" />
+                </g>
+              </svg>
+            </div>
+          </div>
+
         </div>
 
-        <div class="slider__right reparation_swiper">
-          <ul class="swiper-wrapper">
-            <li class="swiper-slide">
-              <picture>
-                <source srcset="/assets/img/rep_1.webp" type="image/webp"><img src="/assets/img/rep_1.jpg" alt="promo_1">
-              </picture>
-            </li>
-            <li class="swiper-slide">
-              <picture>
-                <source srcset="/assets/img/rep_2.webp" type="image/webp"><img src="/assets/img/rep_2.jpg" alt="promo_1">
-              </picture>
-            </li>
-          </ul>
+        <div class="rep-wrap" data-id="2" style="display: none">
 
-          <div class="swiper-button swiper-button-prev swiper-button-prev_rep">
-            <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g opacity="0.8">
-                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54 0)"
-                  stroke="white" />
-                <path d="M32 20L23 27.5L32 35" stroke="white" stroke-width="2" stroke-linejoin="round" />
-              </g>
-            </svg>
+          <div class="slider__left">
+            <h5 class="slider__head-title">
+              Отделка
+            </h5>
+
+            <h2 class="slider__title title title_30">
+              Дизайнерская отделка
+            </h2>
+            <p class="slider__text">
+              Чистовая отделка квартиры - это готовое решение,которое включает в себя оклейку стен обоями, ламинат на полу, окраску потолков, монтаж розеток и выключателей, установку межкомнатных дверейи а так же сантехники.<br><br>
+              При оформлении квартиры с отделкой, вы можете предоставить нам дизайн планировки и мы проведем электрику в соответсвие с дизайн-концепцией
+            </p>
           </div>
 
-          <div class="swiper-button swiper-button-next swiper-button-next_rep">
-            <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g opacity="0.8">
-                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54 0)"
-                  stroke="white" />
-                <path d="M23 20L32 27.5L23 35" stroke="white" stroke-width="2" stroke-linejoin="round" />
-              </g>
-            </svg>
+          <div class="slider__right reparation_swiper">
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide">
+                <img src="/assets/img/rep_2.jpg" alt="promo_1">
+              </li>
+              <li class="swiper-slide">
+                <img src="/assets/img/rep_2.jpg" alt="promo_1">
+              </li>
+            </ul>
+
+            <div class="swiper-button swiper-button-prev swiper-button-prev_rep">
+              <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.8">
+                  <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54 0)"
+                    stroke="white" />
+                  <path d="M32 20L23 27.5L32 35" stroke="white" stroke-width="2" stroke-linejoin="round" />
+                </g>
+              </svg>
+            </div>
+
+            <div class="swiper-button swiper-button-next swiper-button-next_rep">
+              <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.8">
+                  <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54 0)"
+                    stroke="white" />
+                  <path d="M23 20L32 27.5L23 35" stroke="white" stroke-width="2" stroke-linejoin="round" />
+                </g>
+              </svg>
+            </div>
           </div>
+
         </div>
 
-      </div>
+        <div class="slider__btn-list">
+          <button class="slider__btn slider__btn_active" data-id="1">
+            Улучшеная черновая
+          </button>
+          <button class="slider__btn" data-id="2">
+            Квартара с отделкой
+          </button>
+        </div>
+
     </section>
 
     <section class="section section_geo geo">
