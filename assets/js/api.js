@@ -166,6 +166,9 @@ if (
     item.terrace = item.roomsList.find((room) => room.title == "Терраса") ? 1 : 0;
     item.keyToday = item.roomsList.find((room) => room.title == "Ключи сегодня") ? 1 : 0;
     item.promotion = item.roomsList.find((room) => room.title == "Акция") ? 1 : 0;
+    item.title = item.apart_rooms == 11 ? `Студия ${item.square} м<sup>2</sup>` : `${item.rooms}-комнатная ${item.square} м<sup>2</sup>`;
+    item.imgAlt = item.apart_rooms == 11 ? `Студия ${item.square} м2` : `${item.rooms}-комнатная ${item.square} м2`;
+
   });
 
   // console.log("allAparstInfo", allApartsInfo);
@@ -1788,4 +1791,92 @@ if (
     });
   }
   // -------------------------------------------- end фильтр по особенностям ---------------------------------------------
+  // ------------------------------------- start render квартиры -------------------------------
+
+  const apartmentsItemPage = document.querySelector(".apartments-item-page");
+  if (apartmentsItemPage) {
+    const url = new URL(window.location.href);
+    const id = url.searchParams.get("id");
+    // console.log('id:', id);
+    const obj = allApartsInfo.filter((item) => item.id == id)[0];
+    console.log('obj:', obj);
+
+    const imgBlock = document.querySelector(".about__img");
+    const imgArr = obj.img;
+    imgArr.forEach((item) => {
+      imgBlock.innerHTML += `<img src="${item.img_path}" alt="${obj.imgAlt}" data-fancybox="1">`;
+    })
+
+    const apartImgArr = imgBlock.querySelectorAll("img");
+    
+    for (let i = 0; i < apartImgArr.length; i++) {
+      const id = i + 1;
+      apartImgArr[i].setAttribute("data-img", id);
+      if (id == 2) {
+        apartImgArr[i].style.display = "none";
+      }
+    }
+    
+    const titleBlock = document.querySelector(".about__right-title");
+    titleBlock.innerHTML = obj.title;
+
+    const priceBlock = document.querySelector(".about__right-new-price");
+    priceBlock.innerHTML = Number(obj.price).toLocaleString('ru-RU', {
+      style: 'currency',
+      currency: 'RUB',
+      minimumFractionDigits: 0,
+    });
+
+    const oldPriceBlock = document.querySelector(".about__right-old-price");
+    if (obj.old_price) {
+    oldPriceBlock.innerHTML = Number(obj.old_price).toLocaleString('ru-RU', {
+      style: 'currency',
+      currency: 'RUB',
+      minimumFractionDigits: 0,
+    });
+    } else {
+      oldPriceBlock.style.display = "none";
+    }
+
+    const timeBlock = document.querySelector(".about__right-info-text-time");
+    timeBlock.innerHTML = getQuarter(new Date(obj.house_building_end));
+
+    const houseBlock = document.querySelector(".about__right-info-text-section");
+    houseBlock.innerHTML = obj.house_title_rus;
+
+    const projectBlock = document.querySelector(".about__btn-complex-text");
+    projectBlock.innerHTML = `${obj.project_name} квартал`;
+    
+    const plansBtns = document.querySelectorAll(".about__btn");
+    plansBtns.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        const id = item.getAttribute("data-img");
+        const imgArr = document.querySelectorAll(".about__img img");
+        imgArr.forEach((item) => {
+          if (item.getAttribute("data-img") == id) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        })
+      })
+    })
+  }
+
+  // ------------------------------------- end render квартиры -------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

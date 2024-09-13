@@ -7660,7 +7660,7 @@ a {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: row;
-  gap: 144px;
+  gap: 15px;
 }
 
 .apartments-item-page .about .about__container .about__left .about__btn-back {
@@ -7704,6 +7704,7 @@ a {
   justify-self: center;
   width: 100%;
   max-width: 797px;
+  aspect-ratio: 655 / 506;
 }
 
 .apartments-item-page .about .about__container .about__left .about__img img {
@@ -7950,7 +7951,7 @@ a {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .apartments-item-page

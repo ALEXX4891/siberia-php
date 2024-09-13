@@ -16,6 +16,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
   ?>
 
   <main class="main apartments-item-page__main">
+
     <section class="section apartments-item-page__section about">
       <div class="container about__container">
         <div class="about__left">
@@ -34,114 +35,18 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </div>
 
           <div class="about__img">
-            <svg width="798" height="353" viewBox="0 0 798 353" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g filter="url(#filter0_b_293_1247)">
-                <path d="M142 327V211H164.642L407 211V352.086L228.5 352.5V327L142 327Z" fill="#CACACA" />
-                <path d="M231.5 349.493V327V324H228.5L145 324V214H164.642L404 214V349.093L231.5 349.493Z"
-                  stroke="#B6B6B6" stroke-width="6" />
-              </g>
-              <g filter="url(#filter1_b_293_1247)">
-                <path d="M340 2V175L142 175L142 2L340 2Z" fill="#CACACA" />
-                <path d="M337 5V172L145 172L145 5L337 5Z" stroke="#B6B6B6" stroke-width="6" />
-              </g>
-              <g filter="url(#filter2_b_293_1247)">
-                <path d="M469 2V175L334 175V2L469 2Z" fill="#CACACA" />
-                <path d="M466 5V172L337 172V5L466 5Z" stroke="#B6B6B6" stroke-width="6" />
-              </g>
-              <g filter="url(#filter3_b_293_1247)">
-                <path d="M599 2V175L464 175V2L599 2Z" fill="#CACACA" />
-                <path d="M596 5V172L467 172V5L596 5Z" stroke="#B6B6B6" stroke-width="6" />
-              </g>
-              <g filter="url(#filter4_b_293_1247)">
-                <path d="M729 175V2L593 2V175L729 175Z" fill="#CACACA" />
-                <path d="M596 5L726 5V172L596 172V5Z" stroke="#B6B6B6" stroke-width="6" />
-              </g>
-              <g filter="url(#filter5_b_293_1247)">
-                <path d="M147.5 326L0 325.5L0.5 0.5L148 1L147.5 169L168 168.5L168 215L147.5 215.5V326Z"
-                  fill="#E7F0DB" />
-                <path
-                  d="M147.573 171.999L165 171.574L165 212.072L147.427 212.501L144.5 212.572V215.5V322.99L3.00461 322.51L3.49538 3.51016L144.991 3.98981L144.5 168.991L144.491 172.074L147.573 171.999Z"
-                  stroke="#CEDFB8" stroke-width="6" />
-              </g>
-              <g filter="url(#filter6_b_293_1247)">
-                <path d="M797.5 326.5H655.5V169L723.5 169V2H797.5V326.5Z" fill="#E7F0DB" />
-                <path d="M726.5 169V5H794.5V323.5H658.5V172L723.5 172H726.5V169Z" stroke="#CEDFB8" stroke-width="6" />
-              </g>
-              <path d="M539.88 323.4H658.652L658.652 213L466 213V349.5H539.874L539.88 323.4Z" fill="#9ABC6F"
-                fill-opacity="0.3" stroke="#9ABC6F" stroke-width="6" />
-              <rect x="701" y="213" width="51" height="36" rx="18" fill="#CEDFB8" />
-              <path
-                d="M717.034 237V235.477L721.074 231.517C721.46 231.127 721.782 230.78 722.04 230.477C722.297 230.174 722.491 229.881 722.619 229.597C722.748 229.312 722.812 229.009 722.812 228.688C722.812 228.32 722.729 228.006 722.562 227.744C722.396 227.479 722.167 227.275 721.875 227.131C721.583 226.987 721.252 226.915 720.881 226.915C720.498 226.915 720.163 226.994 719.875 227.153C719.587 227.309 719.364 227.53 719.205 227.818C719.049 228.106 718.972 228.449 718.972 228.847H716.966C716.966 228.108 717.134 227.466 717.472 226.92C717.809 226.375 718.273 225.953 718.864 225.653C719.458 225.354 720.14 225.205 720.909 225.205C721.689 225.205 722.375 225.35 722.966 225.642C723.557 225.934 724.015 226.333 724.341 226.841C724.67 227.348 724.835 227.928 724.835 228.58C724.835 229.015 724.752 229.443 724.585 229.864C724.419 230.284 724.125 230.75 723.705 231.261C723.288 231.773 722.703 232.392 721.949 233.119L719.943 235.159V235.239H725.011V237H717.034ZM734.057 237L730.227 231.915H729.193V237H727.085V225.364H729.193V230.148H729.722L733.858 225.364H736.455L731.858 230.67L736.653 237H734.057Z"
-                fill="#616161" />
-              <rect x="51" y="164" width="51" height="36" rx="18" fill="#CEDFB8" />
-              <path
-                d="M70.7102 188.159C69.892 188.159 69.1648 188.019 68.5284 187.739C67.8958 187.458 67.3958 187.068 67.0284 186.568C66.661 186.068 66.4659 185.491 66.4432 184.835H68.5795C68.5985 185.15 68.7027 185.424 68.892 185.659C69.0814 185.89 69.3333 186.07 69.6477 186.199C69.9621 186.328 70.3144 186.392 70.7045 186.392C71.1212 186.392 71.4905 186.32 71.8125 186.176C72.1345 186.028 72.3864 185.824 72.5682 185.562C72.75 185.301 72.839 185 72.8352 184.659C72.839 184.307 72.7481 183.996 72.5625 183.727C72.3769 183.458 72.108 183.248 71.7557 183.097C71.4072 182.945 70.9867 182.869 70.4943 182.869H69.4659V181.244H70.4943C70.8996 181.244 71.2538 181.174 71.5568 181.034C71.8636 180.894 72.1042 180.697 72.2784 180.443C72.4527 180.186 72.5379 179.888 72.5341 179.551C72.5379 179.222 72.464 178.936 72.3125 178.693C72.1648 178.447 71.9545 178.256 71.6818 178.119C71.4129 177.983 71.0966 177.915 70.733 177.915C70.3769 177.915 70.0473 177.979 69.7443 178.108C69.4413 178.237 69.197 178.42 69.0114 178.659C68.8258 178.894 68.7273 179.174 68.7159 179.5H66.6875C66.7027 178.848 66.8902 178.277 67.25 177.784C67.6136 177.288 68.0985 176.902 68.7045 176.625C69.3106 176.345 69.9905 176.205 70.7443 176.205C71.5208 176.205 72.1951 176.35 72.767 176.642C73.3428 176.93 73.7879 177.318 74.1023 177.807C74.4167 178.295 74.5739 178.835 74.5739 179.426C74.5777 180.081 74.3845 180.631 73.9943 181.074C73.608 181.517 73.1004 181.807 72.4716 181.943V182.034C73.2898 182.148 73.9167 182.451 74.3523 182.943C74.7917 183.432 75.0095 184.04 75.0057 184.767C75.0057 185.419 74.8201 186.002 74.4489 186.517C74.0814 187.028 73.5739 187.43 72.9261 187.722C72.2822 188.013 71.5436 188.159 70.7102 188.159ZM84.0412 188L80.2116 182.915H79.1776V188H77.0696V176.364H79.1776V181.148H79.706L83.8423 176.364H86.4389L81.8423 181.67L86.6378 188H84.0412Z"
-                fill="#616161" />
-              <defs>
-                <filter id="filter0_b_293_1247" x="140" y="209" width="269" height="145.5" filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="1" />
-                  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_293_1247" />
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_293_1247" result="shape" />
-                </filter>
-                <filter id="filter1_b_293_1247" x="140" y="0" width="202" height="177" filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="1" />
-                  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_293_1247" />
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_293_1247" result="shape" />
-                </filter>
-                <filter id="filter2_b_293_1247" x="332" y="0" width="139" height="177" filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="1" />
-                  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_293_1247" />
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_293_1247" result="shape" />
-                </filter>
-                <filter id="filter3_b_293_1247" x="462" y="0" width="139" height="177" filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="1" />
-                  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_293_1247" />
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_293_1247" result="shape" />
-                </filter>
-                <filter id="filter4_b_293_1247" x="591" y="0" width="140" height="177" filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="1" />
-                  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_293_1247" />
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_293_1247" result="shape" />
-                </filter>
-                <filter id="filter5_b_293_1247" x="-2" y="-1.5" width="172" height="329.5" filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="1" />
-                  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_293_1247" />
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_293_1247" result="shape" />
-                </filter>
-                <filter id="filter6_b_293_1247" x="653.5" y="0" width="146" height="328.5" filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="1" />
-                  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_293_1247" />
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_293_1247" result="shape" />
-                </filter>
-              </defs>
-            </svg>
-            <!-- <picture><source srcset="/assets/img/floor.webp" type="image/webp"><img src="/assets/img/floor.png" alt=""></picture>                     -->
           </div>
 
           <div class="about__btn-wrap">
-            <button class="about__btn about__btn_plan">
+            <button class="about__btn about__btn_active about__btn_plan" data-img="1">
               Планировка
             </button>
-            <button class="about__btn about__btn_active about__btn_floor">
+            <button class="about__btn about__btn_floor" data-img="2">
               На этаже
             </button>
-            <button class="about__btn about__btn_section">
+            <!-- <button class="about__btn about__btn_section" data-img="2">
               Секция
-            </button>
+            </button> -->
           </div>
         </div>
 
@@ -156,7 +61,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </svg>
             </div>
             <p class="about__btn-complex-text">
-              Сосновый квартал
+              
             </p>
             <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1.5 13L8.5 7L1.5 1" stroke="#646464" stroke-width="1.5" stroke-linecap="round"
@@ -164,14 +69,14 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </svg>
           </button>
           <p class="about__right-title title title_25">
-            2-комнатная &nbsp;61,88 м2
+            
           </p>
           <div class="about__right-price-wrap">
             <p class="about__right-new-price">
-              5 662 000₽
+              
             </p>
             <p class="about__right-old-price">
-              9 331 000 ₽
+              
             </p>
           </div>
           <div class="about__right-info">
