@@ -238,7 +238,7 @@
 </div>
 
 <!-- ----- окна уведомлений: ----- -->
-<div class="popup popup_success" id="success">
+<div class="popup popup_success-simple" id="success">
   <div class="popup__body">
     <div class="popup__content popup-success">
       <h3 class="popup-success__title">
@@ -262,7 +262,7 @@
   </div>
 </div>
 
-<div class="popup popup_success popup_success-subscribe" id="popup-success-subscribe">
+<div class="popup popup_success-subscribe" id="popup-success-subscribe">
   <div class="popup__body">
     <div class="popup__content popup-success">
       <h3 class="popup-success__title">

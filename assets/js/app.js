@@ -2901,6 +2901,9 @@ if (bookingButton) {
     const projectInput = bookingPopup.querySelector('input[name="project"]');
 
     floorInput.value = floor;
+    paymentInput.value = payment;
+    houseInput.value = house;
+    projectInput.value = project;
 
     console.log('bookingPopup', bookingPopup);
     console.log('floorInput', floorInput);

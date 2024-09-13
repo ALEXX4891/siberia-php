@@ -2327,6 +2327,15 @@ a {
   padding: 50px;
 }
 
+.popup.popup_success-simple .popup__content {
+  max-width: 544px;
+}
+
+.popup.popup_success-simple .popup-success__subtitle {
+  max-width: 90%;
+  padding: 0 0 20px;
+}
+
 .popup .popup-success .popup-success__title {
   font-family: Inter;
   font-size: 30px;
