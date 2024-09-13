@@ -2354,6 +2354,14 @@ a {
   color: #616161;
 }
 
+.glavnaya .choice {
+  padding: 99px 104px 100px;
+}
+
+.glavnaya .choice .choice__container .choice__title {
+  margin-bottom: -1px;
+}
+
 .popup .popup-success .popup-success__close {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
@@ -4261,12 +4269,13 @@ a {
 }
 
 .glavnaya .glavnaya__main_top .apartments .apartments__container .apartments__top-wrap {
-  margin-bottom: 35px;
+  margin-bottom: 0px;
   gap: 20px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 420px;
   grid-template-columns: 1fr 420px;
+  /* grid-column: 3 span; */
 }
 
 .glavnaya .glavnaya__main_top .apartments .apartments__container .apartments__top-wrap .apartments__title {
@@ -4282,12 +4291,15 @@ a {
 
 .glavnaya .glavnaya__main_top .apartments .apartments__container .apartments__list {
   -ms-grid-column-span: 3;
-  grid-column: 3 span;
+  /* grid-column: 3 span; */
   min-width: 0;
+  display: flex;
+  gap: 0;
 }
 
 .glavnaya .glavnaya__main_top .apartments .apartments__container .apartments__list .apartments__item {
   max-width: 420px;
+  /* padding: 0px; */
 }
 
 .glavnaya
@@ -4297,7 +4309,7 @@ a {
   .apartments__list
   .apartments__item
   .apartments__item-link {
-  padding: 20px;
+  padding: 0px;
   width: 100%;
   min-height: 655px;
   background: #ffffff;

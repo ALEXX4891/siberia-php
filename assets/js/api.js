@@ -66,6 +66,8 @@ if (
 
   const projectById = [{ 1052: "Сосновый" }, { 1053: "Сосновый" }, { 1054: "Сосновый" }];
 
+
+
   function getProjectName(id) {
     return projectById.find((item) => item[id])[id];
   }
@@ -215,9 +217,125 @@ if (
             : ``
         }
 
-      </div>  
+      </div> 
     </a>
   `;
+
+  // добавление и фльтрация опций:
+
+  const allOptions = [
+    "optionPromotion",
+    "optionKeyToday",
+    "optionTwoSide",
+    "optionThreeSide",
+    "optionBalcony",
+    "optionKitchenLiving",
+    "optionDressRoom",
+    "optionGuestBathroom",
+    "optionTerrace",
+  ];
+  // console.log(obj);
+
+  const optionsFromObj = [];
+
+  for(let op in obj) {
+    allOptions.forEach((option) => {
+      if (op == option && obj[op]) {
+        optionsFromObj.push(op);
+      } 
+    })
+  }
+
+  console.log(obj.id, optionsFromObj);
+
+
+
+  // for (let i = 0; i < obj.length; i++) {
+  //   console.log("obj[i]", obj[i]);
+  //   allOptions.forEach((item) => {
+  //     obj[i] == item && obj[i] == 1 ? 
+  //     console.log("obj[i]", obj[i]) : 
+  //     console.log("obj[i]*", obj[i]);
+  //   })
+  // }
+  // obj.forEach((item) => {
+  //   allOptions.forEach((option) => {
+  //     if (item[option] == 1) {
+  //       console.log("item[option]", item[option]);
+  //     }
+  //   });
+  // });
+
+  const strOptions = `  
+  <li class="apartments__item-footer-item" data-id="optionPromotion">
+      <p class="apartments__item-footer-item-text">
+        Акция
+      </p>
+    </li>
+
+    <li class="apartments__item-footer-item" data-id="optionKeyToday">
+      <p class="apartments__item-footer-item-text">
+        Ключи сегодня
+      </p>
+    </li>
+
+    <li class="apartments__item-footer-item" data-id="optionTwoSide">
+      <p class="apartments__item-footer-item-text">
+        Окна на 2 стороны
+      </p>
+    </li>
+
+    <li class="apartments__item-footer-item" data-id="optionBalcony">
+      <p class="apartments__item-footer-item-text">
+        Балкон
+      </p>
+    </li>
+
+    <li class="apartments__item-footer-item" data-id="optionThreeSide">
+      <p class="apartments__item-footer-item-text">
+        Окна на 3 стороны
+      </p>
+    </li>
+
+    <li class="apartments__item-footer-item" data-id="optionGuestBathroom">
+      <p class="apartments__item-footer-item-text">
+        Гостевой санузел
+      </p>
+    </li>
+
+    <li class="apartments__item-footer-item" data-id="optionKitchenLiving">
+      <p class="apartments__item-footer-item-text">
+        Кухня-гостинная
+      </p>
+    </li>
+
+    <li class="apartments__item-footer-item" data-id="optionDressRoom">
+      <p class="apartments__item-footer-item-text">
+        Гардеробная
+      </p>
+    </li>
+
+    <li class="apartments__item-footer-item" data-id="optionTerrace">
+      <p class="apartments__item-footer-item-text">
+        Терраса
+      </p>
+    </li>`;
+
+    
+    const options = document.createElement("ul");
+    options.classList.add("apartments__item-footer");
+    options.innerHTML = strOptions;
+    
+    const btnsElements = options.querySelectorAll(".apartments__item-footer-item");
+
+    btnsElements.forEach((item) => {
+      if (!optionsFromObj.includes(item.getAttribute("data-id"))) {
+        item.remove();
+      } 
+    });
+  
+  
+    li.querySelector(".apartments__item-link").append(options);
     return li; // возвращаем li
   }
   // -------------------------------------- end функция создания карточки квартиры: --------------------------------------
@@ -462,9 +580,9 @@ if (
     if (btnsFilter) {
       const btnsElements = btnsFilter.querySelectorAll(".choice__btn-filter");
       btnsElements.forEach((item) => {
-        if (filterAllInfo.find((item) => item.name === "btns").value.includes(item.getAttribute("data-id"))) {
-        // const id = item.getAttribute("data-id");
-        // if (!optionsInAllApartInfo.includes(id)) {
+        if (filterAllInfo.find((el) => el.name === "btns").value.includes(item.getAttribute("data-id"))) {
+          // const id = item.getAttribute("data-id");
+          // if (!optionsInAllApartInfo.includes(id)) {
           item.classList.remove("choice__btn-filter_disabled");
         } else {
           item.classList.add("choice__btn-filter_disabled");
@@ -696,16 +814,15 @@ if (
         console.log(arr.find((item) => item.name === "btns"));
         if (arr.find((item) => item.name === "btns") && arr.find((item) => item.name === "btns").value !== "") {
           btnsFilter.forEach((item) =>
-            arr.find((item) => item.name === "btns").value.includes(item.getAttribute("data-id")) ?
-              item.classList.add("choice__btn-filter_active") :
-              item.classList.remove("choice__btn-filter_active")
+            arr.find((el) => el.name === "btns").value.includes(item.getAttribute("data-id"))
+              ? item.classList.add("choice__btn-filter_active")
+              : item.classList.remove("choice__btn-filter_active")
           );
         }
       } else {
         btnsFilter.forEach((item) => item.classList.remove("choice__btn-filter_active"));
         urlParams.delete("btns");
         console.log("urlParams", urlParams);
-
       }
     }
   }
@@ -1023,7 +1140,7 @@ if (
         if (item.name.includes("option")) {
           btnsFilter.push(item.name);
         }
-      })
+      });
       res.push({
         name: "btns",
         value: btnsFilter,
