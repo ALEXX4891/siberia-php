@@ -51,7 +51,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </div>
 
         <div class="about__right choice__form">
-          <button class="about__btn-complex">
+          <a class="about__btn-complex" href="/pages/project-item/">
             <div class="about__btn-complex-img">
               <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.5" width="30" height="30" rx="15" fill="#9ABC6F" fill-opacity="0.2" />
@@ -67,7 +67,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               <path d="M1.5 13L8.5 7L1.5 1" stroke="#646464" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
-          </button>
+          </a>
           <p class="about__right-title title title_25">
 
           </p>

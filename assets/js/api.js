@@ -66,8 +66,6 @@ if (
 
   const projectById = [{ 1052: "Сосновый" }, { 1053: "Сосновый" }, { 1054: "Сосновый" }];
 
-
-
   function getProjectName(id) {
     return projectById.find((item) => item[id])[id];
   }
@@ -221,32 +219,32 @@ if (
     </a>
   `;
 
-  // добавление и фльтрация опций:
+    // добавление и фльтрация опций:
 
-  const allOptions = [
-    "optionPromotion",
-    "optionKeyToday",
-    "optionTwoSide",
-    "optionThreeSide",
-    "optionBalcony",
-    "optionKitchenLiving",
-    "optionDressRoom",
-    "optionGuestBathroom",
-    "optionTerrace",
-  ];
+    const allOptions = [
+      "optionPromotion",
+      "optionKeyToday",
+      "optionTwoSide",
+      "optionThreeSide",
+      "optionBalcony",
+      "optionKitchenLiving",
+      "optionDressRoom",
+      "optionGuestBathroom",
+      "optionTerrace",
+    ];
 
-  // формируем массив опций из объекта:
-  const optionsFromObj = [];
+    // формируем массив опций из объекта:
+    const optionsFromObj = [];
 
-  for(let op in obj) {
-    allOptions.forEach((option) => {
-      if (op == option && obj[op]) {
-        optionsFromObj.push(op);
-      } 
-    })
-  }
+    for (let op in obj) {
+      allOptions.forEach((option) => {
+        if (op == option && obj[op]) {
+          optionsFromObj.push(op);
+        }
+      });
+    }
 
-  const strOptions = `  
+    const strOptions = `  
   <li class="apartments__item-footer-item" data-id="optionPromotion">
       <p class="apartments__item-footer-item-text">
         Акция
@@ -301,21 +299,19 @@ if (
       </p>
     </li>`;
 
-    
     const options = document.createElement("ul");
     options.classList.add("apartments__item-footer");
     options.innerHTML = strOptions;
-    
+
     const btnsElements = options.querySelectorAll(".apartments__item-footer-item");
 
     // фильтруем массив опций, удяляя лишние элементы:
     btnsElements.forEach((item) => {
       if (!optionsFromObj.includes(item.getAttribute("data-id"))) {
         item.remove();
-      } 
+      }
     });
-  
-  
+
     li.querySelector(".apartments__item-link").append(options);
     return li; // возвращаем li
   }
@@ -1140,12 +1136,10 @@ if (
     });
   }
 
-  function filterTableBtns(filter, arr) {
-    return arr.filter(function (item) {
-      return filter.some(function (key) {
-        return item[key] == 1;
-      });
-    });
+  function filterTableBtns(arrFilter, arrInit) {
+      return arrInit.filter(obj => 
+        arrFilter.every(key => key in obj && obj[key])
+    );
   }
 
   function filterTable(filter, param, arr) {
@@ -2057,64 +2051,48 @@ if (
     </li>  
   `;
 
-  const optionsBlock = document.querySelector(".about__right-btn-block");
+    const optionsBlock = document.querySelector(".about__right-btn-block");
 
-
-    
     const options = document.createElement("ul");
     options.classList.add("about__right-btn-block-wrap");
     options.innerHTML = strOptions;
 
+    // добавление и фльтрация опций:
 
-  // добавление и фльтрация опций:
+    const allOptions = [
+      "optionPromotion",
+      "optionKeyToday",
+      "optionTwoSide",
+      "optionThreeSide",
+      "optionBalcony",
+      "optionKitchenLiving",
+      "optionDressRoom",
+      "optionGuestBathroom",
+      "optionTerrace",
+    ];
 
-  const allOptions = [
-    "optionPromotion",
-    "optionKeyToday",
-    "optionTwoSide",
-    "optionThreeSide",
-    "optionBalcony",
-    "optionKitchenLiving",
-    "optionDressRoom",
-    "optionGuestBathroom",
-    "optionTerrace",
-  ];
+    // формируем массив опций из объекта:
+    const optionsFromObj = [];
 
-  // формируем массив опций из объекта:
-  const optionsFromObj = [];
-
-  for(let op in obj) {
-    allOptions.forEach((option) => {
-      if (op == option && obj[op]) {
-        optionsFromObj.push(op);
-      } 
-    })
-  }
-
-  const btnsElements = options.querySelectorAll(".about__right-btn-block-filter");
-
-
-      // фильтруем массив опций, удяляя лишние элементы:
-      btnsElements.forEach((item) => {
-        if (!optionsFromObj.includes(item.getAttribute("data-id"))) {
-          item.remove();
-        } 
+    for (let op in obj) {
+      allOptions.forEach((option) => {
+        if (op == option && obj[op]) {
+          optionsFromObj.push(op);
+        }
       });
+    }
 
+    const btnsElements = options.querySelectorAll(".about__right-btn-block-filter");
 
-
-
-
-
-
-
-
-
+    // фильтруем массив опций, удяляя лишние элементы:
+    btnsElements.forEach((item) => {
+      if (!optionsFromObj.includes(item.getAttribute("data-id"))) {
+        item.remove();
+      }
+    });
 
     optionsBlock.append(options);
   }
-
-  
 
   // ------------------------------------- end render квартиры -------------------------------
 }
