@@ -266,16 +266,6 @@ if (
 
     optionsInAllApartInfo = [...new Set(optionsInAllApartInfo)];
 
-    // если опции встречается в массиве квартир, то делаем их активнымми:
-    btnsElements.forEach((item) => {
-      const id = item.getAttribute("data-id");
-      if (!optionsInAllApartInfo.includes(id)) {
-        item.classList.add("choice__btn-filter_disabled");
-      } else {
-        item.classList.remove("choice__btn-filter_disabled");
-      }
-    });
-
     // console.log("allApartsInfo[0]", allApartsInfo[0]);
 
     // найдем те элементы которые фигурируют в массиве allApartsInfo:
@@ -380,6 +370,7 @@ if (
     const sectionFilter = choiceFilterForm.querySelector(".choice__input-block_select_section .select__list");
     const deadlineFilter = choiceFilterForm.querySelector(".choice__input-block_select_date .select__list");
     const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
+    const btnsFilter = choiceFilterForm.querySelector(".choice__btns-wrap");
     let allSelect = '<li class="select__item">Все</li>';
 
     if (projectFilter) {
@@ -436,6 +427,8 @@ if (
       btns.forEach((item) => {
         if (filterAllInfo.find((item) => item.name === "Комнат").value.includes(Number(item.getAttribute("data-id")))) {
           item.classList.add("choice__buttons-select-item_available");
+        } else {
+          item.classList.remove("choice__buttons-select-item_available");
         }
       });
     } else {
@@ -465,6 +458,21 @@ if (
     } else {
       console.log("floorFilter not found");
     }
+
+    if (btnsFilter) {
+      const btnsElements = btnsFilter.querySelectorAll(".choice__btn-filter");
+      btnsElements.forEach((item) => {
+        if (filterAllInfo.find((item) => item.name === "btns").value.includes(item.getAttribute("data-id"))) {
+        // const id = item.getAttribute("data-id");
+        // if (!optionsInAllApartInfo.includes(id)) {
+          item.classList.remove("choice__btn-filter_disabled");
+        } else {
+          item.classList.add("choice__btn-filter_disabled");
+        }
+      });
+    } else {
+      console.log("btnsFilter not found");
+    }
   }
 
   setMaxMinForFilters(getMaxMinForFilters(allApartsInfo));
@@ -473,6 +481,7 @@ if (
   // setNowFilters();
   function setNowFilters(arr) {
     console.log("*************** Старт функции setNowFilters ***************"); // имя функции
+    console.log(arr);
     // let urlParams = new URLSearchParams(window.location.search);
     // arr = [
     //   // { name: "Проект", value: "Сосновый" },
@@ -524,6 +533,12 @@ if (
 
     const floorInputFrom = choiceFilterForm.querySelector(".choice__input-block_slider_floor .select__input_from");
     const floorInputTo = choiceFilterForm.querySelector(".choice__input-block_slider_floor .select__input_to");
+
+    let btnsFilter = choiceFilterForm.querySelector(".choice__btns-wrap");
+
+    if (btnsFilter) {
+      btnsFilter = btnsFilter.querySelectorAll(".choice__btn-filter");
+    }
 
     // TODO можно написать цикл, который будет проверть все фильтры и добавлять или удалять классы.
 
@@ -617,8 +632,8 @@ if (
         }
       } else {
         roomsFilter.forEach((item) => item.classList.remove("choice__buttons-select-item_active"));
-        urlParams.delete("rooms");
-        console.log("urlParams", urlParams);
+        // urlParams.delete("rooms"); //TODO зачем это здесь?
+        // console.log("urlParams", urlParams);
       }
     }
 
@@ -673,6 +688,24 @@ if (
         floorInputTo.value = floorInputTo.getAttribute("max");
         const floorFilter = choiceFilterForm.querySelector(".choice__input-block_slider_floor");
         rangeSliderUpdate(floorFilter);
+      }
+    }
+
+    if (btnsFilter) {
+      if (arr) {
+        console.log(arr.find((item) => item.name === "btns"));
+        if (arr.find((item) => item.name === "btns") && arr.find((item) => item.name === "btns").value !== "") {
+          btnsFilter.forEach((item) =>
+            arr.find((item) => item.name === "btns").value.includes(item.getAttribute("data-id")) ?
+              item.classList.add("choice__btn-filter_active") :
+              item.classList.remove("choice__btn-filter_active")
+          );
+        }
+      } else {
+        btnsFilter.forEach((item) => item.classList.remove("choice__btn-filter_active"));
+        urlParams.delete("btns");
+        console.log("urlParams", urlParams);
+
       }
     }
   }
@@ -874,6 +907,7 @@ if (
     urlParams.forEach((value, key) => {
       filterArr.push({ name: key, value: value });
     });
+    console.log("filterArr", filterArr);
 
     //   [
     //     {
@@ -980,6 +1014,19 @@ if (
           from: floorFilter.split("-")[0],
           to: floorFilter.split("-")[1],
         },
+      });
+    }
+
+    if (filterArr.find((item) => item.name.includes("option"))) {
+      const btnsFilter = [];
+      filterArr.forEach((item) => {
+        if (item.name.includes("option")) {
+          btnsFilter.push(item.name);
+        }
+      })
+      res.push({
+        name: "btns",
+        value: btnsFilter,
       });
     }
 
