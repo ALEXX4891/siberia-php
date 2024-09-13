@@ -662,7 +662,7 @@ a {
 .contacts-page__section {
   margin: 0 auto;
   padding: 0;
-  max-width: 1920px;
+  max-width: 2500px;
 }
 
 .card.card_news .card__image img {
@@ -3730,6 +3730,7 @@ a {
   background: #f5f5f5;
   overflow: hidden;
   padding: 80px 104px;
+  max-width: 100%;
 }
 
 .glavnaya .glavnaya__main_top .building .building__container .building__title {
@@ -4252,6 +4253,7 @@ a {
 .glavnaya .glavnaya__main_top .apartments {
   background: #f5f5f5;
   padding: 82px 104px;
+  max-width: 100%;
 }
 
 .glavnaya .glavnaya__main_top .apartments .apartments__container {
@@ -5729,7 +5731,7 @@ a {
   -ms-grid-columns: 717px 1fr;
   grid-template: 740px/717px 1fr;
   width: 100%;
-  max-width: 1920px;
+  /* max-width: 1920px; */
 }
 
 .contacts-page .contacts-page__content .contacts-page__left-block {
@@ -5776,6 +5778,7 @@ a {
   position: relative;
   /* background: #f5f5f5; */
   padding: 42px 104px 41px;
+  max-width: 2500px;
 }
 
 .contacts-page .contacts-page__content .contacts-page__left-block .contacts-page__left-wrap .address__wrapper {
@@ -7457,6 +7460,21 @@ a {
   padding: 105px 104px 80px;
 }
 
+.commercial-page .commercial {
+  max-width: 100%;
+}
+
+.commercial-page .section_map {
+  max-width: 2500px;
+
+}
+
+.apartments-page .apartments {
+  max-width: 100%;
+}
+
+
+
 .commercial .commercial__container {
   display: -ms-grid;
   display: grid;
@@ -7640,6 +7658,7 @@ a {
 
 .apartments-item-page .about {
   background: #f5f5f5;
+  max-width: 100%;
 }
 
 .apartments-item-page .about .about__container {
@@ -8574,6 +8593,7 @@ a {
   position: relative;
   background: #f5f5f5;
   padding: 80px 104px 79px;
+  max-width: 100%;
 }
 
 .apartments-item-page .apartments .apartments__container {
@@ -8991,6 +9011,7 @@ a {
 .apartments-item-page .bot {
   background: #363636;
   padding: 80px 104px 79px;
+  max-width: 100%;
 }
 
 .bot .bot__container {
@@ -9105,6 +9126,7 @@ a {
   position: relative;
   background: #f5f5f5;
   padding: 36px 104px 100px;
+  max-width: 100%;
 }
 
 .project-page .project-page__section .project-page__container {
@@ -9739,6 +9761,7 @@ a {
 .project-item-page .project-item-page__main .slim {
   padding: 0;
   position: relative;
+  max-width: 2500px;
 }
 
 .project-item-page .project-item-page__main .slim .aside-menu {
@@ -11116,6 +11139,7 @@ a {
   position: relative;
   background: #f5f5f5;
   padding: 83px 104px 40px;
+  max-width: 2500px;
 }
 
 .project-item-page .project-item-page__main .slim .commercial .commercial__container .commercial__wrap {
@@ -11461,6 +11485,7 @@ a {
 .project-item-page .project-item-page__main .slim .buy {
   background: #f5f5f5;
   padding: 63px 104px 65px;
+  max-width: 100%;
 }
 
 .project-item-page .project-item-page__main .slim .buy .buy__container .buy__wrap {
@@ -11513,6 +11538,7 @@ a {
 .project-item-page .project-item-page__main .slim .bot {
   background: #363636;
   padding: 110px 104px 100px;
+  max-width: 2500px;
 }
 
 .project-item-page .project-item-page__main .slim .bot .bot__container .bot__wrap {
@@ -12567,6 +12593,7 @@ a {
 .commercial-item-page .about {
   background: #f5f5f5;
   padding: 14px 104px 50px;
+  max-width: 100%;
 }
 
 .commercial-item-page .about .about__container {
@@ -13697,6 +13724,7 @@ opacity: 0.8px;
 .commercial-item-page .bot {
   background: #363636;
   padding: 50px 0 40px;
+  max-width: 100%;
 }
 
 .commercial-item-page .bot .bot__container {
@@ -13805,6 +13833,8 @@ opacity: 0.8px;
 
 .buy-page .main {
   position: relative;
+  max-width: 2500px;
+  margin: 0 auto;
 }
 
 .buy-page .main .aside-menu {
@@ -13967,6 +13997,7 @@ opacity: 0.8px;
   position: relative;
   /* background: #f5f5f5; */
   padding: 81px 104px 78px;
+  /* max-width: 2500px; */
 }
 
 .buy-page .main .top .top__container .top__wrap .top__content .top__img img {
@@ -14010,6 +14041,7 @@ opacity: 0.8px;
 .buy-page .main .programms {
   background: #f5f5f5;
   padding: 119px 104px 78px;
+  max-width: 2500px;
 }
 
 .buy-page .main .programms .programms__container {
@@ -14367,6 +14399,7 @@ opacity: 0.8px;
   position: relative;
   /* background: #f5f5f5; */
   padding: 80px 104px 79px;
+  max-width: 100%;
 }
 
 .main .bot .bot__container .bot__wrap .bot__map {
@@ -14472,6 +14505,7 @@ opacity: 0.8px;
 .company .main .section {
   padding: 0;
   padding: 0px 104px;
+  max-width: 100%;
 }
 
 .cooperation-page .cooperation__container .cooperation__top {
@@ -15291,6 +15325,14 @@ opacity: 0.8px;
   border-radius: 10px;
 }
 
+.commercial-item-page .main .bot {
+  max-width: 100%;
+}
+
+.commercial-item-page .commercial {
+  max-width: 100%;
+}
+
 @media (min-width: 1350px) {
   .header .header__section .header__container .header__top-block .nav .nav__list .nav__link_active {
     text-decoration-color: #56693e;
@@ -15794,6 +15836,8 @@ opacity: 0.8px;
     text-align: left;
     color: #363636;
   }
+
+
 
   .apartments-item-page .about .about__container .about__right .about__right-title {
     font-family: Inter;
