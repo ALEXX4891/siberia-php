@@ -17893,6 +17893,10 @@ line-height: 110%;
   .project-page .project-page__section .project-page__container .project-page__map {
     display: none;
   }
+
+  .project-page.project-page__full-map .project-page__section .project-page__container .project-page__map {
+    display: block;
+  }
 }
 
 @media (max-width: 1460px) {

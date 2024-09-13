@@ -341,6 +341,8 @@ if (projectMapBtn) {
     console.log("тест");
     const body = projectMapBtn.closest("body");
     body.classList.toggle("project-page__full-map");
+    
+
   });
 }
 

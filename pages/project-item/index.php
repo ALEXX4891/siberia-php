@@ -94,9 +94,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 жизнь приятнее каждый день.
               </p>
 
-              <button class="slider__button btn btn_white">
+              <a class="slider__button btn btn_white" href="#map">
                 На карте
-              </button>
+              </a>
             </div>
 
             <div class="slider__right slider_swiper">
@@ -257,7 +257,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
 
               <div class="choice__btns-block">
-                <button class="choice__btn-filter" data-id="promotion">
+                <button class="choice__btn-filter" data-id="optionPromotion">
                   Акция
                   <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.75" y="1.25" width="17.5" height="17.5" rx="8.75" stroke="#56693E" stroke-width="1.5" />
@@ -266,7 +266,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       fill="#56693E" />
                   </svg>
                 </button>
-                <button class="choice__btn-filter" data-id="keyToday">
+                <button class="choice__btn-filter" data-id="optionKeyToday">
                   Ключи сегодня
                   <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.75" y="1.25" width="17.5" height="17.5" rx="8.75" stroke="#56693E" stroke-width="1.5" />
@@ -275,22 +275,22 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       fill="#56693E" />
                   </svg>
                 </button>
-                <button class="choice__btn-filter" data-id="balcony">
+                <button class="choice__btn-filter" data-id="optionBalcony">
                   Балкон
                 </button>
-                <button class="choice__btn-filter" data-id="dressRoom">
+                <button class="choice__btn-filter" data-id="optionDressRoom">
                   Гардеробная
                 </button>
-                <button class="choice__btn-filter" data-id="twoSide">
+                <button class="choice__btn-filter" data-id="optionTwoSide">
                   Окна на 2 стороны
                 </button>
-                <button class="choice__btn-filter" data-id="threeSide">
+                <button class="choice__btn-filter" data-id="optionThreeSide">
                   Окна на 3 стороны
                 </button>
-                <button class="choice__btn-filter" data-id="guestBathroom">
+                <button class="choice__btn-filter" data-id="optionGuestBathroom">
                   Гостевой санузел
                 </button>
-                <button class="choice__btn-filter" data-id="kitchenLiving">
+                <button class="choice__btn-filter" data-id="optionKitchenLiving">
                   Кухня-гостиная
                 </button>
               </div>

@@ -218,7 +218,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Особенности
             </p>
             <div class="about__right-btn-block-wrap">
-              <!-- <button class="about__right-btn-block-filter" data-id="promotion">
+              <!-- <button class="about__right-btn-block-filter" data-id="optionPromotion">
                 Акция
                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="1" y="0.5" width="18" height="18" rx="9" stroke="#8CAB64" />
@@ -228,7 +228,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </svg>
 
               </button> -->
-              <!-- <button class="about__right-btn-block-filter" data-id="keyToday">
+              <!-- <button class="about__right-btn-block-filter" data-id="optionKeyToday">
                 Ключи сегодня
                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="1" y="0.5" width="18" height="18" rx="9" stroke="#8CAB64"/>
@@ -236,7 +236,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </svg>
 
               </button> -->
-              <!-- <button class="about__right-btn-block-filter" data-id="balcony">
+              <!-- <button class="about__right-btn-block-filter" data-id="optionBalcony">
                 Балкон
                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="1" y="0.5" width="18" height="18" rx="9" stroke="#8CAB64" />
@@ -246,22 +246,22 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </svg>
 
               </button> -->
-              <!-- <button class="about__right-btn-block-filter" data-id="dressRoom">
+              <!-- <button class="about__right-btn-block-filter" data-id="optionDressRoom">
                 Гардеробная
               </button> -->
-              <button class="about__right-btn-block-filter" data-id="twoSide">
+              <button class="about__right-btn-block-filter" data-id="optionTwoSide">
                 Окна на 2 стороны
               </button>
-              <!-- <button class="about__right-btn-block-filter" data-id="threeSide">
+              <!-- <button class="about__right-btn-block-filter" data-id="optionThreeSide">
                 Окна на 3 стороны
               </button> -->
-              <!-- <button class="about__right-btn-block-filter about__right-btn-block-filter_disabled" data-id="guestBathroom">
+              <!-- <button class="about__right-btn-block-filter about__right-btn-block-filter_disabled" data-id="optionGuestBathroom">
                 Гостевой санузел
               </button> -->
-              <!-- <button class="about__right-btn-block-filter about__right-btn-block-filter_disabled" data-id="terrace">
+              <!-- <button class="about__right-btn-block-filter about__right-btn-block-filter_disabled" data-id="optionTerrace">
                 Терраса
               </button> -->
-              <!-- <button class="about__right-btn-block-filter" data-id="kitchenLiving">
+              <!-- <button class="about__right-btn-block-filter" data-id="optionKitchenLiving">
                 Кухня-гостиная
               </button> -->
             </div>

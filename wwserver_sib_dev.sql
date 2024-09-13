@@ -37,7 +37,7 @@ CREATE TABLE `apartments` (
   `price` decimal(10,2) NOT NULL,
   `number_of_rooms` int DEFAULT NULL,
   `area` decimal(5,2) NOT NULL,
-  `balcony` tinyint(1) NOT NULL,
+  `optionBalcony` tinyint(1) NOT NULL,
   `dressing_room` tinyint(1) NOT NULL,
   `undershirt_2` tinyint(1) NOT NULL,
   `undershirt_3` tinyint(1) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE `apartments` (
 -- Дамп данных таблицы `apartments`
 --
 
-INSERT INTO `apartments` (`id`, `complex`, `stage`, `house`, `apartment`, `image`, `price`, `number_of_rooms`, `area`, `balcony`, `dressing_room`, `undershirt_2`, `undershirt_3`, `guest_bathroom`, `kitchen_living_room`, `studio`, `commerce`, `floor`, `entrance`) VALUES
+INSERT INTO `apartments` (`id`, `complex`, `stage`, `house`, `apartment`, `image`, `price`, `number_of_rooms`, `area`, `optionBalcony`, `dressing_room`, `undershirt_2`, `undershirt_3`, `guest_bathroom`, `kitchen_living_room`, `studio`, `commerce`, `floor`, `entrance`) VALUES
 (115, 'Сосновый', 2, 3, 1, 'kv-1.jpg', '3700000.00', 1, '37.00', 1, 0, 0, 0, 0, 1, 0, 0, 1, 1),
 (116, 'Сосновый', 1, 1, 2, 'kv-2.jpg', '3700000.00', 1, '37.00', 1, 1, 0, 0, 0, 1, 0, 0, 1, 1),
 (117, 'Сосновый', 1, 1, 3, 'kv-3.jpg', '3900000.00', 1, '39.00', 1, 0, 0, 0, 0, 1, 0, 0, 1, 1),

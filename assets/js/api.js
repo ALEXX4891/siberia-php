@@ -157,18 +157,20 @@ if (
     item.object_type_title = houseInfo.find((house) => house.house_id == item.house_id).object_type_title;
     item.apart_rooms = item.rooms == 1 ? 1 : item.rooms == 2 ? 2 : item.rooms == 3 ? 3 : item.rooms > 3 ? 4 : "";
     item.apart_rooms = item.roomsList.find((room) => room.title == "Жилая комната") ? item.apart_rooms : 11;
-    item.balcony = item.roomsList.find((room) => room.title == "Лоджия") ? 1 : 0;
-    item.kitchenLiving = item.roomsList.find((room) => room.title == "Кухня-гостиная") ? 1 : 0;
-    item.dressRoom = item.roomsList.find((room) => room.title == "Гардеробная") ? 1 : 0;
-    item.guestBathroom = item.roomsList.filter((room) => room.title == "Санузел").length > 1 ? 1 : 0;
-    item.twoSide = item.roomsList.find((room) => room.title == "Две стороны") ? 1 : 0;
-    item.threeSide = item.roomsList.find((room) => room.title == "Три стороны") ? 1 : 0;
-    item.terrace = item.roomsList.find((room) => room.title == "Терраса") ? 1 : 0;
-    item.keyToday = item.roomsList.find((room) => room.title == "Ключи сегодня") ? 1 : 0;
-    item.promotion = item.roomsList.find((room) => room.title == "Акция") ? 1 : 0;
-    item.title = item.apart_rooms == 11 ? `Студия ${item.square} м<sup>2</sup>` : `${item.rooms}-комнатная ${item.square} м<sup>2</sup>`;
+    item.optionBalcony = item.roomsList.find((room) => room.title == "Лоджия") ? 1 : 0;
+    item.optionKitchenLiving = item.roomsList.find((room) => room.title == "Кухня-гостиная") ? 1 : 0;
+    item.optionDressRoom = item.roomsList.find((room) => room.title == "Гардеробная") ? 1 : 0;
+    item.optionGuestBathroom = item.roomsList.filter((room) => room.title == "Санузел").length > 1 ? 1 : 0;
+    item.optionTwoSide = item.roomsList.find((room) => room.title == "Две стороны") ? 1 : 0;
+    item.optionThreeSide = item.roomsList.find((room) => room.title == "Три стороны") ? 1 : 0;
+    item.optionTerrace = item.roomsList.find((room) => room.title == "Терраса") ? 1 : 0;
+    item.optionKeyToday = item.roomsList.find((room) => room.title == "Ключи сегодня") ? 1 : 0;
+    item.optionPromotion = item.roomsList.find((room) => room.title == "Акция") ? 1 : 0;
+    item.title =
+      item.apart_rooms == 11
+        ? `Студия ${item.square} м<sup>2</sup>`
+        : `${item.rooms}-комнатная ${item.square} м<sup>2</sup>`;
     item.imgAlt = item.apart_rooms == 11 ? `Студия ${item.square} м2` : `${item.rooms}-комнатная ${item.square} м2`;
-
   });
 
   // console.log("allAparstInfo", allApartsInfo);
@@ -240,28 +242,47 @@ if (
     // const deadline = [... new Set(allAparstInfo.map((item) => new Date(item.house_building_end).toLocaleString()))];
     const deadline = [...new Set(allApartsInfo.map((item) => getQuarter(new Date(item.house_building_end))))];
     const btnsElements = document.querySelectorAll(".choice__btn-filter");
-    let allBtns = [];
-    const allKeys = Object.keys(allApartsInfo[0]);
+    let allOptions = [];
+    // const allKeys = Object.keys(allApartsInfo[0]);
+
     btnsElements.forEach((item) => {
       // console.log(item);
       const id = item.getAttribute("data-id");
       // console.log("id", id);
-      allBtns = [...allBtns, id];
+      allOptions = [...allOptions, id];
       // btns.push.id;
     });
-    
+
+    let optionsInAllApartInfo = [];
+
+    // ищем все опции в allApartsInfo:
+    allOptions.forEach((item) => {
+      allApartsInfo.forEach((obj) => {
+        if (obj[item]) {
+          optionsInAllApartInfo.push(item);
+        }
+      });
+    });
+
+    optionsInAllApartInfo = [...new Set(optionsInAllApartInfo)];
+
+    // если опции встречается в массиве квартир, то делаем их активнымми:
+    btnsElements.forEach((item) => {
+      const id = item.getAttribute("data-id");
+      if (!optionsInAllApartInfo.includes(id)) {
+        item.classList.add("choice__btn-filter_disabled");
+      } else {
+        item.classList.remove("choice__btn-filter_disabled");
+      }
+    });
+
     // console.log("allApartsInfo[0]", allApartsInfo[0]);
-    
+
     // найдем те элементы которые фигурируют в массиве allApartsInfo:
-    
-    let btns = allBtns.filter(item => allKeys.includes(item));
-    console.log("allKeys", allKeys);
-    console.log("allBtns", allBtns);
-    console.log("btns", btns);
 
-    // let btns = allApartsInfo[0].filter((item) => allBtns.includes(item.item));
+    // let btns = allOptions.filter((item) => allKeys.includes(item));
 
-
+    // let btns = allApartsInfo[0].filter((item) => allOptions.includes(item.item));
 
     // filter(item => {
     //   console.log("item", item);
@@ -282,7 +303,6 @@ if (
     // console.log("houses", houses);
     // console.log("sections", sections);
     // console.log("deadline", deadline);
-
 
     const filterAllInfo = [
       {
@@ -328,7 +348,7 @@ if (
       },
       {
         name: "btns",
-        value: btns,
+        value: optionsInAllApartInfo,
       },
     ];
 
@@ -1450,7 +1470,7 @@ if (
   //   project: "sosnoviy",
   //   numbers_of_rooms: "",
   //   area: "",
-  //   balcony: "",
+  //   optionBalcony: "",
   //   dressing_room: "",
   //   side_2: "",
   //   side_3: "",
@@ -1799,16 +1819,16 @@ if (
     const id = url.searchParams.get("id");
     // console.log('id:', id);
     const obj = allApartsInfo.filter((item) => item.id == id)[0];
-    console.log('obj:', obj);
+    console.log("obj:", obj);
 
     const imgBlock = document.querySelector(".about__img");
     const imgArr = obj.img;
     imgArr.forEach((item) => {
       imgBlock.innerHTML += `<img src="${item.img_path}" alt="${obj.imgAlt}" data-fancybox="1">`;
-    })
+    });
 
     const apartImgArr = imgBlock.querySelectorAll("img");
-    
+
     for (let i = 0; i < apartImgArr.length; i++) {
       const id = i + 1;
       apartImgArr[i].setAttribute("data-img", id);
@@ -1816,24 +1836,24 @@ if (
         apartImgArr[i].style.display = "none";
       }
     }
-    
+
     const titleBlock = document.querySelector(".about__right-title");
     titleBlock.innerHTML = obj.title;
 
     const priceBlock = document.querySelector(".about__right-new-price");
-    priceBlock.innerHTML = Number(obj.price).toLocaleString('ru-RU', {
-      style: 'currency',
-      currency: 'RUB',
+    priceBlock.innerHTML = Number(obj.price).toLocaleString("ru-RU", {
+      style: "currency",
+      currency: "RUB",
       minimumFractionDigits: 0,
     });
 
     const oldPriceBlock = document.querySelector(".about__right-old-price");
     if (obj.old_price) {
-    oldPriceBlock.innerHTML = Number(obj.old_price).toLocaleString('ru-RU', {
-      style: 'currency',
-      currency: 'RUB',
-      minimumFractionDigits: 0,
-    });
+      oldPriceBlock.innerHTML = Number(obj.old_price).toLocaleString("ru-RU", {
+        style: "currency",
+        currency: "RUB",
+        minimumFractionDigits: 0,
+      });
     } else {
       oldPriceBlock.style.display = "none";
     }
@@ -1846,7 +1866,7 @@ if (
 
     const projectBlock = document.querySelector(".about__btn-complex-text");
     projectBlock.innerHTML = `${obj.project_name} квартал`;
-    
+
     const plansBtns = document.querySelectorAll(".about__btn");
     plansBtns.forEach((item) => {
       item.addEventListener("click", (e) => {
@@ -1858,25 +1878,10 @@ if (
           } else {
             item.style.display = "none";
           }
-        })
-      })
-    })
+        });
+      });
+    });
   }
 
   // ------------------------------------- end render квартиры -------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
