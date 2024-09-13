@@ -234,8 +234,8 @@ if (
     "optionGuestBathroom",
     "optionTerrace",
   ];
-  // console.log(obj);
 
+  // формируем массив опций из объекта:
   const optionsFromObj = [];
 
   for(let op in obj) {
@@ -245,26 +245,6 @@ if (
       } 
     })
   }
-
-  console.log(obj.id, optionsFromObj);
-
-
-
-  // for (let i = 0; i < obj.length; i++) {
-  //   console.log("obj[i]", obj[i]);
-  //   allOptions.forEach((item) => {
-  //     obj[i] == item && obj[i] == 1 ? 
-  //     console.log("obj[i]", obj[i]) : 
-  //     console.log("obj[i]*", obj[i]);
-  //   })
-  // }
-  // obj.forEach((item) => {
-  //   allOptions.forEach((option) => {
-  //     if (item[option] == 1) {
-  //       console.log("item[option]", item[option]);
-  //     }
-  //   });
-  // });
 
   const strOptions = `  
   <li class="apartments__item-footer-item" data-id="optionPromotion">
@@ -328,6 +308,7 @@ if (
     
     const btnsElements = options.querySelectorAll(".apartments__item-footer-item");
 
+    // фильтруем массив опций, удяляя лишние элементы:
     btnsElements.forEach((item) => {
       if (!optionsFromObj.includes(item.getAttribute("data-id"))) {
         item.remove();
@@ -2045,7 +2026,95 @@ if (
         });
       });
     });
+
+    const strOptions = `
+    <li class="about__right-btn-block-filter" data-id="optionPromotion">
+      Акция
+    </li>
+    <li class="about__right-btn-block-filter" data-id="optionKeyToday">
+      Ключи сегодня
+    </li>
+    <li class="about__right-btn-block-filter" data-id="optionBalcony">
+      Балкон
+    </li>
+    <li class="about__right-btn-block-filter" data-id="optionDressRoom">
+      Гардеробная
+    </li>
+    <li class="about__right-btn-block-filter" data-id="optionTwoSide">
+      Окна на 2 стороны
+    </li>
+    <li class="about__right-btn-block-filter" data-id="optionThreeSide">
+      Окна на 3 стороны
+    </li>
+    <li class="about__right-btn-block-filter" data-id="optionGuestBathroom">
+      Гостевой санузел
+    </li>
+    <li class="about__right-btn-block-filter" data-id="optionTerrace">
+      Терраса
+    </li>
+    <li class="about__right-btn-block-filter" data-id="optionKitchenLiving">
+      Кухня-гостиная
+    </li>  
+  `;
+
+  const optionsBlock = document.querySelector(".about__right-btn-block");
+
+
+    
+    const options = document.createElement("ul");
+    options.classList.add("about__right-btn-block-wrap");
+    options.innerHTML = strOptions;
+
+
+  // добавление и фльтрация опций:
+
+  const allOptions = [
+    "optionPromotion",
+    "optionKeyToday",
+    "optionTwoSide",
+    "optionThreeSide",
+    "optionBalcony",
+    "optionKitchenLiving",
+    "optionDressRoom",
+    "optionGuestBathroom",
+    "optionTerrace",
+  ];
+
+  // формируем массив опций из объекта:
+  const optionsFromObj = [];
+
+  for(let op in obj) {
+    allOptions.forEach((option) => {
+      if (op == option && obj[op]) {
+        optionsFromObj.push(op);
+      } 
+    })
   }
+
+  const btnsElements = options.querySelectorAll(".about__right-btn-block-filter");
+
+
+      // фильтруем массив опций, удяляя лишние элементы:
+      btnsElements.forEach((item) => {
+        if (!optionsFromObj.includes(item.getAttribute("data-id"))) {
+          item.remove();
+        } 
+      });
+
+
+
+
+
+
+
+
+
+
+
+    optionsBlock.append(options);
+  }
+
+  
 
   // ------------------------------------- end render квартиры -------------------------------
 }
