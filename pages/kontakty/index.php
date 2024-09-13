@@ -28,7 +28,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <div class="contacts-page__left-wrap">
 
             <?
-            $result = mysqli_query($db, "SELECT * FROM contacts WHERE publish = 1 ORDER BY id ASC");
+            $result = mysqli_query($db, "SELECT * FROM offices WHERE publish = 1 ORDER BY id ASC");
             $row = mysqli_fetch_array($result);
 
             if (mysqli_num_rows($result) > 0) {
@@ -36,10 +36,10 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 echo "<div class='address__wrapper address__wrapper_close' data-id='{$row['id']}'>
                 <div class='address__item address__item_office'>
                 <h2 class='address__item-title title title_25'>
-                  {$row['title']}
+                  {$row['name']}
                 </h2>
                 <p class='address__time'>
-                  {$row['work-time']}
+                  {$row['description']}
                 </p>
               </div>
 
