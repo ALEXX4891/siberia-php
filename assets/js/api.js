@@ -1218,6 +1218,7 @@ if (
     // обработка событий текстовых инпутов:
     priceInputs.forEach((input) => {
       input.addEventListener("change", (e) => {
+        console.log("тест");
         //получаем значения из текстовых инпутов:
         let minVal = parseInt(textInputMin.value);
         let maxVal = parseInt(textInputMax.value);
@@ -1290,6 +1291,8 @@ if (
 
       // изменение положения ползунков при перетаскивании:
       input.addEventListener("input", (e) => {
+        console.log("тест");
+
         let minVal = parseInt(rangeInputMin.value);
         let maxVal = parseInt(rangeInputMax.value);
         let diff = maxVal - minVal;
@@ -1332,12 +1335,14 @@ if (
         }
       });
 
-      // рендер при перетаскивании:
-      input.addEventListener("change", (e) => {
-        apartRender(allApartsInfo);
-      });
+      // // рендер при перетаскивании:
+      // input.addEventListener("change", (e) => {
+      //   console.log("тест");
+      //   apartRender(allApartsInfo);
+      // });
 
       input.addEventListener("change", (e) => {
+        console.log("тест");
         // запись параметров в адресную строку:
         if (slider.classList.contains("choice__input-block_slider_cost")) {
           urlParams.set("cost", `${rangeInputMin.value}-${rangeInputMax.value}`);
@@ -1942,10 +1947,10 @@ if (
           } else {
             urlParams.delete(item.getAttribute("data-id"));
           }
-
-          window.history.pushState({}, "", "?" + urlParams.toString());
-          apartRender(allApartsInfo);
         });
+
+        window.history.pushState({}, "", "?" + urlParams.toString());
+        apartRender(allApartsInfo);
       });
     });
   }
