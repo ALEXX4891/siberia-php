@@ -165,7 +165,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Забронировать
             </button>
 
-            <button class="about__right-bot-btn btn btn_light-green popup-link" href="#popup-call">
+            <button class="about__right-bot-btn btn btn_light-green popup-link booking-call-btn" href="#popup-booking-call">
               Заказать звонок
             </button>
           </div>

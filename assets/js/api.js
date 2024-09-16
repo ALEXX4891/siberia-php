@@ -197,6 +197,10 @@ if (
       <div class="apartments__item-img">          
           <img src="${obj.img ? obj.img[0].img_path : ""}" alt="планировка квартиры">
       </div>
+
+      <p class="apartments__item-number" style="display: none">
+        ${obj.num}
+      </p>
   
       <p class="apartments__item-desc">
         ${obj.rooms ? obj.rooms : ""}-комнатная ${obj.square ? obj.square : ""}м<sup>2</sup>
@@ -1137,9 +1141,7 @@ if (
   }
 
   function filterTableBtns(arrFilter, arrInit) {
-      return arrInit.filter(obj => 
-        arrFilter.every(key => key in obj && obj[key])
-    );
+    return arrInit.filter((obj) => arrFilter.every((key) => key in obj && obj[key]));
   }
 
   function filterTable(filter, param, arr) {
@@ -1956,12 +1958,15 @@ if (
   // -------------------------------------------- end фильтр по особенностям ---------------------------------------------
   // ------------------------------------- start render квартиры -------------------------------
 
+  let apart = {};
+
   const apartmentsItemPage = document.querySelector(".apartments-item-page");
   if (apartmentsItemPage) {
     const url = new URL(window.location.href);
     const id = url.searchParams.get("id");
     // console.log('id:', id);
     const obj = allApartsInfo.filter((item) => item.id == id)[0];
+    apart = obj;
     console.log("obj:", obj);
 
     const imgBlock = document.querySelector(".about__img");
@@ -2099,4 +2104,70 @@ if (
   }
 
   // ------------------------------------- end render квартиры -------------------------------
+
+  // ------------------------------------- start передача в модалку данных -------------------------------
+  const bookingButton = document.querySelector(".booking-btn");
+  if (bookingButton) {
+    const bookingPopup = document.querySelector("#popup-booking");
+    bookingButton.addEventListener("click", () => {
+      setAddFormInputs(bookingPopup, bookingButton);
+    });
+  }
+
+  const bookingCallButton = document.querySelector(".booking-call-btn");
+  if (bookingCallButton) {
+    const bookingPopupCall = document.querySelector("#popup-booking-call");
+    bookingCallButton.addEventListener("click", () => {
+      setAddFormInputs(bookingPopupCall, bookingCallButton);
+    });
+  }
+
+  function setAddFormInputs(popup, formBtn) {
+    console.log("тест");
+
+    let floor = formBtn.closest(".choice__form").querySelector(".select__text").innerHTML;
+    console.log(floor);
+    // checkbox__label_active
+    let payment =
+      formBtn
+        .closest(".choice__form")
+        .querySelector(".checkbox__label_active")
+        .querySelector(".checkbox__tite")
+        .innerHTML.trim() +
+      " - " +
+      formBtn
+        .closest(".choice__form")
+        .querySelector(".checkbox__label_active")
+        .querySelector(".checkbox__desc")
+        .innerHTML.trim();
+    // const house = btn.closest(".choice__form").querySelector('.about__right-info-text-section').innerHTML.trim();
+    const house = apart.house_title_rus;
+    // const project = btn.closest(".choice__form").querySelector('.about__btn-complex-text').innerHTML.trim();
+    const project = apart.project_name;
+    const title = apart.imgAlt;
+    const houseId = apart.house_id;
+
+    const floorInput = popup.querySelector('input[name="floor"]');
+    const paymentInput = popup.querySelector('input[name="payment"]');
+    const houseInput = popup.querySelector('input[name="house"]');
+    const projectInput = popup.querySelector('input[name="project"]');
+    const titleInput = popup.querySelector('input[name="apartment"]');
+    const houseIdInput = popup.querySelector('input[name="house_id"]');
+
+    floorInput.value = floor;
+    paymentInput.value = payment;
+    houseInput.value = house;
+    projectInput.value = project;
+    titleInput.value = title;
+    houseIdInput.value = houseId;
+
+    console.log("floor:", floorInput.value);
+    console.log("payment:", paymentInput.value);
+    console.log("house:", houseInput.value);
+    console.log("project:", projectInput.value);
+    console.log("title:", titleInput.value);
+    console.log("houseId:", houseIdInput.value);
+  }
+
+  // ------------------------------------- end передача в модалку данных -------------------------------
 }

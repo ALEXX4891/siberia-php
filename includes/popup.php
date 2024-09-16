@@ -368,7 +368,6 @@
           <input type="number" name="id" value="2" hidden>
           <input type="text" name="theme" value="call" hidden>
 
-
           <label class="form__label">
             <span class="form__label-text">
               Имя
@@ -562,6 +561,10 @@
         <input type="text" name="payment" value="" hidden>
         <input type="text" name="house" value="" hidden>
         <input type="text" name="project" value="" hidden>
+        <input type="text" name="house_id" value="" hidden>
+
+        <!-- <input type="text" name="title" value="" hidden> -->
+
 
           <label class="form__label form__label_readonly">
             <span class="form__label-text">
@@ -572,8 +575,7 @@
             </span>
 
             <input class="form__input form__input_apartment _req" type="text" name="apartment"
-              placeholder="Выберите квартиру"  >
-              <!-- TODO добавить readonly  -->
+              placeholder="Выберите квартиру" readonly>
           </label>
 
           <label class="form__label">
@@ -974,6 +976,85 @@
         </div>
 
         <span class="request__close-btn popup-close">
+          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+          </svg>
+        </span>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="popup popup_call" id="popup-booking-call" data-id="10">
+  <div class="popup__body">
+    <div class="popup__content popup-form">
+      <form class="popup__form os-form">
+        <h3 class="form__title">
+          Заказать звонок
+        </h3>
+
+        <p class="form__desc">
+          Оставьте ваши данные и наш менеджер свяжется с вами
+        </p>
+
+        <div class="form__label-block">
+
+          <input type="number" name="id" value="10" hidden>
+          <input type="text" name="theme" value="call" hidden>
+          <input type="text" name="floor" value="" hidden>
+          <input type="text" name="payment" value="" hidden>
+          <input type="text" name="house" value="" hidden>
+          <input type="text" name="project" value="" hidden>
+          <input type="text" name="apartment" value="" hidden>
+        <input type="text" name="house_id" value="" hidden>
+
+
+
+          <label class="form__label">
+            <span class="form__label-text">
+              Имя
+            </span>
+            <span class="form__label-star">
+              *
+            </span>
+            <input class="form__input form__input_name _req" type="text" name="name" placeholder="Как вас зовут?">
+          </label>
+
+          <label class="form__label">
+            <span class="form__label-text">
+              Телефон
+            </span>
+            <span class="form__label-star">
+              *
+            </span>
+            <input class="form__input form__input_phone _req phone" type="tel" name="phone" placeholder="Номер телефона">
+          </label>
+
+          <label class="form__label">
+            <span class="form__label-text">
+              E-mail
+            </span>
+            <input class="form__input form__input_email" type="email" name="email" placeholder="E-mail">
+          </label>
+
+        </div>
+
+        <button class="btn btn_dark form__btn">
+          Отправить
+        </button>
+
+        <div class="form__agreement-wrap">
+          <span class="form__agreement-text">
+            Нажимая кнопку «Отправить», вы соглашаетесь с
+          </span>
+          <a class="form__agreement-link" href="/pages/policy/agreement/" target="_blank">
+            условиями обработки персональных данных
+          </a>
+        </div>
+
+        <span class="form__close-btn popup-close">
           <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
           </svg>
