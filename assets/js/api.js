@@ -474,7 +474,7 @@ if (
         allSelect +
         filterAllInfo
           .find((item) => item.name === "Проект")
-          .value.map((item) => `<li class="select__item">${item}</li>`)
+          .value.map((item) => `<li class="select__item" data-id="${item}">${item}</li>`)
           .join("");
       // projectFilter.innerHTML = allSelect + projectFilter.innerHTML;
     } else {
@@ -1932,7 +1932,6 @@ if (
     });
   }
   // -------------------------------------------- end Селект ---------------------------------------------
-
   // -------------------------------------------- start фильтр по особенностям ---------------------------------------------
   const btns = document.querySelectorAll(".choice__btn-filter");
   if (btns) {

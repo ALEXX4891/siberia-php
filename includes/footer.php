@@ -167,7 +167,7 @@
 					</a>
 				</div>
 
-				<button class="btn btn_dark footer__btn popup-link" href="#popup-notification">
+				<button class="btn btn_dark footer__btn popup-link" href="#popup-agency">
 					Форма уведомления
 				</button>
 

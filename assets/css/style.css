@@ -2195,7 +2195,7 @@ a {
   .notification__label-block
   .notification__label.notification__label_textarea
   .notification__input_textarea {
-  max-width: 395px;
+  max-width: 100%;
   min-height: 116px;
 }
 

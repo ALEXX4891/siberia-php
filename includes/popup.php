@@ -280,7 +280,7 @@
 
 <!-- ----- формы ОС: ----- -->
 
-<div class="popup" id="popup-form">
+<div class="popup" id="popup-form" data-id="1">
   <div class="popup__body">
     <div class="popup__content popup-form">
       <form class="popup__form os-form">
@@ -290,6 +290,7 @@
 
         <div class="form__label-block">
 
+          <input type="number" name="id" value="1" hidden>
           <input type="text" name="theme" value="flat" hidden>
 
           <label class="form__label">
@@ -350,7 +351,7 @@
   </div>
 </div>
 
-<div class="popup popup_call" id="popup-call">
+<div class="popup popup_call" id="popup-call" data-id="2">
   <div class="popup__body">
     <div class="popup__content popup-form">
       <form class="popup__form os-form">
@@ -363,6 +364,8 @@
         </p>
 
         <div class="form__label-block">
+
+          <input type="number" name="id" value="2" hidden>
           <input type="text" name="theme" value="call" hidden>
 
 
@@ -419,7 +422,7 @@
   </div>
 </div>
 
-<div class="popup popup_call" id="popup-subscribe">
+<div class="popup popup_call" id="popup-subscribe" data-id="3">
   <div class="popup__body">
     <div class="popup__content popup-form">
       <form class="popup__form os-form" action="#">
@@ -429,6 +432,7 @@
 
         <div class="form__label-block">
 
+        <input type="number" name="id" value="3" hidden>
         <input type="text" name="theme" value="subscribe" hidden>
 
           <label class="form__label">
@@ -467,7 +471,7 @@
   </div>
 </div>
 
-<div class="popup popup_request" id="popup-request">
+<div class="popup popup_request" id="popup-request" data-id="4">
   <div class="popup__body">
     <div class="popup__content popup-form">
       <form class="popup__form os-form">
@@ -477,6 +481,7 @@
 
         <div class="form__label-block">
 
+          <input type="number" name="id" value="4" hidden>
           <input type="text" name="theme" value="question" hidden>
 
           <label class="form__label">
@@ -541,7 +546,7 @@
   </div>
 </div>
 
-<div class="popup popup_booking" id="popup-booking">
+<div class="popup popup_booking" id="popup-booking" data-id="5">
   <div class="popup__body">
     <div class="popup__content popup-form">
       <form class="popup__form os-form">
@@ -551,6 +556,7 @@
 
         <div class="form__label-block">
 
+        <input type="number" name="id" value="5" hidden>
         <input type="text" name="theme" value="flat" hidden>
         <input type="text" name="floor" value="" hidden>
         <input type="text" name="payment" value="" hidden>
@@ -634,7 +640,7 @@
   </div>
 </div>
 
-<div class="popup popup-notification" id="popup-notification">
+<div class="popup popup-agency" id="popup-agency" data-id="6">
   <div class="popup__body">
     <div class="popup__content">
       <form class="popup__form os-form notification">
@@ -644,6 +650,7 @@
 
         <div class="notification__label-block">
 
+          <input type="number" name="id" value="6" hidden>
           <input type="text" name="theme" value="question" hidden>
 
           <label class="notification__label notification__agency">
@@ -733,7 +740,7 @@
   </div>
 </div>
 
-<div class="popup sot-request sot-request_business" id="sot-business">
+<div class="popup sot-request sot-request_business" id="sot-business" data-id="7">
   <div class="popup__body">
     <div class="popup__content">
       <form class="request__form os-form">
@@ -746,6 +753,7 @@
 
         <div class="request__label-block">
 
+        <input type="number" name="id" value="7" hidden>
         <input type="text" name="theme" value="question" hidden>
 
 
@@ -832,7 +840,7 @@
   </div>
 </div>
 
-<div class="popup sot-request sot-request_agent" id="sot-agent">
+<div class="popup sot-request sot-request_agent" id="sot-agent" data-id="8">
   <div class="popup__body">
     <div class="popup__content">
       <form class="request__form os-form">
@@ -845,6 +853,7 @@
 
         <div class="request__label-block">
 
+          <input type="number" name="id" value="8" hidden>
           <input type="text" name="theme" value="question" hidden>
 
           <label class="request__label">
@@ -928,7 +937,7 @@
   </div>
 </div>
 
-<div class="popup sot-bank" id="sot-bank">
+<div class="popup sot-bank" id="sot-bank" data-id="9">
   <div class="popup__body">
     <div class="popup__content">
       <form class="request__form os-form">
@@ -936,6 +945,7 @@
           Оставить заявку
         </h3>
 
+        <input type="number" name="id" value="9" hidden>
         <input type="text" name="theme" value="question" hidden>
 
         <label class="request__label">

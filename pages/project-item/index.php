@@ -30,7 +30,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
         </div>
 
-        <div class="about__img-wrap">
+        <section id="iframe"></section>
+
+        <!-- <div class="about__img-wrap">
           <picture>
             <source srcset="/assets/img/gen-plan-img.webp" type="image/webp"><img class="about__img" src="/assets/img/gen-plan-img.jpg" alt="геплан">
           </picture>
@@ -66,7 +68,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             2 очередь
           </div>
 
-        </div>
+        </div> -->
 
       </div>
     </section>
@@ -191,7 +193,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     </svg>
                   </span>
                   <ul class="select__list select__list_carton">
-                    <li class="select__item" data-id="sosnoviy">Сосновый</li>
+                    <!-- <li class="select__item" data-id="Сосновый">Сосновый</li> -->
                     <!-- <li class="select__item" data-id="duboviy">Дубовый</li> -->
                     <!-- <li class="select__item" data-id="berezoviy">Березовый</li> -->
                   </ul>
@@ -1221,33 +1223,45 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
   include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php';
   ?>
 
-</body>
+  <script src="https://sibir.m2lab.ru/loader.js?containerId=iframe"></script>
 
-</html>
+  <script>
 
-
-
-
-
-
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set("project", "Сосновый");
+    window.history.pushState({}, "", "?" + urlParams.toString()); 
 
 
+    // const option = document.querySelector(`.select__item[data-id='Сосновый']`);
+    // console.log(option);
+    // selectProject('Сосновый');
 
+    // function selectProject(project) {
 
+    //   console.log("тест");
 
+    //   const option = document.querySelector(`.select__item[data-id='${project}']`);
+    //   console.log(option);
 
+    //   const clickEvent = new MouseEvent("click", {
+    //     // "view": window,
+    //     bubbles: false,
+    //     cancelable: false,
+    //     composed: false
+    //   });
 
+    //   // option.dispatchEvent(clickEvent);
 
-
-
-
-
-
-
-
-
-
-
+    //   const select = document.querySelector('.choice__input-block_select_project').querySelector('.choice__select');
+    //   // if (option) {
+    //   // const clickEvent = new Event("click");
+    //   // console.log(select);
+    //   console.log(option.dispatchEvent(clickEvent));
+    //   // btn.dispatchEvent(clickEvent);
+    //   // if (select.dispatchEvent(clickEvent)) {
+    //   // console.log("test**********************");
+    // }
+  </script>
 
 </body>
 

@@ -38,6 +38,42 @@ foreach ($recipients as $email => $name) {
 //Добавляет адрес кому отправится скрытая копия:
 // $mailer->AddBCC('Ящик 3'); 
 
+// --------- запрос планировок: ----------
+if (!empty($_POST['id']) && $_POST['id'] == '2') {
+
+// тема письма
+$mail->Subject = 'Запрос планировок с сайта siberia-dev.ru';
+
+// текст письма
+$body = '<h1>Запрос планировок с сайта siberia-dev.ru:</h1><br/><br/>';
+
+if (trim(!empty($_POST['name']))) {
+  $body .= '<p><strong>Имя:</strong> ' . $_POST['name'] . '</p><br/>';
+  $fieldsArr['name'] = $_POST['name'];
+}
+
+if (trim(!empty($_POST['phone']))) {
+  $body .= '<p><strong>Телефон:</strong> ' . $_POST['phone'] . '</p><br/>';
+  $fieldsArr['phone'] = $_POST['phone'];
+}
+
+if (trim(!empty($_POST['message']))) {
+  $body .= '<p><strong>Сообщение:</strong> ' . $_POST['message'] . '</p><br/>';
+  $fieldsArr['comment'] = $_POST['message'];
+}
+
+if (trim(!empty($_POST['email']))) {
+  $body .= '<p><strong>Email:</strong> ' . $_POST['email'] . '</p><br/>';
+  $fieldsArr['email'] = $_POST['email'];
+}
+
+
+
+
+
+
+
+
 // тема письма
 $mail->Subject = 'Заявка с сайта siberia-dev.ru/';
 
