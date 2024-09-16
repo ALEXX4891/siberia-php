@@ -504,7 +504,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="form__wrapper">
           <form class="form__form os-form" action="#">
 
-            <input type="text" name="theme" value="consultation" hidden>
+            <input type="number" name="id" value="2" hidden>
+            <input type="text" name="theme" value="call" hidden>
 
             <label class="form__label">
               <input class="form__input _req" name="name" type="text" placeholder="Как вас зовут?">

@@ -48,7 +48,7 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
   $body = '<h1>Заказ звонка с сайта siberia-dev.ru:</h1><br/><br/>';
 
   if (trim(!empty($_POST['theme']))) {
-    $body .= '<p><strong>Имя:</strong> ' . $_POST['theme'] . '</p><br/>';
+    $body .= '<p><strong>Тема:</strong> ' . $_POST['theme'] . '</p><br/>';
     $fieldsArr['type'] = $_POST['theme'];
   }
 
@@ -66,6 +66,14 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
     $body .= '<p><strong>Email:</strong> ' . $_POST['email'] . '</p><br/>';
     $fieldsArr['email'] = $_POST['email'];
   }
+
+  if (trim(!empty($_POST['message']))) {
+    $body .= '<p><strong>Комментарий:</strong> ' . $_POST['message'] . '</p><br/>';
+    $fieldsArr['comment'] = $_POST['message'];
+  }
+
+
+
 } elseif (!empty($_POST['id']) && $_POST['id'] == '5') {
 
   // тема письма
@@ -190,6 +198,50 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
     $body .= '<p><strong>Квартира:</strong> ' . $_POST['apartment'] . '</p><br/>';
     $fieldsArr['apartment'] = $_POST['apartment'];
   }
+} elseif (!empty($_POST['id']) && $_POST['id'] == '6') {
+
+  // тема письма
+  $mail->Subject = 'Заказ звонка от агенства с сайта siberia-dev.ru';
+
+  // текст письма
+  $body = '<h1>Заказ звонка от агенства с сайта siberia-dev.ru:</h1><br/><br/>';
+
+  if (trim(!empty($_POST['theme']))) {
+    $body .= '<p><strong>Тема:</strong> ' . $_POST['theme'] . '</p><br/>';
+    $fieldsArr['type'] = $_POST['theme'];
+  }
+
+  if (trim(!empty($_POST['agency']))) {
+    $body .= '<p><strong>Агентство:</strong> ' . $_POST['agency'] . '</p><br/>';
+    $fieldsArr['agency'] = $_POST['agency'];
+  }
+
+  if (trim(!empty($_POST['agent-name']))) {
+    $body .= '<p><strong>ФИО агента:</strong> ' . $_POST['agent-name'] . '</p><br/>';
+    $fieldsArr['name'] = $_POST['agent-name'];
+  }
+
+  if (trim(!empty($_POST['agent-phone']))) {
+    $body .= '<p><strong>Телефон агента:</strong> ' . $_POST['agent-phone'] . '</p><br/>';
+    $fieldsArr['phone'] = $_POST['agent-phone'];
+  }
+
+  if (trim(!empty($_POST['client-name']))) {
+    $body .= '<p><strong>ФИО клиента:</strong> ' . $_POST['client-name'] . '</p><br/>';
+    $fieldsArr['client_name'] = $_POST['client-name'];
+  }
+
+  if (trim(!empty($_POST['client-phone']))) {
+    $body .= '<p><strong>Телефон клиента:</strong> ' . $_POST['client-phone'] . '</p><br/>';
+    $fieldsArr['client_phone'] = $_POST['client-phone'];
+  }
+
+  if (trim(!empty($_POST['message']))) {
+    $body .= '<p><strong>Комментарий:</strong> ' . $_POST['message'] . '</p><br/>';
+    $fieldsArr['comment'] = $_POST['message'];
+  }
+
+
 }
 
 // if (!empty($_POST['id']) && $_POST['id'] == '4') {

@@ -470,7 +470,7 @@
   </div>
 </div>
 
-<div class="popup popup_request" id="popup-request" data-id="4">
+<div class="popup popup_request" id="popup-request" data-id="2">
   <div class="popup__body">
     <div class="popup__content popup-form">
       <form class="popup__form os-form">
@@ -480,8 +480,8 @@
 
         <div class="form__label-block">
 
-          <input type="number" name="id" value="4" hidden>
-          <input type="text" name="theme" value="question" hidden>
+          <input type="number" name="id" value="2" hidden>
+          <input type="text" name="theme" value="call" hidden>
 
           <label class="form__label">
             <span class="form__label-text">
@@ -653,7 +653,7 @@
         <div class="notification__label-block">
 
           <input type="number" name="id" value="6" hidden>
-          <input type="text" name="theme" value="question" hidden>
+          <input type="text" name="theme" value="call" hidden>
 
           <label class="notification__label notification__agency">
             <span class="notification__label-text">
