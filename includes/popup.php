@@ -1,115 +1,9 @@
 <!-- ----- всплывающие окна: ----- -->
-<div class="popup" id="promo">
-  <div class="popup__body">
-    <div class="popup__content popup__promo promo">
-      <h2 class="promo__title title title_40">
-        Квартиры в расрочку от 2%
-      </h2>
-      <div class="promo__top-wrap">
-        <span class="promo__date">
-          01 мая 2024
-        </span>
-        <span class="promo__time">
-          <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_850_17965)">
-              <path d="M8.5 4.31579V8.36842L10.7105 10.2105M15.5 8C15.5 11.866 12.366 15 8.5 15C4.63401 15 1.5 11.866 1.5 8C1.5 4.13401 4.63401 1 8.5 1C12.366 1 15.5 4.13401 15.5 8Z" stroke="#748D55" stroke-width="1.5" />
-            </g>
-            <defs>
-              <clipPath id="clip0_850_17965">
-                <rect width="16" height="16" fill="white" transform="translate(0.5)" />
-              </clipPath>
-            </defs>
-          </svg>
-          Осталось 12 дней
-        </span>
-      </div>
 
-      <div class="promo__wrapper">
-        <div class="promo__img">
-          <picture>
-            <source srcset="/assets/img/popup-img.webp" type="image/webp"><img src="/assets/img/popup-img.jpg" alt="Квартиры в расрочку от 2%">
-          </picture>
-        </div>
-
-        <!-- <ul class="promo__list">
-          <?
-          // include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
-          // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
-          $result = mysqli_query($db, "SELECT * FROM events");
-
-          $row = mysqli_fetch_array($result);
-
-          // if ($row == '') {
-          //   echo 'Ничего не нашлось';
-          // }
-
-          // echo '<pre>';
-          // print_r($row);
-          // echo '</pre>';
-
-          // Сосновый | ГП 8 | 1 / 2 этаж
-
-          if (mysqli_num_rows($result) > 0) {
-            do {
-              $now = date('Y-m-d H:i:s');
-              $time = date('Y-m-d H:i:s', strtotime($row['time']));
-              $dateDiff = date_diff(date_create($now), date_create($time));
-              // echo $dateDiff->format("%a");
-              echo '
-                  <li class="promo__item">
-                    <div class="promo__item-img">
-                      <img src="/assets/img/' . $row['image'] . '" alt="promo_1">
-                    </div>
-
-                    <p class="promo__item-date">
-                      До ' . date("d", strtotime($row['time'])) . ' '
-                . monthRus(date("m", strtotime($row['time'])), 'rod', 2) . ' '
-                . date("Y", strtotime($row['time'])) . '
-                    </p>
-                    <p class="promo__item-period">
-                      Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']) . ' 
-
-                      
-                      <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M8 15.5C6.61553 15.5 5.26216 15.0895 4.11101 14.3203C2.95987 13.5511 2.06266 12.4579 1.53285 11.1788C1.00303 9.8997 0.86441 8.49224 1.13451 7.13437C1.4046 5.7765 2.07129 4.52922 3.05026 3.55026C4.02922 2.57129 5.2765 1.9046 6.63437 1.63451C7.99224 1.36441 9.3997 1.50303 10.6788 2.03285C11.9579 2.56266 13.0511 3.45987 13.8203 4.61101C14.5895 5.76216 15 7.11553 15 8.5C15 10.3565 14.2625 12.137 12.9497 13.4497C11.637 14.7625 9.85652 15.5 8 15.5ZM8 2.5C6.81332 2.5 5.65328 2.8519 4.66658 3.51119C3.67989 4.17047 2.91085 5.10755 2.45673 6.2039C2.0026 7.30026 1.88378 8.50666 2.11529 9.67054C2.3468 10.8344 2.91825 11.9035 3.75736 12.7426C4.59648 13.5818 5.66558 14.1532 6.82946 14.3847C7.99335 14.6162 9.19975 14.4974 10.2961 14.0433C11.3925 13.5892 12.3295 12.8201 12.9888 11.8334C13.6481 10.8467 14 9.68669 14 8.5C14 6.9087 13.3679 5.38258 12.2426 4.25736C11.1174 3.13214 9.5913 2.5 8 2.5Z"
-                          fill="black" />
-                        <path d="M10.295 11.5L7.5 8.705V4H8.5V8.29L11 10.795L10.295 11.5Z" fill="black" />
-                      </svg>
-                    </p>
-                    <button class="promo__item-title promo-link" data-id="' . $row['id'] . '">
-                      ' . $row['title'] . '
-                    </button>
-                  </li>
-                ';
-            } while ($row = mysqli_fetch_array($result));
-          }
-          ?>
-        </ul> -->
-
-        <p class="promo__desc">
-          Срок предложения ограничен. <br><br>
-          Узнайте подробнее об условиях акции у менеджеров в отделе продаж по телефону:
-        </p>
-        <a href="tel:+<? echo preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>" class="promo__phone"><?= $row1['phone']; ?></a>
-
-        <button class="promo__btn btn btn_dark popup-link" href="#popup-call">
-          Связаться с нами
-        </button>
-      </div>
-
-      <button class="promo__close popup-close">
-        <svg width="29" height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1L28.5 21M1 21L28.5 1" stroke="black" />
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
 
 <div class="popup" id="filter">
   <div class="popup__body">
-    <div class="popup__content popup__promo filter">
+    <div class="popup__content filter">
       <button class="promo__close">
         <svg width="29" height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 1L28.5 21M1 21L28.5 1" stroke="black" />
@@ -121,7 +15,7 @@
 
 <div class="popup" id="menu">
   <div class="popup__body">
-    <div class="popup__content popup__promo menu">
+    <div class="popup__content menu">
 
       <div class="header__logo logo">
         <a href="/" class="logo__link">

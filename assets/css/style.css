@@ -462,7 +462,6 @@ a {
   display: grid;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
-  -ms-grid-rows: (1fr) [3];
   grid-template-rows: repeat(3, 1fr);
   gap: 20px;
 }
@@ -1604,12 +1603,6 @@ a {
   color: #363636;
 }
 
-.popup.sot-request .request__file-label-text {
-}
-
-.popup.sot-request .request__file-input {
-}
-
 .popup {
   position: fixed;
   top: 0;
@@ -1782,11 +1775,10 @@ a {
   /* align-self: end; */
   width: 100%;
   height: 60px;
-,
-  max-width: 100%;,
-  max-width: 100%;,
-  max-width: 100;,
-  max-width: 10;,
+  max-width: 100%;
+  max-width: 100%;
+  max-width: 100;
+  max-width: 10;
   max-width: 1;
   max-width: 100%;
   margin-bottom: 5px;
@@ -1890,7 +1882,6 @@ a {
   display: grid;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
-  -ms-grid-rows: (1fr) [3];
   grid-template-rows: repeat(3, 1fr);
   gap: 30px;
 }
@@ -2379,6 +2370,7 @@ a {
 
 .popup .promo {
   position: absolute;
+  /* overflow: auto; */
   top: 50%;
   right: 50%;
   -webkit-transform: translate(50%, -50%);
@@ -2389,7 +2381,8 @@ a {
   transition: all 0.8s ease 0s;
   background: #ffffff;
   border-radius: 10px;
-  width: 1000px;
+  max-width: 1000px;
+  width: 100%;
   height: 750px;
   padding: 80px 43px 60px 60px;
   display: -ms-grid;
@@ -2441,6 +2434,7 @@ a {
 
 .popup .promo .promo__wrapper {
   width: 100%;
+  height: 78%;
   overflow: auto;
   display: -ms-grid;
   display: grid;
@@ -3414,7 +3408,6 @@ a {
 .footer .footer__section .footer__container .footer__top-block .footer__nav-wrap {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr) [3];
   grid-template-columns: repeat(3, 1fr);
   -ms-grid-rows: 1fr;
   grid-template-rows: 1fr;
@@ -4430,6 +4423,15 @@ a {
   text-decoration: line-through;
 }
 
+.apartments-item-page .form .form__container .form__wrapper .form__form .form__btn:hover {
+
+background: #fff;
+
+color: #748D55;
+
+box-shadow: none;
+}
+
 .glavnaya
   .glavnaya__main_top
   .apartments
@@ -5066,9 +5068,7 @@ a {
   padding: 59px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr) [3];
   grid-template-columns: repeat(3, 1fr);
-  -ms-grid-rows: (1fr) [3];
   grid-template-rows: repeat(3, 1fr);
   gap: 16px;
   -webkit-box-pack: center;
@@ -5202,7 +5202,6 @@ a {
   justify-self: end;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(100px, 314px)) [3];
   grid-template-columns: repeat(3, minmax(100px, 314px));
   gap: 20px;
 }
@@ -7736,6 +7735,7 @@ a {
   width: 100%;
   max-width: 797px;
   aspect-ratio: 655 / 506;
+  cursor: pointer;
 }
 
 .apartments-item-page .about .about__container .about__left .about__img img {
@@ -7949,6 +7949,7 @@ a {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
+  cursor: pointer;
 }
 
 .apartments-item-page .about .about__container .about__right .about__right-btn-block {
@@ -10800,7 +10801,6 @@ a {
   justify-self: end;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(100px, 1fr)) [3];
   grid-template-columns: repeat(3, minmax(100px, 1fr));
   gap: 20px;
   -ms-flex-line-pack: start;
@@ -12048,6 +12048,7 @@ a {
   .choice__btn-filter.choice__btn-filter_disabled {
   opacity: 0.5;
   pointer-events: none;
+  display: none;
 }
 
 /* .commercial-page */
@@ -14917,7 +14918,7 @@ opacity: 0.8px;
   gap: 80px;
 }
 
-.company. .standarts-container {
+.company .standarts-container {
   position: relative;
 }
 .company .standarts .swiper-navigation {
@@ -21742,7 +21743,6 @@ margin-bottom: 25px;
   }
 
   .glavnaya .glavnaya__main_bot .plans .plans__list {
-    -ms-grid-columns: (30%) [3];
     grid-template-columns: repeat(3, 30%);
     -ms-grid-rows: initial;
     grid-template-rows: initial;
@@ -23438,6 +23438,31 @@ margin-bottom: 25px;
   .call-form .call-form__input-block .call-form__input_phone {
     width: 100%;
   }
+  
+  .popup .promo {
+    position: absolute;
+    /* overflow: auto; */
+    top: 50%;
+    right: 50%;
+    -webkit-transform: translate(50%, -50%);
+    -ms-transform: translate(50%, -50%);
+    transform: translate(50%, -50%);
+    z-index: 1000;
+    -webkit-transition: all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
+    background: #ffffff;
+    border-radius: 10px;
+    max-width: 1000px;
+    width: 100%;
+    height: 750px;
+    padding: 40px 15px;
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: row;
+    -ms-grid-rows: auto auto 1fr;
+    -ms-grid-columns: 1fr;
+    grid-template: auto auto 1fr / 1fr;
+}
 }
 
 @media (max-width: 660px) {
@@ -24298,7 +24323,6 @@ margin-bottom: 25px;
   }
 
   .glavnaya .glavnaya__main_bot .plans .plans__filter-list {
-    -ms-grid-columns: (auto) [5];
     grid-template-columns: repeat(5, auto);
     -ms-grid-rows: unset;
     grid-template-rows: unset;
@@ -24336,7 +24360,6 @@ margin-bottom: 25px;
   }
 
   .glavnaya .glavnaya__main_bot .plans .plans__list {
-    -ms-grid-columns: (1fr) [2];
     grid-template-columns: repeat(2, 1fr);
     -ms-grid-rows: unset;
     grid-template-rows: unset;
@@ -25702,6 +25725,8 @@ margin-bottom: 25px;
     .slider__list {
     height: 293px;
   }
+
+
 
   .project-item-page
     .project-item-page__main

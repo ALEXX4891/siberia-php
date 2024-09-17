@@ -2722,26 +2722,7 @@ function setInfo() {
 
 // -------------------------------------------- end Планы ---------------------------------------------
 
-// -------------------------------------------- start Модалка промо ---------------------------------------------
-const promoLink = document.querySelectorAll(".promo-link");
-if (promoLink.length > 0) {
-  promoLink.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      console.log("тест");
-      const dataRequest = link.getAttribute("data-request");
-      event.preventDefault();
-      const popupPromo = document.querySelector("#promo");
-      if (dataRequest) {
-        const btn = popupPromo.querySelector(".promo__btn");
-        btn.setAttribute("data-request", dataRequest);
-      }
-      // const evetns = popupPromo.querySelectorAll(.popup__content);
 
-      popupOpen(popupPromo);
-    });
-  });
-}
-// -------------------------------------------- end Модалка промо ---------------------------------------------
 // -------------------------------------------- start Передача поисковой строки ---------------------------------------------
 const link = document.querySelector(".choice__btn-request_link");
 if (link) {
@@ -2772,5 +2753,3 @@ if (slideBtn) {
     });
   });
 }
-
-
