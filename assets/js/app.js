@@ -242,11 +242,16 @@ if (formAll) {
       if (errore === 0) {
         form.classList.add("_sending");
         let formData = new FormData(form);
+        const dataRequest = form.closest(".popup").getAttribute("data-request");
+        if (dataRequest) {
+          formData.append("dataRequest", dataRequest);
+        }
 
         let response = await fetch("/backend/post-mail.php", {
           method: "POST",
           body: formData,
         });
+
 
         for (var pair of formData.entries()) {
           console.log(pair[0] + ", " + pair[1]);
@@ -1603,6 +1608,11 @@ if (popupLinks.length > 0) {
       console.log("тест");
       const popupName = popupLink.getAttribute("href").replace("#", "");
       const curentPopup = document.getElementById(popupName); //получаем id попап-окна
+
+      const dataRequest = popupLink.getAttribute("data-request");
+      if (dataRequest) {
+        curentPopup.setAttribute("data-request", dataRequest);
+      }
       popupOpen(curentPopup);
       e.preventDefault();
     });
@@ -2834,8 +2844,14 @@ const promoLink = document.querySelectorAll(".promo-link");
 if (promoLink.length > 0) {
   promoLink.forEach((link) => {
     link.addEventListener("click", (event) => {
+      console.log("тест");
+      const dataRequest = link.getAttribute("data-request");
       event.preventDefault();
       const popupPromo = document.querySelector("#promo");
+      if (dataRequest) {
+        const btn = popupPromo.querySelector(".promo__btn");
+        btn.setAttribute("data-request", dataRequest);
+      }
       // const evetns = popupPromo.querySelectorAll(.popup__content);
 
       popupOpen(popupPromo);

@@ -233,8 +233,9 @@
 						публичной офертой, определяемой положениями статьи 437 ГК РФ.
 					</p>
 
-					<a class="footer__agent-link" href="#">
+					<a class="footer__agent-link" href="#" style="opacity: 0; pointer-events: none;">
 						для агенств
+						<!-- тут должна быть ссылка на презентацию для агенств -->
 					</a>
 				</div>
 			</div>

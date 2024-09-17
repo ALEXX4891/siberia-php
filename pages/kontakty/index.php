@@ -100,7 +100,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             <p class="address__btn-desc">
               Отправьте заявку и мы свяжемся с вами для уточнения деталей
             </p>
-            <button class="address__btn popup-link" href="#popup-call">
+            <button class="address__btn popup-link" href="#popup-request">
               Оставить заявку
             </button>
           </div>

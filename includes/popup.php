@@ -179,7 +179,7 @@
         </ul>
 
       </div>
-      <button class="btn btn_green program__btn popup-link" href="popup-request">
+      <button class="btn btn_green program__btn popup-link" href="popup-request" data-request="ИТ-ипотека">
         Отправить заявку
       </button>
 
@@ -224,7 +224,7 @@
         </ul>
 
       </div>
-      <button class="btn btn_green program__btn popup-link" href="popup-request">
+      <button class="btn btn_green program__btn popup-link" href="popup-request" data-request="Семейная ипотека">
         Отправить заявку
       </button>
 
@@ -760,7 +760,6 @@
 
           <input type="number" name="id" value="8" hidden>
           <input type="text" name="theme" value="question" hidden>
-          <input type="text" name="from" value="Агенство" hidden>
 
 
           <label class="request__label">
@@ -847,14 +846,14 @@
 <div class="popup sot-bank" id="sot-bank" data-id="9">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="request__form os-form">
+      <form class="request__form popup__form os-form">
         <h3 class="request__title">
           Оставить заявку
         </h3>
 
         <input type="number" name="id" value="9" hidden>
-        <input type="text" name="theme" value="question" hidden>
-        <input type="text" name="from" value="Банк" hidden>
+        <input type="text" name="theme" value="call" hidden>
+        <input type="text" name="name" value="Банк" hidden>
 
 
         <label class="request__label">
@@ -864,7 +863,7 @@
           <span class="request__label-star">
             *
           </span>
-          <input class="request__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" required
+          <input class="request__input form__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" required
             value="7">
         </label>
 
@@ -908,7 +907,6 @@
 
         <input type="number" name="id" value="7" hidden>
         <input type="text" name="theme" value="question" hidden>
-        <input type="text" name="from" value="Подрядчик" hidden>
 
 
 

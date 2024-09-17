@@ -38,7 +38,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               документов квартира бронируется, цена фиксируется.
             </p>
 
-            <button class="top__btn btn btn_green popup-link" href="#popup-request">
+            <button class="top__btn btn btn_green popup-link" href="#popup-request" data-request="Ипотека">
               Оставить заявку
             </button>
 
@@ -215,7 +215,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 Мы работаем с 5 крупнейшими банками страны. Для клиентов Сибири они разработали специальные предложения
                 со сниженными ставками.
               </p>
-              <button class="simple__banner-btn btn btn_green popup-link" href="#popup-request">
+              <button class="simple__banner-btn btn btn_green popup-link" href="#popup-request" data-request="Ипотека">
                 Оставить заявку
               </button>
             </div>
@@ -248,7 +248,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Рассрочка — тип оплаты, при котором клиент вносит первоначальный взнос, а остальное оплачивается равными
               платежами по согласованному графику, без процентов.
             </p>
-            <button class="simple__banner-btn btn btn_green popup-link" href="#popup-request">
+            <button class="simple__banner-btn btn btn_green popup-link" href="#popup-request" data-request="Рассрочка">
               Оставить заявку
             </button>
           </div>
@@ -278,7 +278,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               остальную сумму можно взять в рассрочку или ипотеку. Проконсультироваться и узнать подробности можно на
               видеовстрече, а оформить документы ー через онлайн-сервисы.
             </p>
-            <button class="simple__banner-btn btn btn_green popup-link" href="#popup-request">
+            <button class="simple__banner-btn btn btn_green popup-link" href="#popup-request" data-request="Сертификаты">
               Оставить заявку
             </button>
           </div>
@@ -330,7 +330,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
             </div>
 
-            <button class="btn btn_green address__btn popup-link" href="#popup-call">
+            <button class="btn btn_green address__btn popup-link" href="#popup-request">
               Получить консультацию
             </button>
           </div>

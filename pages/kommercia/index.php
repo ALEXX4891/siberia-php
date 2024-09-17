@@ -639,7 +639,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           </div>
 
-          <button class="btn btn_green address__btn popup-link" href="#popup-call">
+          <button class="btn btn_green address__btn popup-link" href="#popup-request">
             Получить консультацию
           </button>
         </div>

@@ -31,38 +31,41 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </div>
 
         <ul class="promo-page__cards-list">
-            <?
-            // include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
-            // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
-            $result = mysqli_query($db, "SELECT * FROM events");
+          <?
+          // include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
+          // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
+          $result = mysqli_query($db, "SELECT * FROM events");
 
-            $row = mysqli_fetch_array($result);
+          $row = mysqli_fetch_array($result);
 
-            // if ($row == '') {
-            //   echo 'Ничего не нашлось';
-            // }
+          $eventArr = [];
 
-            // echo '<pre>';
-            // print_r($row);
-            // echo '</pre>';
+          // if ($row == '') {
+          //   echo 'Ничего не нашлось';
+          // }
 
-            // Сосновый | ГП 8 | 1 / 2 этаж
-            
-            if (mysqli_num_rows($result) > 0) {
-              do {
-                $now = date('Y-m-d H:i:s');
-                $time = date('Y-m-d H:i:s', strtotime($row['time']));
-                $dateDiff = date_diff(date_create($now), date_create($time));
-                // echo $dateDiff->format("%a");
-                echo '
+          // echo '<pre>';
+          // print_r($row);
+          // echo '</pre>';
+
+          // Сосновый | ГП 8 | 1 / 2 этаж
+
+          if (mysqli_num_rows($result) > 0) {
+            do {
+              $eventArr[] = $row;
+              $now = date('Y-m-d H:i:s');
+              $time = date('Y-m-d H:i:s', strtotime($row['time']));
+              $dateDiff = date_diff(date_create($now), date_create($time));
+              // echo $dateDiff->format("%a");
+              echo '
                   <li class="promo-page__cards-item">
                   <div class="promo-page__card-img-wrapper">
                     <img src="/assets/img/' . $row['image'] . '" alt="promo_1">
                   </div>
                   <span class="promo-page__card-date">
-                  ' . date("d", strtotime($row['time'])) . ' ' 
-                  . monthRus(date("m", strtotime($row['time'])), 'rod', 2) . ' ' 
-                  . date("Y", strtotime($row['time'])) . '
+                  ' . date("d", strtotime($row['time'])) . ' '
+                . monthRus(date("m", strtotime($row['time'])), 'rod', 2) . ' '
+                . date("Y", strtotime($row['time'])) . '
                   </span>
                   <span class="promo-page__card-period">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,16 +84,22 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']) . ' 
                     </p>
                   </span>
-                  <button class="promo-page__card-link promo-link" data-id="' . $row['id'] . '">
+                  <button class="promo-page__card-link promo-link" data-id="' . $row['id'] . '" data-request="Акция: ' . $row['title'] . '">
                     <h2 class="promo-page__card-title">
                     ' . $row['title'] . '
                     </h2>
                   </button>
                 </li>
                 ';
-              } while ($row = mysqli_fetch_array($result));
-            }
-            ?>
+            } while ($row = mysqli_fetch_array($result));
+          }
+          ?>
+          <script type="text/javascript">
+            const eventArr = <?= json_encode($eventArr); ?>;
+            console.log(eventArr);
+          </script>
+
+
         </ul>
       </div>
     </section>
