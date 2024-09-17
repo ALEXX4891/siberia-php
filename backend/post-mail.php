@@ -72,8 +72,6 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
     $fieldsArr['comment'] = $_POST['message'];
   }
 
-
-
 } elseif (!empty($_POST['id']) && $_POST['id'] == '5') {
 
   // тема письма
@@ -104,37 +102,37 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
 
   if (trim(!empty($_POST['message']))) {
     $body .= '<p><strong>Комментарий:</strong> ' . $_POST['message'] . '</p><br/>';
-    $fieldsArr['comment'] = $_POST['message'];
+    $fieldsArr['comment'] = 'Комментарий: ' . $_POST['message'] . ".\n";
   }
 
   if (trim(!empty($_POST['floor']))) {
     $body .= '<p><strong>Этаж:</strong> ' . $_POST['floor'] . '</p><br/>';
-    $fieldsArr['floor'] = $_POST['floor'];
+    $fieldsArr['comment'] .= 'Этаж: ' . $_POST['floor'] . ".\n";
   }
 
   if (trim(!empty($_POST['payment']))) {
     $body .= '<p><strong>Способ оплаты:</strong> ' . $_POST['payment'] . '</p><br/>';
-    $fieldsArr['payment'] = $_POST['payment'];
+    $fieldsArr['comment'] .= 'Способ оплаты: ' . $_POST['payment'] . ".\n";
   }
 
   if (trim(!empty($_POST['house_id']))) {
     $body .= '<p><strong>Дом id:</strong> ' . $_POST['house_id'] . '</p><br/>';
-    $fieldsArr['house_id'] = $_POST['house_id'];
+    $fieldsArr['comment'] .= 'Дом id: ' . $_POST['house_id'] . ".\n";
   }
 
   if (trim(!empty($_POST['house']))) {
     $body .= '<p><strong>Дом:</strong> ' . $_POST['house'] . '</p><br/>';
-    $fieldsArr['house'] = $_POST['house'];
+    $fieldsArr['comment'] .= 'Дом: ' . $_POST['house'] . ".\n";
   }
 
   if (trim(!empty($_POST['project']))) {
     $body .= '<p><strong>Проект:</strong> ' . $_POST['project'] . '</p><br/>';
-    $fieldsArr['project'] = $_POST['project'];
+    $fieldsArr['comment'] .= 'Проект: ' . $_POST['project'] . ".\n";
   }
 
   if (trim(!empty($_POST['apartment']))) {
     $body .= '<p><strong>Квартира:</strong> ' . $_POST['apartment'] . '</p><br/>';
-    $fieldsArr['apartment'] = $_POST['apartment'];
+    $fieldsArr['comment'] .= 'Квартира: ' . $_POST['apartment'] . ".\n";
   }
 } elseif (!empty($_POST['id']) && $_POST['id'] == '10') {
 
@@ -166,37 +164,37 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
 
   if (trim(!empty($_POST['message']))) {
     $body .= '<p><strong>Комментарий:</strong> ' . $_POST['message'] . '</p><br/>';
-    $fieldsArr['comment'] = $_POST['message'];
+    $fieldsArr['comment'] = 'Комментарий: ' . $_POST['message'] . ".\n";
   }
 
   if (trim(!empty($_POST['floor']))) {
     $body .= '<p><strong>Этаж:</strong> ' . $_POST['floor'] . '</p><br/>';
-    $fieldsArr['floor'] = $_POST['floor'];
+    $fieldsArr['comment'] .= 'Этаж: ' . $_POST['floor'] . ".\n";
   }
 
   if (trim(!empty($_POST['payment']))) {
     $body .= '<p><strong>Способ оплаты:</strong> ' . $_POST['payment'] . '</p><br/>';
-    $fieldsArr['payment'] = $_POST['payment'];
+    $fieldsArr['comment'] .= 'Способ оплаты: ' . $_POST['payment'] . ".\n";
   }
 
   if (trim(!empty($_POST['house_id']))) {
     $body .= '<p><strong>Дом id:</strong> ' . $_POST['house_id'] . '</p><br/>';
-    $fieldsArr['house_id'] = $_POST['house_id'];
+    $fieldsArr['comment'] .= 'Дом id: ' . $_POST['house_id'] . ".\n";
   }
 
   if (trim(!empty($_POST['house']))) {
     $body .= '<p><strong>Дом:</strong> ' . $_POST['house'] . '</p><br/>';
-    $fieldsArr['house'] = $_POST['house'];
+    $fieldsArr['comment'] .= 'Дом: ' . $_POST['house'] . ".\n";
   }
 
   if (trim(!empty($_POST['project']))) {
     $body .= '<p><strong>Проект:</strong> ' . $_POST['project'] . '</p><br/>';
-    $fieldsArr['project'] = $_POST['project'];
+    $fieldsArr['comment'] .= 'Проект: ' . $_POST['project'] . ".\n";
   }
 
   if (trim(!empty($_POST['apartment']))) {
     $body .= '<p><strong>Квартира:</strong> ' . $_POST['apartment'] . '</p><br/>';
-    $fieldsArr['apartment'] = $_POST['apartment'];
+    $fieldsArr['comment'] .= 'Квартира: ' . $_POST['apartment'] . ".\n";
   }
 } elseif (!empty($_POST['id']) && $_POST['id'] == '6') {
 
