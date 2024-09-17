@@ -2544,13 +2544,13 @@ a {
 
 .popup .promo .promo__wrapper .promo__btn {
   display: -ms-grid;
-  display: grid;
-  place-items: center;
-  padding: 9px 10px;
-  max-width: 271px;
-  min-height: 60px;
-  background: #333333;
-  border-radius: 5px;
+  /* display: grid; */
+  /* place-items: center; */
+  /* padding: 9px 10px; */
+  /* max-width: 271px; */
+  /* min-height: 60px; */
+  /* background: #333333; */
+  /* border-radius: 5px; */
 }
 
 .popup .promo .promo__close {

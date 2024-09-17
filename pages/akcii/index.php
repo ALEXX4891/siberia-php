@@ -56,6 +56,15 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               $now = date('Y-m-d H:i:s');
               $time = date('Y-m-d H:i:s', strtotime($row['time']));
               $dateDiff = date_diff(date_create($now), date_create($time));
+
+              $end = '';
+
+              if ($time > $now) {
+                $end = 'Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']);
+              } else {
+                $end = 'Акция закончилась';
+              }
+
               // echo $dateDiff->format("%a");
               echo '
                   <li class="promo-page__cards-item">
@@ -81,7 +90,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                       </defs>
                     </svg>
                     <p class="promo-page__card-date-text">
-                      Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']) . ' 
+                      ' . $end . ' 
                     </p>
                   </span>
                   <button class="promo-page__card-link promo-link popup-link" href="#promo" data-id="' . $row['id'] . '" data-request="Акция: ' . $row['title'] . '">
@@ -125,7 +134,14 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           $now = date('Y-m-d H:i:s');
           $time = date('Y-m-d H:i:s', strtotime($event['time']));
           $dateDiff = date_diff(date_create($now), date_create($time));
-          // echo $dateDiff->format("%a");
+          $end = '';
+
+          if ($time > $now) {
+            $end = 'Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']);
+          } else {
+            $end = 'Акция закончилась';
+          }
+
           echo '
       <div class="popup__content popup__promo promo" style="display: none;" data-id="' . $event['id'] . '">
         <h2 class="promo__title title title_40">
@@ -135,8 +151,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="promo__top-wrap">
           <span class="promo__date">
           ' . date("d", strtotime($event['time'])) . ' '
-              . monthRus(date("m", strtotime($event['time'])), 'rod', 2) . ' '
-              . date("Y", strtotime($event['time'])) . '
+            . monthRus(date("m", strtotime($event['time'])), 'rod', 2) . ' '
+            . date("Y", strtotime($event['time'])) . '
           </span>
           <span class="promo__time">
             <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -149,7 +165,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </clipPath>
               </defs>
             </svg>
-            Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']) . ' 
+            ' . $end . ' 
           </span>
         </div>
 
