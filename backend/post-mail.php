@@ -71,7 +71,6 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
     $body .= '<p><strong>Комментарий:</strong> ' . $_POST['message'] . '</p><br/>';
     $fieldsArr['comment'] = $_POST['message'];
   }
-
 } elseif (!empty($_POST['id']) && $_POST['id'] == '5') {
 
   // тема письма
@@ -209,11 +208,6 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
     $fieldsArr['type'] = $_POST['theme'];
   }
 
-  if (trim(!empty($_POST['agency']))) {
-    $body .= '<p><strong>Агентство:</strong> ' . $_POST['agency'] . '</p><br/>';
-    $fieldsArr['agency'] = $_POST['agency'];
-  }
-
   if (trim(!empty($_POST['agent-name']))) {
     $body .= '<p><strong>ФИО агента:</strong> ' . $_POST['agent-name'] . '</p><br/>';
     $fieldsArr['name'] = $_POST['agent-name'];
@@ -224,22 +218,102 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
     $fieldsArr['phone'] = $_POST['agent-phone'];
   }
 
+  if (trim(!empty($_POST['agency']))) {
+    $body .= '<p><strong>Агентство:</strong> ' . $_POST['agency'] . '</p><br/>';
+    // $fieldsArr['agency'] = $_POST['agency'];
+    $fieldsArr['comment'] = 'Агентство: ' . $_POST['agency'] . ".\n";
+  }
+
   if (trim(!empty($_POST['client-name']))) {
     $body .= '<p><strong>ФИО клиента:</strong> ' . $_POST['client-name'] . '</p><br/>';
-    $fieldsArr['client_name'] = $_POST['client-name'];
+    // $fieldsArr['client_name'] = $_POST['client-name'];
+    $fieldsArr['comment'] .= 'Клиент: ' . $_POST['client-name'] . ".\n";
   }
 
   if (trim(!empty($_POST['client-phone']))) {
     $body .= '<p><strong>Телефон клиента:</strong> ' . $_POST['client-phone'] . '</p><br/>';
-    $fieldsArr['client_phone'] = $_POST['client-phone'];
+    // $fieldsArr['client_phone'] = $_POST['client-phone'];
+    $fieldsArr['comment'] .= 'Телефон клиента: ' . $_POST['client-phone'] . ".\n";
   }
 
   if (trim(!empty($_POST['message']))) {
     $body .= '<p><strong>Комментарий:</strong> ' . $_POST['message'] . '</p><br/>';
-    $fieldsArr['comment'] = $_POST['message'];
+    // $fieldsArr['comment'] = $_POST['message'];
+    $fieldsArr['comment'] .= 'Комментарий: ' . $_POST['message'] . ".\n";
+  }
+} elseif (!empty($_POST['id']) && $_POST['id'] == '3') {
+
+  // тема письма
+  $mail->Subject = 'Подписка на новости с сайта siberia-dev.ru';
+
+  // текст письма
+  $body = '<h1>Подписка на новости с сайта siberia-dev.ru:</h1><br/><br/>';
+
+  if (trim(!empty($_POST['theme']))) {
+    // $body .= '<p><strong>Тема:</strong> ' . $_POST['theme'] . '</p><br/>';
+    $fieldsArr['type'] = $_POST['theme'];
   }
 
+  if (trim(!empty($_POST['name']))) {
+    // $body .= '<p><strong>ФИО агента:</strong> ' . $_POST['name'] . '</p><br/>';
+    $fieldsArr['name'] = $_POST['name'];
+  }
 
+  if (trim(!empty($_POST['phone']))) {
+    // $body .= '<p><strong>Телефон агента:</strong> ' . $_POST['phone'] . '</p><br/>';
+    $fieldsArr['phone'] = $_POST['phone'];
+  }
+
+  if (trim(!empty($_POST['email']))) {
+    $body .= '<p><strong>Подписка на новости:</strong> ' . $_POST['email'] . '</p><br/>';
+    // $fieldsArr['comment'] = $_POST['agency'];
+    $fieldsArr['comment'] = 'Подписка на новости: ' . $_POST['email'] . ".\n";
+  }
+} elseif (!empty($_POST['id']) && $_POST['id'] == '8') {
+
+  $file = $_FILES['file'];
+  // тема письма
+  $mail->Subject = 'Предложение по сотрудничеству от агенства с сайта siberia-dev.ru';
+
+  // текст письма
+  $body = '<h1>Предложение по сотрудничеству от агенства с сайта siberia-dev.ru:</h1><br/><br/>';
+
+  if (trim(!empty($_POST['theme']))) {
+    // $body .= '<p><strong>Тема:</strong> ' . $_POST['theme'] . '</p><br/>';
+    $fieldsArr['type'] = $_POST['theme'];
+  }
+
+  if (trim(!empty($_POST['name']))) {
+    $body .= '<p><strong>Имя агента:</strong> ' . $_POST['name'] . '</p><br/>';
+    $fieldsArr['name'] = $_POST['name'];
+  }
+
+  if (trim(!empty($_POST['phone']))) {
+    $body .= '<p><strong>Телефон агента:</strong> ' . $_POST['phone'] . '</p><br/>';
+    $fieldsArr['phone'] = $_POST['phone'];
+  }
+
+  if (trim(!empty($_POST['work-type']))) {
+    $body .= '<p><strong>Агенство:</strong> ' . $_POST['work-type'] . '</p><br/>';
+    // $fieldsArr['comment'] = $_POST['agency'];
+    $fieldsArr['comment'] = 'Предложение о сотрудничестве от Агенства: ' . $_POST['work-type'] . ".\n";
+  }
+
+  if (trim(!empty($_POST['message']))) {
+    $body .= '<p><strong>Комментарий:</strong> ' . $_POST['message'] . '</p><br/>';
+    $fieldsArr['comment'] .= 'Комментарий: ' . $_POST['message'] . ".\n";
+  }
+
+  // Прикрипление файлов к письму
+  if (!empty($file['name'][0])) {
+    // echo  $file['tmp_name'];
+    // for ($i = 0; $i < count($file['tmp_name']); $i++) {
+    //     if ($file['error'][$i] === 0) 
+    $mail->addAttachment($file['tmp_name'], $file['name']);
+    // }
+  }
+
+  // work-type
 }
 
 // if (!empty($_POST['id']) && $_POST['id'] == '4') {

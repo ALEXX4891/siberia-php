@@ -421,7 +421,7 @@
   </div>
 </div>
 
-<div class="popup popup_call" id="popup-subscribe" data-id="3">
+<div class="popup popup_subscribe" id="popup-subscribe" data-id="3">
   <div class="popup__body">
     <div class="popup__content popup-form">
       <form class="popup__form os-form" action="#">
@@ -432,7 +432,10 @@
         <div class="form__label-block">
 
         <input type="number" name="id" value="3" hidden>
-        <input type="text" name="theme" value="subscribe" hidden>
+        <input type="text" name="theme" value="question" hidden>
+        <input type="text" name="name" value="subscribe" hidden>
+        <input type="number" name="phone" value="1111111111" hidden>
+
 
           <label class="form__label">
             <span class="form__label-text">
@@ -446,7 +449,7 @@
 
         </div>
 
-        <button type="submit" class="btn btn_green form__btn popup-link" href="#popup-success-subscribe">
+        <button type="submit" class="btn btn_green form__btn">
           Подписаться на рассылку
         </button>
 
@@ -481,7 +484,7 @@
         <div class="form__label-block">
 
           <input type="number" name="id" value="2" hidden>
-          <input type="text" name="theme" value="call" hidden>
+          <input type="text" name="theme" value="question" hidden>
 
           <label class="form__label">
             <span class="form__label-text">
@@ -742,110 +745,10 @@
   </div>
 </div>
 
-<div class="popup sot-request sot-request_business" id="sot-business" data-id="7">
-  <div class="popup__body">
-    <div class="popup__content">
-      <form class="request__form os-form">
-        <h3 class="request__title">
-          Оставить заявку
-        </h3>
-        <p class="request__desc text">
-          Менеджер свяжется с вами в ближайшее время
-        </p>
-
-        <div class="request__label-block">
-
-        <input type="number" name="id" value="7" hidden>
-        <input type="text" name="theme" value="question" hidden>
-
-
-          <label class="request__label">
-            <span class="request__label-text">
-              ФИО
-            </span>
-            <span class="request__label-star">
-              *
-            </span>
-
-            <input class="request__input request__input_name _req" type="text" name="name" placeholder="Введите имя"
-              required>
-          </label>
-          <label class="request__label">
-            <span class="request__label-text">
-              Телефон
-            </span>
-            <span class="request__label-star">
-              *
-            </span>
-            <input class="request__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" required
-              value="7">
-          </label>
-          <label class="request__label">
-
-            <span class="request__label-text">
-              Виды работ
-            </span>
-            <span class="request__label-star">
-
-            </span>
-
-            <input class="request__input request__input_name" type="text" name="work-type" placeholder=""
-              required>
-          </label>
-          <!-- <label class="request__label">
-            <span class="request__label-text">
-              E-mail
-            </span>
-            <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
-          </label> -->
-          <div class="request__file-label-wrap">
-            <span class="request__file-label-title">
-              Коммерческое предложения
-            </span>
-            <label class="request__file-label">
-              <span class="request__file-label-text">
-                Прикрепить файл
-              </span>
-              <input class="request__file-input" type="file" name="file" hidden>
-            </label>
-          </div>
-          <label class="request__label request__label_textarea">
-            <span class="request__label-text">
-              Расскажите о вашей компании
-            </span>
-            <textarea class="request__input request__input_textarea" name="message"></textarea>
-          </label>
-        </div>
-
-        <button class="btn btn_green request__btn">
-          Отправить
-        </button>
-
-
-        <div class="request__agreement-wrap">
-          <span class="request__agreement-text">
-            Нажимая кнопку «Отправить», вы соглашаетесь с
-          </span>
-          <a class="request__agreement-link" href="/pages/policy/agreement/" target="_blank">
-            условиями обработки персональных данных
-          </a>
-        </div>
-
-        <span class="request__close-btn popup-close">
-          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
-          </svg>
-        </span>
-
-      </form>
-    </div>
-  </div>
-</div>
-
 <div class="popup sot-request sot-request_agent" id="sot-agent" data-id="8">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="request__form os-form">
+      <form class="request__form popup__form os-form">
         <h3 class="request__title">
           Оставить заявку
         </h3>
@@ -857,6 +760,8 @@
 
           <input type="number" name="id" value="8" hidden>
           <input type="text" name="theme" value="question" hidden>
+          <input type="text" name="from" value="Агенство" hidden>
+
 
           <label class="request__label">
             <span class="request__label-text">
@@ -866,8 +771,8 @@
               *
             </span>
 
-            <input class="request__input request__input_name _req" type="text" name="name" placeholder="Введите имя"
-              required>
+            <input class="request__input form__input request__input_name _req" type="text" name="name" placeholder="Введите имя"
+              >
           </label>
           <label class="request__label">
             <span class="request__label-text">
@@ -876,8 +781,8 @@
             <span class="request__label-star">
               *
             </span>
-            <input class="request__input request__input_name _req" type="text" name="work-type" placeholder="Введите название"
-              required>
+            <input class="request__input form__input request__input_name _req" type="text" name="work-type" placeholder="Введите название"
+              >
           </label>
           <label class="request__label">
             <span class="request__label-text">
@@ -886,14 +791,14 @@
             <span class="request__label-star">
               *
             </span>
-            <input class="request__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" required
+            <input class="request__input form__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" 
               value="7">
           </label>
           <!-- <label class="request__label">
             <span class="request__label-text">
               E-mail
             </span>
-            <input class="request__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
+            <input class="request__input form__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
           </label> -->
           <div class="request__file-label-wrap">
             <span class="request__file-label-title">
@@ -903,14 +808,14 @@
               <span class="request__file-label-text">
                 Прикрепить файл
               </span>
-              <input class="request__file-input" type="file" name="file" hidden>
+              <input class="request__file-input _file" type="file" name="file" hidden>
             </label>
           </div>
           <label class="request__label request__label_textarea">
             <span class="request__label-text">
               Расскажите о вашей компании
             </span>
-            <textarea class="request__input request__input_textarea" name="message"></textarea>
+            <textarea class="request__input form__input request__input_textarea" name="message"></textarea>
           </label>
         </div>
 
@@ -949,6 +854,8 @@
 
         <input type="number" name="id" value="9" hidden>
         <input type="text" name="theme" value="question" hidden>
+        <input type="text" name="from" value="Банк" hidden>
+
 
         <label class="request__label">
           <span class="request__label-text">
@@ -986,6 +893,107 @@
   </div>
 </div>
 
+<div class="popup sot-request sot-request_business" id="sot-business" data-id="7">
+  <div class="popup__body">
+    <div class="popup__content">
+      <form class="request__form popup__form os-form">
+        <h3 class="request__title">
+          Оставить заявку
+        </h3>
+        <p class="request__desc text">
+          Менеджер свяжется с вами в ближайшее время
+        </p>
+
+        <div class="request__label-block">
+
+        <input type="number" name="id" value="7" hidden>
+        <input type="text" name="theme" value="question" hidden>
+        <input type="text" name="from" value="Подрядчик" hidden>
+
+
+
+          <label class="request__label">
+            <span class="request__label-text">
+              ФИО
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+
+            <input class="request__input form__input request__input_name _req" type="text" name="name" placeholder="Введите имя"
+              >
+          </label>
+          <label class="request__label">
+            <span class="request__label-text">
+              Телефон
+            </span>
+            <span class="request__label-star">
+              *
+            </span>
+            <input class="request__input form__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" 
+              value="7">
+          </label>
+          <label class="request__label">
+
+            <span class="request__label-text">
+              Виды работ
+            </span>
+            <span class="request__label-star">
+
+            </span>
+
+            <input class="request__input form__input request__input_name" type="text" name="work-type" placeholder=""
+              >
+          </label>
+          <!-- <label class="request__label">
+            <span class="request__label-text">
+              E-mail
+            </span>
+            <input class="request__input form__input request__input_email" type="email" name="email" placeholder="Введите e-mail">
+          </label> -->
+          <div class="request__file-label-wrap">
+            <span class="request__file-label-title">
+              Коммерческое предложения
+            </span>
+            <label class="request__file-label">
+              <span class="request__file-label-text">
+                Прикрепить файл
+              </span>
+              <input class="request__file-input _file" type="file" name="file" hidden>
+            </label>
+          </div>
+          <label class="request__label request__label_textarea">
+            <span class="request__label-text">
+              Расскажите о вашей компании
+            </span>
+            <textarea class="request__input form__input request__input_textarea" name="message"></textarea>
+          </label>
+        </div>
+
+        <button class="btn btn_green request__btn">
+          Отправить
+        </button>
+
+
+        <div class="request__agreement-wrap">
+          <span class="request__agreement-text">
+            Нажимая кнопку «Отправить», вы соглашаетесь с
+          </span>
+          <a class="request__agreement-link" href="/pages/policy/agreement/" target="_blank">
+            условиями обработки персональных данных
+          </a>
+        </div>
+
+        <span class="request__close-btn popup-close">
+          <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L21 16M21 1L1 16" stroke="#8C8C8C" stroke-width="1.5" />
+          </svg>
+        </span>
+
+      </form>
+    </div>
+  </div>
+</div>
 
 <div class="popup popup_call" id="popup-booking-call" data-id="10">
   <div class="popup__body">
