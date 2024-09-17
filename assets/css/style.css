@@ -3387,7 +3387,7 @@ a {
 }
 
 .footer .footer__section .footer__container .footer__top-block .contacts__item_email:hover {
-  color: #222;
+  color: #fff;
 }
 
 .footer .footer__section .footer__container .footer__top-block .contacts__item_phone {
@@ -3402,7 +3402,7 @@ a {
 }
 
 .footer .footer__section .footer__container .footer__top-block .contacts__item_phone:hover {
-  color: #222;
+  color: #748d55;
 }
 
 .footer .footer__section .footer__container .footer__top-block .contacts__item_address {
@@ -20451,6 +20451,7 @@ margin-bottom: 25px;
     -ms-grid-row-align: start;
     align-self: start;
     font-size: 25px;
+    text-wrap: nowrap;
   }
 
   .footer .footer__section .footer__container .footer__top-block .contacts__item_address {

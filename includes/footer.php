@@ -8,7 +8,7 @@
 						<?= $row1['phone']; ?>
 					</a>
 					<a href="mailto:<? echo $row1['email']; ?>" class="contacts__item contacts__item_email">
-					<? echo $row1['email']; ?>
+						<? echo $row1['email']; ?>
 					</a>
 					<p class="contacts__item contacts__item_address">
 						Россия, Тюмень, ул. Клары Цеткин 61, к2
@@ -65,7 +65,7 @@
 						<ul class="nav__list">
 
 							<li class="nav__item">
-								<a href="#" class="nav__link">
+								<a href="/pages/kvartiry/?rooms=11" class="nav__link">
 									<p class="nav__text">
 										Студии
 									</p>
@@ -73,7 +73,7 @@
 							</li>
 
 							<li class="nav__item">
-								<a href="#" class="nav__link">
+								<a href="/pages/kvartiry/?rooms=1" class="nav__link">
 									<p class="nav__text">
 										1-комнатные
 									</p>
@@ -81,7 +81,7 @@
 							</li>
 
 							<li class="nav__item">
-								<a href="#" class="nav__link">
+								<a href="/pages/kvartiry/?rooms=2" class="nav__link">
 									<p class="nav__text">
 										2-комнатные
 									</p>
@@ -89,7 +89,7 @@
 							</li>
 
 							<li class="nav__item">
-								<a href="#" class="nav__link">
+								<a href="/pages/kvartiry/?rooms=3" class="nav__link">
 									<p class="nav__text">
 										3-комнатные
 									</p>
@@ -158,7 +158,7 @@
 				</p>
 
 				<div class="footer__info-links">
-					<a href="./policy.html" class="footer__policy" target="_blank">
+					<a href="/pages/policy/" class="footer__policy" target="_blank">
 						Политика конфиденциальности
 					</a>
 					<a href="https://xn--80az8a.xn--d1aqf.xn--p1ai/%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%8B/%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3-%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BA/%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82/60004"

@@ -718,14 +718,14 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 Коммерческие помещения
               </h2>
 
-              <a class="commercial__button commercial__button_top btn btn_dark" href="commercial.html">
+              <a class="commercial__button commercial__button_top btn btn_dark" href="/pages/kommercia/">
                 Смотреть все
               </a>
             </div>
 
             <ul class="commercial__list commercial__list_slider swiper-wrapper">
               <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="commercial-item.html">
+                <a class="commercial__item-link" href="/pages/commercial-item/">
                   <h5 class="commercial__item-title">
                     Сосновый | ГП 8 |
                   </h5>
@@ -757,40 +757,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </li>
 
               <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="commercial-item.html">
-                  <h5 class="commercial__item-title">
-                    Сосновый | ГП 8 |
-                  </h5>
-                  <p class="commercial__item-desc">
-                    Помещение №1, 151,67м<sup>2</sup>
-                  </p>
-                  <div class="commercial__item-price-wrap">
-                    <p class="commercial__item-new-price">
-                      5 662 000 ₽
-                    </p>
-                    <p class="commercial__item-old-price">
-                      9 331 000 ₽
-                    </p>
-                  </div>
-                  <p class="commercial__credit-pay">
-                    от 45 426₽/месяц
-                  </p>
-                  <div class="commercial__item-img">
-                    <picture>
-                      <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
-                    </picture>
-                  </div>
-
-
-
-
-
-                </a>
-
-              </li>
-
-              <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="commercial-item.html">
+                <a class="commercial__item-link" href="/pages/commercial-item/">
                   <h5 class="commercial__item-title">
                     Сосновый | ГП 8 |
                   </h5>
@@ -823,7 +790,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </li>
 
               <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="commercial-item.html">
+                <a class="commercial__item-link" href="/pages/commercial-item/">
                   <h5 class="commercial__item-title">
                     Сосновый | ГП 8 |
                   </h5>
@@ -856,7 +823,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </li>
 
               <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="commercial-item.html">
+                <a class="commercial__item-link" href="/pages/commercial-item/">
                   <h5 class="commercial__item-title">
                     Сосновый | ГП 8 |
                   </h5>
@@ -889,7 +856,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </li>
 
               <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="commercial-item.html">
+                <a class="commercial__item-link" href="/pages/commercial-item/">
                   <h5 class="commercial__item-title">
                     Сосновый | ГП 8 |
                   </h5>
@@ -922,7 +889,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </li>
 
               <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="commercial-item.html">
+                <a class="commercial__item-link" href="/pages/commercial-item/">
                   <h5 class="commercial__item-title">
                     Сосновый | ГП 8 |
                   </h5>
@@ -955,7 +922,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </li>
 
               <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="commercial-item.html">
+                <a class="commercial__item-link" href="/pages/commercial-item/">
                   <h5 class="commercial__item-title">
                     Сосновый | ГП 8 |
                   </h5>
@@ -988,7 +955,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </li>
 
               <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="commercial-item.html">
+                <a class="commercial__item-link" href="/pages/commercial-item/">
                   <h5 class="commercial__item-title">
                     Сосновый | ГП 8 |
                   </h5>
@@ -1021,7 +988,40 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </li>
 
               <li class="commercial__item swiper-slide">
-                <a class="commercial__item-link" href="commercial-item.html">
+                <a class="commercial__item-link" href="/pages/commercial-item/">
+                  <h5 class="commercial__item-title">
+                    Сосновый | ГП 8 |
+                  </h5>
+                  <p class="commercial__item-desc">
+                    Помещение №1, 151,67м<sup>2</sup>
+                  </p>
+                  <div class="commercial__item-price-wrap">
+                    <p class="commercial__item-new-price">
+                      5 662 000 ₽
+                    </p>
+                    <p class="commercial__item-old-price">
+                      9 331 000 ₽
+                    </p>
+                  </div>
+                  <p class="commercial__credit-pay">
+                    от 45 426₽/месяц
+                  </p>
+                  <div class="commercial__item-img">
+                    <picture>
+                      <source srcset="/assets/img/com-img-1.webp" type="image/webp"><img src="/assets/img/com-img-1.png" alt="квартира">
+                    </picture>
+                  </div>
+
+
+
+
+
+                </a>
+
+              </li>
+
+              <li class="commercial__item swiper-slide">
+                <a class="commercial__item-link" href="/pages/commercial-item/">
                   <h5 class="commercial__item-title">
                     Сосновый | ГП 8 |
                   </h5>
@@ -1054,7 +1054,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </li>
             </ul>
 
-            <a class="commercial__button commercial__button_bot btn btn_dark" href="commercial.html">
+            <a class="commercial__button commercial__button_bot btn btn_dark" href="/pages/kommercia/">
               Смотреть все
             </a>
           </div>
@@ -1226,10 +1226,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
   <script src="https://sibir.m2lab.ru/loader.js?containerId=iframe"></script>
 
   <script>
-
     const urlParams = new URLSearchParams(window.location.search);
     urlParams.set("project", "Сосновый");
-    window.history.pushState({}, "", "?" + urlParams.toString()); 
+    window.history.pushState({}, "", "?" + urlParams.toString());
 
 
     // const option = document.querySelector(`.select__item[data-id='Сосновый']`);
