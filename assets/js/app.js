@@ -252,7 +252,6 @@ if (formAll) {
           body: formData,
         });
 
-
         for (var pair of formData.entries()) {
           console.log(pair[0] + ", " + pair[1]);
         }
@@ -350,8 +349,6 @@ if (projectMapBtn) {
     console.log("тест");
     const body = projectMapBtn.closest("body");
     body.classList.toggle("project-page__full-map");
-    
-
   });
 }
 
@@ -670,80 +667,6 @@ if (commercialPage) {
 }
 //------------------- end трансформация фильтра----------------
 
-// --------------------------------------- start карта: ---------------------------------------------
-const map = document.querySelector(".map");
-if (map) {
-  const filter = map.querySelectorAll(".map__mark-item_point");
-  filter.forEach((item) => {
-    item.addEventListener("click", function () {
-      console.log("тест");
-      item.classList.toggle("map__mark-item_active");
-      checkAll();
-    });
-  });
-
-  const resetBtns = map.querySelector(".reset-btn");
-
-  if (resetBtns) {
-    resetBtns.addEventListener("click", function () {
-      console.log("тест");
-      filter.forEach((item) => {
-        item.classList.remove("map__mark-item_active");
-        checkAll();
-      });
-    });
-  }
-
-  const allBtn = map.querySelector(".map__mark-item-all");
-
-  if (allBtn) {
-    allBtn.addEventListener("click", function () {
-      console.log("тест");
-      if (allBtn.classList.contains("map__mark-item_active")) {
-        allBtn.classList.remove("map__mark-item_active");
-        filter.forEach((item) => {
-          item.classList.remove("map__mark-item_active");
-        });
-      } else {
-        filter.forEach((item) => {
-          item.classList.add("map__mark-item_active");
-        });
-        allBtn.classList.add("map__mark-item_active");
-      }
-    });
-  }
-
-  function checkAll() {
-    console.log("тест");
-    let activeItems = map.querySelectorAll(".map__mark-item_point.map__mark-item_active");
-    console.log(activeItems.length);
-    console.log(filter.length);
-
-    if (activeItems.length === filter.length) {
-      allBtn.classList.add("map__mark-item_active");
-    } else {
-      allBtn.classList.remove("map__mark-item_active");
-    }
-  }
-
-  const markListBtnOpen = map.querySelector(".map__menu-btn-filters");
-  const markListBtnClose = map.querySelector(".map__menu-btn-apply");
-
-  if (markListBtnOpen) {
-    markListBtnOpen.addEventListener("click", function () {
-      const markList = map.querySelector(".map__mark-list-wrap");
-      console.log("тест");
-      markList.classList.add("map__mark-list-wrap_active");
-    });
-
-    markListBtnClose.addEventListener("click", function () {
-      const markList = map.querySelector(".map__mark-list-wrap");
-      console.log("тест");
-      markList.classList.remove("map__mark-list-wrap_active");
-    });
-  }
-}
-// --------------------------------------- end карта: ---------------------------------------------
 // --------------------------------------- start бокове меню: ---------------------------------------------
 const asideMenu = document.querySelector(".aside-menu");
 if (asideMenu) {
@@ -2302,150 +2225,224 @@ if (cookieCloseBtn) {
 // Функция ymaps.ready() будет вызвана, когда
 // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
 
-initMap();
+const map = document.getElementById("map");
+const map2 = document.getElementById("map2");
+if (map || map2) {
+  initMap();
 
-async function initMap() {
-  //     // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
-  await ymaps3.ready;
+  async function initMap() {
+    //     // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
+    await ymaps3.ready;
 
-  const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = ymaps3;
+    const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = ymaps3;
 
-  // const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-markers@0.0.1');
-  // // кластеризация маркеров
-  // const {YMapClusterer, clusterByGrid} = await ymaps3.import('@yandex/ymaps3-clusterer@0.0.1');
-  // const clusterer = new YMapClusterer({
-  //   method: clusterByGrid({gridSize: 128}),
-  //   features: map._points,
-  //   функция которая вернет YMapMarker для маркера,
-  //   функция которая вернет YMapMarker для кластера
-  // });
-  // // https://yandex.ru/dev/maps/jsapi/doc/3.0/ref/packages/clusterer/index.html
+    // const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-markers@0.0.1');
+    // // кластеризация маркеров
+    // const {YMapClusterer, clusterByGrid} = await ymaps3.import('@yandex/ymaps3-clusterer@0.0.1');
+    // const clusterer = new YMapClusterer({
+    //   method: clusterByGrid({gridSize: 128}),
+    //   features: map._points,
+    //   функция которая вернет YMapMarker для маркера,
+    //   функция которая вернет YMapMarker для кластера
+    // });
+    // // https://yandex.ru/dev/maps/jsapi/doc/3.0/ref/packages/clusterer/index.html
 
-  // Иницилиазируем карту
-  const map = new YMap(
-    // Передаём ссылку на HTMLElement контейнера
-    // document.querySelector(".map-yandex"),
-    document.getElementById("map"),
+    // Иницилиазируем карту
+    const map = new YMap(
+      // Передаём ссылку на HTMLElement контейнера
+      // document.querySelector(".map-yandex"),
+      document.getElementById("map"),
 
-    // Передаём параметры инициализации карты
+      // Передаём параметры инициализации карты
 
-    {
-      location: {
-        // Координаты центра карты
-        center: [65.79187000766548, 56.97004647141038],
-        // Уровень масштабирования
-        zoom: 14.7,
+      {
+        location: {
+          // Координаты центра карты
+          center: [65.79187000766548, 56.97004647141038],
+          // Уровень масштабирования
+          zoom: 14.7,
+        },
       },
-    },
-    [
-      // Добавляем слой, скрываем POI
-      new YMapDefaultSchemeLayer({
-        customization: [
-          {
-            tags: {
-              any: ["poi", "transit"],
-            },
-            elements: "label",
-            stylers: [
-              {
-                opacity: 0,
+      [
+        // Добавляем слой, скрываем POI
+        new YMapDefaultSchemeLayer({
+          customization: [
+            {
+              tags: {
+                any: ["poi", "transit"],
               },
-            ],
-          },
-        ],
-      }),
-      new YMapDefaultFeaturesLayer({}),
-    ]
-  );
+              elements: "label",
+              stylers: [
+                {
+                  opacity: 0,
+                },
+              ],
+            },
+          ],
+        }),
+        new YMapDefaultFeaturesLayer({}),
+      ]
+    );
 
-  const markerElement = document.createElement("img");
-  markerElement.className = "marker-class";
-  markerElement.innerText = "I'm marker!";
-  markerElement.style.width = "42px";
-  markerElement.style.height = "58px";
-  markerElement.src = "/assets/img/pin.svg";
+    const markerElement = document.createElement("img");
+    markerElement.className = "marker-class";
+    markerElement.innerText = "I'm marker!";
+    markerElement.style.width = "42px";
+    markerElement.style.height = "58px";
+    markerElement.src = "/assets/img/pin.svg";
 
-  const marker = new YMapMarker(
-    {
-      coordinates: [65.80127919688765, 56.971359032603615],
-      draggable: true,
-      mapFollowsOnDrag: true,
-    },
-    markerElement
-  );
-  map.addChild(marker);
-
-  const map2 = new YMap(
-    // Передаём ссылку на HTMLElement контейнера
-    document.getElementById("map2"),
-    // Передаём параметры инициализации карты
-
-    {
-      location: {
-        // Координаты центра карты
-        center: [65.50887, 57.150993],
-        // Уровень масштабирования
-        zoom: 14.7,
+    const marker = new YMapMarker(
+      {
+        coordinates: [65.80127919688765, 56.971359032603615],
+        draggable: true,
+        mapFollowsOnDrag: true,
       },
-    },
-    [
-      // Добавляем слой, скрываем POI
-      new YMapDefaultSchemeLayer({
-        customization: [
-          {
-            tags: {
-              any: ["poi", "transit"],
-            },
-            elements: "label",
-            stylers: [
-              {
-                opacity: 0,
+      markerElement
+    );
+    map.addChild(marker);
+
+    const map2 = new YMap(
+      // Передаём ссылку на HTMLElement контейнера
+      document.getElementById("map2"),
+      // Передаём параметры инициализации карты
+
+      {
+        location: {
+          // Координаты центра карты
+          center: [65.50887, 57.150993],
+          // Уровень масштабирования
+          zoom: 14.7,
+        },
+      },
+      [
+        // Добавляем слой, скрываем POI
+        new YMapDefaultSchemeLayer({
+          customization: [
+            {
+              tags: {
+                any: ["poi", "transit"],
               },
-            ],
-          },
-        ],
-      }),
-      new YMapDefaultFeaturesLayer({}),
-    ]
-  );
+              elements: "label",
+              stylers: [
+                {
+                  opacity: 0,
+                },
+              ],
+            },
+          ],
+        }),
+        new YMapDefaultFeaturesLayer({}),
+      ]
+    );
 
-  const markerElement2 = document.createElement("img");
-  markerElement2.className = "marker-class";
-  markerElement2.innerText = "I'm marker!";
-  markerElement2.style.width = "100%";
-  markerElement2.style.height = "100%";
-  markerElement2.src = "/assets/img/pin-office.svg";
+    const markerElement2 = document.createElement("img");
+    markerElement2.className = "marker-class";
+    markerElement2.innerText = "I'm marker!";
+    markerElement2.style.width = "100%";
+    markerElement2.style.height = "100%";
+    markerElement2.src = "/assets/img/pin-office.svg";
 
-  const marker2 = new YMapMarker(
-    {
-      coordinates: [65.50887, 57.150993],
-      draggable: true,
-      mapFollowsOnDrag: true,
-    },
-    markerElement2
-  );
-  map2.addChild(marker2);
+    const marker2 = new YMapMarker(
+      {
+        coordinates: [65.50887, 57.150993],
+        draggable: true,
+        mapFollowsOnDrag: true,
+      },
+      markerElement2
+    );
+    map2.addChild(marker2);
+  }
+
+  function setVisible() {
+    myGeoObject4.options.set({
+      visible: false,
+    });
+    myGeoObject3.options.set({
+      visible: false,
+    });
+    myGeoObject2.options.set({
+      visible: false,
+    });
+    myGeoObject.options.set({
+      visible: false,
+    });
+  }
+  $(document).ready(function () {
+    $("#change-map").on("click", function () {
+      setVisible();
+    });
+  });
+
+  const filter = map.querySelectorAll(".map__mark-item_point");
+  filter.forEach((item) => {
+    item.addEventListener("click", function () {
+      console.log("тест");
+      item.classList.toggle("map__mark-item_active");
+      checkAll();
+    });
+  });
+
+  const resetBtns = map.querySelector(".reset-btn");
+
+  if (resetBtns) {
+    resetBtns.addEventListener("click", function () {
+      console.log("тест");
+      filter.forEach((item) => {
+        item.classList.remove("map__mark-item_active");
+        checkAll();
+      });
+    });
+  }
+
+  const allBtn = map.querySelector(".map__mark-item-all");
+
+  if (allBtn) {
+    allBtn.addEventListener("click", function () {
+      console.log("тест");
+      if (allBtn.classList.contains("map__mark-item_active")) {
+        allBtn.classList.remove("map__mark-item_active");
+        filter.forEach((item) => {
+          item.classList.remove("map__mark-item_active");
+        });
+      } else {
+        filter.forEach((item) => {
+          item.classList.add("map__mark-item_active");
+        });
+        allBtn.classList.add("map__mark-item_active");
+      }
+    });
+  }
+
+  function checkAll() {
+    console.log("тест");
+    let activeItems = map.querySelectorAll(".map__mark-item_point.map__mark-item_active");
+    console.log(activeItems.length);
+    console.log(filter.length);
+
+    if (activeItems.length === filter.length) {
+      allBtn.classList.add("map__mark-item_active");
+    } else {
+      allBtn.classList.remove("map__mark-item_active");
+    }
+  }
+
+  const markListBtnOpen = map.querySelector(".map__menu-btn-filters");
+  const markListBtnClose = map.querySelector(".map__menu-btn-apply");
+
+  if (markListBtnOpen) {
+    markListBtnOpen.addEventListener("click", function () {
+      const markList = map.querySelector(".map__mark-list-wrap");
+      console.log("тест");
+      markList.classList.add("map__mark-list-wrap_active");
+    });
+
+    markListBtnClose.addEventListener("click", function () {
+      const markList = map.querySelector(".map__mark-list-wrap");
+      console.log("тест");
+      markList.classList.remove("map__mark-list-wrap_active");
+    });
+  }
 }
-
-function setVisible() {
-  myGeoObject4.options.set({
-    visible: false,
-  });
-  myGeoObject3.options.set({
-    visible: false,
-  });
-  myGeoObject2.options.set({
-    visible: false,
-  });
-  myGeoObject.options.set({
-    visible: false,
-  });
-}
-$(document).ready(function () {
-  $("#change-map").on("click", function () {
-    setVisible();
-  });
-});
 
 // -------------------------------------------- end Карта ---------------------------------------------
 //--------------------------Запрос к БД----------------------------
@@ -2721,7 +2718,6 @@ function setInfo() {
 // }
 
 // -------------------------------------------- end Планы ---------------------------------------------
-
 
 // -------------------------------------------- start Передача поисковой строки ---------------------------------------------
 const link = document.querySelector(".choice__btn-request_link");

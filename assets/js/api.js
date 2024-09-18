@@ -877,7 +877,9 @@ if (
     limit = 12;
     offset = 0;
 
-    list.innerHTML = "";
+    if (list) {
+      list.innerHTML = "";
+    }
     let copyList = [...arr]; // создаем копию массива
     // console.log(copyList);
 
@@ -989,7 +991,9 @@ if (
     }
 
     copyList.forEach((item) => {
-      list.append(getli(item));
+      if (list) {
+        list.append(getli(item));
+      }
     });
   }
   // ----------------------------------------- end функция рендеринга квартир: -------------------------------------
