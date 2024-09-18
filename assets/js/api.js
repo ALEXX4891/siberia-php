@@ -10,7 +10,9 @@ if (
   !url.split("/").includes("sotrudnichestvo") &&
   !url.split("/").includes("o-companii") &&
   !url.split("/").includes("kontakty") &&
-  !url.split("/").includes("sposob-pokupki")
+  !url.split("/").includes("sposob-pokupki") &&
+  !url.split("/").includes("control")
+
 ) {
   console.log("------------- Старт Api ------------------");
 

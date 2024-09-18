@@ -46,9 +46,9 @@ $row1 = mysqli_fetch_array($result);
 					<a class="header__btn header__btn_site-link" href="/">
 						Перейти на сайт
 					</a>
-					<button class="header__btn header__btn_exit">
+					<a class="header__btn header__btn_exit" href="/control/login.php">
 						Выйти
-					</button>
+					</a>
 				</div>
 
 			</div>
