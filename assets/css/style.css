@@ -614,6 +614,61 @@ color: #999999;
 .control__btn-wrap .btn.control__input_submit {max-width: 237px;}
 .control__btn-wrap .btn.control__btn_cancel {max-width: 238px;}
 
+.card.card_event .card__title {margin-bottom: 40px;}
+
+.control__card.card.card_event {
+  
+gap: 10px;
+}
+
+.control__card.card_event .card__btn-block {margin-top: 20px;}
+
+
+.control__card.card_event .card__head-date {
+  color: #748D55;
+}
+
+.control__card.card_event .card__head-period {
+color: #508DEB;
+}
+
+.control__body_event .control__input_date {
+  max-width: 100%;
+}
+
+.control__body_event .control__form-top-wrap {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr 295px;
+  gap: 28px 40px;
+  margin-bottom: 30px;
+}
+
+.control__body_event .control__label_title {
+  grid-column: 2 span;
+}
+
+.control__body_event .control__label_photo {
+  grid-area: 1 / 3 / 3 / 4;
+  margin-bottom: -22px;
+}
+
+.control__body_event .control__label_check {
+  grid-auto-flow: column;
+  margin-top: 26px;
+  justify-content: start;
+  margin-bottom: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .logo {
 
