@@ -659,6 +659,44 @@ color: #508DEB;
   margin-bottom: 13px;
 }
 
+.control__body_contacts .edit-page .control__title {
+  margin-bottom: 0px;
+}
+
+.control__body_contacts .control__form {
+  max-width: 1060px;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 18px;
+}
+
+.control__body_contacts .control__desc {
+
+margin-bottom: 15px;
+}
+
+.control__body_contacts .control__label {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 0px;
+  /* grid-column: 2 span; */
+}
+
+.control__body_contacts .control__label span {
+}
+
+.control__body_contacts .control__input {
+  padding: 10px;
+  /* grid-column: 2 span; */
+}
+
+.control__body_contacts .control__form-top-wrap {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  gap: 30px 20px;
+  margin-bottom: 30px;
+}
+
 
 
 
