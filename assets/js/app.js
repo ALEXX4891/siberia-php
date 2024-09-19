@@ -2768,6 +2768,7 @@ const offices = document.querySelectorAll(".control__office");
 
 if (offices) {
   offices.forEach((item) => {
+    const title = item.querySelector(".office__title").innerHTML.trim();
     const publishBtn = item.querySelector(".card__btn_publish");
     const editBtn = item.querySelector(".card__btn_edit");
     const deleteBtn = item.querySelector(".card__btn_delete");
@@ -2790,22 +2791,41 @@ if (offices) {
         // item.remove();
       }
     });
+
+    deleteBtn.addEventListener("click", () => {
+      console.log("тест");
+      delFromDB(item, title, id);
+    });
+
+    editBtn.addEventListener("click", () => {
+      console.log("тест");
+      openForm(item);
+      // editElInDb(item, title, id);
+    });
+
   });
 
-
-
   function setElActive(id) {
+    const form = document.querySelector(`.edit-office[data-id="${id}"]`)
+    const chek = form.querySelector(".control__input_check");
+    chek.checked = true;
+
     const options = {
       script: "/control/backend/active.php",
       function: "active",
       table: "offices",
       field: "status",
       id: id,
-    };
+    };    
     fetchToDB(options);
   }
 
   function setDisabled(id) {
+    const form = document.querySelector(`.edit-office[data-id="${id}"]`)
+    const chek = form.querySelector(".control__input_check");
+    chek.checked = false;
+
+
     const options = {
       script: "/control/backend/active.php",
       function: "deactive",
@@ -2814,6 +2834,34 @@ if (offices) {
       id: id,
     };
     fetchToDB(options);
+  }
+
+  function delFromDB(item, title, id) {
+    const options = {
+      script: "/control/backend/del.php",
+      function: "del",
+      table: "offices",
+      id: id,
+    };
+
+    if (!confirm(`Вы действительно хотите удалить офис ${title}?`)) {
+      return;
+    }
+    item.remove();
+    fetchToDB(options);
+  }
+
+  function openForm(item) { 
+    const id = item.getAttribute("data-id");   
+    const form = document.querySelector(`.edit-office[data-id="${id}"]`);
+    const office = document.querySelector(`.office[data-id="${id}"]`);
+    form.style.display = "grid";
+    office.style.display = "none";
+    form.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+    newOfficeBtn.style.display = "none";
   }
 
   // async function fetchToDB(options) {

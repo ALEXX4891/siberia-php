@@ -42,7 +42,7 @@ error_reporting(E_ALL);
           mysqli_query($db, $sql);
           // mysqli_close($db);
           // echo $sql;
-          // header("Location: /control/pages/kontakty/");
+          header("Location: /control/pages/kontakty/");
 
         }
 
@@ -67,7 +67,36 @@ error_reporting(E_ALL);
           );
           // echo $sql;
           mysqli_query($db, $sql);
+          header('Location: /control/pages/kontakty/');
         }
+
+        if (isset($_POST['editOfficeSubmit'])) {
+
+          $name = $_POST['editOfficeTitle']; //editOfficeTitle
+          $description = $_POST['editOfficeDesc']; //editOfficeDesc
+          $address = $_POST['editOfficeAddress']; // editOfficeAddress
+          $phone = $_POST['editOfficePhone']; // editOfficePhone
+          $email = $_POST['editOfficeEmail']; // editOfficeEmail
+          $status = isset($_POST['editOfficeCheck']) ? '1' : '0'; // editOfficeCheck
+          $id = $_POST['editOfficeId'];
+
+          $sql = sprintf(
+            "UPDATE `offices` SET `name` = '%s', `description` = '%s', `address` = '%s', `phone` = '%s', `email` = '%s', `status` = '%s' WHERE id = '%s'",
+            // "INSERT INTO `offices` (`name`, `description`, `address`, `phone`, `email`, `status`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')",
+            mysqli_real_escape_string($db, $name),
+            mysqli_real_escape_string($db, $description),
+            mysqli_real_escape_string($db, $address),
+            mysqli_real_escape_string($db, $phone),
+            mysqli_real_escape_string($db, $email),
+            mysqli_real_escape_string($db, $status),
+            mysqli_real_escape_string($db, $id)
+          );
+          // echo $sql;
+          mysqli_query($db, $sql);
+          header('Location: /control/pages/kontakty/');
+        }
+
+
         ?>
         <?
         $resultContacts = mysqli_query($db, "SELECT * FROM contacts WHERE id = 1");
@@ -144,6 +173,7 @@ error_reporting(E_ALL);
 
               $status = $office['status'] === '1' ? 'Активный офис' : 'Неактивный офис';
               $class = $office['status'] === '1' ? '_active' : '';
+              $chek = $office['status'] === '1' ? 'checked' : '';
 
               echo "
           <div class='control__office office' data-id={$office['id']}>
@@ -196,7 +226,7 @@ error_reporting(E_ALL);
               <span class='card__head-title'>
                 Адрес:
               </span>
-              <span class='card__head-val'>
+              <span class='card__head-val office__address'>
               {$office['address']}
               </span>
             </div>
@@ -205,7 +235,7 @@ error_reporting(E_ALL);
               <span class='card__head-title'>
                 Телефон:
               </span>
-              <span class='card__head-val'>
+              <span class='card__head-val office__phone'>
               {$office['phone']}
               </span>
             </div>
@@ -214,12 +244,71 @@ error_reporting(E_ALL);
               <span class='card__head-title'>
                 Почта:
               </span>
-              <span class='card__head-val'>
+              <span class='card__head-val office__email'>
               {$office['email']}
               </span>
             </div>
 
           </div>
+
+          <form class='office__edit-office edit-office new-office' style='display: none;' method='post' action='#' data-id={$office['id']}>
+          <h2 class='edit-office__title new-office__title'>
+            Редактировать офис
+          </h2>
+
+          <input value='{$office['id']}' name='editOfficeId' type='number' hidden>
+
+  
+          <label class='control__label control__label_title'>
+            <span>
+              Название
+            </span>
+            <input class='control__input control__input_title' value='{$office['name']}' name='editOfficeTitle' type='text' placeholder='Название'>
+          </label>
+  
+          <label class='control__label control__label_desc'>
+            <span>
+              Описание
+            </span>
+            <input class='control__input control__input_desc' value='{$office['description']}' name='editOfficeDesc' type='text' placeholder='Описание'>
+          </label>
+  
+          <label class='control__label control__label_address'>
+            <span>
+              Адрес
+            </span>
+            <input class='control__input control__input_address' value='{$office['address']}' name='editOfficeAddress' type='text' placeholder='Адрес'>
+          </label>
+  
+          <div class='edit-office__wrap new-office__wrap'>
+            <label class='control__label control__label_phone'>
+              <span>
+                Телефон
+              </span>
+              <input class='control__input control__input_phone phone' value='{$office['phone']}' name='editOfficePhone' type='tel' placeholder='Телефон'>
+            </label>
+  
+            <label class='control__label control__label_E-mail'>
+              <span>
+                E-mail
+              </span>
+              <input class='control__input control__input_E-mail' value='{$office['email']}' name='editOfficeEmail' type='email' placeholder='E-mail'>
+            </label>
+          </div>
+  
+          <label class='control__label control__label_check'>
+            <input class='control__check control__input_check' {$chek} type='checkbox' value='1' name='editOfficeCheck'>
+            <span>
+              Активный офис
+            </span>
+          </label>
+  
+          <div class='control__btn-wrap'>
+            <input class='control__input control__input_submit btn btn_green' data-id={$office['id']} value='Сохранить' name='editOfficeSubmit' type='submit'>
+            <button class='control__btn control__btn_cancel btn btn_white'>Отмена</button>
+          </div>
+  
+        </form>
           ";
             } while ($office = mysqli_fetch_array($resultOffices));
           }
@@ -283,10 +372,12 @@ error_reporting(E_ALL);
               <input class="control__input control__input_submit btn btn_green" value="Сохранить" name="newOfficeSubmit" type="submit">
               <button class="control__btn control__btn_cancel btn btn_white">Отмена</button>
             </div>
-
+            
           </form>
+          
         </div>
       </div>
+      
 
       </div>
     </section>
