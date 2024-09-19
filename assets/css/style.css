@@ -678,8 +678,9 @@ margin-bottom: 15px;
 .control__body_contacts .control__label {
   display: grid;
   grid-auto-flow: row;
-  gap: 0px;
+  gap: 9px;
   /* grid-column: 2 span; */
+  align-content: start;
 }
 
 .control__body_contacts .control__label span {
@@ -687,17 +688,201 @@ margin-bottom: 15px;
 
 .control__body_contacts .control__input {
   padding: 10px;
-  /* grid-column: 2 span; */
+  /* grid-row: 2 span; */
+  max-width: 100%;
 }
 
 .control__body_contacts .control__form-top-wrap {
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  /* grid-auto-rows: auto; */
+  grid-template-rows: auto;
   gap: 30px 20px;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
+  align-items: start;
+}
+
+.control__body_contacts .control__label.control__label_adress {
+  /* display: grid; */
+  /* grid-auto-flow: row; */
+  /* gap: 5px; */
+  grid-column: 2 span;
+}
+
+.control__body_contacts .control__label.control__label_map {
+  /* display: grid; */
+  /* grid-auto-flow: row; */
+  /* gap: 5px; */
+  grid-column: 2 span;
+}
+
+.control__body_contacts .control__label_adress .control__input {
+  padding: 10px;
+  /* grid-row: 2 span; */
+  max-width: 100%;
+  height: 88px;
+  resize: vertical;
+}
+
+.control__body_contacts .control__label_map .control__input {
+  padding: 10px;
+  /* grid-row: 2 span; */
+  max-width: 100%;
+  height: 231px;
+  resize: vertical;
+}
+
+.control__body_contacts .control__input.control__input_submit {
+  /* padding: 10px; */
+  /* grid-row: 2 span; */
+  max-width: 271px;
 }
 
 
+
+
+
+.control__offices {max-width: 1060px;}
+.control__office-title {font-family: Inter;font-size: 30px;font-weight: 400;line-height: 42px;text-align: left;color: #363636;margin-bottom: 0px;}
+.control__office {
+}
+
+.office {display: grid;grid-auto-flow: row;gap: 15px;padding: 33px 0 18px;border-bottom: 1px solid #BABABA;}
+
+.office__top-wrap {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.office__active-mark {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: left;
+  color: #89B36A;
+}
+
+.office__btn-block {display: flex;gap: 20px;}
+.card__btn-block {
+}
+.card__btn {
+}
+.card__btn_publish {
+}
+
+.office__desc {
+font-family: Inter;
+font-size: 16px;
+font-weight: 400;
+line-height: 23.2px;
+text-align: left;
+color: #616161;
+
+
+}
+.card__btn_edit {
+}
+.card__btn_delete {
+}
+.office__title {
+font-family: Inter;
+font-size: 22px;
+font-weight: 400;
+line-height: 30.8px;
+text-align: left;
+color: #363636;
+
+}
+.office__bot-wrap {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+}
+.card__head {
+}
+.card__head-title {
+  font-family: Inter;
+font-size: 16px;
+font-weight: 400;
+line-height: 19.36px;
+text-align: left;
+color: #999999;
+
+}
+.card__head-val {
+font-family: Inter;
+font-size: 16px;
+font-weight: 400;
+line-height: 23.2px;
+text-align: left;
+color: #000000;
+
+}
+.control__body_contacts .control__offices .office__btn {
+  margin-top: 30px;
+  max-width: 270px;
+}
+.btn {
+}
+.btn_green {
+}
+
+
+.office__new-office {
+}
+.new-office {
+}
+.new-office__title {
+}
+.control__label {
+}
+.control__label_title {
+}
+.control__input {
+}
+.control__input_title {
+}
+.control__label_desc {
+}
+.control__input_desc {
+}
+.control__label_address {
+}
+.control__input_address {
+}
+.new-office__wrap {
+}
+.control__label_phone {
+}
+.control__input_phone {
+}
+.control__label_E-mail {
+}
+.control__input_E-mail {
+}
+.control__label_check {
+}
+.control__check {
+}
+.control__input_check {
+}
+.control__btn-wrap {
+}
+.control__input_submit {
+}
+.btn {
+}
+.btn_green {
+}
+.control__btn {
+}
+.control__btn_cancel {
+}
+.btn_white {
+}
 
 
 
