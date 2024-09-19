@@ -2918,4 +2918,18 @@ if (offices) {
 
 
 }
+
+const editForm = document.querySelector(".edit-office");
+if (editForm) {
+  const canselBtn = document.querySelectorAll(".control__btn_cancel");
+
+  canselBtn.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      const id = item.getAttribute("data-id");
+      item.closest(".edit-office").style.display = "none";
+      document.querySelector(`.office[data-id="${id}"]`).style.display = "grid";
+    });
+  });
+}
 // ------------------- end админка контакты --------------------------

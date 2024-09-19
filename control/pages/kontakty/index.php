@@ -46,7 +46,6 @@ error_reporting(E_ALL);
 
         }
 
-
         if (isset($_POST['newOfficeSubmit'])) {
 
           $name = $_POST['newOfficeTitle']; //newOfficeTitle
@@ -96,7 +95,6 @@ error_reporting(E_ALL);
           header('Location: /control/pages/kontakty/');
         }
 
-
         ?>
         <?
         $resultContacts = mysqli_query($db, "SELECT * FROM contacts WHERE id = 1");
@@ -113,9 +111,6 @@ error_reporting(E_ALL);
         // echo htmlspecialchars( $cont['map-code'], ENT_QUOTES );
         // echo '1';
         ?>
-
-
-
 
         <form method="post" action="#" class="control__form control__form_contacts">
           <h1 class="control__title">
@@ -257,7 +252,6 @@ error_reporting(E_ALL);
           </h2>
 
           <input value='{$office['id']}' name='editOfficeId' type='number' hidden>
-
   
           <label class='control__label control__label_title'>
             <span>
@@ -305,7 +299,7 @@ error_reporting(E_ALL);
   
           <div class='control__btn-wrap'>
             <input class='control__input control__input_submit btn btn_green' data-id={$office['id']} value='Сохранить' name='editOfficeSubmit' type='submit'>
-            <button class='control__btn control__btn_cancel btn btn_white'>Отмена</button>
+            <button class='control__btn control__btn_cancel btn btn_white' data-id={$office['id']}>Отмена</button>
           </div>
   
         </form>
@@ -317,7 +311,6 @@ error_reporting(E_ALL);
           <button class="office__btn btn btn_green" id="new-office-btn">
             Создать офис
           </button>
-
 
           <form class="office__new-office new-office" style="display: none;" id="new-office" method="post" action="">
             <h2 class="new-office__title">
@@ -376,12 +369,10 @@ error_reporting(E_ALL);
           </form>
           
         </div>
-      </div>
-      
+      </div>      
 
       </div>
     </section>
-
 
   </main>
 
