@@ -722,6 +722,7 @@ margin-bottom: 15px;
   max-width: 100%;
   height: 88px;
   resize: vertical;
+  color: #000;
 }
 
 .control__body_contacts .control__label_map .control__input {

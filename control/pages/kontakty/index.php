@@ -3,6 +3,10 @@ $title = 'Страницы авторизации';
 $description = '';
 $keywords = '';
 include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
+
+// ini_set('display_errors', '1');
+// ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 ?>
 
 <body class="body control__body control__body_contacts">
@@ -14,7 +18,49 @@ include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
   <main class="main control">
     <section class="section control__section edit-page">
       <div class="container control__container">
-        <form class="control__form control__form_contacts">
+
+        <?
+        // echo '2';
+        if (isset($_POST['contacts-submit'])) {
+          // echo '3';
+
+          $phone =  $_POST['contacts-phone'];
+          $email = $_POST['contacts-email'];
+          $adress = $_POST['contacts-adress'];
+          $map = htmlspecialchars($_POST['contacts-map']);
+
+
+          // $sql = "UPDATE contacts SET phone = '$phone', email = '$email', address = '$adress', `map-code` = '$map' WHERE id = 1";
+          $sql = sprintf(
+            "UPDATE `contacts` SET `phone` = '%s', `email` = '%s', `address` = '%s', `map-code` = '%s' WHERE id = 1",
+            mysqli_real_escape_string($db, $phone),
+            mysqli_real_escape_string($db, $email),
+            mysqli_real_escape_string($db, $adress),
+            mysqli_real_escape_string($db, $map)
+          );
+
+          // echo $sql;
+          mysqli_query($db, $sql);
+          // mysqli_close($db);
+
+          // echo $sql;
+
+          // header("Location: /control/pages/kontakty/");
+
+        }
+        ?>
+        <?
+        $resultContacts = mysqli_query($db, "SELECT * FROM contacts WHERE id = 1");
+        $cont = mysqli_fetch_array($resultContacts);
+        // echo $cont['address'];
+        // echo htmlspecialchars( $cont['map-code'], ENT_QUOTES );
+        // echo '1';
+        ?>
+
+
+
+
+        <form method="post" action="#" class="control__form control__form_contacts">
           <h1 class="control__title">
             Основные контакты
           </h1>
@@ -27,32 +73,32 @@ include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
               <span>
                 Телефон
               </span>
-              <input id="phone" class="control__input control__input_phone" name="phone" type="text" placeholder="Телефон">
+              <input id="phone" class="control__input control__input_phone" name="contacts-phone" type="text" value="<?= $cont['phone'] ?>" placeholder="Телефон">
             </label>
 
             <label for="email" class="control__label control__label_email">
               <span>
                 E-mail
               </span>
-              <input id="email" class="control__input control__input_email" type="email" name="email">
+              <input id="email" class="control__input control__input_email" value="<?= $cont['email'] ?>" type="email" name="contacts-email">
             </label>
 
             <label for="adress" class="control__label control__label_adress">
               <span>
                 Адрес
               </span>
-              <textarea id="adress" class="control__input control__input_adress" name="adress" placeholder="Адрес"></textarea>
+              <textarea id="adress" class="control__input control__input_adress" name="contacts-adress"><?= $cont['address'] ?></textarea>
             </label>
 
             <label for="map" class="control__label control__label_map">
               <span>
                 Код карты
               </span>
-              <textarea id="map" class="control__input control__input_map" name="map" placeholder="Код карты"></textarea>
+              <textarea id="map" class="control__input control__input_map" name="contacts-map"><?= htmlspecialchars($cont['map-code'], ENT_QUOTES) ?></textarea>
             </label>
 
 
-            <button class="control__input control__input_submit btn btn_green" type="submit">Сохранить</button>
+            <input class="control__input control__input_submit btn btn_green" name="contacts-submit" type="submit">Сохранить</input>
 
 
           </div>
