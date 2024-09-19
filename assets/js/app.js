@@ -2749,3 +2749,125 @@ if (slideBtn) {
     });
   });
 }
+
+// ------------------- start админка контакты --------------------------
+const newOfficeBtn = document.getElementById("new-office-btn");
+if (newOfficeBtn) {
+  newOfficeBtn.addEventListener("click", () => {
+    const form = document.getElementById("new-office");
+    form.style.display = "grid";
+    form.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+    newOfficeBtn.style.display = "none";
+  });
+}
+
+const offices = document.querySelectorAll(".control__office");
+
+if (offices) {
+  offices.forEach((item) => {
+    const publishBtn = item.querySelector(".card__btn_publish");
+    const editBtn = item.querySelector(".card__btn_edit");
+    const deleteBtn = item.querySelector(".card__btn_delete");
+    const id = item.getAttribute("data-id");
+    const activeMark = item.querySelector(".office__active-mark");
+
+    publishBtn.addEventListener("click", () => {
+      console.log("тест");
+      publishBtn.classList.toggle("_active");
+      if (publishBtn.classList.contains("_active")) {
+        setElActive(id);
+        activeMark.innerHTML = 'Активный офис';
+        activeMark.classList.add("_active");
+
+      } else {
+        setDisabled(id);
+        activeMark.innerHTML = 'Неактивный офис';
+        activeMark.classList.remove("_active");
+        // publishBtn.textContent = "Опубликовать";
+        // item.remove();
+      }
+    });
+  });
+
+
+
+  function setElActive(id) {
+    const options = {
+      script: "/control/backend/active.php",
+      function: "active",
+      table: "offices",
+      field: "status",
+      id: id,
+    };
+    fetchToDB(options);
+  }
+
+  function setDisabled(id) {
+    const options = {
+      script: "/control/backend/active.php",
+      function: "deactive",
+      table: "offices",
+      field: "status",
+      id: id,
+    };
+    fetchToDB(options);
+  }
+
+  // async function fetchToDB(options) {
+  //   // Блок try выполнится полностью, если не будет ошибок:
+  //   try {
+  //     // Выполняем запрос:
+  //     const responce = await fetch(options.script, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(options),
+  //     });
+  //     console.log("тест");
+  //     const res = await responce.json();
+  //     // return infoList; // Возвращаем результат запроса
+  //   } catch (err) {
+  //     // Блок catch сработает только если будут какие-то ошибки в блоке try:
+  //     // Выведем в консоли информацию об ошибке:
+  //     console.log("При запросе к БД произошла ошибка, детали ниже:");
+  //     console.error(err);
+  //     // Вернем исключение с текстом поясняющим детали ошибки:
+  //     alert("Произошла ошибка при запросе к БД!");
+  //     throw new Error("Запрос завершился неудачно.");
+  //   }
+  // }
+
+  async function fetchToDB(options) {
+    let responseHouses = await fetch(options.script, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(options),
+    });
+
+    // let arr = [];
+
+    if (responseHouses.ok) {
+      console.log("ok");
+      // let result = await responseHouses.json();
+      // arr = Object.values(result.response);
+    } else {
+      console.log("error");
+    }
+    // return arr;
+  }
+
+
+
+
+
+
+
+
+}
+// ------------------- end админка контакты --------------------------
