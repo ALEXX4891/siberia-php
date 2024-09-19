@@ -29,7 +29,6 @@ error_reporting(E_ALL);
           $adress = $_POST['contacts-adress'];
           $map = htmlspecialchars($_POST['contacts-map']);
 
-
           // $sql = "UPDATE contacts SET phone = '$phone', email = '$email', address = '$adress', `map-code` = '$map' WHERE id = 1";
           $sql = sprintf(
             "UPDATE `contacts` SET `phone` = '%s', `email` = '%s', `address` = '%s', `map-code` = '%s' WHERE id = 1",
@@ -42,11 +41,31 @@ error_reporting(E_ALL);
           // echo $sql;
           mysqli_query($db, $sql);
           // mysqli_close($db);
-
           // echo $sql;
-
           // header("Location: /control/pages/kontakty/");
 
+        }
+
+
+        if (isset($_POST['newOfficeSubmit'])) {
+
+          $name = $_POST['newOfficeTitle']; //newOfficeTitle
+          $description = $_POST['newOfficeDesc']; //newOfficeDesc
+          $address = $_POST['newOfficeAddress']; // newOfficeAddress
+          $phone = $_POST['newOfficePhone']; // newOfficePhone
+          $email = $_POST['newOfficeEmail']; // newOfficeEmail
+          $status = isset($_POST['newOfficeCheck']) ? '1' : '0'; // newOfficeCheck
+
+          $sql = sprintf("INSERT INTO `offices` (`name`, `description`, `address`, `phone`, `email`, `status`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')",
+            mysqli_real_escape_string($db, $name),
+            mysqli_real_escape_string($db, $description),
+            mysqli_real_escape_string($db, $address),
+            mysqli_real_escape_string($db, $phone),
+            mysqli_real_escape_string($db, $email),
+            mysqli_real_escape_string($db, $status)
+          );
+          // echo $sql;
+          mysqli_query($db, $sql);
         }
         ?>
         <?
@@ -98,7 +117,7 @@ error_reporting(E_ALL);
             </label>
 
 
-            <input class="control__input control__input_submit btn btn_green" name="contacts-submit" type="submit">Сохранить</input>
+            <input class="control__input control__input_submit btn btn_green" value="Сохранить" name="contacts-submit" type="submit">
 
 
           </div>
@@ -260,7 +279,7 @@ error_reporting(E_ALL);
           </button>
 
 
-          <form class="office__new-office new-office" action="">
+          <form class="office__new-office new-office" method="post" action="">
             <h2 class="new-office__title">
               Новый офис
             </h2>
@@ -269,21 +288,21 @@ error_reporting(E_ALL);
               <span>
                 Название
               </span>
-              <input id="title" class="control__input control__input_title" name="title" type="text" placeholder="Название">
+              <input id="title" class="control__input control__input_title" name="newOfficeTitle" type="text" placeholder="Название">
             </label>
 
             <label for="desc" class="control__label control__label_desc">
               <span>
                 Описание
               </span>
-              <input id="desc" class="control__input control__input_desc" name="desc" type="text" placeholder="Описание">
+              <input id="desc" class="control__input control__input_desc" name="newOfficeDesc" type="text" placeholder="Описание">
             </label>
 
             <label for="address" class="control__label control__label_address">
               <span>
                 Адрес
               </span>
-              <input id="address" class="control__input control__input_address" name="address" type="text" placeholder="Адрес">
+              <input id="address" class="control__input control__input_address" name="newOfficeAddress" type="text" placeholder="Адрес">
             </label>
 
             <div class="new-office__wrap">
@@ -291,26 +310,26 @@ error_reporting(E_ALL);
                 <span>
                   Телефон
                 </span>
-                <input id="phone" class="control__input control__input_phone" name="phone" type="text" placeholder="Телефон">
+                <input id="phone" class="control__input control__input_phone phone" name="newOfficePhone" type="tel" placeholder="Телефон">
               </label>
 
               <label for="E-mail" class="control__label control__label_E-mail">
                 <span>
                   E-mail
                 </span>
-                <input id="E-mail" class="control__input control__input_E-mail" name="E-mail" type="text" placeholder="E-mail">
+                <input id="E-mail" class="control__input control__input_E-mail" name="newOfficeEmail" type="email" placeholder="E-mail">
               </label>
             </div>
 
             <label for="check" class="control__label control__label_check">
-              <input id="check" class="control__check control__input_check" type="checkbox" name="check">
+              <input id="check" class="control__check control__input_check" type="checkbox" value="1" name="newOfficeCheck">
               <span>
                 Активный офис
               </span>
             </label>
 
             <div class="control__btn-wrap">
-              <button class="control__input control__input_submit btn btn_green" type="submit">Сохранить</button>
+              <input class="control__input control__input_submit btn btn_green" value="Сохранить" name="newOfficeSubmit" type="submit">
               <button class="control__btn control__btn_cancel btn btn_white">Отмена</button>
             </div>
 
