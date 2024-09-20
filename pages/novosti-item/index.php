@@ -20,7 +20,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
       <?php
       $result = mysqli_query($db, "SELECT * FROM news WHERE id = " . $_GET['id']);
-      // $result = mysqli_query($db, "SELECT * FROM news ORDER BY DATE DESC");
       $row = mysqli_fetch_array($result);
       // echo '<pre>';
       // print_r($row);
@@ -66,7 +65,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <ul class="news-slider__cards-list swiper-wrapper">
             <?
             // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
-            $result = mysqli_query($db, "SELECT * FROM news WHERE publish = 1 ORDER BY DATE DESC LIMIT 8");
+            $result = mysqli_query($db, "SELECT * FROM news WHERE status = 1 ORDER BY DATE DESC LIMIT 8");
 
             $row = mysqli_fetch_array($result);
 

@@ -49,7 +49,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
         <ul class="control__content-list">
 
         <?
-            $resultNews = mysqli_query($db, "SELECT * FROM news ORDER BY date ASC");
+            $resultNews = mysqli_query($db, "SELECT * FROM news");
             $news = mysqli_fetch_array($resultNews);
 
             if (mysqli_num_rows($resultNews) > 0) {

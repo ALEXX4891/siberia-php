@@ -175,11 +175,6 @@ error_reporting(E_ALL);
 
         }
 
-        // $id = $_GET['id'];
-        // $resultNews = mysqli_query($db, "SELECT * FROM news WHERE id = " . $id);
-        // $news = mysqli_fetch_array($resultNews);
-        // $chek = $news['status'] === '1' ? 'checked' : '';
-
         echo "
 
         <h1 class='control__title'>
