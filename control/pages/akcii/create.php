@@ -128,14 +128,7 @@ error_reporting(E_ALL);
           mysqli_query($db, $sql);
           header('Location: /control/pages/akcii/');
 
-          // 2024-08-26 19:40:32
-
         }
-
-        // $id = $_GET['id'];
-        // $result = mysqli_query($db, "SELECT * FROM events WHERE id = " . $id);
-        // $row = mysqli_fetch_array($result);
-        // $chek = $row['status'] === '1' ? 'checked' : '';
 
         echo "
         <h1 class='control__title'>

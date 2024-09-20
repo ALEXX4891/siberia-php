@@ -14,7 +14,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
 
     $telNumber = preg_replace('/[^0-9\.]+/', '', $cont['phone']);
 
-    $resultEvent = mysqli_query($db, "SELECT * FROM events");
+    $resultEvent = mysqli_query($db, "SELECT * FROM events WHERE status = 1");
 
     $event = mysqli_fetch_array($resultEvent);
 

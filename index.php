@@ -515,21 +515,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="promo__slider-wrap promo_swiper">
           <ul class="promo__list swiper-wrapper">
             <?
-            // include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
-            // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
-            $result = mysqli_query($db, "SELECT * FROM events");
+            $result = mysqli_query($db, "SELECT * FROM events WHERE status = 1");
 
             $row = mysqli_fetch_array($result);
-
-            // if ($row == '') {
-            //   echo 'Ничего не нашлось';
-            // }
-
-            // echo '<pre>';
-            // print_r($row);
-            // echo '</pre>';
-
-            // Сосновый | ГП 8 | 1 / 2 этаж
 
             if (mysqli_num_rows($result) > 0) {
               do {
