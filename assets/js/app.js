@@ -3030,6 +3030,117 @@ if (news.length > 0) {
   }
 }
 
+const events = document.querySelectorAll(".control__events");
+
+if (events.length > 0) {
+  events.forEach((item) => {
+    const title = item.querySelector(".card__title").innerHTML.trim();
+    const publishBtn = item.querySelector(".card__btn_publish");
+    const editBtn = item.querySelector(".card__btn_edit");
+    const deleteBtn = item.querySelector(".card__btn_delete");
+    const id = item.getAttribute("data-id");
+    // const activeMark = item.querySelector(".office__active-mark");
+
+    publishBtn.addEventListener("click", () => {
+      console.log("тест");
+      publishBtn.classList.toggle("_active");
+
+      if (publishBtn.classList.contains("_active")) {
+        setElActive(id);
+        // activeMark.innerHTML = 'Активный офис';
+        // activeMark.classList.add("_active");
+
+      } else {
+        setDisabled(id);
+        // activeMark.innerHTML = 'Неактивный офис';
+        // activeMark.classList.remove("_active");
+        // publishBtn.textContent = "Опубликовать";
+        // item.remove();
+      }
+    });
+
+    deleteBtn.addEventListener("click", () => {
+      console.log("тест");
+      delFromDB(item, title, id);
+    });
+
+    editBtn.addEventListener("click", () => {
+      console.log("тест");
+      window.location.href = `/control/pages/akcii/edit.php?id=${id}`
+      // openForm(item);
+      // editElInDb(item, title, id);
+    });
+
+  });
+
+  function setElActive(id) {
+    // const form = document.querySelector(`.edit-office[data-id="${id}"]`)
+    // const chek = form.querySelector(".control__input_check");
+    // chek.checked = true;
+
+    const options = {
+      script: "/control/backend/active.php",
+      function: "active",
+      table: "events",
+      field: "status",
+      id: id,
+    };    
+    fetchToDB(options);
+  }
+
+  function setDisabled(id) {
+    // const form = document.querySelector(`.edit-office[data-id="${id}"]`)
+    // const chek = form.querySelector(".control__input_check");
+    // chek.checked = false;
+
+
+    const options = {
+      script: "/control/backend/active.php",
+      function: "deactive",
+      table: "events",
+      field: "status",
+      id: id,
+    };
+    fetchToDB(options);
+  }
+
+  function delFromDB(item, title, id) {
+    const options = {
+      script: "/control/backend/del.php",
+      function: "del",
+      table: "events",
+      id: id,
+    };
+
+    if (!confirm(`Вы действительно хотите удалить новостьт ${title}?`)) {
+      return;
+    }
+    item.remove();
+    fetchToDB(options);
+  }
+
+  async function fetchToDB(options) {
+    let responseHouses = await fetch(options.script, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(options),
+    });
+
+    // let arr = [];
+
+    if (responseHouses.ok) {
+      console.log("ok");
+      // let result = await responseHouses.json();
+      // arr = Object.values(result.response);
+    } else {
+      console.log("error");
+    }
+    // return arr;
+  }
+}
+
 const editForm = document.querySelector(".edit-office");
 if (editForm) {
   const canselBtn = document.querySelectorAll(".control__btn_cancel");
