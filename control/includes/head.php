@@ -5,7 +5,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
 if(!$_SESSION['user_id'] AND !$_SESSION['access']){
   // die($_SESSION['access']);
   // echo '<meta http-equiv="refresh" content="0; URL=\'/control/login.php\'" />'; 
-  header('Location: /control/login.php');
+  header('Location: ' . $_SERVER["DOCUMENT_ROOT"] . ' /control/login.php');
   exit();
 }
 
