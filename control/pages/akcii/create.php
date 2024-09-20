@@ -81,10 +81,10 @@ error_reporting(E_ALL);
           // print_r($images);
           // echo '</pre>';
 
-          $id = $_GET['id'];
+          // $id = $_GET['id'];
           $name = $_POST['title'];
           $date = $_POST['date'] ? $_POST['date'] : date('Y-m-d');
-          $time = $_POST['time'] ? $_POST['time'] : date('H:i');
+          $time = $_POST['time'] ?  date('Y-m-d H:i:s', strtotime($_POST['time'])) : date('Y-m-d H:i:s');
           $description = $_POST['description'];
           $photo = $images['photoFile'];
           // $image_1 = $images['image-1File'];
@@ -100,49 +100,46 @@ error_reporting(E_ALL);
           $status = isset($_POST['check']) ? '1' : '0';
 
           $sql = sprintf(
-            "UPDATE `events` SET 
-            `title` = '%s', 
-            `date` = '%s', 
-            `time` = '%s',
-            `description` = '%s',
-            `photo` = '%s',
-            `status` = '%s'
-            WHERE id = '%s'
+            "
+            INSERT INTO `events` (
+              `title`, 
+              `date`, 
+              `time`,
+              `description`, 
+              `photo`, 
+              `status`
+            ) VALUES (
+              '%s', 
+              '%s', 
+              '%s', 
+              '%s', 
+              '%s',
+              '%s'
+            )
             ",
             mysqli_real_escape_string($db, $name),
             mysqli_real_escape_string($db, $date),
             mysqli_real_escape_string($db, $time),
             mysqli_real_escape_string($db, $description),
             mysqli_real_escape_string($db, $photo),
-            // mysqli_real_escape_string($db, $image_1),
-            // mysqli_real_escape_string($db, $image_2),
-            // mysqli_real_escape_string($db, $image_3),
-            // mysqli_real_escape_string($db, $image_4),
-            // mysqli_real_escape_string($db, $image_5),
-            // mysqli_real_escape_string($db, $image_6),
-            // mysqli_real_escape_string($db, $image_7),
-            // mysqli_real_escape_string($db, $image_8),
-            // mysqli_real_escape_string($db, $image_9),
-            // mysqli_real_escape_string($db, $image_10),
             mysqli_real_escape_string($db, $status),
-            mysqli_real_escape_string($db, $id)
           );
-          // echo $sql;
+          echo $sql;
           mysqli_query($db, $sql);
           header('Location: /control/pages/akcii/');
 
+          // 2024-08-26 19:40:32
+
         }
 
-        $id = $_GET['id'];
-        $result = mysqli_query($db, "SELECT * FROM events WHERE id = " . $id);
-        $row = mysqli_fetch_array($result);
-        $chek = $row['status'] === '1' ? 'checked' : '';
+        // $id = $_GET['id'];
+        // $result = mysqli_query($db, "SELECT * FROM events WHERE id = " . $id);
+        // $row = mysqli_fetch_array($result);
+        // $chek = $row['status'] === '1' ? 'checked' : '';
 
         echo "
-
-
         <h1 class='control__title'>
-          Редактировать акцию {$row['title']}
+          Создать акцию
         </h1>
         <form class='control__head control__form' action='#' method='post' enctype='multipart/form-data'>
           <div class='control__form-top-wrap'>
@@ -150,24 +147,24 @@ error_reporting(E_ALL);
               <span>
                 Заголовок
               </span>
-              <input id='title' class='control__input control__input_title' value='{$row['title']}' name='title' type='text' placeholder='Заголовок'>
+              <input id='title' class='control__input control__input_title' name='title' type='text' placeholder='Заголовок'>
             </label>
   
             <label for='date' class='control__label control__label_date'>
               <span>
                 Дата публикации
               </span>
-              <input id='date' class='control__input control__input_date' value='{$row['date']}' type='date' name='date'>
+              <input id='date' class='control__input control__input_date' type='date' name='date'>
             </label>
 
             <label for='time' class='control__label control__label_time'>
               <span>
                 Срок действия
               </span>
-              <input id='time' class='control__input control__input_time' value='{$row['time']}' type='datetime-local' name='time'>
+              <input id='time' class='control__input control__input_time' type='datetime-local' name='time'>
             </label>
   
-            <input class='control__input control__input_photo' value='{$row['photo']}' type='text' name='photo' hidden>
+            <input class='control__input control__input_photo' type='text' name='photo' hidden>
             <label class='control__label control__label_photo'>
               <span>
               Обложка (800х350 px)
@@ -175,7 +172,7 @@ error_reporting(E_ALL);
 
               <input class='control__input control__input_photo' type='file' name='photoFile' hidden accept='image/*,image/jpeg'>
               <div class='control__photo-wrap'>
-                <img src='/assets/img/{$row['photo']}' class='control__photo' alt='Обложка'>
+                <img src='/assets/img/blank.jpg' class='control__photo' alt='Обложка'>
               </div>
               <span class='control__btn control__btn_photo'>
                 Загрузить фото
@@ -188,11 +185,11 @@ error_reporting(E_ALL);
             <span>
               Условия акции
             </span>
-            <textarea id='text' class='control__input control__input_text' name='description' placeholder='Текст'>{$row['description']}</textarea>
+            <textarea id='text' class='control__input control__input_text' name='description' placeholder='Текст'></textarea>
           </label>
 
           <label for='check' class='control__label control__label_check'>
-            <input id='check' class='control__check control__input_check' type='checkbox' name='check' {$chek}>
+            <input id='check' class='control__check control__input_check' type='checkbox' name='check'>
             <span>
               Опубликовать
             </span>

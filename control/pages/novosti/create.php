@@ -168,7 +168,6 @@ error_reporting(E_ALL);
             mysqli_real_escape_string($db, $image_9),
             mysqli_real_escape_string($db, $image_10),
             mysqli_real_escape_string($db, $status),
-            mysqli_real_escape_string($db, $id)
           );
           // echo $sql;
           mysqli_query($db, $sql);
