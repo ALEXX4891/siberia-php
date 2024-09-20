@@ -35,7 +35,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
             </ul>
           </div>
 
-          <a class="control__btn btn btn_green" href="/control/pages/akcii/edit.php">
+          <a class="control__btn btn btn_green" href="/control/pages/akcii/create.php">
             Создать акцию
           </a>
         </div>
