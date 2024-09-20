@@ -124,7 +124,7 @@ error_reporting(E_ALL);
             mysqli_real_escape_string($db, $photo),
             mysqli_real_escape_string($db, $status),
           );
-          echo $sql;
+          // echo $sql;
           mysqli_query($db, $sql);
           header('Location: /control/pages/akcii/');
 

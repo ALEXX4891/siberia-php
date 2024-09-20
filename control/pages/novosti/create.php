@@ -56,7 +56,7 @@ error_reporting(E_ALL);
 
           $images = [];
 
-          echo $_FILES['image-3File']['name'];
+          // echo $_FILES['image-3File']['name'];
 
           foreach ($photoFileArr as $value) {
             if (0 < $_FILES[$value]['error']) {
