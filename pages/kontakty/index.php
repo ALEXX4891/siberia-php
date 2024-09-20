@@ -28,7 +28,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <div class="contacts-page__left-wrap">
 
             <?
-            $result = mysqli_query($db, "SELECT * FROM offices WHERE publish = 1 ORDER BY id ASC");
+            $result = mysqli_query($db, "SELECT * FROM offices WHERE status = 1 ORDER BY id ASC");
             $row = mysqli_fetch_array($result);
 
             if (mysqli_num_rows($result) > 0) {

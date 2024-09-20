@@ -75,6 +75,20 @@ if ($inputData) {
 
       }
     }
+
+    if ($table == 'news') {
+
+      if ($field == 'status') {
+
+        $sql = sprintf(
+          "UPDATE `news` SET `status` = '1' WHERE `id` = '%s'",
+          mysqli_real_escape_string($db, $id)
+        );
+
+        echo $sql;
+
+      }
+    }
   } else if ($function == 'deactive') {
     if ($table == 'offices') {
 
@@ -82,6 +96,21 @@ if ($inputData) {
 
         $sql = sprintf(
           "UPDATE `offices` SET `status` = '0' WHERE `id` = '%s'",
+          mysqli_real_escape_string($db, $id)
+        );
+
+        echo $sql;
+
+
+      }
+    }
+
+    if ($table == 'news') {
+
+      if ($field == 'status') {
+
+        $sql = sprintf(
+          "UPDATE `news` SET `status` = '0' WHERE `id` = '%s'",
           mysqli_real_escape_string($db, $id)
         );
 
