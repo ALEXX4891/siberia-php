@@ -55,6 +55,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
           if (mysqli_num_rows($resultEvents) > 0) {
             do {
 
+              $class = $event['status'] === '1' ? '_active' : '';
+
               // echo $event['date'];
               // $date = $date ?? 'Опубликовать';
               if (strtotime($event['date']) == 0) {

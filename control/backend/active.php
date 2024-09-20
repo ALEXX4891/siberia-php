@@ -73,7 +73,6 @@ if ($inputData) {
         );
   }
 
-
-
+  // echo $sql;
   mysqli_query($db, $sql);
 }
