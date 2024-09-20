@@ -168,7 +168,7 @@ error_reporting(E_ALL);
             </label>
   
             <input class='control__input control__input_photo' value='{$row['photo']}' type='text' name='photo' hidden>
-            <label for='photo' class='control__label control__label_photo'>
+            <label class='control__label control__label_photo'>
               <span>
               Обложка (800х350 px)
               </span>
