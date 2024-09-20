@@ -37,45 +37,11 @@ if ($inputData) {
   }
 
 
-  if ($function == 'active') {
-
-    if ($table == 'offices') {
-
-      if ($field == 'status') {
-
-        $sql = sprintf(
-          "UPDATE `offices` SET `status` = '1' WHERE `id` = '%s'",
-          mysqli_real_escape_string($db, $id)
-        );
-
-        echo $sql;
-
-      }
-    }
-  } else if ($function == 'deactive') {
-    if ($table == 'offices') {
-
-      if ($field == 'status') {
-
-        $sql = sprintf(
-          "UPDATE `offices` SET `status` = '0' WHERE `id` = '%s'",
-          mysqli_real_escape_string($db, $id)
-        );
-
-        echo $sql;
-
-
-      }
-    }
-  } else if ($function == 'del') {
-    if ($table == 'offices') {
-      $sql = sprintf(
-        "DELETE FROM `offices` WHERE `id` = '%s'",
-        mysqli_real_escape_string($db, $id)
-      );
-    }
+if ($function == 'del') {
+    $sql = sprintf(
+      "DELETE FROM `$table` WHERE `id` = '%s'",
+      mysqli_real_escape_string($db, $id)
+    );
   }
-
-  // echo $sql;
   mysqli_query($db, $sql);
 }

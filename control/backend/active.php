@@ -30,7 +30,6 @@ if (!$inputData) {
 }
 
 include $_SERVER["DOCUMENT_ROOT"] . '/backend/db.php';
-include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
 
 
 if ($inputData) {
@@ -62,65 +61,19 @@ if ($inputData) {
 
   if ($function == 'active') {
 
-    if ($table == 'offices') {
-
-      if ($field == 'status') {
-
         $sql = sprintf(
-          "UPDATE `offices` SET `status` = '1' WHERE `id` = '%s'",
+          "UPDATE `$table` SET `$field` = '1' WHERE `id` = '%s'",
           mysqli_real_escape_string($db, $id)
         );
-
-        echo $sql;
-
-      }
-    }
-
-    if ($table == 'news') {
-
-      if ($field == 'status') {
-
-        $sql = sprintf(
-          "UPDATE `news` SET `status` = '1' WHERE `id` = '%s'",
-          mysqli_real_escape_string($db, $id)
-        );
-
-        echo $sql;
-
-      }
-    }
   } else if ($function == 'deactive') {
-    if ($table == 'offices') {
-
-      if ($field == 'status') {
 
         $sql = sprintf(
-          "UPDATE `offices` SET `status` = '0' WHERE `id` = '%s'",
+          "UPDATE `$table` SET `$field` = '0' WHERE `id` = '%s'",
           mysqli_real_escape_string($db, $id)
         );
-
-        echo $sql;
-
-
-      }
-    }
-
-    if ($table == 'news') {
-
-      if ($field == 'status') {
-
-        $sql = sprintf(
-          "UPDATE `news` SET `status` = '0' WHERE `id` = '%s'",
-          mysqli_real_escape_string($db, $id)
-        );
-
-        echo $sql;
-
-
-      }
-    }
   }
 
-  // echo $sql;
+
+
   mysqli_query($db, $sql);
 }

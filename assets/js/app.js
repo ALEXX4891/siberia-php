@@ -2955,6 +2955,7 @@ if (news.length > 0) {
 
     editBtn.addEventListener("click", () => {
       console.log("тест");
+      window.location.href = `/control/pages/novosti/edit.php?id=${id}`
       // openForm(item);
       // editElInDb(item, title, id);
     });
