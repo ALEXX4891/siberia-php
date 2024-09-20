@@ -774,10 +774,10 @@ margin-bottom: 15px;
 }
 
 .control__img-wrap {
-  
-max-width: 215xp;
-  
-aspect-ratio: 300/202;
+  max-width: 215px;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 300/202;
 }
 
 .office__active-mark._active {

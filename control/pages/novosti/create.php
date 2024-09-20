@@ -100,23 +100,58 @@ error_reporting(E_ALL);
           $status = isset($_POST['check']) ? '1' : '0';
 
           $sql = sprintf(
-            "UPDATE `news` SET 
-            `title` = '%s', 
-            `date` = '%s', 
-            `description` = '%s', 
-            `photo` = '%s', 
-            `image-1` = '%s',
-            `image-2` = '%s',
-            `image-3` = '%s',
-            `image-4` = '%s',
-            `image-5` = '%s',
-            `image-6` = '%s',
-            `image-7` = '%s',
-            `image-8` = '%s',
-            `image-9` = '%s',
-            `image-10` = '%s',
-            `status` = '%s'
-            WHERE id = '%s'
+            // "UPDATE `news` SET 
+            // `title` = '%s', 
+            // `date` = '%s', 
+            // `description` = '%s', 
+            // `photo` = '%s', 
+            // `image-1` = '%s',
+            // `image-2` = '%s',
+            // `image-3` = '%s',
+            // `image-4` = '%s',
+            // `image-5` = '%s',
+            // `image-6` = '%s',
+            // `image-7` = '%s',
+            // `image-8` = '%s',
+            // `image-9` = '%s',
+            // `image-10` = '%s',
+            // `status` = '%s'
+            // WHERE id = '%s'
+            // ",
+            "
+            INSERT INTO `news` (
+              `title`, 
+              `date`, 
+              `description`, 
+              `photo`, 
+              `image-1`,
+              `image-2`,
+              `image-3`,
+              `image-4`,
+              `image-5`,
+              `image-6`,
+              `image-7`,
+              `image-8`,
+              `image-9`,
+              `image-10`,
+              `status`
+            ) VALUES (
+              '%s', 
+              '%s', 
+              '%s', 
+              '%s', 
+              '%s',
+              '%s',
+              '%s',
+              '%s',
+              '%s',
+              '%s',
+              '%s',
+              '%s',
+              '%s',
+              '%s',
+              '%s'
+            )
             ",
             mysqli_real_escape_string($db, $name),
             mysqli_real_escape_string($db, $date),
@@ -141,15 +176,15 @@ error_reporting(E_ALL);
 
         }
 
-        $id = $_GET['id'];
-        $resultNews = mysqli_query($db, "SELECT * FROM news WHERE id = " . $id);
-        $news = mysqli_fetch_array($resultNews);
-        $chek = $news['status'] === '1' ? 'checked' : '';
+        // $id = $_GET['id'];
+        // $resultNews = mysqli_query($db, "SELECT * FROM news WHERE id = " . $id);
+        // $news = mysqli_fetch_array($resultNews);
+        // $chek = $news['status'] === '1' ? 'checked' : '';
 
         echo "
 
         <h1 class='control__title'>
-          Редактировать новость {$news['title']}
+          Создать новость
         </h1>
         <form action='#' method='post' class='control__head control__form' enctype='multipart/form-data'>
           <div class='control__form-top-wrap'>
@@ -157,14 +192,14 @@ error_reporting(E_ALL);
               <span>
                 Заголовок
               </span>
-              <input id='title' class='control__input control__input_title' value='{$news['title']}' name='title' type='text' placeholder='Заголовок'>
+              <input id='title' class='control__input control__input_title' name='title' type='text' placeholder='Заголовок'>
             </label>
   
             <label for='date' class='control__label control__label_date'>
               <span>
                 Дата
               </span>
-              <input id='date' class='control__input control__input_date' value='{$news['date']}' type='date' name='date'>
+              <input id='date' class='control__input control__input_date' type='date' name='date'>
             </label>
   
             <label class='control__label control__label_photo'>
@@ -172,10 +207,10 @@ error_reporting(E_ALL);
                 Обложка (1712х563 px)
               </span>
               <input class='control__input control__input_photo' type='file' name='photoFile' hidden accept='image/*,image/jpeg'>
-              <input class='control__input control__input_photo' value='{$news['photo']}' type='text' name='photo' hidden>
+              <input class='control__input control__input_photo' type='text' name='photo' hidden>
 
               <div class='control__photo-wrap'>
-                <img src='/assets/img/{$news['photo']}' class='control__photo' alt='Обложка'>
+                <img src='/assets/img/blank.jpg' class='control__photo' alt='Обложка'>
               </div>
               <span class='control__btn control__btn_photo'>
                 Загрузить фото
@@ -188,7 +223,7 @@ error_reporting(E_ALL);
             <span>
               Текст новости
             </span>
-            <textarea id='text' class='control__input control__input_text' name='description' placeholder='Текст'>{$news['description']}</textarea>
+            <textarea id='text' class='control__input control__input_text' name='description' placeholder='Текст'></textarea>
           </label>
 
           <div class='control__gallery-wrap'>
@@ -197,111 +232,111 @@ error_reporting(E_ALL);
             </span>
 
             <div class='control__gallery-images'>
-            <input class='control__input control__input_gallery' value='{$news['image-1']}' type='text' name='image-1' hidden>
+            <input class='control__input control__input_gallery' type='text' name='image-1' hidden>
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-1File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/{$news['image-1']}' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
                 </span>
               </label>
 
-              <input class='control__input control__input_gallery' value='{$news['image-2']}' type='text' name='image-2' hidden>
+              <input class='control__input control__input_gallery' type='text' name='image-2' hidden>
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-2File' hidden accept='image/*,image/jpeg'>
 
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/{$news['image-2']}' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
                 </span>
               </label>
 
-              <input class='control__input control__input_gallery' value='{$news['image-3']}' type='text' name='image-3' hidden>
+              <input class='control__input control__input_gallery' type='text' name='image-3' hidden>
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-3File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/{$news['image-3']}' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
                 </span>
               </label>
 
-              <input class='control__input control__input_gallery' value='{$news['image-4']}' type='text' name='image-4' hidden>
+              <input class='control__input control__input_gallery' type='text' name='image-4' hidden>
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-4File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/{$news['image-4']}' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
                 </span>
               </label>
 
-              <input class='control__input control__input_gallery' value='{$news['image-5']}' type='text' name='image-5' hidden>
+              <input class='control__input control__input_gallery' type='text' name='image-5' hidden>
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-5File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/{$news['image-5']}' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
                 </span>
               </label>
 
-              <input class='control__input control__input_gallery' value='{$news['image-6']}' type='text' name='image-6' hidden>
+              <input class='control__input control__input_gallery' type='text' name='image-6' hidden>
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-6File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/{$news['image-6']}' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
                 </span>
               </label>
 
-              <input class='control__input control__input_gallery' value='{$news['image-7']}' type='text' name='image-7' hidden>
+              <input class='control__input control__input_gallery' type='text' name='image-7' hidden>
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-7File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/{$news['image-7']}' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
                 </span>
               </label>
 
-              <input class='control__input control__input_gallery' value='{$news['image-8']}' type='text' name='image-8' hidden>
+              <input class='control__input control__input_gallery' type='text' name='image-8' hidden>
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-8File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/{$news['image-8']}' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
                 </span>
               </label>
 
-              <input class='control__input control__input_gallery' value='{$news['image-9']}' type='text' name='image-9' hidden>
+              <input class='control__input control__input_gallery' type='text' name='image-9' hidden>
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-9File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/{$news['image-9']}' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
                 </span>
               </label>
 
-              <input class='control__input control__input_gallery' value='{$news['image-10']}' type='text' name='image-10' hidden>
+              <input class='control__input control__input_gallery' type='text' name='image-10' hidden>
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-10File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/{$news['image-10']}' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
@@ -311,7 +346,7 @@ error_reporting(E_ALL);
           </div>
 
           <label for='check' class='control__label control__label_check'>
-            <input id='check' class='control__check control__input_check' type='checkbox' name='check' {$chek}>
+            <input id='check' class='control__check control__input_check' type='checkbox' name='check' checked>
             <span>
               Опубликовать
             </span>
