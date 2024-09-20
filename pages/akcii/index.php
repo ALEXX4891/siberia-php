@@ -69,7 +69,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               echo '
                   <li class="promo-page__cards-item">
                   <div class="promo-page__card-img-wrapper">
-                    <img src="/assets/img/' . $row['image'] . '" alt="promo_1">
+                    <img src="/assets/img/' . $row['photo'] . '" alt="promo_1">
                   </div>
                   <span class="promo-page__card-date">
                   ' . date("d", strtotime($row['time'])) . ' '
@@ -171,7 +171,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
         <div class="promo__wrapper">
           <div class="promo__img">
-            <img src="/assets/img/' . $event['image'] . '" alt="' . $event['title'] . '">
+            <img src="/assets/img/' . $event['photo'] . '" alt="' . $event['title'] . '">
           </div>
 
           <p class="promo__desc">

@@ -53,7 +53,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
 
       <div class="promo__wrapper">
         <div class="promo__img">
-          <img src="/assets/img/' . $event['image'] . '" alt="' . $event['title'] . '">
+          <img src="/assets/img/' . $event['photo'] . '" alt="' . $event['title'] . '">
         </div>
 
         <p class="promo__desc">

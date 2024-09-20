@@ -540,7 +540,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 echo '
                   <li class="promo__item swiper-slide">
                     <div class="promo__item-img">
-                      <img src="/assets/img/' . $row['image'] . '" alt="promo_1">
+                      <img src="/assets/img/' . $row['photo'] . '" alt="promo_1">
                     </div>
 
                     <p class="promo__item-date">
@@ -599,30 +599,30 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </defs>
             </svg>
           </div>
-          </и>
+        </button>
 
-          <div class="swiper-navigation">
-            <div class="swiper-button swiper-button-prev swiper-button-prev_promo">
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g opacity="0.8">
-                  <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
-                    stroke="#CBCBCB" />
-                  <path d="M32.25 20.5L23.25 28L32.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
-                </g>
-              </svg>
-            </div>
-
-            <div class="swiper-button swiper-button-next swiper-button-next_promo">
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g opacity="0.8">
-                  <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
-                    stroke="#CBCBCB" />
-                  <path d="M23.25 20.5L32.25 28L23.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
-                </g>
-              </svg>
-            </div>
-
+        <div class="swiper-navigation">
+          <div class="swiper-button swiper-button-prev swiper-button-prev_promo">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M32.25 20.5L23.25 28L32.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
           </div>
+
+          <div class="swiper-button swiper-button-next swiper-button-next_promo">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.8">
+                <rect x="-0.5" y="0.5" width="54" height="54" rx="27" transform="matrix(-1 0 0 1 54.25 0.5)"
+                  stroke="#CBCBCB" />
+                <path d="M23.25 20.5L32.25 28L23.25 35.5" stroke="#CBCBCB" stroke-width="2" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </div>
+
+        </div>
       </div>
     </section>
 

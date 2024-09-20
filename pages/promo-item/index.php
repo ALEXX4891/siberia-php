@@ -46,7 +46,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </p>
 
         <div class="news-content__img-wrapper">
-          <img src="/assets/img/<?= $row['image'] ?>" alt="Проект">
+          <img src="/assets/img/<?= $row['photo'] ?>" alt="Проект">
         </div>
 
         <p class="news-content__text">
