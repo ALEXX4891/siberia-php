@@ -225,116 +225,25 @@ error_reporting(E_ALL);
             </span>
 
             <div class='control__gallery-images'>
-            <input class='control__input control__input_gallery' type='text' name='image-1' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-1File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
+            ";
 
-              <input class='control__input control__input_gallery' type='text' name='image-2' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-2File' hidden accept='image/*,image/jpeg'>
+            
+            for ($i = 1; $i <= 10; $i++) {
+                echo "
+              <input class='control__input control__input_gallery' type='text' name='image-{$i}' hidden>
+                <label class='control__label control__label_gallery'>
+                  <input class='control__input control__input_gallery' type='file' name='image-{$i}File' hidden accept='image/*,image/jpeg'>
+                  <div class='control__img-wrap'>
+                    <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
+                  </div>
+                  <span class='control__btn control__btn_gallery'>
+                    Загрузить фото {$i}
+                  </span>
+                </label>
+                ";
+          }
+            echo " 
 
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' type='text' name='image-3' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-3File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' type='text' name='image-4' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-4File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' type='text' name='image-5' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-5File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' type='text' name='image-6' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-6File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' type='text' name='image-7' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-7File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' type='text' name='image-8' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-8File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' type='text' name='image-9' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-9File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' type='text' name='image-10' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-10File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
             </div>
           </div>
 

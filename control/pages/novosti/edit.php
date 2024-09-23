@@ -174,7 +174,17 @@ error_reporting(E_ALL);
               <input class='control__input control__input_photo' type='file' name='photoFile' hidden accept='image/*,image/jpeg'>
 
               <div class='control__photo-wrap'>
+              ";
+              if ($row['photo']) {
+                echo "
                 <img src='/assets/img/{$row['photo']}' class='control__photo preview' alt='Обложка'>
+                ";
+              } else {
+                echo "
+                <img src='/assets/img/blank.jpg' class='control__photo preview' alt='Обложка'>
+                ";
+              }
+              echo "
               </div>
               <span class='control__btn control__btn_photo'>
                 Загрузить фото
@@ -194,118 +204,37 @@ error_reporting(E_ALL);
             <span>
               Галерея
             </span>
-
             <div class='control__gallery-images'>
-            <input class='control__input control__input_gallery' value='{$row['image-1']}' type='text' name='image-1' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-1File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/{$row['image-1']}' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
+            ";
 
-              <input class='control__input control__input_gallery' value='{$row['image-2']}' type='text' name='image-2' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-2File' hidden accept='image/*,image/jpeg'>
+            
+            for ($i = 1; $i <= 10; $i++) {
+                echo "
+              <input class='control__input control__input_gallery' value='{$row["image-{$i}"]}' type='text' name='image-{$i}' hidden>
+                <label class='control__label control__label_gallery'>
+                  <input class='control__input control__input_gallery' type='file' name='image-{$i}File' hidden accept='image/*,image/jpeg'>
+                  <div class='control__img-wrap'>
+                  ";
 
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/{$row['image-2']}' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
+                  if ($row["image-{$i}"]) {
+                    echo "
+                    <img src='/assets/img/{$row["image-{$i}"]}' class='control__gallery preview' alt='Обложка'>
+                    ";
+                  } else {
+                    echo "
+                    <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
+                    ";
+                  }
+                  echo "
+                  </div>
+                  <span class='control__btn control__btn_gallery'>
+                    Загрузить фото {$i}
+                  </span>
+                </label>
+                ";
+          }
+            echo "
 
-              <input class='control__input control__input_gallery' value='{$row['image-3']}' type='text' name='image-3' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-3File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/{$row['image-3']}' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' value='{$row['image-4']}' type='text' name='image-4' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-4File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/{$row['image-4']}' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' value='{$row['image-5']}' type='text' name='image-5' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-5File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/{$row['image-5']}' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' value='{$row['image-6']}' type='text' name='image-6' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-6File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/{$row['image-6']}' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' value='{$row['image-7']}' type='text' name='image-7' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-7File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/{$row['image-7']}' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' value='{$row['image-8']}' type='text' name='image-8' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-8File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/{$row['image-8']}' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' value='{$row['image-9']}' type='text' name='image-9' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-9File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/{$row['image-9']}' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
-
-              <input class='control__input control__input_gallery' value='{$row['image-10']}' type='text' name='image-10' hidden>
-              <label class='control__label control__label_gallery'>
-                <input class='control__input control__input_gallery' type='file' name='image-10File' hidden accept='image/*,image/jpeg'>
-                <div class='control__img-wrap'>
-                  <img src='/assets/img/{$row['image-10']}' class='control__gallery preview' alt='Обложка'>
-                </div>
-                <span class='control__btn control__btn_gallery'>
-                  Загрузить фото
-                </span>
-              </label>
             </div>
           </div>
 

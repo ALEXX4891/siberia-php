@@ -5168,6 +5168,13 @@ color: #000000;
   text-decoration: line-through;
 }
 
+.control__photo {
+  height: 100%;
+  vertical-align: initial;
+  object-fit: cover;
+  object-position: center;
+}
+
 .apartments-item-page .form .form__container .form__wrapper .form__form .form__btn:hover {
 
 background: #fff;
