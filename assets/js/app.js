@@ -2935,12 +2935,14 @@ if (news.length > 0) {
       publishBtn.classList.toggle("_active");
 
       if (publishBtn.classList.contains("_active")) {
+        item.setAttribute("data-status", "1");
         setElActive(id);
         // activeMark.innerHTML = 'Активный офис';
         // activeMark.classList.add("_active");
 
       } else {
         setDisabled(id);
+        item.setAttribute("data-status", "0");
         // activeMark.innerHTML = 'Неактивный офис';
         // activeMark.classList.remove("_active");
         // publishBtn.textContent = "Опубликовать";
@@ -3046,12 +3048,14 @@ if (events.length > 0) {
       publishBtn.classList.toggle("_active");
 
       if (publishBtn.classList.contains("_active")) {
+        item.setAttribute("data-status", "1");
         setElActive(id);
         // activeMark.innerHTML = 'Активный офис';
         // activeMark.classList.add("_active");
 
       } else {
         setDisabled(id);
+        item.setAttribute("data-status", "0");
         // activeMark.innerHTML = 'Неактивный офис';
         // activeMark.classList.remove("_active");
         // publishBtn.textContent = "Опубликовать";

@@ -65,7 +65,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
 
 
                 echo "
-                <li class='control__content-item control__card card control__news' data-id={$news['id']}>
+                <li class='control__content-item control__card card control__news' data-id={$news['id']} data-status={$news['status']}>
                 <div class='card__head'>
                   <span class='card__head-title'>
                     Дата публикации:

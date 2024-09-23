@@ -71,11 +71,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
                 // num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']);
               }
 
-
-
-
               echo "
-                <li class='control__content-item control__card card card_event control__events' data-id={$event['id']}>
+                <li class='control__content-item control__card card card_event control__events' data-id={$event['id']} data-status={$event['status']}>
 
                   <h2 class='card__title'>
                     {$event['title']}
