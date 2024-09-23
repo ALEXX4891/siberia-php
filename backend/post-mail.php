@@ -6,6 +6,10 @@ use PHPMailer\PHPMailer\Exception;
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 
+include $_SERVER["DOCUMENT_ROOT"] . '/backend/db.php';
+$result = mysqli_query($db, "SELECT * FROM contacts");
+$row = mysqli_fetch_array($result);
+
 $fieldsArr = [];
 
 $fieldsArr = [
@@ -27,7 +31,8 @@ $mail->setFrom('admin@siberia-dev.ru', 'Сибирь');
 
 // кому письмо
 $recipients = [
-  'ALEXX4891@mail.ru' => 'Person One',
+  $row['email'] => 'Person One',
+  // 'ALEXX4891@mail.ru' => 'Person One',
   // 'direktor-info.alfa@yandex.ru' => 'Person Two',
 ];
 
