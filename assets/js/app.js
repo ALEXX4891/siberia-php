@@ -1530,10 +1530,12 @@ if (popupLinks.length > 0) {
     popupLink.addEventListener("click", function (e) {
       console.log("тест");
       const popupName = popupLink.getAttribute("href").replace("#", "");
+      console.log(popupName);
       const curentPopup = document.getElementById(popupName); //получаем id попап-окна
 
       const dataRequest = popupLink.getAttribute("data-request");
       if (dataRequest) {
+        console.log(curentPopup);
         curentPopup.setAttribute("data-request", dataRequest);
       }
       popupOpen(curentPopup);
@@ -3177,3 +3179,33 @@ if (passBtn) {
   })
 }
 // ------------------- end показ пароля --------------------------
+
+    // --------------------------------------------- start render promo -----------------------------
+const promoPopup = document.querySelector("#promo");
+if (promoPopup) {
+  const btns = document.querySelectorAll(".promo-link");
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      renderPromo(btn);
+    });
+  });
+
+
+
+  function renderPromo(btn) {
+    const id = btn.getAttribute("data-id");
+    const promoArr = document.querySelectorAll(".popup__promo");
+    console.log(id);
+    console.log(promoArr);
+
+    promoArr.forEach((promo) => {
+      if (promo.getAttribute("data-id") != id) {
+        promo.style.display = "none";
+      } else {
+        promo.style.display = "block";
+      }
+    });
+  }
+    // --------------------------------------------- end render promo -----------------------------
+
+}

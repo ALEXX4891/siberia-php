@@ -548,7 +548,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                         <path d="M10.295 11.5L7.5 8.705V4H8.5V8.29L11 10.795L10.295 11.5Z" fill="black" />
                       </svg>
                     </p>
-                    <button class="promo__item-title promo-link" data-id="' . $row['id'] . '">
+                    <button class="promo__item-title promo-page__card-link promo-link popup-link" href="#promo" data-id="' . $row['id'] . '" data-request="Акция: ' . $row['title'] . '">
                       ' . $row['title'] . '
                     </button>
                   </li>
