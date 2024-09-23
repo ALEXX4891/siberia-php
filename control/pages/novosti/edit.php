@@ -198,7 +198,7 @@ if (isset($_POST['noSubmit'])) {
             <span>
               Текст новости
             </span>
-            <textarea id='text' class='control__input control__input_text' name='description' placeholder='Текст'>{$row['description']}</textarea>
+            <textarea id='text' class='textarea_edit control__input control__input_text' name='description' placeholder='Текст'>{$row['description']}</textarea>
           </label>
 
           <div class='control__gallery-wrap'>

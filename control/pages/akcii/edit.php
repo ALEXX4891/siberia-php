@@ -191,7 +191,7 @@ if (isset($_POST['noSubmit'])) {
             <span>
               Условия акции
             </span>
-            <textarea id='text' class='control__input control__input_text' name='description' placeholder='Текст'>{$row['description']}</textarea>
+            <textarea id='text' class='textarea_edit control__input control__input_text' name='description' placeholder='Текст'>{$row['description']}</textarea>
           </label>
 
           <label for='check' class='control__label control__label_check'>

@@ -283,7 +283,7 @@ include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/popup.php';
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script>
   tinymce.init({
-    selector: 'textarea',
+    selector: '.textarea_edit',
     plugins: [
       // Core editing features
       'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
