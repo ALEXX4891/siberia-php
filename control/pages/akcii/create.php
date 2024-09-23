@@ -1,9 +1,13 @@
 <?
-$title = 'Страницы авторизации';
+$title = 'Создание акции';
 $description = '';
 $keywords = '';
 include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
 error_reporting(E_ALL);
+if (isset($_POST['noSubmit'])) {
+  echo '<meta http-equiv="refresh" content="0; URL=\'/control/pages/akcii/\'" />';
+  exit();
+}
 
 ?>
 
@@ -26,9 +30,6 @@ error_reporting(E_ALL);
         </a>
 
         <?
-        if (isset($_POST['noSubmit'])) {
-          header("Location: /control/pages/akcii/");
-        }
 
         if (isset($_POST['submit'])) {
 

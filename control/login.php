@@ -44,11 +44,7 @@ if($_POST['loginBtn'])
                 $_SESSION['login'] = $row2['login'];      
                 $_SESSION['user_id'] = $row2['id']; 
                 $_SESSION['access'] = $row2['access']; 
-                // die($_SESSION['access']);
-                
-                // echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL=/control/pages/novosti/">';
-                header('Location: /control/pages/novosti/');
-                // exit();
+                echo '<meta http-equiv="refresh" content="0; URL=\'/control/pages/novosti/\'" />';
                 exit();
             }
         }

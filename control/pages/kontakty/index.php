@@ -1,5 +1,5 @@
 <?
-$title = 'Страницы авторизации';
+$title = 'Редактироваине контактов';
 $description = '';
 $keywords = '';
 include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
@@ -40,9 +40,8 @@ error_reporting(E_ALL);
 
           // echo $sql;
           mysqli_query($db, $sql);
-          // mysqli_close($db);
-          // echo $sql;
-          header("Location: /control/pages/kontakty/");
+          echo '<meta http-equiv="refresh" content="0; URL=\'/control/pages/kontakty/\'" />';
+          exit();
 
         }
 

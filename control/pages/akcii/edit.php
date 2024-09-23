@@ -1,9 +1,13 @@
 <?
-$title = 'Страницы авторизации';
+$title = 'Редактирование акции';
 $description = '';
 $keywords = '';
 include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
 error_reporting(E_ALL);
+if (isset($_POST['noSubmit'])) {
+  echo '<meta http-equiv="refresh" content="0; URL=\'/control/pages/akcii/\'" />';
+  exit();
+}
 
 ?>
 
@@ -26,9 +30,6 @@ error_reporting(E_ALL);
         </a>
 
         <?
-        if (isset($_POST['noSubmit'])) {
-          header("Location: /control/pages/akcii/");
-        }
 
         if (isset($_POST['submit'])) {
 
@@ -129,7 +130,9 @@ error_reporting(E_ALL);
           );
           // echo $sql;
           mysqli_query($db, $sql);
-          header('Location: /control/pages/akcii/');
+          // header('Location: /control/pages/akcii/');
+          echo '<meta http-equiv="refresh" content="0; URL=\'/control/pages/akcii/\'" />';
+
 
         }
 

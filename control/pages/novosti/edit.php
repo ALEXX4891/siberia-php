@@ -1,9 +1,13 @@
 <?
-$title = 'Страницы авторизации';
+$title = 'Редактирование новости';
 $description = '';
 $keywords = '';
 include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
 error_reporting(E_ALL);
+if (isset($_POST['noSubmit'])) {
+  echo '<meta http-equiv="refresh" content="0; URL=\'/control/pages/novosti/\'" />';
+  exit();
+}
 
 ?>
 
@@ -27,9 +31,6 @@ error_reporting(E_ALL);
 
         <?
 
-        if (isset($_POST['noSubmit'])) {
-          header("Location: /control/pages/novosti/");
-        }
 
         if (isset($_POST['submit'])) {
 
