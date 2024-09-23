@@ -4,6 +4,123 @@ console.log(url.split("/"));
 
 console.log("------------- Старт Api ------------------");
 
+// -------------------------------------------- start popup: ---------------------------------------------
+const body = document.querySelector("body");
+
+const popupLinks = document.querySelectorAll(".popup-link");
+const lockPadding = document.querySelectorAll(".lock-padding");
+// const btn = document.querySelector(".project-btn");
+
+let unlock = true;
+const timeout = 800;
+
+if (popupLinks.length > 0) {
+  for (let index = 0; index < popupLinks.length; index++) {
+    const popupLink = popupLinks[index];
+    popupLink.addEventListener("click", function (e) {
+      console.log("тест");
+      const popupName = popupLink.getAttribute("href").replace("#", "");
+      console.log(popupName);
+      const curentPopup = document.getElementById(popupName); //получаем id попап-окна
+
+      const dataRequest = popupLink.getAttribute("data-request");
+      if (dataRequest) {
+        console.log(curentPopup);
+        curentPopup.setAttribute("data-request", dataRequest);
+      }
+      popupOpen(curentPopup);
+      e.preventDefault();
+    });
+  }
+}
+
+const popupCloseIcon = document.querySelectorAll(".popup-close");
+if (popupCloseIcon.length > 0) {
+  for (let index = 0; index < popupCloseIcon.length; index++) {
+    const el = popupCloseIcon[index];
+    el.addEventListener("click", function (e) {
+      console.log("тест");
+      popupClose(el.closest(".popup")); //ближайший родитель класса popup
+      e.preventDefault();
+    });
+  }
+}
+
+function popupOpen(curentPopup) {
+  if (curentPopup && unlock) {
+    const popupActive = document.querySelector(".popup.open");
+    if (popupActive) {
+      // закрываем текущий открытый попап, если он есть
+      popupClose(popupActive, false);
+    } else {
+      bodyLock();
+    }
+    // console.log(curentPopup);
+    curentPopup.classList.add("open");
+    curentPopup.addEventListener("click", function (e) {
+      console.log("тест");
+      if (!e.target.closest(".popup__content")) {
+        // если клик был по области вокруг попапа то ничего не делаем
+        popupClose(e.target.closest(".popup"));
+      }
+    });
+  }
+}
+
+function popupClose(popupActive, doUnlock = true) {
+  console.log("popupClose");
+  if (unlock) {
+    popupActive.classList.remove("open");
+    if (doUnlock) {
+      bodyUnLock();
+    }
+  }
+}
+
+// добавляем боди padding-right при открытии попапа, на ширину скролл-бара
+function bodyLock() {
+  const lockPaddingValue = window.innerWidth - document.querySelector(".header").offsetWidth + "px";
+  // console.log(lockPaddingValue);
+  for (let index = 0; index < lockPadding.length; index++) {
+    const el = lockPadding[index];
+    el.style.marginRight = lockPaddingValue;
+    // console.log(el.style.marginRight);
+  }
+  body.style.paddingRight = lockPaddingValue;
+  // console.log(body.style.paddingRight);
+  body.classList.add("lock");
+
+  unlock = false;
+  setTimeout(function () {
+    unlock = true;
+  }, timeout);
+}
+
+function bodyUnLock() {
+  setTimeout(function () {
+    for (let index = 0; index < lockPadding.length; index++) {
+      const el = lockPadding[index];
+      el.style.marginRight = "0px";
+    }
+    body.style.paddingRight = "0px";
+    body.classList.remove("lock");
+  }, timeout);
+
+  unlock = false;
+  setTimeout(function () {
+    unlock = true;
+  }, timeout);
+}
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    const popupActive = document.querySelector(".popup.open");
+    popupClose(popupActive);
+  }
+});
+// -------------------------------------------- end popup: ---------------------------------------------
+
+
 const choiceFilterForm = document.querySelector("[choice-form]");
 
 // функция проверки работы Api
