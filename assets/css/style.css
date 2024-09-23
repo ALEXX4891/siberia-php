@@ -490,7 +490,32 @@ height: 100%;
 .auth__eye {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 0;  
+}
+
+.auth__eye .auth__icon-eye {
+  display: inline-block;
+}
+
+.auth__eye .auth__icon-eye_visible {
+  display: none;
+}
+
+.auth__eye._active .auth__icon-eye {
+  display: none;
+}
+
+.auth__eye._active .auth__icon-eye_visible {
+  display: inline-block;
+}
+
+
+.auth__eye:hover svg path {
+  stroke: #89B36A;
+}
+
+.auth__eye svg path {
+  transition: stroke 0.3s ease-in-out;
 }
 
 .auth__eye::after {
@@ -791,7 +816,14 @@ aspect-ratio: 300/202;
 .office__btn-block {display: flex;gap: 20px;}
 .card__btn-block {
 }
-.card__btn {
+
+.card__btn svg path {
+  /* stroke: #000; */
+  transition: stroke 0.3s ease-in-out;
+}
+
+.card__btn:hover svg path {
+  stroke: #89B36A;
 }
 .card__btn_publish {
 }
