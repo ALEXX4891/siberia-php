@@ -911,7 +911,6 @@ function setNowFilters(arr) {
 
   if (btnsFilter) {
     if (arr) {
-      console.log(arr.find((item) => item.name === "btns"));
       if (arr.find((item) => item.name === "btns") && arr.find((item) => item.name === "btns").value !== "") {
         btnsFilter.forEach((item) =>
           arr.find((el) => el.name === "btns").value.includes(item.getAttribute("data-id"))
@@ -1852,11 +1851,13 @@ if (choiceForm) {
 
   const choiceButtonsSelect = document.querySelector(".choice__buttons-select");
   if (choiceButtonsSelect) {
+    console.log(choiceButtonsSelect);
     // const btns = choiceButtonsSelect.querySelectorAll(".choice__buttons-select-item");
 
     const choiceBtns = document.querySelectorAll(".choice__buttons-select-item");
 
-    if (choiceBtns) {
+    if (choiceBtns.length > 0) {
+      console.log(choiceBtns);
       choiceBtns.forEach((item) => {
         item.addEventListener("click", (event) => {
           console.log("тест");

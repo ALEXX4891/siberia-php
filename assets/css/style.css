@@ -12796,6 +12796,20 @@ box-shadow: none;
   display: none;
 }
 
+  .popup 
+  .filter 
+  .choice__container
+  .choice__form
+  .choice__btns-block
+  .choice__btns-wrap
+  .choice__btn-filter.choice__btn-filter_disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  display: none;
+}
+
+
+
 /* .commercial-page */
 .choice .choice__container .choice__form .choice__reset-wrap {
   display: -ms-grid;
@@ -24922,6 +24936,16 @@ margin-bottom: 25px;
     line-height: 18.15px;
   }
 
+  .popup
+  .filter
+  .choice__container
+  .choice__form
+  .choice__input-block
+  .choice__buttons-select
+  .choice__buttons-select-item.choice__buttons-select-item_available {
+  pointer-events: all;
+}
+
   .popup .filter .choice__container .choice__form .choice__btn-wrap .choice__search-text {
     display: none;
   }
@@ -25193,6 +25217,16 @@ margin-bottom: 25px;
     font-weight: 400;
     line-height: 18.15px;
   }
+
+  .glavnaya
+  .choice
+  .choice__container
+  .choice__form
+  .choice__input-block
+  .choice__buttons-select
+  .choice__buttons-select-item.choice__buttons-select-item_available {
+  pointer-events: all;
+}
 
   .glavnaya .choice .choice__container .choice__form .choice__input-block .choice__slider-select .select__input {
     font-family: Inter;
