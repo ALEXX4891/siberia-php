@@ -1634,6 +1634,7 @@ if (
 
   const choiceForm = document.querySelector(".choice__form");
   if (choiceForm) {
+    console.log(choiceForm);
     const selectProjectList = document.querySelectorAll(".choice__select");
     if (selectProjectList.length > 0) {
       selectProjectList.forEach((selectProject) => {

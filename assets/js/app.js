@@ -3158,16 +3158,18 @@ if (editForm) {
 
 // ------------------- start показ пароля --------------------------
 const passBtn = document.querySelector(".auth__eye");
-const passInput = document.querySelector(".auth__input_password");
-passBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  passBtn.classList.toggle("_active");
-  if (passInput.type === "password") {
-    passInput.type = "text";
-    passBtn.classList.add("_active");
-  } else {
-    passInput.type = "password";
-    passBtn.classList.remove("_active");
-  }
-})
+if (passBtn) {
+  const passInput = document.querySelector(".auth__input_password");
+  passBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    passBtn.classList.toggle("_active");
+    if (passInput.type === "password") {
+      passInput.type = "text";
+      passBtn.classList.add("_active");
+    } else {
+      passInput.type = "password";
+      passBtn.classList.remove("_active");
+    }
+  })
+}
 // ------------------- end показ пароля --------------------------
