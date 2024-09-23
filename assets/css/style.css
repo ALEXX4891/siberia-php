@@ -5184,6 +5184,10 @@ color: #748D55;
 box-shadow: none;
 }
 
+.news-slider__title {
+  margin-bottom: 50px;
+}
+
 .glavnaya
   .glavnaya__main_top
   .apartments
@@ -7258,8 +7262,8 @@ box-shadow: none;
 
 .news-page-item .news-page-item__news-slider .swiper-navigation {
   position: absolute;
-  top: 174px;
-  right: 103px;
+  top: 0;
+  right: 0;
   width: 130px;
   height: 56px;
   display: grid;
