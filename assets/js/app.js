@@ -3024,7 +3024,7 @@ if (news.length > 0) {
     // let arr = [];
 
     if (responseHouses.ok) {
-      console.log("ok");
+      // console.log("ok");
       // let result = await responseHouses.json();
       // arr = Object.values(result.response);
     } else {
