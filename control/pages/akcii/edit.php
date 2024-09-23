@@ -175,7 +175,7 @@ error_reporting(E_ALL);
 
               <input class='control__input control__input_photo' type='file' name='photoFile' hidden accept='image/*,image/jpeg'>
               <div class='control__photo-wrap'>
-                <img src='/assets/img/{$row['photo']}' class='control__photo' alt='Обложка'>
+                <img src='/assets/img/{$row['photo']}' class='control__photo preview' alt='Обложка'>
               </div>
               <span class='control__btn control__btn_photo'>
                 Загрузить фото

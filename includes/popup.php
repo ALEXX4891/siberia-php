@@ -1023,8 +1023,7 @@
           </div>
 
           <p class="promo__desc">
-            Срок предложения ограничен. <br><br>
-            Узнайте подробнее об условиях акции у менеджеров в отделе продаж по телефону:
+          ' . $event['description'] . '
           </p>
           <a href="tel:+' . $telNumber . '" class="promo__phone">' . $cont['phone'] . '</a>
 

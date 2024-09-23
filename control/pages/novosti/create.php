@@ -172,7 +172,6 @@ error_reporting(E_ALL);
           // echo $sql;
           mysqli_query($db, $sql);
           header('Location: /control/pages/novosti/');
-
         }
 
         echo "
@@ -204,7 +203,7 @@ error_reporting(E_ALL);
               <input class='control__input control__input_photo' type='text' name='photo' hidden>
 
               <div class='control__photo-wrap'>
-                <img src='/assets/img/blank.jpg' class='control__photo' alt='Обложка'>
+                <img src='/assets/img/blank.jpg' class='control__photo preview' alt='Обложка'>
               </div>
               <span class='control__btn control__btn_photo'>
                 Загрузить фото
@@ -230,7 +229,7 @@ error_reporting(E_ALL);
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-1File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
@@ -242,7 +241,7 @@ error_reporting(E_ALL);
                 <input class='control__input control__input_gallery' type='file' name='image-2File' hidden accept='image/*,image/jpeg'>
 
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
@@ -253,7 +252,7 @@ error_reporting(E_ALL);
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-3File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
@@ -264,7 +263,7 @@ error_reporting(E_ALL);
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-4File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
@@ -275,7 +274,7 @@ error_reporting(E_ALL);
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-5File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
@@ -286,7 +285,7 @@ error_reporting(E_ALL);
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-6File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
@@ -297,7 +296,7 @@ error_reporting(E_ALL);
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-7File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
@@ -308,7 +307,7 @@ error_reporting(E_ALL);
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-8File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
@@ -319,7 +318,7 @@ error_reporting(E_ALL);
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-9File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото
@@ -330,7 +329,7 @@ error_reporting(E_ALL);
               <label class='control__label control__label_gallery'>
                 <input class='control__input control__input_gallery' type='file' name='image-10File' hidden accept='image/*,image/jpeg'>
                 <div class='control__img-wrap'>
-                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery' alt='Обложка'>
+                  <img src='/assets/img/blank-gallery.jpg' class='control__gallery preview' alt='Обложка'>
                 </div>
                 <span class='control__btn control__btn_gallery'>
                   Загрузить фото

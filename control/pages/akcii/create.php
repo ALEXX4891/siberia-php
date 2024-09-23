@@ -127,7 +127,6 @@ error_reporting(E_ALL);
           // echo $sql;
           mysqli_query($db, $sql);
           header('Location: /control/pages/akcii/');
-
         }
 
         echo "
@@ -165,7 +164,7 @@ error_reporting(E_ALL);
 
               <input class='control__input control__input_photo' type='file' name='photoFile' hidden accept='image/*,image/jpeg'>
               <div class='control__photo-wrap'>
-                <img src='/assets/img/blank.jpg' class='control__photo' alt='Обложка'>
+                <img src='/assets/img/blank.jpg' class='control__photo preview' alt='Обложка'>
               </div>
               <span class='control__btn control__btn_photo'>
                 Загрузить фото

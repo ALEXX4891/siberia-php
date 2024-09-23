@@ -3205,7 +3205,23 @@ if (promoPopup) {
         promo.style.display = "block";
       }
     });
-  }
-    // --------------------------------------------- end render promo -----------------------------
-
+  }  
 }
+// --------------------------------------------- end render promo -----------------------------
+// -------------------------------------- start показ превью --------------------------
+const picInput = document.querySelectorAll('input[type="file"]');
+if (picInput) {
+  picInput.forEach((item) => {
+    item.addEventListener("change", (e) => {
+      console.log("тест");
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        const preview = item.closest('.control__label').querySelector(".preview");
+        preview.src = reader.result;
+      };
+    });
+  });
+}
+// -------------------------------------- end показ превью --------------------------
