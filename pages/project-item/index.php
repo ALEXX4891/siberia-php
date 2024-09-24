@@ -534,7 +534,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     </p>
                   </li>
 
-                  <li class="map__mark-item map__mark-item_point">
+                  <li class="map__mark-item map__mark-item_point" data-id="1">
                     <div class="map__mark-icon">
                       <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="21" cy="21" r="21" fill="#CEDFB8" />
@@ -562,7 +562,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     </p>
                   </li>
 
-                  <li class="map__mark-item map__mark-item_point">
+                  <li class="map__mark-item map__mark-item_point" data-id="2">
                     <div class="map__mark-icon">
                       <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="21" cy="21" r="21" fill="#CEDFB8" />
@@ -580,7 +580,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     </p>
                   </li>
 
-                  <li class="map__mark-item map__mark-item_point">
+                  <li class="map__mark-item map__mark-item_point" data-id="3">
                     <div class="map__mark-icon">
                       <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="21" cy="21" r="21" fill="#CEDFB8" />
@@ -598,7 +598,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     </p>
                   </li>
 
-                  <li class="map__mark-item map__mark-item_point">
+                  <li class="map__mark-item map__mark-item_point" data-id="4">
                     <div class="map__mark-icon">
                       <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="21" cy="21" r="21" fill="#CEDFB8" />
@@ -621,7 +621,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     </p>
                   </li>
 
-                  <li class="map__mark-item map__mark-item_point">
+                  <li class="map__mark-item map__mark-item_point" data-id="5">
                     <div class="map__mark-icon">
                       <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="21" cy="21" r="21" fill="#CEDFB8" />
@@ -644,7 +644,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     </p>
                   </li>
 
-                  <li class="map__mark-item map__mark-item_point">
+                  <li class="map__mark-item map__mark-item_point" data-id="6">
                     <div class="map__mark-icon">
                       <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="21" cy="21" r="21" fill="#CEDFB8" />

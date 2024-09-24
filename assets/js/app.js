@@ -2236,12 +2236,23 @@ const map = document.getElementById("map");
 const map2 = document.getElementById("map2");
 if (map || map2) {
   initMap();
-
+// Главная функция, вызывается при запуске скрипта
   async function initMap() {
     //     // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
     await ymaps3.ready;
 
-    const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = ymaps3;
+    // Импорт модулей для элементов управления на карте
+    const { YMap, 
+      YMapDefaultSchemeLayer, 
+      YMapDefaultFeaturesLayer, 
+      YMapMarker 
+    } = ymaps3;
+
+    // Импорт модулей для элементов управления на карте
+    const {
+      YMapZoomControl,
+      YMapGeolocationControl
+    } = await ymaps3.import('@yandex/ymaps3-controls@0.0.1');
 
     // const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-markers@0.0.1');
     // // кластеризация маркеров
@@ -2254,14 +2265,21 @@ if (map || map2) {
     // });
     // // https://yandex.ru/dev/maps/jsapi/doc/3.0/ref/packages/clusterer/index.html
 
+    // Координаты центра карты
+    const CENTER_COORDINATES = [65.79187000766548, 56.97004647141038];
+    // координаты метки на карте
+    const MARKER_COORDINATES = [65.80127919688765, 56.971359032603615];
+
+    // Объект с параметрами центра и зумом карты
+    const LOCATION = {center: CENTER_COORDINATES, zoom: 14.7};
+
     // Иницилиазируем карту
+    // Создание объекта карты
     const map = new YMap(
       // Передаём ссылку на HTMLElement контейнера
       // document.querySelector(".map-yandex"),
       document.getElementById("map"),
-
       // Передаём параметры инициализации карты
-
       {
         location: {
           // Координаты центра карты
@@ -2291,22 +2309,113 @@ if (map || map2) {
       ]
     );
 
-    const markerElement = document.createElement("img");
-    markerElement.className = "marker-class";
-    markerElement.innerText = "I'm marker!";
-    markerElement.style.width = "42px";
-    markerElement.style.height = "58px";
-    markerElement.src = "/assets/img/pin.svg";
+    // Добавляем коллекцию маркеров
+    const markersArr = {
+      childrenSad: [
+        {coordinates: [65.791, 56.97], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg"},
+        {coordinates: [65.792, 56.97], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg"},
+        {coordinates: [65.793, 56.973], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg"},
+      ],
 
+      childrenHappy: [
+        {coordinates: [65.791, 56.971], title: "Сосновый", dataId: 2, img: "/assets/img/pin.svg"},
+        {coordinates: [65.791, 56.972], title: "Сосновый", dataId: 2, img: "/assets/img/pin.svg"},
+        {coordinates: [65.791, 56.973], title: "Сосновый", dataId: 2, img: "/assets/img/pin.svg"},
+      ],
+    };
+
+    // const markers = new YMapMarker(map, {
+    //   features: [
+    //     {
+    //       geometry: {
+    //         type: "Point",
+    //         coordinates: MARKER_COORDINATES,
+    //       },
+    //     },
+    //   ],
+    // });
+
+    // Создание маркера
+
+    for (let key in markersArr) {
+      for (let i = 0; i < markersArr[key].length; i++) {
+        const marker = new YMapMarker(map, {
+          features: [
+            {
+              geometry: {
+                type: "Point",
+                coordinates: markersArr[key][i].coordinates,
+              },
+              properties: {
+                dataId: markersArr[key][i].dataId,
+                title: markersArr[key][i].title,
+                img: markersArr[key][i].img,
+              },
+            },
+          ],
+        });        
+      }
+    }
+
+
+
+
+
+
+    const markerElement = document.createElement("img");
+    markerElement.className = "marker";
+    markerElement.src = "/assets/img/pin.svg";
+    markerElement.title = "ЖК Сосновый";
+    // markerElement.setAttribute("data-id", 1);
+    // markerElement.style.width = "42px";
+    // markerElement.style.height = "58px";
+
+    // При клике на маркер меняем центр карты на LOCATION с заданным duration
+    markerElement.onclick = () => map.update({location: {center: MARKER_COORDINATES, zoom: 15.7, duration: 400}});
+
+    // Создание заголовка маркера
+    const markerTitle = document.createElement('div');
+    markerTitle.className = 'marker-title';
+    markerTitle.innerHTML = 'Заголовок маркера';
+
+    // Контейнер для элементов маркера
+    const imgContainer = document.createElement('div');
+    imgContainer.className = 'marker-wrap';
+
+    imgContainer.append(markerElement);
+    // imgContainer.append(markerTitle);
+
+    // // Координаты центра карты
+    // const CENTER_COORDINATES = [37.623082, 55.752540];
+    // // Добавление центра карты
+    // map.addChild(new YMapMarker({coordinates: CENTER_COORDINATES}));
+
+// Добавление маркера на карту
     const marker = new YMapMarker(
       {
         coordinates: [65.80127919688765, 56.971359032603615],
-        draggable: true,
+        // draggable: true,
         mapFollowsOnDrag: true,
       },
-      markerElement
+      imgContainer
     );
     map.addChild(marker);
+
+
+
+
+
+
+// ***********************************************************************
+
+
+
+
+
+
+
+
+
 
     const map2 = new YMap(
       // Передаём ссылку на HTMLElement контейнера
@@ -2342,6 +2451,7 @@ if (map || map2) {
       ]
     );
 
+    // Создание маркера
     const markerElement2 = document.createElement("img");
     markerElement2.className = "marker-class";
     markerElement2.innerText = "I'm marker!";
@@ -2360,96 +2470,82 @@ if (map || map2) {
     map2.addChild(marker2);
   }
 
-  function setVisible() {
-    myGeoObject4.options.set({
-      visible: false,
-    });
-    myGeoObject3.options.set({
-      visible: false,
-    });
-    myGeoObject2.options.set({
-      visible: false,
-    });
-    myGeoObject.options.set({
-      visible: false,
-    });
-  }
-  $(document).ready(function () {
-    $("#change-map").on("click", function () {
-      setVisible();
-    });
-  });
+}
 
-  const filter = map.querySelectorAll(".map__mark-item_point");
+console.log("тест");
+const filter = document.querySelectorAll(".map__mark-item_point");
+if (filter.length) {
   filter.forEach((item) => {
+    const id = item.getAttribute("data-id");
+    console.log(id);
     item.addEventListener("click", function () {
       console.log("тест");
       item.classList.toggle("map__mark-item_active");
       checkAll();
     });
+  });    
+}
+
+const resetBtns = document.querySelector(".reset-btn");
+if (resetBtns) {
+  resetBtns.addEventListener("click", function () {
+    console.log("тест");
+    filter.forEach((item) => {
+      item.classList.remove("map__mark-item_active");
+      checkAll();
+    });
   });
+}
 
-  const resetBtns = map.querySelector(".reset-btn");
-
-  if (resetBtns) {
-    resetBtns.addEventListener("click", function () {
-      console.log("тест");
+const allBtn = document.querySelector(".map__mark-item-all");
+if (allBtn) {
+  allBtn.addEventListener("click", function () {
+    console.log("тест");
+    if (allBtn.classList.contains("map__mark-item_active")) {
+      allBtn.classList.remove("map__mark-item_active");
       filter.forEach((item) => {
         item.classList.remove("map__mark-item_active");
-        checkAll();
       });
-    });
-  }
-
-  const allBtn = map.querySelector(".map__mark-item-all");
-
-  if (allBtn) {
-    allBtn.addEventListener("click", function () {
-      console.log("тест");
-      if (allBtn.classList.contains("map__mark-item_active")) {
-        allBtn.classList.remove("map__mark-item_active");
-        filter.forEach((item) => {
-          item.classList.remove("map__mark-item_active");
-        });
-      } else {
-        filter.forEach((item) => {
-          item.classList.add("map__mark-item_active");
-        });
-        allBtn.classList.add("map__mark-item_active");
-      }
-    });
-  }
-
-  function checkAll() {
-    console.log("тест");
-    let activeItems = map.querySelectorAll(".map__mark-item_point.map__mark-item_active");
-    console.log(activeItems.length);
-    console.log(filter.length);
-
-    if (activeItems.length === filter.length) {
-      allBtn.classList.add("map__mark-item_active");
     } else {
-      allBtn.classList.remove("map__mark-item_active");
+      filter.forEach((item) => {
+        item.classList.add("map__mark-item_active");
+      });
+      allBtn.classList.add("map__mark-item_active");
     }
-  }
+  });
+}
 
-  const markListBtnOpen = map.querySelector(".map__menu-btn-filters");
-  const markListBtnClose = map.querySelector(".map__menu-btn-apply");
+function checkAll() {
+  console.log("тест");
+  let activeItems = document.querySelectorAll(".map__mark-item_point.map__mark-item_active");
+  console.log(activeItems.length);
+  console.log(filter.length);
 
-  if (markListBtnOpen) {
-    markListBtnOpen.addEventListener("click", function () {
-      const markList = map.querySelector(".map__mark-list-wrap");
-      console.log("тест");
-      markList.classList.add("map__mark-list-wrap_active");
-    });
-
-    markListBtnClose.addEventListener("click", function () {
-      const markList = map.querySelector(".map__mark-list-wrap");
-      console.log("тест");
-      markList.classList.remove("map__mark-list-wrap_active");
-    });
+  if (activeItems.length === filter.length) {
+    allBtn.classList.add("map__mark-item_active");
+  } else {
+    allBtn.classList.remove("map__mark-item_active");
   }
 }
+
+const markListBtnOpen = document.querySelector(".map__menu-btn-filters");
+const markListBtnClose = document.querySelector(".map__menu-btn-apply");
+
+if (markListBtnOpen) {
+  markListBtnOpen.addEventListener("click", function () {
+    const markList = document.querySelector(".map__mark-list-wrap");
+    console.log("тест");
+    markList.classList.add("map__mark-list-wrap_active");
+  });
+
+  markListBtnClose.addEventListener("click", function () {
+    const markList = document.querySelector(".map__mark-list-wrap");
+    console.log("тест");
+    markList.classList.remove("map__mark-list-wrap_active");
+  });
+}
+
+
 
 // -------------------------------------------- end Карта ---------------------------------------------
 //--------------------------Запрос к БД----------------------------
