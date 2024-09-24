@@ -5,6 +5,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/backend/db.php';
 include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
 $description = '';
 $keywords = '';
+// error_reporting(E_ALL);
 // include $_SERVER["DOCUMENT_ROOT"] . '/control/includes/head.php';
 
 $_SESSION['login'] = null; 
@@ -37,7 +38,9 @@ if($_POST['loginBtn'])
             //Если логин существует, то проверяем пароль
             $result2 = mysqli_query($db, "SELECT * FROM user WHERE login = '$login'");
             $row2 = mysqli_fetch_array($result2);                        
-            if ($row2['password'] != $password) {$error = 'Логин или пароль указан неверно';}
+            if ($row2['password'] != $password) {
+              $error = 'Логин или пароль указан неверно';
+            }
             else 
             {         
               // $error = 'Логин или пароль верные';      

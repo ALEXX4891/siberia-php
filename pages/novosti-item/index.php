@@ -51,8 +51,24 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </div>
 
         <p class="news-content__text">
-          <?= $row['description'] ?>
+          <?= $row['description'] ?>          
         </p>
+
+
+        <div class="news-content__gallery">
+          <ul class="news-content__gallery-list">
+            <? for ($i = 1; $i <= 10; $i++) {
+              if ($row['image-' . $i] != '') {
+                echo '
+                <li class="news-content__gallery-item" data-fancybox="1" href="/assets/img/' . $row['image-' . $i] . '">
+                <img src="/assets/img/' . $row['image-' . $i] . '" alt="">
+                </li>
+                ';
+              }              
+            } 
+            ?>
+          </ul>
+        </div>
       </div>
     </section>
 
