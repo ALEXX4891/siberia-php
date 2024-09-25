@@ -2300,20 +2300,55 @@ if (map || map2) {
       ]
     );
 
+    // *******************************************************************
     // Добавляем коллекцию маркеров
     const markersArr1 = [
-      { coordinates: [65.791, 56.97], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg" },
-      { coordinates: [65.792, 56.97], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg" },
-      { coordinates: [65.793, 56.973], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg" },
+      { coordinates: [65.779502, 56.957423], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
+      { coordinates: [65.781403, 56.970276], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
+      { coordinates: [65.789987, 56.961974], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
+      { coordinates: [65.768416, 56.957919], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
     ];
 
     const markersArr2 = [
-      { coordinates: [65.791, 56.99], title: "Клиновый", dataId: 2, img: "/assets/img/pin.svg" },
-      { coordinates: [65.792, 56.99], title: "Клиновый", dataId: 2, img: "/assets/img/pin.svg" },
-      { coordinates: [65.793, 56.99], title: "Клиновый", dataId: 2, img: "/assets/img/pin.svg" },
+      { coordinates: [65.78529, 56.975524], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
+      { coordinates: [65.770024, 56.959058], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
+      { coordinates: [65.776546, 56.957566], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
+      { coordinates: [65.770974, 56.959206], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
     ];
 
-    // *******************************************************************
+    const markersArr3 = [
+      { coordinates: [65.77856, 56.969226], title: "ЖД Вокзал", dataId: 3, img: "/assets/img/pin3.svg" },
+      { coordinates: [65.784073, 56.961645], title: "Автостанция", dataId: 3, img: "/assets/img/pin3.svg" },
+      { coordinates: [65.800875, 56.972715], title: "Остановка", dataId: 3, img: "/assets/img/pin3.svg" },
+      { coordinates: [65.801218, 56.971599], title: "Остановка", dataId: 3, img: "/assets/img/pin3.svg" },
+    ];
+
+    const markersArr4 = [
+      { coordinates: [65.769663, 56.954943], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+      { coordinates: [65.770876, 56.953251], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+      { coordinates: [65.785333, 56.962179], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+      { coordinates: [65.787131, 56.962605], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+      { coordinates: [65.780188, 56.970726], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+      { coordinates: [65.781104, 56.96844], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+    ];
+
+    const markersArr5 = [
+      { coordinates: [65.779043, 56.959218], title: "Поликлиника", dataId: 5, img: "/assets/img/pin5.svg" },
+      { coordinates: [65.789402, 56.963208], title: "Аптека", dataId: 5, img: "/assets/img/pin5.svg" },
+      { coordinates: [65.770935, 56.953172], title: "Аптека", dataId: 5, img: "/assets/img/pin5.svg" },
+      ,
+    ];
+
+    const markersArr6 = [
+      { coordinates: [65.771588, 56.970687], title: "Лыжная база", dataId: 6, img: "/assets/img/pin6.svg" },
+      { coordinates: [65.777346, 56.959192], title: "Детская площадка", dataId: 6, img: "/assets/img/pin6.svg" },
+      { coordinates: [65.796432, 56.960564], title: "Детская площадка", dataId: 6, img: "/assets/img/pin6.svg" },
+      { coordinates: [65.799187, 56.971438], title: "Детская площадка", dataId: 6, img: "/assets/img/pin6.svg" },
+      { coordinates: [65.813698, 56.968394], title: "Санаторий", dataId: 6, img: "/assets/img/pin6.svg" },
+      { coordinates: [65.823801, 56.971629], title: "База отдыха", dataId: 6, img: "/assets/img/pin6.svg" },
+      ,
+    ];
+
     function renderMarks(arr) {
       arr.forEach((obj) => {
         const imgContainer = makeImgContainer(obj);
@@ -2321,11 +2356,15 @@ if (map || map2) {
         const marker = makeMarker(obj, imgContainer);
         imgContainer.append(markerElement);
         map.addChild(marker);
-      });      
+      });
     }
 
     renderMarks(markersArr1);
     renderMarks(markersArr2);
+    renderMarks(markersArr3);
+    renderMarks(markersArr4);
+    renderMarks(markersArr5);
+    renderMarks(markersArr6);
 
     // *******************************************************************
 
@@ -2342,6 +2381,7 @@ if (map || map2) {
     function makeMarkerElement(obj) {
       const markerElement = document.createElement("img");
       markerElement.className = "marker";
+      markerElement.className = "marker-add";
       markerElement.src = obj.img;
       markerElement.title = obj.title;
       return markerElement;
@@ -2553,7 +2593,6 @@ function checkAll() {
     });
   }
 
-  
   if (activeItems.length === filter.length) {
     allBtn.classList.add("map__mark-item_active");
     // markers.forEach((marker) => {

@@ -414,6 +414,49 @@ a {
   /* cursor: pointer; */
 }
 
+.map__mark-item_point .map__mark-svg_1 {
+  display: block;
+}
+
+.map__mark-item_point .map__mark-svg_2 {
+  display: none;
+}
+
+.map__mark-item_point.map__mark-item_active .map__mark-svg_1 {
+  display: none;
+}
+
+.map__mark-item_point.map__mark-item_active .map__mark-svg_2 {
+  display: block;
+}
+
+.map__mark-item .map__mark-svg_1 {
+  display: block;
+}
+
+.map__mark-item .map__mark-svg_2 {
+  display: none;
+}
+
+.map__mark-item.map__mark-item_active .map__mark-svg_1 {
+  display: none;
+}
+
+.map__mark-item.map__mark-item_active .map__mark-svg_2 {
+  display: block;
+}
+
+
+
+
+/* map__mark-svg_1 */
+/* map__mark-svg_1 */
+
+
+.map__mark-item_point {
+  
+}
+
 /* .project-item-page .project-item-page__main .slim .geo .geo__container .geo__wrap .geo__map [class*="marker"] {
   position: absolute;
   bottom: 25%;
@@ -6207,13 +6250,13 @@ a {
   justify-self: end;
 }
 
-.glavnaya .glavnaya__main_bot .geo .geo__map .map__mark-list-wrap .map__mark-list .map__mark-item_active {
+/* .glavnaya .glavnaya__main_bot .geo .geo__map .map__mark-list-wrap .map__mark-list .map__mark-item_active {
   color: black;
 }
 
 .glavnaya .glavnaya__main_bot .geo .geo__map .map__mark-list-wrap .map__mark-list .map__mark-item_active svg path {
   fill: #000000;
-}
+} */
 
 .glavnaya .choice .choice__container {
   max-width: 1712px;
@@ -7074,7 +7117,7 @@ a {
   color: black;
 }
 
-.contacts-page
+/* .contacts-page
   .contacts-page__content
   .contacts-page__right-block
   .contacts-page__map
@@ -7084,7 +7127,7 @@ a {
   svg
   path {
   fill: #000000;
-}
+} */
 
 .news-page .news-page__section .news-page__container {
   padding: 30px 0 100px;
@@ -9294,13 +9337,13 @@ a {
   justify-self: end;
 }
 
-.apartments-item-page .geo .geo__map .map__mark-list-wrap .map__mark-list .map__mark-item_active {
+/* .apartments-item-page .geo .geo__map .map__mark-list-wrap .map__mark-list .map__mark-item_active {
   color: black;
 }
 
 .apartments-item-page .geo .geo__map .map__mark-list-wrap .map__mark-list .map__mark-item_active svg path {
   fill: #000000;
-}
+} */
 
 .apartments-item-page .form {
   padding: 99px 104px 100px;
@@ -11936,7 +11979,7 @@ a {
   opacity: 1;
 }
 
-.project-item-page
+/* .project-item-page
   .project-item-page__main
   .slim
   .geo
@@ -11950,9 +11993,9 @@ a {
   path {
   fill: #fff;
   stroke: #fff;
-}
+} */
 
-.project-item-page
+/* .project-item-page
   .project-item-page__main
   .slim
   .geo
@@ -11965,9 +12008,9 @@ a {
   svg
   clipPath {
   fill: blue;
-}
+} */
 
-.project-item-page
+/* .project-item-page
   .project-item-page__main
   .slim
   .geo
@@ -11980,7 +12023,7 @@ a {
   svg
   circle {
   fill: #748d55;
-}
+} */
 
 .project-item-page .project-item-page__main .slim .geo .geo__container .geo__wrap .geo__map .btn-wrap {
   display: -ms-grid;
@@ -13293,14 +13336,14 @@ a {
 }
 
 /* .commercial-page */
-.map__content .map__right-block .map__map .map__mark-list-wrap .map__mark-list .map__mark-item_active {
+/* .map__content .map__right-block .map__map .map__mark-list-wrap .map__mark-list .map__mark-item_active {
   color: black;
-}
+} */
 
 /* .commercial-page */
-.map__content .map__right-block .map__map .map__mark-list-wrap .map__mark-list .map__mark-item_active svg path {
+/* .map__content .map__right-block .map__map .map__mark-list-wrap .map__mark-list .map__mark-item_active svg path {
   fill: #000000;
-}
+} */
 
 .commercial-page .apartments {
   background: #f5f5f5;
