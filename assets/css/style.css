@@ -9263,12 +9263,12 @@ a {
 }
 
 .apartments-item-page .geo .geo__map [class*="marker"] {
-  position: absolute;
-  bottom: 25%;
-  right: 41%;
-  width: 43px;
-  height: 23px;
-  pointer-events: none;
+  /* position: absolute; */
+  /* bottom: 25%; */
+  /* right: 41%; */
+  /* width: 43px; */
+  /* height: 23px; */
+  /* pointer-events: none; */
 }
 
 .apartments-item-page .geo .geo__map [class*="copyrights-pane"],
