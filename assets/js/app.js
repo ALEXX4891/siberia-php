@@ -2334,6 +2334,7 @@ if (map || map2) {
       const imgContainer = document.createElement("div");
       imgContainer.className = "marker-wrap";
       imgContainer.setAttribute("data-id", obj.dataId);
+      imgContainer.style.display = "none";
       return imgContainer;
     }
 
@@ -2367,13 +2368,13 @@ if (map || map2) {
     // markerElement.style.width = "42px";
     // markerElement.style.height = "58px";
 
-    // При клике на маркер меняем центр карты на LOCATION с заданным duration
-    markerElement.onclick = () => map.update({ location: { center: MARKER_COORDINATES, zoom: 15.7, duration: 400 } });
+    // // При клике на маркер меняем центр карты на LOCATION с заданным duration
+    // markerElement.onclick = () => map.update({ location: { center: MARKER_COORDINATES, zoom: 15.7, duration: 400 } });
 
-    // Создание заголовка маркера
-    const markerTitle = document.createElement("div");
-    markerTitle.className = "marker-title";
-    markerTitle.innerHTML = "Заголовок маркера";
+    // // Создание заголовка маркера
+    // const markerTitle = document.createElement("div");
+    // markerTitle.className = "marker-title";
+    // markerTitle.innerHTML = "Заголовок маркера";
 
     // Контейнер для элементов маркера
     const imgContainer = document.createElement("div");

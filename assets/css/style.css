@@ -411,7 +411,7 @@ a {
 .marker {
   position: relative;
   transform: translate(-50%, -100%);
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 /* .project-item-page .project-item-page__main .slim .geo .geo__container .geo__wrap .geo__map [class*="marker"] {

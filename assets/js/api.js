@@ -1,6 +1,6 @@
 const url = window.location.href;
 let urlParams = new URLSearchParams(window.location.search);
-console.log(url.split("/"));
+// console.log(url.split("/"));
 
 console.log("------------- Старт Api ------------------");
 
@@ -210,6 +210,7 @@ async function getRealty(id) {
     console.log("error");
   }
   const res = [houseInfo, allAparstInfo];
+  // console.log("res:", res);
 
   return res;
 }
@@ -241,7 +242,8 @@ if (
   url.split("/").includes("project-item") ||
   url.split("/").includes("kommercia") ||
   url.split("/").includes("kvartiry") ||
-  url.split("/").includes("apartments")
+  url.split("/").includes("apartments") ||
+  url.split("/").includes("apartments-item")
 ) {
   allInfo = await getAllInfo(idHouse); // массив всей информации из api
   houseInfo = allInfo[0]; // массив с инофрмацией о домах
