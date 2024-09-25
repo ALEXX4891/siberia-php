@@ -823,7 +823,7 @@ new Swiper(".news-slider_swiper", {
   // loop: true,
   // allowTouchMove: true,
   // slidesPerView: 3.2, // сколько слайдов показывать, можно дробно
-  slidesPerView: 'auto', // сколько слайдов показывать, можно дробно
+  slidesPerView: "auto", // сколько слайдов показывать, можно дробно
   // slidersPerGroup: 3, // сколько слайдов в группе
   centeredSlides: true, //выравнивание слайдов по центру
   initialSlide: 1, //начальный слайд (c нуля)
@@ -854,7 +854,6 @@ new Swiper(".news-slider_swiper", {
   breakpoints: {
     0: {
       spaceBetween: 20,
-
     },
     500: {
       // slidesPerView: 2,
@@ -864,7 +863,6 @@ new Swiper(".news-slider_swiper", {
     },
     960: {
       spaceBetween: 40,
-
     },
   },
 });
@@ -2236,23 +2234,16 @@ const map = document.getElementById("map");
 const map2 = document.getElementById("map2");
 if (map || map2) {
   initMap();
-// Главная функция, вызывается при запуске скрипта
+  // Главная функция, вызывается при запуске скрипта
   async function initMap() {
     //     // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
     await ymaps3.ready;
 
     // Импорт модулей для элементов управления на карте
-    const { YMap, 
-      YMapDefaultSchemeLayer, 
-      YMapDefaultFeaturesLayer, 
-      YMapMarker 
-    } = ymaps3;
+    const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = ymaps3;
 
     // Импорт модулей для элементов управления на карте
-    const {
-      YMapZoomControl,
-      YMapGeolocationControl
-    } = await ymaps3.import('@yandex/ymaps3-controls@0.0.1');
+    const { YMapZoomControl, YMapGeolocationControl } = await ymaps3.import("@yandex/ymaps3-controls@0.0.1");
 
     // const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-markers@0.0.1');
     // // кластеризация маркеров
@@ -2271,7 +2262,7 @@ if (map || map2) {
     const MARKER_COORDINATES = [65.80127919688765, 56.971359032603615];
 
     // Объект с параметрами центра и зумом карты
-    const LOCATION = {center: CENTER_COORDINATES, zoom: 14.7};
+    const LOCATION = { center: CENTER_COORDINATES, zoom: 14.7 };
 
     // Иницилиазируем карту
     // Создание объекта карты
@@ -2310,57 +2301,63 @@ if (map || map2) {
     );
 
     // Добавляем коллекцию маркеров
-    const markersArr = {
-      childrenSad: [
-        {coordinates: [65.791, 56.97], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg"},
-        {coordinates: [65.792, 56.97], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg"},
-        {coordinates: [65.793, 56.973], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg"},
-      ],
+    const markersArr1 = [
+      { coordinates: [65.791, 56.97], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg" },
+      { coordinates: [65.792, 56.97], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg" },
+      { coordinates: [65.793, 56.973], title: "Сосновый", dataId: 1, img: "/assets/img/pin.svg" },
+    ];
 
-      childrenHappy: [
-        {coordinates: [65.791, 56.971], title: "Сосновый", dataId: 2, img: "/assets/img/pin.svg"},
-        {coordinates: [65.791, 56.972], title: "Сосновый", dataId: 2, img: "/assets/img/pin.svg"},
-        {coordinates: [65.791, 56.973], title: "Сосновый", dataId: 2, img: "/assets/img/pin.svg"},
-      ],
-    };
+    const markersArr2 = [
+      { coordinates: [65.791, 56.99], title: "Клиновый", dataId: 2, img: "/assets/img/pin.svg" },
+      { coordinates: [65.792, 56.99], title: "Клиновый", dataId: 2, img: "/assets/img/pin.svg" },
+      { coordinates: [65.793, 56.99], title: "Клиновый", dataId: 2, img: "/assets/img/pin.svg" },
+    ];
 
-    // const markers = new YMapMarker(map, {
-    //   features: [
-    //     {
-    //       geometry: {
-    //         type: "Point",
-    //         coordinates: MARKER_COORDINATES,
-    //       },
-    //     },
-    //   ],
-    // });
-
-    // Создание маркера
-
-    for (let key in markersArr) {
-      for (let i = 0; i < markersArr[key].length; i++) {
-        const marker = new YMapMarker(map, {
-          features: [
-            {
-              geometry: {
-                type: "Point",
-                coordinates: markersArr[key][i].coordinates,
-              },
-              properties: {
-                dataId: markersArr[key][i].dataId,
-                title: markersArr[key][i].title,
-                img: markersArr[key][i].img,
-              },
-            },
-          ],
-        });        
-      }
+    // *******************************************************************
+    function renderMarks(arr) {
+      arr.forEach((obj) => {
+        const imgContainer = makeImgContainer(obj);
+        const markerElement = makeMarkerElement(obj);
+        const marker = makeMarker(obj, imgContainer);
+        imgContainer.append(markerElement);
+        map.addChild(marker);
+      });      
     }
 
+    renderMarks(markersArr1);
+    renderMarks(markersArr2);
 
+    // *******************************************************************
 
+    // Функция создания контейнера для маркера
+    function makeImgContainer(obj) {
+      const imgContainer = document.createElement("div");
+      imgContainer.className = "marker-wrap";
+      imgContainer.setAttribute("data-id", obj.dataId);
+      return imgContainer;
+    }
 
+    // Функция создания маркера
+    function makeMarkerElement(obj) {
+      const markerElement = document.createElement("img");
+      markerElement.className = "marker";
+      markerElement.src = obj.img;
+      markerElement.title = obj.title;
+      return markerElement;
+    }
 
+    // Функция инициализации маркера
+    function makeMarker(obj, container) {
+      const marker = new YMapMarker(
+        {
+          coordinates: obj.coordinates,
+          // draggable: true,
+          mapFollowsOnDrag: true,
+        },
+        container
+      );
+      return marker;
+    }
 
     const markerElement = document.createElement("img");
     markerElement.className = "marker";
@@ -2371,16 +2368,16 @@ if (map || map2) {
     // markerElement.style.height = "58px";
 
     // При клике на маркер меняем центр карты на LOCATION с заданным duration
-    markerElement.onclick = () => map.update({location: {center: MARKER_COORDINATES, zoom: 15.7, duration: 400}});
+    markerElement.onclick = () => map.update({ location: { center: MARKER_COORDINATES, zoom: 15.7, duration: 400 } });
 
     // Создание заголовка маркера
-    const markerTitle = document.createElement('div');
-    markerTitle.className = 'marker-title';
-    markerTitle.innerHTML = 'Заголовок маркера';
+    const markerTitle = document.createElement("div");
+    markerTitle.className = "marker-title";
+    markerTitle.innerHTML = "Заголовок маркера";
 
     // Контейнер для элементов маркера
-    const imgContainer = document.createElement('div');
-    imgContainer.className = 'marker-wrap';
+    const imgContainer = document.createElement("div");
+    imgContainer.className = "marker-wrap";
 
     imgContainer.append(markerElement);
     // imgContainer.append(markerTitle);
@@ -2390,7 +2387,7 @@ if (map || map2) {
     // // Добавление центра карты
     // map.addChild(new YMapMarker({coordinates: CENTER_COORDINATES}));
 
-// Добавление маркера на карту
+    // Добавление маркера на карту
     const marker = new YMapMarker(
       {
         coordinates: [65.80127919688765, 56.971359032603615],
@@ -2401,21 +2398,7 @@ if (map || map2) {
     );
     map.addChild(marker);
 
-
-
-
-
-
-// ***********************************************************************
-
-
-
-
-
-
-
-
-
+    // ***********************************************************************
 
     const map2 = new YMap(
       // Передаём ссылку на HTMLElement контейнера
@@ -2469,21 +2452,18 @@ if (map || map2) {
     );
     map2.addChild(marker2);
   }
-
 }
 
 console.log("тест");
 const filter = document.querySelectorAll(".map__mark-item_point");
 if (filter.length) {
   filter.forEach((item) => {
-    const id = item.getAttribute("data-id");
-    console.log(id);
     item.addEventListener("click", function () {
       console.log("тест");
       item.classList.toggle("map__mark-item_active");
       checkAll();
     });
-  });    
+  });
 }
 
 const resetBtns = document.querySelector(".reset-btn");
@@ -2512,19 +2492,77 @@ if (allBtn) {
       });
       allBtn.classList.add("map__mark-item_active");
     }
+    checkAll();
   });
 }
 
 function checkAll() {
   console.log("тест");
   let activeItems = document.querySelectorAll(".map__mark-item_point.map__mark-item_active");
+  // const menuItems = document.querySelectorAll(".map__mark-item_point");
+  const markers = document.querySelectorAll(".marker-wrap");
+  console.log(markers);
   console.log(activeItems.length);
   console.log(filter.length);
 
+  // menuItems.forEach((item) => {
+  //   if (item.classList.contains("map__mark-item_active")) {
+  //     const id = item.getAttribute("data-id");
+  //   } else {
+  //     item.style.display = "none";
+  //   }
+  // });
+
+  // if (markers.length) {
+  //   markers.forEach((item) => {
+  //     console.log(item);
+  //     if (item.getAttribute("data-id")) {
+  //       item.style.display = "none";
+  //     } else {
+  //       item.style.display = "block";
+  //     }
+  //   });
+  // }
+
+  if (activeItems.length) {
+    const activIdArr = [];
+
+    activeItems.forEach((item) => {
+      const id = item.getAttribute("data-id");
+      activIdArr.push(id);
+    });
+
+    markers.forEach((marker) => {
+      if (activIdArr.includes(marker.getAttribute("data-id"))) {
+        marker.style.display = "block";
+      } else {
+        marker.style.display = "none";
+      }
+
+      if (!marker.getAttribute("data-id")) {
+        marker.style.display = "block";
+      }
+    });
+  } else {
+    markers.forEach((marker) => {
+      marker.style.display = "none";
+      if (!marker.getAttribute("data-id")) {
+        marker.style.display = "block";
+      }
+    });
+  }
+
+  
   if (activeItems.length === filter.length) {
     allBtn.classList.add("map__mark-item_active");
+    // markers.forEach((marker) => {
+    //   marker.style.display = "block";
+    // })
   } else {
     allBtn.classList.remove("map__mark-item_active");
+    // markers.forEach((marker) => {
+    //   marker.style.display = "block";
+    // })
   }
 }
 
@@ -2544,8 +2582,6 @@ if (markListBtnOpen) {
     markList.classList.remove("map__mark-list-wrap_active");
   });
 }
-
-
 
 // -------------------------------------------- end Карта ---------------------------------------------
 //--------------------------Запрос к БД----------------------------
@@ -2883,12 +2919,11 @@ if (offices.length > 0) {
       publishBtn.classList.toggle("_active");
       if (publishBtn.classList.contains("_active")) {
         setElActive(id);
-        activeMark.innerHTML = 'Активный офис';
+        activeMark.innerHTML = "Активный офис";
         activeMark.classList.add("_active");
-
       } else {
         setDisabled(id);
-        activeMark.innerHTML = 'Неактивный офис';
+        activeMark.innerHTML = "Неактивный офис";
         activeMark.classList.remove("_active");
         // publishBtn.textContent = "Опубликовать";
         // item.remove();
@@ -2905,11 +2940,10 @@ if (offices.length > 0) {
       openForm(item);
       // editElInDb(item, title, id);
     });
-
   });
 
   function setElActive(id) {
-    const form = document.querySelector(`.edit-office[data-id="${id}"]`)
+    const form = document.querySelector(`.edit-office[data-id="${id}"]`);
     const chek = form.querySelector(".control__input_check");
     chek.checked = true;
 
@@ -2919,15 +2953,14 @@ if (offices.length > 0) {
       table: "offices",
       field: "status",
       id: id,
-    };    
+    };
     fetchToDB(options);
   }
 
   function setDisabled(id) {
-    const form = document.querySelector(`.edit-office[data-id="${id}"]`)
+    const form = document.querySelector(`.edit-office[data-id="${id}"]`);
     const chek = form.querySelector(".control__input_check");
     chek.checked = false;
-
 
     const options = {
       script: "/control/backend/active.php",
@@ -2954,8 +2987,8 @@ if (offices.length > 0) {
     fetchToDB(options);
   }
 
-  function openForm(item) { 
-    const id = item.getAttribute("data-id");   
+  function openForm(item) {
+    const id = item.getAttribute("data-id");
     const form = document.querySelector(`.edit-office[data-id="${id}"]`);
     const office = document.querySelector(`.office[data-id="${id}"]`);
     form.style.display = "grid";
@@ -3012,14 +3045,6 @@ if (offices.length > 0) {
     }
     // return arr;
   }
-
-
-
-
-
-
-
-
 }
 
 const news = document.querySelectorAll(".control__news");
@@ -3042,7 +3067,6 @@ if (news.length > 0) {
         setElActive(id);
         // activeMark.innerHTML = 'Активный офис';
         // activeMark.classList.add("_active");
-
       } else {
         setDisabled(id);
         item.setAttribute("data-status", "0");
@@ -3060,11 +3084,10 @@ if (news.length > 0) {
 
     editBtn.addEventListener("click", () => {
       console.log("тест");
-      window.location.href = `/control/pages/novosti/edit.php?id=${id}`
+      window.location.href = `/control/pages/novosti/edit.php?id=${id}`;
       // openForm(item);
       // editElInDb(item, title, id);
     });
-
   });
 
   function setElActive(id) {
@@ -3078,7 +3101,7 @@ if (news.length > 0) {
       table: "news",
       field: "status",
       id: id,
-    };    
+    };
     fetchToDB(options);
   }
 
@@ -3086,7 +3109,6 @@ if (news.length > 0) {
     // const form = document.querySelector(`.edit-office[data-id="${id}"]`)
     // const chek = form.querySelector(".control__input_check");
     // chek.checked = false;
-
 
     const options = {
       script: "/control/backend/active.php",
@@ -3155,7 +3177,6 @@ if (events.length > 0) {
         setElActive(id);
         // activeMark.innerHTML = 'Активный офис';
         // activeMark.classList.add("_active");
-
       } else {
         setDisabled(id);
         item.setAttribute("data-status", "0");
@@ -3173,11 +3194,10 @@ if (events.length > 0) {
 
     editBtn.addEventListener("click", () => {
       console.log("тест");
-      window.location.href = `/control/pages/akcii/edit.php?id=${id}`
+      window.location.href = `/control/pages/akcii/edit.php?id=${id}`;
       // openForm(item);
       // editElInDb(item, title, id);
     });
-
   });
 
   function setElActive(id) {
@@ -3191,7 +3211,7 @@ if (events.length > 0) {
       table: "events",
       field: "status",
       id: id,
-    };    
+    };
     fetchToDB(options);
   }
 
@@ -3199,7 +3219,6 @@ if (events.length > 0) {
     // const form = document.querySelector(`.edit-office[data-id="${id}"]`)
     // const chek = form.querySelector(".control__input_check");
     // chek.checked = false;
-
 
     const options = {
       script: "/control/backend/active.php",
@@ -3277,11 +3296,11 @@ if (passBtn) {
       passInput.type = "password";
       passBtn.classList.remove("_active");
     }
-  })
+  });
 }
 // ------------------- end показ пароля --------------------------
 
-    // --------------------------------------------- start render promo -----------------------------
+// --------------------------------------------- start render promo -----------------------------
 const promoPopup = document.querySelector("#promo");
 if (promoPopup) {
   const btns = document.querySelectorAll(".promo-link");
@@ -3290,8 +3309,6 @@ if (promoPopup) {
       renderPromo(btn);
     });
   });
-
-
 
   function renderPromo(btn) {
     const id = btn.getAttribute("data-id");
@@ -3306,7 +3323,7 @@ if (promoPopup) {
         promo.style.display = "block";
       }
     });
-  }  
+  }
 }
 // --------------------------------------------- end render promo -----------------------------
 // -------------------------------------- start показ превью --------------------------
@@ -3319,7 +3336,7 @@ if (picInput) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = function () {
-        const preview = item.closest('.control__label').querySelector(".preview");
+        const preview = item.closest(".control__label").querySelector(".preview");
         preview.src = reader.result;
       };
     });
