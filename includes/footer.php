@@ -23,13 +23,13 @@
 						</span>
 						<ul class="nav__list">
 
-							<li class="nav__item">
+							<!-- <li class="nav__item">
 								<a href="/pages/proekty/" class="nav__link">
 									<p class="nav__text">
 										Проекты
 									</p>
 								</a>
-							</li>
+							</li> -->
 
 							<!-- <li class="nav__item">
 								<a href="/pages/kommercia/" class="nav__link">

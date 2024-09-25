@@ -671,6 +671,7 @@ if (commercialPage) {
 const asideMenu = document.querySelector(".aside-menu");
 if (asideMenu) {
   const links = asideMenu.querySelectorAll(".slider__toggle-link");
+  console.log("links", links);
 
   links.forEach((item) => {
     item.addEventListener("click", function () {
@@ -684,9 +685,15 @@ if (asideMenu) {
 
   document.addEventListener("scroll", () => {
     // console.log("scroll");
-
     // получаем все секции с атрибутом id
-    let sections = Array.from(document.querySelectorAll("section")).filter((section) => section.hasAttribute("id"));
+    let sections = Array.from(document.querySelectorAll("section")).filter((section) => {
+      if (section.hasAttribute("id") && section.style.display !== "none") {
+        return section;
+      }
+    });
+
+
+    console.log("sections", sections);
 
     sections.forEach((section) => {
       // получаем параметры секции

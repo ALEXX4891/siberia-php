@@ -1221,16 +1221,16 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Местоположение и инфраструктура
             </a>
           </li>
-          <li class="slider__toggle-item">
+          <!-- <li class="slider__toggle-item">
             <a class="slider__toggle-link" href="#commercial" data-id="1">
               Коммерческие помещения
             </a>
-          </li>
-          <li class="slider__toggle-item">
+          </li> -->
+          <!-- <li class="slider__toggle-item">
             <a class="slider__toggle-link" href="#buy" data-id="1">
               Способы покупки
             </a>
-          </li>
+          </li> -->
           <li class="slider__toggle-item">
             <a class="slider__toggle-link" href="#office" data-id="1">
               Офис продаж

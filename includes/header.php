@@ -17,13 +17,13 @@ $row1 = mysqli_fetch_array($result);
 				<div class="header__nav-wrap">
 					<nav class="nav header__nav">
 						<ul class="nav__list">
-							<li class="nav__item">
+							<!-- <li class="nav__item">
 								<a href="/pages/proekty/" class="nav__link">
 									<p class="nav__text">
 										Проекты
 									</p>
 								</a>
-							</li>
+							</li> -->
 							<li class="nav__item nav__item_apartments">
 								<a href="/pages/kvartiry/" class="nav__link">
 									<p class="nav__text">
