@@ -31,13 +31,13 @@ $row1 = mysqli_fetch_array($result);
 									</p>
 								</a>
 							</li>
-							<li class="nav__item">
+							<!-- <li class="nav__item">
 								<a href="/pages/kommercia/" class="nav__link">
 									<p class="nav__text">
 										Коммерция
 									</p>
 								</a>
-							</li>
+							</li> -->
 							<li class="nav__item">
 								<a href="/pages/sotrudnichestvo/" class="nav__link">
 									<p class="nav__text">

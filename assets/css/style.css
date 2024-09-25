@@ -408,6 +408,11 @@ a {
   position: relative;
 }
 
+.marker-add {
+  position: relative;
+  transform: translate(-50%, -50%);
+}
+
 .marker {
   position: relative;
   transform: translate(-50%, -100%);
@@ -4311,6 +4316,7 @@ a {
   grid-template-columns: 1fr;
   grid-auto-flow: row;
   gap: 32px;
+  align-content: start;
 }
 
 .footer .footer__section .footer__container .footer__top-block .footer__nav-wrap .footer__nav .nav__title {
@@ -9969,12 +9975,12 @@ a {
 }
 
 .bot .bot__container .bot__map [class*="marker"] {
-  position: absolute;
-  bottom: 50%;
-  right: 50%;
-  width: 29px;
-  height: 44px;
-  pointer-events: none;
+  /* position: absolute; */
+  /* bottom: 50%; */
+  /* right: 50%; */
+  /* width: 29px; */
+  /* height: 44px; */
+  /* pointer-events: none; */
 }
 
 .bot .bot__container .address {
@@ -12515,12 +12521,12 @@ a {
 }
 
 .project-item-page .project-item-page__main .slim .bot .bot__container .bot__wrap .bot__map [class*="marker"] {
-  position: absolute;
-  bottom: 50%;
-  right: 50%;
-  width: 29px;
-  height: 44px;
-  pointer-events: none;
+  /* position: absolute; */
+  /* bottom: 50%; */
+  /* right: 50%; */
+  /* width: 29px; */
+  /* height: 44px; */
+  /* pointer-events: none; */
 }
 
 .project-item-page .project-item-page__main .slim .bot .bot__container .bot__wrap .address {
@@ -15357,12 +15363,12 @@ a {
 }
 
 .main .bot .bot__container .bot__wrap .bot__map [class*="marker"] {
-  position: absolute;
-  bottom: 50%;
-  right: 50%;
-  width: 29px;
-  height: 44px;
-  pointer-events: none;
+  /* position: absolute; */
+  /* bottom: 50%; */
+  /* right: 50%; */
+  /* width: 29px; */
+  /* height: 44px; */
+  /* pointer-events: none; */
 }
 
 .main .bot .bot__container .bot__wrap .address {

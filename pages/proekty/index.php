@@ -1,4 +1,7 @@
 <?
+echo '<meta http-equiv="refresh" content="0; URL=\'/pages/project-item/\'" />';
+exit();
+
 $title = 'Проекты';
 $description = '';
 $keywords = '';

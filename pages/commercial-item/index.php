@@ -629,7 +629,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </button>
         </div>
 
-        <div class="bot__map map-yandex" id="map">
+        <div class="bot__map map-yandex2" id="map">
         </div>
         <!-- </div> -->
 

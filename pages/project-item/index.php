@@ -734,7 +734,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </div>
       </section>
 
-      <section class="section section_commercial commercial" id="commercial">
+      <section style="display: none;" class="section section_commercial commercial" id="commercial">
         <div class="container commercial__container">
           <div class="commercial__wrap wrap commercial_swiper">
             <div class="commercial__top-wrap">
@@ -1111,7 +1111,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </div>
       </section>
 
-      <section class="section section_buy buy" id="buy">
+      <section style="display: none;" class="section section_buy buy" id="buy">
         <div class="container buy__container">
           <div class="buy__wrap wrap">
 
@@ -1195,7 +1195,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </button>
             </div>
 
-            <div class="bot__map" id="map2">
+            <div class="bot__map" id="mapTwo">
             </div>
           </div>
 

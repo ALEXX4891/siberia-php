@@ -107,7 +107,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </div>
 
         <div class="contacts-page__right-block">
-          <div class="contacts-page__map" id="map">
+          <div class="contacts-page__map" id="mapTwo">
           </div>
         </div>
 

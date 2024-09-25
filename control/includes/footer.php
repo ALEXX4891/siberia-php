@@ -31,13 +31,13 @@
 								</a>
 							</li>
 
-							<li class="nav__item">
+							<!-- <li class="nav__item">
 								<a href="/pages/kommercia/" class="nav__link">
 									<p class="nav__text">
 										Коммерция
 									</p>
 								</a>
-							</li>
+							</li> -->
 
 							<li class="nav__item">
 								<a href="/pages/sposob-pokupki/" class="nav__link">

@@ -2229,9 +2229,8 @@ if (cookieCloseBtn) {
 // -------------------------------------------- start Карта ---------------------------------------------
 // Функция ymaps.ready() будет вызвана, когда
 // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-
 const map = document.getElementById("map");
-const map2 = document.getElementById("map2");
+const map2 = document.getElementById("mapTwo");
 if (map || map2) {
   initMap();
   // Главная функция, вызывается при запуске скрипта
@@ -2242,8 +2241,8 @@ if (map || map2) {
     // Импорт модулей для элементов управления на карте
     const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = ymaps3;
 
-    // Импорт модулей для элементов управления на карте
-    const { YMapZoomControl, YMapGeolocationControl } = await ymaps3.import("@yandex/ymaps3-controls@0.0.1");
+    // // Импорт модулей для элементов управления на карте
+    // const { YMapZoomControl, YMapGeolocationControl } = await ymaps3.import("@yandex/ymaps3-controls@0.0.1");
 
     // const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-markers@0.0.1');
     // // кластеризация маркеров
@@ -2257,245 +2256,260 @@ if (map || map2) {
     // // https://yandex.ru/dev/maps/jsapi/doc/3.0/ref/packages/clusterer/index.html
 
     // Координаты центра карты
-    const CENTER_COORDINATES = [65.79187000766548, 56.97004647141038];
-    // координаты метки на карте
-    const MARKER_COORDINATES = [65.80127919688765, 56.971359032603615];
-
-    // Объект с параметрами центра и зумом карты
-    const LOCATION = { center: CENTER_COORDINATES, zoom: 14.7 };
 
     // Иницилиазируем карту
     // Создание объекта карты
-    const map = new YMap(
-      // Передаём ссылку на HTMLElement контейнера
-      // document.querySelector(".map-yandex"),
-      document.getElementById("map"),
-      // Передаём параметры инициализации карты
-      {
-        location: {
-          // Координаты центра карты
-          center: [65.79187000766548, 56.97004647141038],
-          // Уровень масштабирования
-          zoom: 14.7,
+    if (document.getElementById("map")) {
+      const CENTER_COORDINATES = [65.79187000766548, 56.97004647141038];
+      // координаты метки на карте
+      const MARKER_COORDINATES = [65.80127919688765, 56.971359032603615];
+
+      // Объект с параметрами центра и зумом карты
+      const LOCATION = { center: CENTER_COORDINATES, zoom: 14.7 };
+      console.log("тест");
+      const map = new YMap(
+        // Передаём ссылку на HTMLElement контейнера
+        // document.querySelector(".map-yandex"),
+        document.getElementById("map"),
+        // Передаём параметры инициализации карты
+        {
+          location: {
+            // Координаты центра карты
+            center: [65.79187000766548, 56.97004647141038],
+            // Уровень масштабирования
+            zoom: 14.7,
+          },
         },
-      },
-      [
-        // Добавляем слой, скрываем POI
-        new YMapDefaultSchemeLayer({
-          customization: [
-            {
-              tags: {
-                any: ["poi", "transit"],
-              },
-              elements: "label",
-              stylers: [
-                {
-                  opacity: 0,
+        [
+          // Добавляем слой, скрываем POI
+          new YMapDefaultSchemeLayer({
+            customization: [
+              {
+                tags: {
+                  any: ["poi", "transit"],
                 },
-              ],
-            },
-          ],
-        }),
-        new YMapDefaultFeaturesLayer({}),
-      ]
-    );
+                elements: "label",
+                stylers: [
+                  {
+                    opacity: 0,
+                  },
+                ],
+              },
+            ],
+          }),
+          new YMapDefaultFeaturesLayer({}),
+        ]
+      );
 
-    // *******************************************************************
-    // Добавляем коллекцию маркеров
-    const markersArr1 = [
-      { coordinates: [65.779502, 56.957423], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
-      { coordinates: [65.781403, 56.970276], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
-      { coordinates: [65.789987, 56.961974], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
-      { coordinates: [65.768416, 56.957919], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
-    ];
+      // *******************************************************************
+      // Добавляем коллекцию маркеров
+      const markersArr1 = [
+        { coordinates: [65.779502, 56.957423], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
+        { coordinates: [65.781403, 56.970276], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
+        { coordinates: [65.789987, 56.961974], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
+        { coordinates: [65.768416, 56.957919], title: "Детский сад", dataId: 1, img: "/assets/img/pin1.svg" },
+      ];
 
-    const markersArr2 = [
-      { coordinates: [65.78529, 56.975524], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
-      { coordinates: [65.770024, 56.959058], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
-      { coordinates: [65.776546, 56.957566], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
-      { coordinates: [65.770974, 56.959206], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
-    ];
+      const markersArr2 = [
+        { coordinates: [65.78529, 56.975524], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
+        { coordinates: [65.770024, 56.959058], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
+        { coordinates: [65.776546, 56.957566], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
+        { coordinates: [65.770974, 56.959206], title: "Школа", dataId: 2, img: "/assets/img/pin2.svg" },
+      ];
 
-    const markersArr3 = [
-      { coordinates: [65.77856, 56.969226], title: "ЖД Вокзал", dataId: 3, img: "/assets/img/pin3.svg" },
-      { coordinates: [65.784073, 56.961645], title: "Автостанция", dataId: 3, img: "/assets/img/pin3.svg" },
-      { coordinates: [65.800875, 56.972715], title: "Остановка", dataId: 3, img: "/assets/img/pin3.svg" },
-      { coordinates: [65.801218, 56.971599], title: "Остановка", dataId: 3, img: "/assets/img/pin3.svg" },
-    ];
+      const markersArr3 = [
+        { coordinates: [65.77856, 56.969226], title: "ЖД Вокзал", dataId: 3, img: "/assets/img/pin3.svg" },
+        { coordinates: [65.784073, 56.961645], title: "Автостанция", dataId: 3, img: "/assets/img/pin3.svg" },
+        { coordinates: [65.800875, 56.972715], title: "Остановка", dataId: 3, img: "/assets/img/pin3.svg" },
+        { coordinates: [65.801218, 56.971599], title: "Остановка", dataId: 3, img: "/assets/img/pin3.svg" },
+      ];
 
-    const markersArr4 = [
-      { coordinates: [65.769663, 56.954943], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
-      { coordinates: [65.770876, 56.953251], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
-      { coordinates: [65.785333, 56.962179], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
-      { coordinates: [65.787131, 56.962605], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
-      { coordinates: [65.780188, 56.970726], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
-      { coordinates: [65.781104, 56.96844], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
-    ];
+      const markersArr4 = [
+        { coordinates: [65.769663, 56.954943], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+        { coordinates: [65.770876, 56.953251], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+        { coordinates: [65.785333, 56.962179], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+        { coordinates: [65.787131, 56.962605], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+        { coordinates: [65.780188, 56.970726], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+        { coordinates: [65.781104, 56.96844], title: "Магазин", dataId: 4, img: "/assets/img/pin4.svg" },
+      ];
 
-    const markersArr5 = [
-      { coordinates: [65.779043, 56.959218], title: "Поликлиника", dataId: 5, img: "/assets/img/pin5.svg" },
-      { coordinates: [65.789402, 56.963208], title: "Аптека", dataId: 5, img: "/assets/img/pin5.svg" },
-      { coordinates: [65.770935, 56.953172], title: "Аптека", dataId: 5, img: "/assets/img/pin5.svg" },
-      ,
-    ];
+      const markersArr5 = [
+        { coordinates: [65.779043, 56.959218], title: "Поликлиника", dataId: 5, img: "/assets/img/pin5.svg" },
+        { coordinates: [65.789402, 56.963208], title: "Аптека", dataId: 5, img: "/assets/img/pin5.svg" },
+        { coordinates: [65.770935, 56.953172], title: "Аптека", dataId: 5, img: "/assets/img/pin5.svg" },
+        ,
+      ];
 
-    const markersArr6 = [
-      { coordinates: [65.771588, 56.970687], title: "Лыжная база", dataId: 6, img: "/assets/img/pin6.svg" },
-      { coordinates: [65.777346, 56.959192], title: "Детская площадка", dataId: 6, img: "/assets/img/pin6.svg" },
-      { coordinates: [65.796432, 56.960564], title: "Детская площадка", dataId: 6, img: "/assets/img/pin6.svg" },
-      { coordinates: [65.799187, 56.971438], title: "Детская площадка", dataId: 6, img: "/assets/img/pin6.svg" },
-      { coordinates: [65.813698, 56.968394], title: "Санаторий", dataId: 6, img: "/assets/img/pin6.svg" },
-      { coordinates: [65.823801, 56.971629], title: "База отдыха", dataId: 6, img: "/assets/img/pin6.svg" },
-      ,
-    ];
+      const markersArr6 = [
+        { coordinates: [65.771588, 56.970687], title: "Лыжная база", dataId: 6, img: "/assets/img/pin6.svg" },
+        { coordinates: [65.777346, 56.959192], title: "Детская площадка", dataId: 6, img: "/assets/img/pin6.svg" },
+        { coordinates: [65.796432, 56.960564], title: "Детская площадка", dataId: 6, img: "/assets/img/pin6.svg" },
+        { coordinates: [65.799187, 56.971438], title: "Детская площадка", dataId: 6, img: "/assets/img/pin6.svg" },
+        { coordinates: [65.813698, 56.968394], title: "Санаторий", dataId: 6, img: "/assets/img/pin6.svg" },
+        { coordinates: [65.823801, 56.971629], title: "База отдыха", dataId: 6, img: "/assets/img/pin6.svg" },
+        ,
+      ];
 
-    function renderMarks(arr) {
-      arr.forEach((obj) => {
-        const imgContainer = makeImgContainer(obj);
-        const markerElement = makeMarkerElement(obj);
-        const marker = makeMarker(obj, imgContainer);
-        imgContainer.append(markerElement);
-        map.addChild(marker);
-      });
-    }
+      function renderMarks(arr) {
+        arr.forEach((obj) => {
+          const imgContainer = makeImgContainer(obj);
+          const markerElement = makeMarkerElement(obj);
+          const marker = makeMarker(obj, imgContainer);
+          imgContainer.append(markerElement);
+          map.addChild(marker);
+        });
+      }
 
-    renderMarks(markersArr1);
-    renderMarks(markersArr2);
-    renderMarks(markersArr3);
-    renderMarks(markersArr4);
-    renderMarks(markersArr5);
-    renderMarks(markersArr6);
+      renderMarks(markersArr1);
+      renderMarks(markersArr2);
+      renderMarks(markersArr3);
+      renderMarks(markersArr4);
+      renderMarks(markersArr5);
+      renderMarks(markersArr6);
 
-    // *******************************************************************
+      // *******************************************************************
 
-    // Функция создания контейнера для маркера
-    function makeImgContainer(obj) {
-      const imgContainer = document.createElement("div");
-      imgContainer.className = "marker-wrap";
-      imgContainer.setAttribute("data-id", obj.dataId);
-      imgContainer.style.display = "none";
-      return imgContainer;
-    }
+      // Функция создания контейнера для маркера
+      function makeImgContainer(obj) {
+        const imgContainer = document.createElement("div");
+        imgContainer.className = "marker-wrap";
+        imgContainer.setAttribute("data-id", obj.dataId);
+        imgContainer.style.display = "none";
+        return imgContainer;
+      }
 
-    // Функция создания маркера
-    function makeMarkerElement(obj) {
+      // Функция создания маркера
+      function makeMarkerElement(obj) {
+        const markerElement = document.createElement("img");
+        markerElement.className = "marker";
+        markerElement.className = "marker-add";
+        markerElement.src = obj.img;
+        markerElement.title = obj.title;
+        return markerElement;
+      }
+
+      // Функция инициализации маркера
+      function makeMarker(obj, container) {
+        const marker = new YMapMarker(
+          {
+            coordinates: obj.coordinates,
+            // draggable: true,
+            mapFollowsOnDrag: true,
+          },
+          container
+        );
+        return marker;
+      }
+
+      // создаем маркер для ЖК
       const markerElement = document.createElement("img");
       markerElement.className = "marker";
-      markerElement.className = "marker-add";
-      markerElement.src = obj.img;
-      markerElement.title = obj.title;
-      return markerElement;
-    }
+      markerElement.src = "/assets/img/pin.svg";
+      markerElement.title = "ЖК Сосновый";
 
-    // Функция инициализации маркера
-    function makeMarker(obj, container) {
+      // Контейнер для элементов маркера
+      const imgContainer = document.createElement("div");
+      imgContainer.className = "marker-wrap";
+
+      imgContainer.append(markerElement);
+
+      // Добавление маркера на карту
       const marker = new YMapMarker(
         {
-          coordinates: obj.coordinates,
+          coordinates: [65.80127919688765, 56.971359032603615],
           // draggable: true,
           mapFollowsOnDrag: true,
         },
-        container
+        imgContainer
       );
-      return marker;
+      map.addChild(marker);
     }
-
-    const markerElement = document.createElement("img");
-    markerElement.className = "marker";
-    markerElement.src = "/assets/img/pin.svg";
-    markerElement.title = "ЖК Сосновый";
-    // markerElement.setAttribute("data-id", 1);
-    // markerElement.style.width = "42px";
-    // markerElement.style.height = "58px";
-
-    // // При клике на маркер меняем центр карты на LOCATION с заданным duration
-    // markerElement.onclick = () => map.update({ location: { center: MARKER_COORDINATES, zoom: 15.7, duration: 400 } });
-
-    // // Создание заголовка маркера
-    // const markerTitle = document.createElement("div");
-    // markerTitle.className = "marker-title";
-    // markerTitle.innerHTML = "Заголовок маркера";
-
-    // Контейнер для элементов маркера
-    const imgContainer = document.createElement("div");
-    imgContainer.className = "marker-wrap";
-
-    imgContainer.append(markerElement);
-    // imgContainer.append(markerTitle);
-
-    // // Координаты центра карты
-    // const CENTER_COORDINATES = [37.623082, 55.752540];
-    // // Добавление центра карты
-    // map.addChild(new YMapMarker({coordinates: CENTER_COORDINATES}));
-
-    // Добавление маркера на карту
-    const marker = new YMapMarker(
-      {
-        coordinates: [65.80127919688765, 56.971359032603615],
-        // draggable: true,
-        mapFollowsOnDrag: true,
-      },
-      imgContainer
-    );
-    map.addChild(marker);
 
     // ***********************************************************************
 
-    const map2 = new YMap(
-      // Передаём ссылку на HTMLElement контейнера
-      document.getElementById("map2"),
-      // Передаём параметры инициализации карты
+    if (document.getElementById("mapTwo")) {
+      const map2 = new YMap(
+        // Передаём ссылку на HTMLElement контейнера
+        document.getElementById("mapTwo"),
 
-      {
-        location: {
-          // Координаты центра карты
-          center: [65.50887, 57.150993],
-          // Уровень масштабирования
-          zoom: 14.7,
+        // Передаём параметры инициализации карты
+
+        {
+          location: {
+            // Координаты центра карты
+            center: [65.50887, 57.150993],
+            // Уровень масштабирования
+            zoom: 14.7,
+          },
         },
-      },
-      [
-        // Добавляем слой, скрываем POI
-        new YMapDefaultSchemeLayer({
-          customization: [
-            {
-              tags: {
-                any: ["poi", "transit"],
-              },
-              elements: "label",
-              stylers: [
-                {
-                  opacity: 0,
+        [
+          // Добавляем слой, скрываем POI
+          new YMapDefaultSchemeLayer({
+            customization: [
+              {
+                tags: {
+                  any: ["poi", "transit"],
                 },
-              ],
-            },
-          ],
-        }),
-        new YMapDefaultFeaturesLayer({}),
-      ]
-    );
+                elements: "label",
+                stylers: [
+                  {
+                    opacity: 0,
+                  },
+                ],
+              },
+            ],
+          }),
+          new YMapDefaultFeaturesLayer({}),
+        ]
+      );
 
-    // Создание маркера
-    const markerElement2 = document.createElement("img");
-    markerElement2.className = "marker-class";
-    markerElement2.innerText = "I'm marker!";
-    markerElement2.style.width = "100%";
-    markerElement2.style.height = "100%";
-    markerElement2.src = "/assets/img/pin-office.svg";
+      // // Создание маркера
+      // const markerElement2 = document.createElement("img");
+      // markerElement2.className = "marker-class";
+      // markerElement2.innerText = "I'm marker!";
+      // markerElement2.style.width = "100%";
+      // markerElement2.style.height = "100%";
+      // markerElement2.src = "/assets/img/pin-office.svg";
 
-    const marker2 = new YMapMarker(
-      {
-        coordinates: [65.50887, 57.150993],
-        draggable: true,
-        mapFollowsOnDrag: true,
-      },
-      markerElement2
-    );
-    map2.addChild(marker2);
+      // const marker2 = new YMapMarker(
+      //   {
+      //     coordinates: [65.50887, 57.150993],
+      //     draggable: true,
+      //     mapFollowsOnDrag: true,
+      //   },
+      //   markerElement2
+      // );
+      // map2.addChild(marker2);
+
+
+      // создаем маркер для ЖК
+      const markerElement = document.createElement("img");
+      markerElement.className = "marker";
+      markerElement.src = "/assets/img/pin-office.svg";
+      // markerElement.src = "/assets/img/pin.svg";
+
+      markerElement.title = "Офис продаж";
+
+      // Контейнер для элементов маркера
+      const imgContainer = document.createElement("div");
+      imgContainer.className = "marker-wrap";
+
+      imgContainer.append(markerElement);
+
+      // Добавление маркера на карту
+      const marker = new YMapMarker(
+        {
+          coordinates: [65.508941, 57.150705],
+          // draggable: true,
+          mapFollowsOnDrag: true,
+        },
+        imgContainer
+      );
+      map2.addChild(marker);
+    }
   }
 }
 
-console.log("тест");
 const filter = document.querySelectorAll(".map__mark-item_point");
 if (filter.length) {
   filter.forEach((item) => {
@@ -3309,7 +3323,7 @@ if (events.length > 0) {
 
 const editForm = document.querySelector(".edit-office");
 if (editForm) {
-  const canselBtn = document.querySelectorAll(".control__btn_cancel");
+  const canselBtn = editForm.querySelectorAll(".control__btn_cancel");
 
   canselBtn.forEach((item) => {
     item.addEventListener("click", (e) => {
