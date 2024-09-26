@@ -23014,6 +23014,25 @@ a {
     gap: 110px;
   }
 
+  .geo .geo__container .geo__map .map__mark-list-wrap {
+    opacity: 0;
+    visibility: hidden;
+    top: initial;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: initial;
+    padding: 30px;
+    gap: 20px;
+}
+
+.apartments-item-page .geo .geo__map .map__mark-list-wrap .map__mark-list {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 10px;
+}
+
   .project-item-page
     .project-item-page__main
     .slim
