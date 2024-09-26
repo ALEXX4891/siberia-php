@@ -9556,6 +9556,7 @@ a {
   -ms-grid-column-span: 3;
   /* grid-column: 3 span; */
   min-width: 0;
+  display: flex;
 }
 
 .apartments-item-page .apartments .apartments__container .apartments__list .apartments__item {
