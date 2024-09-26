@@ -151,7 +151,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     Наличными
                   </span>
                   <p class="checkbox__desc">
-                    Скидка 573 000₽
+                    
                   </p>
                 </label>
               </li>
@@ -751,6 +751,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </div>
       </div>
     </section>
+
   </main>
 
   <?

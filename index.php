@@ -338,7 +338,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           <div class="choice__btn-wrap">
             <p class="choice__search-text">
-              найдено 5 квартир
+              <!-- найдено 5 квартир -->
             </p>
             <a class="choice__btn-request choice__btn-request_link btn btn_dark" href="/pages/kvartiry/">
               Смотреть квартиры

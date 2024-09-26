@@ -176,7 +176,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
             <div class="choice__form" choice-form>
 
-              <div class="choice__input-block choice__input-block_select_project">
+              <div class="choice__input-block choice__input-block_select choice__input-block_select_project">
                 <p class="choice__label">
                   Проект
                 </p>
@@ -200,7 +200,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </div>
               </div>
 
-              <div class="choice__input-block choice__input-block_buttons_rooms">
+              <div class="choice__input-block choice__input-block_buttons choice__input-block_buttons_rooms">
                 <p class="choice__label">
                   Комнат
                 </p>
@@ -223,7 +223,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </div>
               </div>
 
-              <div class="choice__input-block choice__input-block_slider_square">
+              <div class="choice__input-block choice__input-block_slider choice__input-block_slider_square">
                 <p class="choice__label">
                   Площадь, м2
                 </p>
@@ -295,7 +295,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
               <div class="choice__btn-wrap">
                 <p class="choice__search-text">
-                  Найдено 5 квартир
+                  <!-- Найдено 5 квартир -->
                 </p>
                 <a class="choice__btn-request choice__btn-request_link btn btn_dark" href="/pages/kvartiry/">
                   Смотреть квартиры
@@ -1238,6 +1238,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </li>
         </ul>
       </div>
+
+    <div class="apartments__list" style="display: none;"></div>
+
 
     </section>
 

@@ -693,7 +693,7 @@ if (asideMenu) {
     });
 
 
-    console.log("sections", sections);
+    // console.log("sections", sections);
 
     sections.forEach((section) => {
       // получаем параметры секции
@@ -971,12 +971,12 @@ new Swiper(".regions_swiper", {
 new Swiper(".regions_swiper_small", {
   // Optional parameters
   direction: "horizontal",
-  // loop: true,
+  loop: true,
   // allowTouchMove: true,
   autoHeight: true,
   slidesPerView: 3, // сколько слайдов показывать, можно дробно
   // slidesPerView: "auto", // сколько слайдов показывать, можно дробно
-  // slidersPerGroup: 3, // сколько слайдов в группе
+  slidersPerGroup: 3, // сколько слайдов в группе
   // centeredSlides: true, //выравнивание слайдов по центру
   // initialSlide: 0, //начальный слайд (c нуля)
 

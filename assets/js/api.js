@@ -978,6 +978,7 @@ let filterArr = parseUrlQuery();
 // первичный рендеринг квартир:
 const list = document.querySelector(".apartments__list");
 if (list) {
+  console.log(list);
   setNowFilters(filterArr);
   apartRender(allApartsInfo);
 }
@@ -1583,6 +1584,7 @@ function getFilters() {
   const filters = document.querySelectorAll(".choice__input-block");
   filters.forEach((item) => {
     const name = item.querySelector(".choice__label").textContent.trim();
+    console.log(item);
 
     if (item.classList.contains("choice__input-block_select")) {
       const valueBlock = item.querySelector(".select__text");
