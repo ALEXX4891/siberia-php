@@ -24,7 +24,7 @@ $row1 = mysqli_fetch_array($result);
 									</p>
 								</a>
 							</li> -->
-							<li class="nav__item nav__item_apartments">
+							<li class="nav__item">
 								<a href="/pages/kvartiry/" class="nav__link">
 									<p class="nav__text">
 										Квартиры
