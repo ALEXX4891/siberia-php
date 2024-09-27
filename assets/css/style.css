@@ -87,10 +87,10 @@ ul li {
 img {
   vertical-align: top;
   /* max-width: 100%; */
-  /* height: auto; */
+  height: auto;
   display: block;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 
 address {
@@ -9175,6 +9175,8 @@ a {
   top: 150px;
   left: 0;
   width: auto;
+  display: flex;
+  gap: 10px;
 }
 
 .apartments-item-page .slider .slider__container .slider__btn {
@@ -9223,11 +9225,16 @@ a {
 .apartments-item-page .slider .slider__container .reparation_swiper {
   overflow: hidden;
   position: relative;
+  height: max-content;
 }
 
 .apartments-item-page .slider .slider__container .reparation_swiper .swiper-wrapper .swiper-slide {
   overflow: hidden;
   border-radius: 10px;
+}
+
+.apartments-item-page .slider .slider__container .reparation_swiper .swiper-wrapper .swiper-slide img {
+  height: auto;
 }
 
 .apartments-item-page .slider .slider__container .reparation_swiper .swiper-button {
