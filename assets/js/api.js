@@ -2,7 +2,7 @@ const url = window.location.href;
 let urlParams = new URLSearchParams(window.location.search);
 // console.log(url.split("/"));
 
-console.log("------------- Старт Api ------------------");
+// console.log("------------- Старт Api ------------------");
 
 // -------------------------------------------- start popup: ---------------------------------------------
 const body = document.querySelector("body");
@@ -18,14 +18,14 @@ if (popupLinks.length > 0) {
   for (let index = 0; index < popupLinks.length; index++) {
     const popupLink = popupLinks[index];
     popupLink.addEventListener("click", function (e) {
-      console.log("тест");
+      // console.log("тест");
       const popupName = popupLink.getAttribute("href").replace("#", "");
-      console.log(popupName);
+      // console.log(popupName);
       const curentPopup = document.getElementById(popupName); //получаем id попап-окна
 
       const dataRequest = popupLink.getAttribute("data-request");
       if (dataRequest) {
-        console.log(curentPopup);
+        // console.log(curentPopup);
         curentPopup.setAttribute("data-request", dataRequest);
       }
       popupOpen(curentPopup);
@@ -39,7 +39,7 @@ if (popupCloseIcon.length > 0) {
   for (let index = 0; index < popupCloseIcon.length; index++) {
     const el = popupCloseIcon[index];
     el.addEventListener("click", function (e) {
-      console.log("тест");
+      // console.log("тест");
       popupClose(el.closest(".popup")); //ближайший родитель класса popup
       e.preventDefault();
     });
@@ -58,7 +58,7 @@ function popupOpen(curentPopup) {
     // console.log(curentPopup);
     curentPopup.classList.add("open");
     curentPopup.addEventListener("click", function (e) {
-      console.log("тест");
+      // console.log("тест");
       if (!e.target.closest(".popup__content")) {
         // если клик был по области вокруг попапа то ничего не делаем
         popupClose(e.target.closest(".popup"));
@@ -68,7 +68,7 @@ function popupOpen(curentPopup) {
 }
 
 function popupClose(popupActive, doUnlock = true) {
-  console.log("popupClose");
+  // console.log("popupClose");
   if (unlock) {
     popupActive.classList.remove("open");
     if (doUnlock) {
@@ -133,12 +133,12 @@ function checkApiData() {
   });
 
   if (errors > 0) {
-    console.log("%%%% Ошибка получения данных из API %%%%");
-    console.log("errors:", errors);
-    console.log(allInfo);
+    // console.log("%%%% Ошибка получения данных из API %%%%");
+    // console.log("errors:", errors);
+    // console.log(allInfo);
     return false;
   } else {
-    console.log(allInfo);
+    // console.log(allInfo);
     return true;
   }
 }
@@ -158,7 +158,7 @@ async function getHouse() {
     let result = await responseHouses.json();
     arr = Object.values(result.response);
   } else {
-    console.log("error");
+    // console.log("error");
   }
   return arr;
 }
@@ -207,7 +207,7 @@ async function getRealty(id) {
     houseInfo = result.response.house;
   } else {
     body.classList.remove("_sending");
-    console.log("error");
+    // console.log("error");
   }
   const res = [houseInfo, allAparstInfo];
   // console.log("res:", res);
@@ -252,7 +252,7 @@ if (
 }
 
 if (checkApiData()) {
-  console.log(allInfo);
+  // console.log(allInfo);
   allInfo.splice(1).forEach((item) => {
     allHouseInfo.push(item[0]);
     allApartsInfo.push(...item[1]);
@@ -298,7 +298,7 @@ allApartsInfo.forEach(function (item) {
 
 // -------------------------------------- start функция создания карточки квартиры: --------------------------------------
 function getli(obj) {
-  console.log("*************** Старт функции  getli ***************"); // имя функции
+  // console.log("*************** Старт функции  getli ***************"); // имя функции
 
   const li = document.createElement("li"); // создаем li
   const classes = ["apartments__item", "swiper-slide"];
@@ -442,10 +442,10 @@ function getli(obj) {
 }
 // -------------------------------------- end функция создания карточки квартиры: --------------------------------------
 
-console.log("allAparstInfo", allApartsInfo[0]);
+// console.log("allAparstInfo", allApartsInfo[0]);
 // -------------------------------------- start полуаем граничные значения для фильтров: --------------------------------------
 function getMaxMinForFilters(allApartsInfo) {
-  console.log("*************** Старт функции getMaxMinForFilters ***************"); // имя функции
+  // console.log("*************** Старт функции getMaxMinForFilters ***************"); // имя функции
 
   // получаем граничные значения из allAparstInfo:
   const minPrice = Math.floor(Math.min(...allApartsInfo.map((item) => item.price)));
@@ -562,7 +562,7 @@ function getMaxMinForFilters(allApartsInfo) {
     },
   ];
 
-  console.log("filterAllInfo", filterAllInfo);
+  // console.log("filterAllInfo", filterAllInfo);
 
   return filterAllInfo;
 }
@@ -572,13 +572,13 @@ function getMaxMinForFilters(allApartsInfo) {
 
 // -------------------------------------- start устанавливаем граничные значения в фильтры: --------------------------------------
 function setMaxMinForFilters(filterAllInfo) {
-  console.log("*************** Старт функции setMaxMinForFilters ***************"); // имя функции
+  // console.log("*************** Старт функции setMaxMinForFilters ***************"); // имя функции
   // const filterAllInfo = getMaxMinForFilters();
   const choiceFilterForm = document.querySelector("[choice-form]");
-  console.log("choiceFilterForm", choiceFilterForm);
+  // console.log("choiceFilterForm", choiceFilterForm);
 
   if (!choiceFilterForm) {
-    console.log("choiceFilterForm not found");
+    // console.log("choiceFilterForm not found");
     return;
   }
 
@@ -603,7 +603,7 @@ function setMaxMinForFilters(filterAllInfo) {
         .join("");
     // projectFilter.innerHTML = allSelect + projectFilter.innerHTML;
   } else {
-    console.log("projectFilter not found");
+    // console.log("projectFilter not found");
   }
 
   if (houseFilter) {
@@ -615,7 +615,7 @@ function setMaxMinForFilters(filterAllInfo) {
         .value.map((item) => `<li class="select__item">${item}</li>`)
         .join("");
   } else {
-    console.log("houseFilter not found");
+    // console.log("houseFilter not found");
   }
 
   if (sectionFilter) {
@@ -627,7 +627,7 @@ function setMaxMinForFilters(filterAllInfo) {
         .value.map((item) => `<li class="select__item">${item}</li>`)
         .join("");
   } else {
-    console.log("sectionFilter not found");
+    // console.log("sectionFilter not found");
   }
 
   if (deadlineFilter) {
@@ -639,7 +639,7 @@ function setMaxMinForFilters(filterAllInfo) {
         .value.map((item) => `<li class="select__item">${item}</li>`)
         .join("");
   } else {
-    console.log("deadlineFilter not found");
+    // console.log("deadlineFilter not found");
   }
 
   if (roomsFilter) {
@@ -652,7 +652,7 @@ function setMaxMinForFilters(filterAllInfo) {
       }
     });
   } else {
-    console.log("roomsFilter not found");
+    // console.log("roomsFilter not found");
   }
 
   if (costFilter) {
@@ -660,7 +660,7 @@ function setMaxMinForFilters(filterAllInfo) {
     let maxFilterCost = filterAllInfo.find((item) => item.name === "Стоимость, ₽").value.to + 10000;
     rangeSliderInit(costFilter, 10000, minFilterCost, maxFilterCost);
   } else {
-    console.log("costFilter not found");
+    // console.log("costFilter not found");
   }
 
   if (squareFilter) {
@@ -668,7 +668,7 @@ function setMaxMinForFilters(filterAllInfo) {
     let maxFilterSquare = filterAllInfo.find((item) => item.name === "Площадь, м2").value.to;
     rangeSliderInit(squareFilter, 1, minFilterSquare, maxFilterSquare);
   } else {
-    console.log("squareFilter not found");
+    // console.log("squareFilter not found");
   }
 
   if (floorFilter) {
@@ -676,7 +676,7 @@ function setMaxMinForFilters(filterAllInfo) {
     let maxFilterFloor = filterAllInfo.find((item) => item.name === "Этаж").value.to;
     rangeSliderInit(floorFilter, 0, minFilterFloor, maxFilterFloor);
   } else {
-    console.log("floorFilter not found");
+    // console.log("floorFilter not found");
   }
 
   if (btnsFilter) {
@@ -691,7 +691,7 @@ function setMaxMinForFilters(filterAllInfo) {
       }
     });
   } else {
-    console.log("btnsFilter not found");
+    // console.log("btnsFilter not found");
   }
 }
 
@@ -700,8 +700,8 @@ setMaxMinForFilters(getMaxMinForFilters(allApartsInfo));
 // -------------------------------------- start функция установки и сброса значений фильтров ----------------
 // setNowFilters();
 function setNowFilters(arr) {
-  console.log("*************** Старт функции setNowFilters ***************"); // имя функции
-  console.log(arr);
+  // console.log("*************** Старт функции setNowFilters ***************"); // имя функции
+  // console.log(arr);
   // let urlParams = new URLSearchParams(window.location.search);
   // arr = [
   //   // { name: "Проект", value: "Сосновый" },
@@ -722,14 +722,14 @@ function setNowFilters(arr) {
   // console.log(arr);
 
   if (!choiceFilterForm) {
-    console.log("choiceFilterForm not found");
+    // console.log("choiceFilterForm not found");
     return;
   }
 
   if (!arr) {
     window.history.pushState({}, document.title, window.location.pathname);
     urlParams = new URLSearchParams(window.location.search);
-    console.log("сброс фильтров");
+    // console.log("сброс фильтров");
   }
 
   const projectFilter = choiceFilterForm.querySelector(".choice__input-block_select_project .select__text");
@@ -923,7 +923,7 @@ function setNowFilters(arr) {
     } else {
       btnsFilter.forEach((item) => item.classList.remove("choice__btn-filter_active"));
       urlParams.delete("btns");
-      console.log("urlParams", urlParams);
+      // console.log("urlParams", urlParams);
     }
   }
 }
@@ -945,13 +945,13 @@ let filtredApartList = [];
 
 // функция вывода дополнительных квартир
 function getNewItems(filtredApartList) {
-  console.log("*************** Старт функции getNewItems ***************"); // имя функции
+  // console.log("*************** Старт функции getNewItems ***************"); // имя функции
   let copyArr = [...filtredApartList];
   offset = offset + limit;
   limit = 8;
 
-  console.log("limit", limit);
-  console.log("offset", offset);
+  // console.log("limit", limit);
+  // console.log("offset", offset);
 
   copyArr = [...copyArr].splice(offset, limit);
 
@@ -978,7 +978,7 @@ let filterArr = parseUrlQuery();
 // первичный рендеринг квартир:
 const list = document.querySelector(".apartments__list");
 if (list) {
-  console.log(list);
+  // console.log(list);
   setNowFilters(filterArr);
   apartRender(allApartsInfo);
 }
@@ -990,7 +990,7 @@ if (window.location.pathname === "/") {
 
 // ------------------------------------------ start функция рендеринга квартир: --------------------------------------
 function apartRender(arr) {
-  console.log("*************** Старт функции apartRender ***************"); // имя функции
+  // console.log("*************** Старт функции apartRender ***************"); // имя функции
 
   // let params = parseUrlQuery();
   // console.log(params);
@@ -1085,7 +1085,7 @@ function apartRender(arr) {
       }
     }
 
-    console.log("copyList", copyList);
+    // console.log("copyList", copyList);
     // console.log('difference ',  allAparstInfo.filter(item => !copyList.includes(item)));
 
     const choiceSearchText = document.querySelector(".choice__search-text");
@@ -1121,7 +1121,7 @@ function apartRender(arr) {
 // ----------------------------------------- start функция парсинга url и формирования фильтров: -------------------------------------
 
 function parseUrlQuery() {
-  console.log("*************** Старт функции parseUrlQuery ***************");
+  // console.log("*************** Старт функции parseUrlQuery ***************");
   let urlParams = new URLSearchParams(window.location.search);
 
   // const urlParams = new URLSearchParams(window.location.search);
@@ -1130,7 +1130,7 @@ function parseUrlQuery() {
   urlParams.forEach((value, key) => {
     filterArr.push({ name: key, value: value });
   });
-  console.log("filterArr", filterArr);
+  // console.log("filterArr", filterArr);
 
   //   [
   //     {
@@ -1259,7 +1259,7 @@ function parseUrlQuery() {
 // ----------------------------------------- end функция парсинга url и формирования фильтров: -------------------------------------
 // ----------------------------------------- start функциb фильтрации массива квартир: --------------------------------------
 function filterTableArr(filter, param, arr) {
-  console.log(filter);
+  // console.log(filter);
   return arr.filter(function (item) {
     return filter.indexOf(Number(item[param])) !== -1;
   });
@@ -1345,7 +1345,7 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
   // обработка событий текстовых инпутов:
   priceInputs.forEach((input) => {
     input.addEventListener("change", (e) => {
-      console.log("тест");
+      // console.log("тест");
       //получаем значения из текстовых инпутов:
       let minVal = parseInt(textInputMin.value);
       let maxVal = parseInt(textInputMax.value);
@@ -1418,7 +1418,7 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
 
     // изменение положения ползунков при перетаскивании:
     input.addEventListener("input", (e) => {
-      console.log("тест");
+      // console.log("тест");
 
       let minVal = parseInt(rangeInputMin.value);
       let maxVal = parseInt(rangeInputMax.value);
@@ -1469,7 +1469,7 @@ function rangeSliderInit(slider, gap, minRange, maxRange) {
     // });
 
     input.addEventListener("change", (e) => {
-      console.log("тест");
+      // console.log("тест");
       // запись параметров в адресную строку:
       if (slider.classList.contains("choice__input-block_slider_cost")) {
         urlParams.set("cost", `${rangeInputMin.value}-${rangeInputMax.value}`);
@@ -1579,12 +1579,12 @@ function rangeSliderUpdate(slider) {
 
 // -------------------------------------------- end range-slider: ---------------------------------------------
 function getFilters() {
-  console.log("*************** Старт функции getFilters ***************"); // имя функции
+  // console.log("*************** Старт функции getFilters ***************"); // имя функции
   const filterArr = [];
   const filters = document.querySelectorAll(".choice__input-block");
   filters.forEach((item) => {
     const name = item.querySelector(".choice__label").textContent.trim();
-    console.log(item);
+    // console.log(item);
 
     if (item.classList.contains("choice__input-block_select")) {
       const valueBlock = item.querySelector(".select__text");
@@ -1663,7 +1663,7 @@ function getFilters() {
 
   // запишем фильр в локальное хранилище:
   localStorage.setItem("filter", JSON.stringify(filterArr));
-  console.log(filterArr);
+  // console.log(filterArr);
   return filterArr;
 }
 
@@ -1680,7 +1680,7 @@ const choiceTitle = document.querySelector(".choice__title");
 if (choiceTitle) {
   // const form = document.querySelector("[choice-form]");
   choiceTitle.addEventListener("click", (e) => {
-    console.log("тест");
+    // console.log("тест");
     // getFilters();
     // const debouncedDoSomething  = debounce(apartRender, 1000);
     // debouncedDoSomething (allAparstInfo);
@@ -1691,7 +1691,7 @@ if (choiceTitle) {
 const resetFiltersBtn = document.querySelector(".choice__btn-reset");
 if (resetFiltersBtn) {
   resetFiltersBtn.addEventListener("click", (e) => {
-    console.log("сброс фильтров");
+    // console.log("сброс фильтров");
     // getFilters("reset");
     setNowFilters();
     apartRender(allApartsInfo);
@@ -1758,7 +1758,7 @@ if (choiceForm) {
   if (selectProjectList.length > 0) {
     selectProjectList.forEach((selectProject) => {
       selectProject.addEventListener("click", (event) => {
-        console.log("тест");
+        // console.log("тест");
         if (selectProject.classList.contains("select_open")) {
           selectProjectList.forEach((selectProject) => {
             selectProject.classList.remove("select_open");
@@ -1774,7 +1774,7 @@ if (choiceForm) {
       if (selectOptions.length > 0) {
         selectOptions.forEach((item) => {
           item.addEventListener("click", (event) => {
-            console.log("тест");
+            // console.log("тест");
             const input = selectProject.querySelector(".select__text");
             event.stopPropagation(); // отменяем всплытие, что бы повторно не сработало событие на самом селекте
             input.innerHTML = item.innerHTML;
@@ -1827,8 +1827,8 @@ if (choiceForm) {
 
   function showActiveItem(input) {
     const controlCard = document.querySelectorAll(".control__card");
-    console.log(controlCard);
-    console.log(input.innerHTML);
+    // console.log(controlCard);
+    // console.log(input.innerHTML);
     
     if (input.innerHTML == 'Опубликованы') {
       controlCard.forEach((item) => {
@@ -1855,16 +1855,16 @@ if (choiceForm) {
 
   const choiceButtonsSelect = document.querySelector(".choice__buttons-select");
   if (choiceButtonsSelect) {
-    console.log(choiceButtonsSelect);
+    // console.log(choiceButtonsSelect);
     // const btns = choiceButtonsSelect.querySelectorAll(".choice__buttons-select-item");
 
     const choiceBtns = document.querySelectorAll(".choice__buttons-select-item");
 
     if (choiceBtns.length > 0) {
-      console.log(choiceBtns);
+      // console.log(choiceBtns);
       choiceBtns.forEach((item) => {
         item.addEventListener("click", (event) => {
-          console.log("тест");
+          // console.log("тест");
           item.classList.toggle("choice__buttons-select-item_active");
           const valueBtns = choiceButtonsSelect.querySelectorAll(".choice__buttons-select-item_active");
           const value = [];
@@ -1872,7 +1872,7 @@ if (choiceForm) {
             value.push(item.getAttribute("data-id"));
           });
 
-          console.log(urlParams);
+          // console.log(urlParams);
           urlParams.set("rooms", value);
           window.history.pushState({}, "", "?" + urlParams.toString());
           apartRender(allApartsInfo);
@@ -2043,7 +2043,7 @@ if (projectPage || indexPage) {
 
   // открытие popup и заполнение его формой
   filterMobileBtn.addEventListener("click", () => {
-    console.log("тест");
+    // console.log("тест");
     popupOpen(popup);
     bodyLock();
 
@@ -2053,7 +2053,7 @@ if (projectPage || indexPage) {
 
   // закрытие popup по Esc
   document.addEventListener("keydown", function (e) {
-    console.log("тест");
+    // console.log("тест");
     if (e.key === "Escape") {
       popupClose(popup);
       // bodyUnLock()
@@ -2070,7 +2070,7 @@ if (projectPage || indexPage) {
 
   // закрытие popup по клику вне его
   popup.addEventListener("click", function (e) {
-    console.log("тест");
+    // console.log("тест");
     if (!e.target.closest(".popup__content")) {
       // если клик был по области вокруг попапа то ничего не делаем
       if (popup.classList.contains("open")) {
@@ -2087,7 +2087,7 @@ if (projectPage || indexPage) {
   // закрытие popup по кнопке
   const popupCloseIcon = popup.querySelector(".promo__close");
   popupCloseIcon.addEventListener("click", function (e) {
-    console.log("тест");
+    // console.log("тест");
 
     if (popup.classList.contains("open")) {
       popupClose(popup);
@@ -2104,7 +2104,7 @@ const btns = document.querySelectorAll(".choice__btn-filter");
 if (btns) {
   btns.forEach((item) => {
     item.addEventListener("click", (e) => {
-      console.log("тест");
+      // console.log("тест");
       item.classList.toggle("choice__btn-filter_active");
 
       btns.forEach((item) => {
@@ -2132,7 +2132,7 @@ if (apartmentsItemPage) {
   // console.log('id:', id);
   const obj = allApartsInfo.filter((item) => item.id == id)[0];
   apart = obj;
-  console.log("obj:", obj);
+  // console.log("obj:", obj);
 
   const imgBlock = document.querySelector(".about__img");
   const imgArr = obj.img;
@@ -2288,10 +2288,10 @@ if (bookingCallButton) {
 }
 
 function setAddFormInputs(popup, formBtn) {
-  console.log("тест");
+  // console.log("тест");
 
   let floor = formBtn.closest(".choice__form").querySelector(".select__text").innerHTML;
-  console.log(floor);
+  // console.log(floor);
   // checkbox__label_active
   let payment =
     formBtn
@@ -2326,12 +2326,12 @@ function setAddFormInputs(popup, formBtn) {
   titleInput.value = title;
   houseIdInput.value = houseId;
 
-  console.log("floor:", floorInput.value);
-  console.log("payment:", paymentInput.value);
-  console.log("house:", houseInput.value);
-  console.log("project:", projectInput.value);
-  console.log("title:", titleInput.value);
-  console.log("houseId:", houseIdInput.value);
+  // console.log("floor:", floorInput.value);
+  // console.log("payment:", paymentInput.value);
+  // console.log("house:", houseInput.value);
+  // console.log("project:", projectInput.value);
+  // console.log("title:", titleInput.value);
+  // console.log("houseId:", houseIdInput.value);
 }
 
 // ------------------------------------- end передача в модалку данных -------------------------------

@@ -785,30 +785,3 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-
-</html>

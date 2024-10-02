@@ -230,7 +230,7 @@
 const formAll = document.querySelectorAll(".os-form");
 
 if (formAll) {
-  console.log("formAll", formAll);
+  // console.log("formAll", formAll);
   formAll.forEach((form) => {
     form.addEventListener("submit", sendForm);
 
@@ -252,9 +252,9 @@ if (formAll) {
           body: formData,
         });
 
-        for (var pair of formData.entries()) {
-          console.log(pair[0] + ", " + pair[1]);
-        }
+        // for (var pair of formData.entries()) {
+        //   console.log(pair[0] + ", " + pair[1]);
+        // }
 
         if (response.ok) {
           // let result = await response.json();
@@ -346,7 +346,7 @@ Fancybox.bind("[data-fancybox]", {
 const projectMapBtn = document.querySelector(".project-page__button_map");
 if (projectMapBtn) {
   projectMapBtn.addEventListener("click", function (e) {
-    console.log("тест");
+    // console.log("тест");
     const body = projectMapBtn.closest("body");
     body.classList.toggle("project-page__full-map");
   });
@@ -393,7 +393,7 @@ if (apartmentsPage) {
 
   if (showAllParams) {
     showAllParams.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       choiceBot.style.display = "grid";
       showAllParams.style.display = "none";
       hideAddParams.style.display = "grid";
@@ -402,7 +402,7 @@ if (apartmentsPage) {
     });
 
     hideAddParams.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       choiceBot.style.display = "none";
       showAllParams.style.display = "grid";
       hideAddParams.style.display = "none";
@@ -423,7 +423,7 @@ if (apartmentsPage) {
     searchCounter.style.display = "none";
     filterMobileBtn.style.display = "none";
     filterAplyBtn.style.display = "block";
-    console.log("тест");
+    // console.log("тест");
     // choiceBot.style.display = "none";
     hideAddParams.style.display = "none";
     showAllParams.style.display = "none";
@@ -439,7 +439,7 @@ if (apartmentsPage) {
     searchCounter.style.display = "none";
     filterMobileBtn.style.display = "grid";
     filterAplyBtn.style.display = "none";
-    console.log("тест");
+    // console.log("тест");
     // choiceBot.style.display = "none";
     hideAddParams.style.display = "none";
     showAllParams.style.display = "none";
@@ -449,7 +449,7 @@ if (apartmentsPage) {
 
   // закрытие popup по Esc
   document.addEventListener("keydown", function (e) {
-    console.log("тест");
+    // console.log("тест");
     if (e.key === "Escape") {
       // choiceBot.style.display = "none";
       // hideAddParams.style.display = "none";
@@ -468,7 +468,7 @@ if (apartmentsPage) {
 
   // закрытие popup по клику вне его
   popup.addEventListener("click", function (e) {
-    console.log("тест");
+    // console.log("тест");
     if (!e.target.closest(".popup__content")) {
       // если клик был по области вокруг попапа то ничего не делаем
       if (popup.classList.contains("open")) {
@@ -485,7 +485,7 @@ if (apartmentsPage) {
   // закрытие popup по кнопке
   const popupCloseIcon = popup.querySelector(".promo__close");
   popupCloseIcon.addEventListener("click", function (e) {
-    console.log("тест");
+    // console.log("тест");
 
     if (popup.classList.contains("open")) {
       popupClose(popup);
@@ -498,7 +498,7 @@ if (apartmentsPage) {
       searchCounter.style.display = "none";
       filterMobileBtn.style.display = "grid";
       filterAplyBtn.style.display = "none";
-      console.log("тест");
+      // console.log("тест");
       // choiceBot.style.display = "none";
       hideAddParams.style.display = "none";
       showAllParams.style.display = "none";
@@ -671,11 +671,11 @@ if (commercialPage) {
 const asideMenu = document.querySelector(".aside-menu");
 if (asideMenu) {
   const links = asideMenu.querySelectorAll(".slider__toggle-link");
-  console.log("links", links);
+  // console.log("links", links);
 
   links.forEach((item) => {
     item.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       links.forEach((item) => {
         item.classList.remove("slider__toggle-link_active");
       });
@@ -722,7 +722,7 @@ if (contactsPage) {
 
   btnsOpen.forEach((item) => {
     item.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       wrappers.forEach((item) => {
         item.classList.add("address__wrapper_close");
       });
@@ -733,7 +733,7 @@ if (contactsPage) {
 
   minusOpen.forEach((item) => {
     item.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       wrappers.forEach((item) => {
         item.classList.add("address__wrapper_close");
       });
@@ -746,10 +746,11 @@ if (contactsPage) {
 // --------------------------------------- start кнопки ремонта: ---------------------------------------------
 const aboutBtnWrap = document.querySelector(".about__btn-wrap");
 if (aboutBtnWrap) {
-  const aboutBtns = aboutBtnWrap.querySelectorAll(".about__btn"); // console.log(aboutBtns);
+  const aboutBtns = aboutBtnWrap.querySelectorAll(".about__btn"); 
+  // console.log(aboutBtns);
   aboutBtns.forEach((item) => {
     item.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       aboutBtns.forEach((item) => {
         item.classList.remove("about__btn_active");
       });
@@ -763,7 +764,7 @@ if (sliderBtnList) {
   const sliderBtns = sliderBtnList.querySelectorAll(".slider__btn");
   sliderBtns.forEach((item) => {
     item.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       sliderBtns.forEach((item) => {
         item.classList.remove("slider__btn_active");
       });
@@ -814,7 +815,7 @@ if (checkbox) {
       item.classList.add("checkbox__label_active");
     }
     item.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       checkbox.forEach((item) => {
         item.classList.remove("checkbox__label_active");
       });
@@ -1538,14 +1539,14 @@ if (popupLinks.length > 0) {
   for (let index = 0; index < popupLinks.length; index++) {
     const popupLink = popupLinks[index];
     popupLink.addEventListener("click", function (e) {
-      console.log("тест");
+      // console.log("тест");
       const popupName = popupLink.getAttribute("href").replace("#", "");
-      console.log(popupName);
+      // console.log(popupName);
       const curentPopup = document.getElementById(popupName); //получаем id попап-окна
 
       const dataRequest = popupLink.getAttribute("data-request");
       if (dataRequest) {
-        console.log(curentPopup);
+        // console.log(curentPopup);
         curentPopup.setAttribute("data-request", dataRequest);
       }
       popupOpen(curentPopup);
@@ -1559,7 +1560,7 @@ if (popupCloseIcon.length > 0) {
   for (let index = 0; index < popupCloseIcon.length; index++) {
     const el = popupCloseIcon[index];
     el.addEventListener("click", function (e) {
-      console.log("тест");
+      // console.log("тест");
       popupClose(el.closest(".popup")); //ближайший родитель класса popup
       e.preventDefault();
     });
@@ -1578,7 +1579,7 @@ function popupOpen(curentPopup) {
     // console.log(curentPopup);
     curentPopup.classList.add("open");
     curentPopup.addEventListener("click", function (e) {
-      console.log("тест");
+      // console.log("тест");
       if (!e.target.closest(".popup__content")) {
         // если клик был по области вокруг попапа то ничего не делаем
         popupClose(e.target.closest(".popup"));
@@ -1588,7 +1589,7 @@ function popupOpen(curentPopup) {
 }
 
 function popupClose(popupActive, doUnlock = true) {
-  console.log("popupClose");
+  // console.log("popupClose");
   if (unlock) {
     popupActive.classList.remove("open");
     if (doUnlock) {
@@ -1670,7 +1671,7 @@ if (btns.length) {
   // console.log(btns);
   btns.forEach((item) => {
     item.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       btns.forEach((item) => {
         item.classList.remove("stage__item_active");
       });
@@ -1762,7 +1763,7 @@ if (catalog) {
     activOptionsItem.forEach((item) => {
       const closeBtn = item.querySelector(".activ-options__icon");
       closeBtn.addEventListener("click", function () {
-        console.log("тест");
+        // console.log("тест");
         item.remove();
       });
     });
@@ -1772,7 +1773,7 @@ if (catalog) {
   if (allActivOptionsDelBtn) {
     const closeBtn = allActivOptionsDelBtn.querySelector(".activ-options__icon");
     closeBtn.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       activOptionsItem.forEach((item) => {
         item.remove();
       });
@@ -1783,7 +1784,7 @@ if (catalog) {
   const menuItem = catalog.querySelectorAll(".filter__item_head");
   menuItem.forEach((item) => {
     item.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       menuItem.forEach((item) => {
         item.classList.remove("filter__item_head_active");
       });
@@ -1795,7 +1796,7 @@ if (catalog) {
   const filterItem = catalog.querySelectorAll(".filter__item_body");
   filterItem.forEach((item) => {
     item.addEventListener("click", function (e) {
-      console.log("тест");
+      // console.log("тест");
       //закрытие всех остальных фильтров:
       filterItem.forEach((item) => {
         if (item !== e.target.closest(".filter__item_body")) {
@@ -1822,7 +1823,7 @@ if (catalog) {
     }
   });
   document.addEventListener("click", function (e) {
-    console.log("тест");
+    // console.log("тест");
     if (!e.target.closest(".filter__item_body")) {
       filterItem.forEach((item) => {
         item.classList.remove("filter__item_body_active");
@@ -1839,7 +1840,7 @@ if (catalog) {
     catalogCards.forEach((item) => {
       const cartLinkBtn = item.querySelector(".in-cart__icon");
       cartLinkBtn.addEventListener("click", function (e) {
-        console.log("тест");
+        // console.log("тест");
         e.preventDefault();
         window.location.href = cartLinkBtn.getAttribute("data-href");
       });
@@ -1848,7 +1849,7 @@ if (catalog) {
       if (colorBtn) {
         colorBtn.forEach((item) => {
           item.addEventListener("click", function (e) {
-            console.log("тест");
+            // console.log("тест");
             e.preventDefault();
             colorBtn.forEach((item) => {
               item.classList.remove("card__color-item_active");
@@ -1860,12 +1861,12 @@ if (catalog) {
 
       const toCartBtn = item.querySelector(".card__btn_to-cart");
       toCartBtn.addEventListener("click", function (e) {
-        console.log("тест");
+        // console.log("тест");
         e.preventDefault();
       });
       const cartBtn = item.querySelector(".card__btn_in-cart");
       cartBtn.addEventListener("click", function (e) {
-        console.log("тест");
+        // console.log("тест");
         e.preventDefault();
       });
 
@@ -1888,7 +1889,7 @@ if (catalog) {
       });
 
       plus.addEventListener("click", function (e) {
-        console.log("тест");
+        // console.log("тест");
         e.preventDefault();
 
         quontity++;
@@ -1897,7 +1898,7 @@ if (catalog) {
         // getTotalCost();
       });
       minus.addEventListener("click", function (e) {
-        console.log("тест");
+        // console.log("тест");
         if (counterValue.value > 0) {
           e.preventDefault();
 
@@ -1911,13 +1912,13 @@ if (catalog) {
       const montageBtn = item.querySelector(".btn_montage");
 
       montageBtn.addEventListener("click", function (e) {
-        console.log("тест");
+        // console.log("тест");
         e.preventDefault();
         montageBtn.classList.toggle("btn_montage_active");
       });
 
       toCartBtn.addEventListener("click", function (e) {
-        console.log("тест");
+        // console.log("тест");
         e.preventDefault();
         toCartBtn.classList.add("card__btn_to-cart_hide");
         cartBtn.classList.add("card__btn_in-cart_visible");
@@ -2042,7 +2043,7 @@ if (burger) {
   const headerNavWrap = document.querySelector(".header__nav-wrap");
 
   burger.addEventListener("click", function (e) {
-    console.log("тест");
+    // console.log("тест");
     popupOpen(popup);
     // bodyLock()
     popup.classList.add("open");
@@ -2052,7 +2053,7 @@ if (burger) {
 
   // закрытие popup по Esc
   document.addEventListener("keydown", function (e) {
-    console.log("тест");
+    // console.log("тест");
     if (e.key === "Escape") {
       popupClose(popup);
       bodyUnLock();
@@ -2066,8 +2067,8 @@ if (burger) {
 
   // закрытие popup по клику вне его
   popup.addEventListener("click", function (e) {
-    console.log("тест");
-    console.log(e.target);
+    // console.log("тест");
+    // console.log(e.target);
     if (!e.target.closest(".popup__content")) {
       popupClose(popup);
       bodyUnLock();
@@ -2099,7 +2100,7 @@ const headerSearchWrap = document.querySelector(".header__search-form-wrap");
 if (headerSearchWrap) {
   if (window.screen.width <= 920) {
     headerSearchWrap.addEventListener("click", function (e) {
-      console.log("тест");
+      // console.log("тест");
       headerSearchWrap.classList.add("header__search-form-wrap_active");
       // console.log("200");
     });
@@ -2110,7 +2111,7 @@ if (headerSearchWrap) {
 
   if (closeSearchBtn) {
     closeSearchBtn.addEventListener("click", function (e) {
-      console.log("тест");
+      // console.log("тест");
       // e.preventDefault();
       headerSearchWrap.classList.remove("header__search-form-wrap_active");
       inputField.value = "";
@@ -2120,7 +2121,7 @@ if (headerSearchWrap) {
   }
 
   document.addEventListener("click", function (e) {
-    console.log("тест");
+    // console.log("тест");
     if (!e.target.closest(".search-form") && headerSearchWrap.classList.contains("header__search-form-wrap_active")) {
       headerSearchWrap.classList.remove("header__search-form-wrap_active");
       inputField.value = "";
@@ -2138,7 +2139,7 @@ if (goodsCartBtn) {
   // const goodsQuantity = document.querySelector(".goods__quantity");
   goodsCartBtn.forEach((item) => {
     item.addEventListener("click", function (e) {
-      console.log("тест");
+      // console.log("тест");
       e.preventDefault();
       item.classList.toggle("goods-item__btn_to-cart_active");
       // headerCartBtn.classList.toggle("btn__cart_active");
@@ -2215,7 +2216,7 @@ function closeCookiePolicyNotification() {
 const cookieBtn = document.querySelector(".cookie__btn");
 if (cookieBtn) {
   cookieBtn.addEventListener("click", function (e) {
-    console.log("тест");
+    // console.log("тест");
     e.preventDefault();
     acceptCookiePolicy();
   });
@@ -2224,7 +2225,7 @@ if (cookieBtn) {
 const cookieCloseBtn = document.querySelector(".cookie__close");
 if (cookieCloseBtn) {
   cookieCloseBtn.addEventListener("click", function (e) {
-    console.log("тест");
+    // console.log("тест");
     e.preventDefault();
     closeCookiePolicyNotification();
   });
@@ -2273,7 +2274,7 @@ if (map || map2) {
 
       // Объект с параметрами центра и зумом карты
       const LOCATION = { center: CENTER_COORDINATES, zoom: 14.7 };
-      console.log("тест");
+      // console.log("тест");
       const map = new YMap(
         // Передаём ссылку на HTMLElement контейнера
         // document.querySelector(".map-yandex"),
@@ -2521,7 +2522,7 @@ const filter = document.querySelectorAll(".map__mark-item_point");
 if (filter.length) {
   filter.forEach((item) => {
     item.addEventListener("click", function () {
-      console.log("тест");
+      // console.log("тест");
       item.classList.toggle("map__mark-item_active");
       checkAll();
     });
@@ -2531,7 +2532,7 @@ if (filter.length) {
 const resetBtns = document.querySelector(".reset-btn");
 if (resetBtns) {
   resetBtns.addEventListener("click", function () {
-    console.log("тест");
+    // console.log("тест");
     filter.forEach((item) => {
       item.classList.remove("map__mark-item_active");
       checkAll();
@@ -2542,7 +2543,7 @@ if (resetBtns) {
 const allBtn = document.querySelector(".map__mark-item-all");
 if (allBtn) {
   allBtn.addEventListener("click", function () {
-    console.log("тест");
+    // console.log("тест");
     if (allBtn.classList.contains("map__mark-item_active")) {
       allBtn.classList.remove("map__mark-item_active");
       filter.forEach((item) => {
@@ -2559,13 +2560,13 @@ if (allBtn) {
 }
 
 function checkAll() {
-  console.log("тест");
+  // console.log("тест");
   let activeItems = document.querySelectorAll(".map__mark-item_point.map__mark-item_active");
   // const menuItems = document.querySelectorAll(".map__mark-item_point");
   const markers = document.querySelectorAll(".marker-wrap");
-  console.log(markers);
-  console.log(activeItems.length);
-  console.log(filter.length);
+  // console.log(markers);
+  // console.log(activeItems.length);
+  // console.log(filter.length);
 
   // menuItems.forEach((item) => {
   //   if (item.classList.contains("map__mark-item_active")) {
@@ -2633,13 +2634,13 @@ const markListBtnClose = document.querySelector(".map__menu-btn-apply");
 if (markListBtnOpen) {
   markListBtnOpen.addEventListener("click", function () {
     const markList = document.querySelector(".map__mark-list-wrap");
-    console.log("тест");
+    // console.log("тест");
     markList.classList.add("map__mark-list-wrap_active");
   });
 
   markListBtnClose.addEventListener("click", function () {
     const markList = document.querySelector(".map__mark-list-wrap");
-    console.log("тест");
+    // console.log("тест");
     markList.classList.remove("map__mark-list-wrap_active");
   });
 }
@@ -2768,7 +2769,7 @@ if (footerForm) {
 // }
 
 document.addEventListener("click", (event) => {
-  console.log("глобальный тест");
+  // console.log("глобальный тест");
   // if (!event.target.closest(".plans__item")) return;
   if (event.target.closest(".plans__item")) {
     const plansItem = document.querySelectorAll(".plans__item");
@@ -2811,7 +2812,7 @@ const plansFilterItem = document.querySelectorAll(".plans__filter-item");
 if (plansFilterItem) {
   plansFilterItem.forEach((item) => {
     item.addEventListener("click", (event) => {
-      console.log("тест");
+      // console.log("тест");
       plansFilterItem.forEach((item) => {
         item.classList.remove("plans__filter-item_active");
       });
@@ -2907,7 +2908,7 @@ function setInfo() {
   // imgBox.setAttribute("src", img);
   // console.log(imgBox);
   // plans__item.addEventListener("click", (event) => {
-  console.log("тест");
+  // console.log("тест");
   // const imgBox = document.querySelector(".plans__img").querySelector("img");
   // const img = event.target.closest(".plans__item").querySelector("img").getAttribute("src");
   // imgBox.setAttribute("src", img);
@@ -2937,7 +2938,7 @@ if (slideBtn) {
   const slides = document.querySelectorAll(".rep-wrap");
   slideBtn.forEach((item) => {
     item.addEventListener("click", (e) => {
-      console.log("тест");
+      // console.log("тест");
       const id = item.getAttribute("data-id");
       slides.forEach((item) => {
         if (item.getAttribute("data-id") === id) {
@@ -2976,7 +2977,7 @@ if (offices.length > 0) {
     const activeMark = item.querySelector(".office__active-mark");
 
     publishBtn.addEventListener("click", () => {
-      console.log("тест");
+      // console.log("тест");
       publishBtn.classList.toggle("_active");
       if (publishBtn.classList.contains("_active")) {
         setElActive(id);
@@ -2992,12 +2993,12 @@ if (offices.length > 0) {
     });
 
     deleteBtn.addEventListener("click", () => {
-      console.log("тест");
+      // console.log("тест");
       delFromDB(item, title, id);
     });
 
     editBtn.addEventListener("click", () => {
-      console.log("тест");
+      // console.log("тест");
       openForm(item);
       // editElInDb(item, title, id);
     });
@@ -3098,7 +3099,7 @@ if (offices.length > 0) {
     // let arr = [];
 
     if (responseHouses.ok) {
-      console.log("ok");
+      // console.log("ok");
       // let result = await responseHouses.json();
       // arr = Object.values(result.response);
     } else {
@@ -3120,7 +3121,7 @@ if (news.length > 0) {
     // const activeMark = item.querySelector(".office__active-mark");
 
     publishBtn.addEventListener("click", () => {
-      console.log("тест");
+      // console.log("тест");
       publishBtn.classList.toggle("_active");
 
       if (publishBtn.classList.contains("_active")) {
@@ -3139,12 +3140,12 @@ if (news.length > 0) {
     });
 
     deleteBtn.addEventListener("click", () => {
-      console.log("тест");
+      // console.log("тест");
       delFromDB(item, title, id);
     });
 
     editBtn.addEventListener("click", () => {
-      console.log("тест");
+      // console.log("тест");
       window.location.href = `/control/pages/novosti/edit.php?id=${id}`;
       // openForm(item);
       // editElInDb(item, title, id);
@@ -3230,7 +3231,7 @@ if (events.length > 0) {
     // const activeMark = item.querySelector(".office__active-mark");
 
     publishBtn.addEventListener("click", () => {
-      console.log("тест");
+      // console.log("тест");
       publishBtn.classList.toggle("_active");
 
       if (publishBtn.classList.contains("_active")) {
@@ -3249,12 +3250,12 @@ if (events.length > 0) {
     });
 
     deleteBtn.addEventListener("click", () => {
-      console.log("тест");
+      // console.log("тест");
       delFromDB(item, title, id);
     });
 
     editBtn.addEventListener("click", () => {
-      console.log("тест");
+      // console.log("тест");
       window.location.href = `/control/pages/akcii/edit.php?id=${id}`;
       // openForm(item);
       // editElInDb(item, title, id);
@@ -3318,7 +3319,7 @@ if (events.length > 0) {
     // let arr = [];
 
     if (responseHouses.ok) {
-      console.log("ok");
+      // console.log("ok");
       // let result = await responseHouses.json();
       // arr = Object.values(result.response);
     } else {
@@ -3374,8 +3375,8 @@ if (promoPopup) {
   function renderPromo(btn) {
     const id = btn.getAttribute("data-id");
     const promoArr = document.querySelectorAll(".popup__promo");
-    console.log(id);
-    console.log(promoArr);
+    // console.log(id);
+    // console.log(promoArr);
 
     promoArr.forEach((promo) => {
       if (promo.getAttribute("data-id") != id) {
@@ -3392,7 +3393,7 @@ const picInput = document.querySelectorAll('input[type="file"]');
 if (picInput) {
   picInput.forEach((item) => {
     item.addEventListener("change", (e) => {
-      console.log("тест");
+      // console.log("тест");
       const file = e.target.files[0];
       const reader = new FileReader();
       reader.readAsDataURL(file);

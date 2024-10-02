@@ -1,8 +1,7 @@
 User-agent: *
 Disallow: /404.php
-Disallow: /backend
-Disallow: /uploads
-Disallow: /files
+Disallow: /backend/
+Disallow: /control/
 
-//Host: https://web5943.ww.net.ru
-//Sitemap: https://web5943.ww.net.ru/sitemap.xml
+//Host: https://siberia-dev.ru/
+//Sitemap: https://siberia-dev.ru/sitemap.xml

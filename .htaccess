@@ -10,14 +10,14 @@ RewriteEngine On
 
 # # # RewriteRule ^index\.php$ https://bulat2005.ru/ [L,R=301]
 
-# RewriteCond %{HTTP_HOST} ^marchel-php [NC]
-# # RewriteRule ^(.*)$ http://marchel-php [R=301,L]
+# RewriteCond %{HTTP_HOST} ^www.siberia-dev [NC]
+# # RewriteRule ^(.*)$ https://siberia-dev [R=301,L]
 
-# RewriteRule ^index\.php$ http://marchel-php/ [L,R=301]
+# RewriteRule ^index\.php$ https://siberia-dev/ [L,R=301]
 
 # RewriteCond %{REQUEST_URI} ^(.*)/index.php$
 # RewriteRule ^(.*)$ %1/ [R=301,L]
 
 # # # ErrorDocument 404 https://bulat2005.ru/404.php
 
-# ErrorDocument 404 http://marchel-php/404.php
+# ErrorDocument 404 https://siberia-dev/404.php

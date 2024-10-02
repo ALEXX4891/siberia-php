@@ -29,10 +29,10 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           Неправильно набран адрес или такой страницы не существует. Перейдите к выбору проектов или квартир. Там много всего интересного
         </p>
         <div class="not-found__btns-wrapper">
-          <a class="not-found__link btn btn_green" href="javascript:history.back()">
+          <a class="not-found__link btn btn_green" href="/pages/project-item/">
             Проекты
           </a>
-          <a class="not-found__link btn btn_light-green" href="/">
+          <a class="not-found__link btn btn_light-green" href="/pages/kvartiry/">
             Квартиры
           </a>
         </div>
@@ -48,34 +48,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
   <?
   include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php';
   ?>
-
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 
