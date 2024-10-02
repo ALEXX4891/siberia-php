@@ -1022,9 +1022,9 @@
             <img src="/assets/img/' . $event['photo'] . '" alt="' . $event['title'] . '">
           </div>
 
-          <p class="promo__desc">
+          <div class="promo__desc">
           ' . $event['description'] . '
-          </p>
+          </div>
           <a href="tel:+' . $telNumber . '" class="promo__phone">' . $cont['phone'] . '</a>
 
 

@@ -255,22 +255,22 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </h5>
 
             <h2 class="slider__title title title_30">
-            Стоимость 12 000 руб./м<sup>2</sup>
+              Стоимость 12 000 руб./м<sup>2</sup>
 
 
             </h2>
             <p class="slider__text">
 
-            <b>Комнаты/Коридор:</b><br>
-Обои под покраску, ламинит, плинтуса, межкомнатные двери*, натяжные потолки.<br>
-<b>Кухня:</b><br>
-Обои под покраску, ламинат, белые плинтуса, межкомнатные двери*, натяжные потолки с подсветкой (точечные светильники).<br>
-<b>Ванная:</b><br>
-Плитка, унитаз, акриловая ванна, смеситель.<br>
-<b>Лоджия:</b><br>
-Без ремонта.<br><br>
+              <b>Комнаты/Коридор:</b><br>
+              Обои под покраску, ламинит, плинтуса, межкомнатные двери*, натяжные потолки.<br>
+              <b>Кухня:</b><br>
+              Обои под покраску, ламинат, белые плинтуса, межкомнатные двери*, натяжные потолки с подсветкой (точечные светильники).<br>
+              <b>Ванная:</b><br>
+              Плитка, унитаз, акриловая ванна, смеситель.<br>
+              <b>Лоджия:</b><br>
+              Без ремонта.<br><br>
 
-*в кухне-гостиной и квартирах-студиях двери не устанавливаются
+              *в кухне-гостиной и квартирах-студиях двери не устанавливаются
 
 
             </p>
@@ -749,7 +749,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               <p class="address__item-title">
                 Телефон:
               </p>
-              <a class="address__item-text" href="tel: <?= $row1['phone']; ?>">
+              <a class="address__item-text" href="tel:<?= preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>">
                 <?= $row1['phone']; ?>
               </a>
             </div>
@@ -758,8 +758,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               <p class="address__item-title">
                 Почта:
               </p>
-              <a class="address__item-text" href="mailto: hello_sibir@yandex.ru">
-                hello_sibir@yandex.ru
+              <a class="address__item-text" href="mailto:<?= $row1['email']; ?>">
+                <?= $row1['email']; ?>
               </a>
             </div>
 
@@ -784,4 +784,3 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 </body>
 
 </html>
-

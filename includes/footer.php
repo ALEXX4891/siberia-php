@@ -277,9 +277,6 @@ include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/popup.php';
 <script type="module" src="/assets/js/api.js"></script>
 <script type="module" src="/assets/js/app.js"></script>
 
-<!-- Place the first <script> tag in your HTML's <head> -->
-<script src="https://cdn.tiny.cloud/1/ddkwhasvef1gf6yy754bktskijeofowd8oybg31mwz2tf18u/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script>
   tinymce.init({

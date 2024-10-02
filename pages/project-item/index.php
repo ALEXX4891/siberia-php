@@ -1174,7 +1174,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   <p class="address__item-title">
                     Телефон:
                   </p>
-                  <a class="address__item-text" href="tel: <?= $row1['phone']; ?>">
+                  <a class="address__item-text" href="tel:<?= preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>">
                     <?= $row1['phone']; ?>
                   </a>
                 </div>
@@ -1183,8 +1183,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   <p class="address__item-title">
                     Почта:
                   </p>
-                  <a class="address__item-text" href="mailto: hello_sibir@yandex.ru">
-                    hello_sibir@yandex.ru
+                  <a class="address__item-text" href="mailto:<?= $row1['email']; ?>">
+                    <?= $row1['email']; ?>
                   </a>
                 </div>
 
@@ -1239,7 +1239,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </ul>
       </div>
 
-    <div class="apartments__list" style="display: none;"></div>
+      <div class="apartments__list" style="display: none;"></div>
 
 
     </section>

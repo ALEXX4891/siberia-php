@@ -25,6 +25,10 @@ $yandexMapApiKey = '9e0bbb5f-9b5e-4f9e-8eb8-b98592b9e414';
   <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
   <link rel="stylesheet" href="/assets/css/fancybox.css">
   <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/ddkwhasvef1gf6yy754bktskijeofowd8oybg31mwz2tf18u/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+
   <script src="https://api-maps.yandex.ru/v3/?apikey=<?= $yandexMapApiKey ?>&lang=ru_RU"></script>
   <!-- Google Tag Manager -->
   <script>

@@ -4,7 +4,7 @@
 			<div class="footer__top-block">
 
 				<div class="footer__contacts contacts" id="footer-contacts">
-					<a href="tel:<? echo preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>" class="contacts__item contacts__item_phone">
+					<a href="tel:<?= preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>" class="contacts__item contacts__item_phone">
 						<?= $row1['phone']; ?>
 					</a>
 					<a href="mailto:<? echo $row1['email']; ?>" class="contacts__item contacts__item_email">

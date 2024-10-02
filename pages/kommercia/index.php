@@ -624,16 +624,17 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               <p class="address__item-title">
                 Телефон:
               </p>
-              <a class="address__item-text" href="tel: 8 (3452) 611-157">
-                8 (3452) 611-157 </a>
+              <a class="address__item-text" href="tel:<?= preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>" class="contacts__item contacts__item_phone"><?= $row1['phone']; ?>">
+                <?= $row1['phone']; ?>
+              </a>
             </div>
 
             <div class="address__item address__item_mail">
               <p class="address__item-title">
                 Почта:
               </p>
-              <a class="address__item-text" href="mailto: hello_sibir@yandex.ru">
-                hello_sibir@yandex.ru
+              <a class="address__item-text" href="mailto:<?= $row1['email']; ?>">
+                <?= $row1['email']; ?>
               </a>
             </div>
 
