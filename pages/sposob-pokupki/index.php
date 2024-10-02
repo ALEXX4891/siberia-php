@@ -297,7 +297,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Офис продаж
             </h3>
             <p class="address__desc">
-              Ежедневно с 10:00-17:00
+              <?= $office['description']; ?>
             </p>
 
             <div class="address__wrapper">
@@ -306,7 +306,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   Адрес:
                 </p>
                 <p class="address__item-text">
-                  Тюмень, ул. Клары Цеткин, д. 61, к2
+                  <?= $office['address']; ?>
                 </p>
               </div>
 
@@ -314,8 +314,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 <p class="address__item-title">
                   Телефон:
                 </p>
-                <a class="address__item-text" href="tel:<?= preg_replace('/[^0-9\.]+/', '', $row1['phone']); ?>">
-                  <?= $row1['phone']; ?>
+                <a class="address__item-text" href="tel:<?= preg_replace('/[^0-9\.]+/', '', $office['phone']); ?>">
+                  <?= $office['phone']; ?>
                 </a>
               </div>
 
@@ -323,8 +323,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 <p class="address__item-title">
                   Почта:
                 </p>
-                <a class="address__item-text" href="mailto:<?= $row1['email']; ?>">
-                  <?= $row1['email']; ?>
+                <a class="address__item-text" href="mailto:<?= $office['email']; ?>">
+                  <?= $office['email']; ?>
                 </a>
               </div>
 

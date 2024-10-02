@@ -32,5 +32,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
   <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
   <link rel="stylesheet" href="/assets/css/fancybox.css">
   <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Place the first <script> tag in your HTML's <head> -->
+    <script src="https://cdn.tiny.cloud/1/ddkwhasvef1gf6yy754bktskijeofowd8oybg31mwz2tf18u/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
 </head>

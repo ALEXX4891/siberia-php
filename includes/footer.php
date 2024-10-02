@@ -11,8 +11,7 @@
 						<? echo $row1['email']; ?>
 					</a>
 					<p class="contacts__item contacts__item_address">
-						Россия, Тюмень, ул. Клары Цеткин 61, к2
-						Ежедневно: 10:00-17:00
+					<?= $row1['address']; ?>
 					</p>
 				</div>
 

@@ -2,6 +2,9 @@
 $result = mysqli_query($db, "SELECT * FROM contacts");
 
 $row1 = mysqli_fetch_array($result);
+
+$offices = mysqli_query($db, "SELECT * FROM offices WHERE status = 1 ORDER BY id ASC");
+$office = mysqli_fetch_array($offices);
 ?>
 
 <header class="header lock-padding">
