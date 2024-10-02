@@ -147,6 +147,42 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   <input class="checkbox__input" type="radio" name="payment">
                   <span class="checkbox__mark"></span>
                   <span class="checkbox__tite">
+                    Рассрочка
+                  </span>
+                  <p class="checkbox__desc">
+                    от 50 000 руб/мес.
+                  </p>
+                </label>
+              </li>
+              <li class="checkbox">
+                <label class="checkbox__label">
+                  <input class="checkbox__input" type="radio" name="payment">
+                  <span class="checkbox__mark"></span>
+                  <span class="checkbox__tite">
+                    Снижение ставки
+                  </span>
+                  <p class="checkbox__desc">
+                    до 11%
+                  </p>
+                </label>
+              </li>
+              <li class="checkbox">
+                <label class="checkbox__label">
+                  <input class="checkbox__input" type="radio" name="payment">
+                  <span class="checkbox__mark"></span>
+                  <span class="checkbox__tite">
+                    Ипотека без ПВ
+                  </span>
+                  <p class="checkbox__desc">
+                    от 6%
+                  </p>
+                </label>
+              </li>
+              <li class="checkbox">
+                <label class="checkbox__label">
+                  <input class="checkbox__input" type="radio" name="payment">
+                  <span class="checkbox__mark"></span>
+                  <span class="checkbox__tite">
                     Наличными
                   </span>
                   <p class="checkbox__desc">
