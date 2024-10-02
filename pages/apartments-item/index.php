@@ -139,7 +139,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     В ипотеку
                   </span>
                   <p class="checkbox__desc">
-                    от 26 446 ₽/мес
                   </p>
                 </label>
               </li>
