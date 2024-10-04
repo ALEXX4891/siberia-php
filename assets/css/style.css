@@ -3381,7 +3381,7 @@ a {
   -webkit-box-align: start;
   -ms-flex-align: start;
   -webkit-align-items: start;
-          align-items: start;
+  align-items: start;
   gap: 6px 0;
   font-family: Inter;
   font-size: 14px;
@@ -9410,7 +9410,7 @@ a {
 }
 
 .apartments-item-page .about .about__container .about__right .about__btn-complex {
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
   padding: 9px 20px 9px 9px;
   border: 1px solid #dfdfdf;
   border-radius: 50px;
@@ -9431,6 +9431,25 @@ a {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+}
+
+.apartments-item-page .about .about__container .about__right .about__btn-presentation {
+  border-radius: 50px;
+  padding: 12.3px 10px;
+  width: max-content;
+  height: max-content;
+  min-height: initial;
+  max-width: initial;
+  text-wrap: wrap;
+}
+
+
+.apartments-item-page .about .about__container .about__right .about__right-top-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 25px;
 }
 
 .apartments-item-page .about .about__container .about__right .about__btn-complex .about__btn-complex-img {
@@ -17539,6 +17558,12 @@ a {
     padding: 100px 116px;
   }
 
+  .apartments-item-page .about .about__container .about__right .about__btn-presentation {
+    font-size: 14px;
+    padding: 15px;
+
+  }
+
   .commercial-item-page .about {
     padding: 14px 116px 50px;
   }
@@ -20347,6 +20372,11 @@ a {
     padding: 100px 30px;
   }
 
+  .apartments-item-page .about .about__container .about__right .about__btn-presentation {
+  padding: 9px 14px;
+
+  }
+
   .commercial-item-page .about {
     padding: 10px 30px 50px;
   }
@@ -21230,7 +21260,7 @@ a {
   }
 
   .apartments-item-page .about .about__container .about__right .about__btn-complex {
-    margin-bottom: 17px;
+    /* margin-bottom: 17px; */
     padding: 9px 16px 9px 14px;
     border: 1px solid #dfdfdf;
     border-radius: 50px;
@@ -22942,6 +22972,42 @@ a {
     gap: 10px;
     margin-bottom: 60px;
   }
+
+  .popup .notification { 
+    background-color: #fff;
+    
+  }
+
+  .popup .notification .notification__label-block .notification__label .notification__label-text {
+    color: #646464;
+}
+
+.popup .notification .notification__label-block .notification__label .notification__label-star {
+  color: #363636;
+}
+
+.popup .notification .notification__label-block .notification__label { 
+  color: #363636;
+}
+
+.popup 
+.notification 
+.notification__label-block 
+.notification__label 
+.notification__input {
+  outline: none;
+}
+
+.popup 
+.notification 
+.notification__label-block 
+.notification__label 
+.notification__input::placeholder {
+  color: #363636;  
+  opacity: 0.3;
+  /* color: rgba(#363636, 0.3);   */
+
+}
 
   .buy-page
     .main
@@ -26054,6 +26120,19 @@ a {
     margin-bottom: 15px;
   }
 
+  .popup .notification .notification__label-block .notification__agency {
+    grid-column: 1;
+    /* grid-template-columns: auto 1fr; */
+}
+
+.popup .notification .notification__label-block .notification__label .notification__input {
+  grid-column: 2 span;
+}
+
+.popup .notification .notification__label-block .notification__label_textarea {
+  grid-column: 1;
+}
+
   .news-page-item .news-content .news-content__container {
     gap: 10px;
   }
@@ -26816,7 +26895,8 @@ a {
   }
 
   .popup .notification .notification__label-block {
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .popup .notification .notification__label-block .notification__label .notification__input::-webkit-input-placeholder {
@@ -27504,7 +27584,7 @@ a {
     gap: 14px;
     position: relative;
     padding: 20px;
-    background: #ffffff;
+    /* background: #ffffff; */
     border-radius: 10px;
     max-width: 544px;
   }

@@ -581,7 +581,7 @@
             <span class="notification__label-star">
               *
             </span>
-            <input class="notification__input notification__input_agent-phone phone _req" type="tel" name="agent-phone">
+            <input class="notification__input notification__input_agent-phone phone _req" type="tel" name="agent-phone" placeholder="7">
           </label>
 
           <label class="notification__label notification__client-name">

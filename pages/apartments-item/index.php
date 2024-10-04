@@ -51,23 +51,28 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </div>
 
         <div class="about__right choice__form">
-          <a class="about__btn-complex" href="/pages/project-item/">
-            <div class="about__btn-complex-img">
-              <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0.5" width="30" height="30" rx="15" fill="#9ABC6F" fill-opacity="0.2" />
-                <path
-                  d="M16 6C16 7.33333 13.3333 10 11.2001 10M16 6V10.5M16 6C16 7.33333 18.6667 10 20.7999 10M16 24V15.75M16 10.5C15.1111 12.1667 13.3332 15.3333 9.06664 15.3333M16 10.5V15.75M16 10.5C16.8889 12.1667 18.6668 15.3333 22.9334 15.3333M16 15.75C14.9333 17.6389 11.8399 21 8 21M16 15.75C17.0667 17.6389 20.1601 21 24 21"
-                  stroke="#56693E" stroke-width="2" />
+          <div class="about__right-top-wrap">
+            <a class="about__btn-complex" href="/pages/project-item/">
+              <div class="about__btn-complex-img">
+                <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.5" width="30" height="30" rx="15" fill="#9ABC6F" fill-opacity="0.2" />
+                  <path
+                    d="M16 6C16 7.33333 13.3333 10 11.2001 10M16 6V10.5M16 6C16 7.33333 18.6667 10 20.7999 10M16 24V15.75M16 10.5C15.1111 12.1667 13.3332 15.3333 9.06664 15.3333M16 10.5V15.75M16 10.5C16.8889 12.1667 18.6668 15.3333 22.9334 15.3333M16 15.75C14.9333 17.6389 11.8399 21 8 21M16 15.75C17.0667 17.6389 20.1601 21 24 21"
+                    stroke="#56693E" stroke-width="2" />
+                </svg>
+              </div>
+              <p class="about__btn-complex-text">
+  
+              </p>
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 13L8.5 7L1.5 1" stroke="#646464" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
-            </div>
-            <p class="about__btn-complex-text">
-
-            </p>
-            <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.5 13L8.5 7L1.5 1" stroke="#646464" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </a>
+            </a>
+            <a class="about__btn-presentation btn btn_light-green" href="/assets/pdf/sosnovyi.pdf" download>
+              Скачать презентацию
+            </a>
+          </div>
           <p class="about__right-title title title_25">
 
           </p>
