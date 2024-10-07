@@ -24,7 +24,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
         <!-- <div class="banner__content-wrap"> -->
         <h2 class="banner__title">
-          Жилой комплекс
+          Жилой комплекс<br>
           в окружении соснового леса
         </h2>
 
