@@ -24,8 +24,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
         <!-- <div class="banner__content-wrap"> -->
         <h2 class="banner__title">
-          Старт продаж 1 очереди
-          в малоэтажном ЖК
+          Жилой комплекс
+          в окружении соснового леса
         </h2>
 
         <ul class="banner__list">
@@ -165,7 +165,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     Срок сдачи
                   </p>
                   <p class="building__card-value">
-                    VI квартал 2025
+                    VI квартал 2025г.
                   </p>
                 </div>
                 <div class="building__card-bot-wrap">
@@ -173,7 +173,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     Площадь
                   </p>
                   <p class="building__card-value">
-                    от 26 до 81
+                    от 26 до 81 м<sup>2</sup>
                   </p>
                 </div>
                 <p class="building__card-link">
@@ -563,6 +563,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   </li>
                 ';
               } while ($row = mysqli_fetch_array($result));
+
             }
             ?>
           </ul>
