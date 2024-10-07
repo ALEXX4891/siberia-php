@@ -39,6 +39,14 @@
 							</li> -->
 
 							<li class="nav__item">
+								<a href="/pages/project-item/" class="nav__link">
+									<p class="nav__text">
+										Сосновый
+									</p>
+								</a>
+							</li>
+
+							<li class="nav__item">
 								<a href="/pages/sposob-pokupki/" class="nav__link">
 									<p class="nav__text">
 										Способ покупки

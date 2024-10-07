@@ -1,6 +1,6 @@
 <?
-echo '<meta http-equiv="refresh" content="0; URL=\'/pages/project-item/\'" />';
-exit();
+// echo '<meta http-equiv="refresh" content="0; URL=\'/pages/project-item/\'" />';
+// exit();
 
 $title = 'Главная';
 $description = '';
