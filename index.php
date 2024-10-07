@@ -82,7 +82,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         </h2>
 
         <ul class="building__cards-list swiper-wrapper">
-          <li class="building__cards-item swiper-slide">
+          <!-- <li class="building__cards-item swiper-slide">
             <div class="building__card-img">
               <picture>
                 <source srcset="/assets/img/building-1.webp" type="image/webp"><img src="/assets/img/building-1.jpg" alt="">
@@ -126,7 +126,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 </a>
               </div>
             </div>
-          </li>
+          </li> -->
           <li class="building__cards-item swiper-slide">
             <div class="building__card-img">
               <picture>
@@ -141,9 +141,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 <p class="building__card-label building__card-label_small">
                   Сосновый
                 </p>
-                <div class="building__card-info-btn">
+                <!-- <div class="building__card-info-btn">
                   Сдан
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="building__card-content">
@@ -165,20 +165,20 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     Срок сдачи
                   </p>
                   <p class="building__card-value">
-                    II квартал 2025
+                    VI квартал 2025
                   </p>
                 </div>
-                <!-- <div class="building__card-bot-wrap">
+                <div class="building__card-bot-wrap">
                   <p class="building__card-key">
                     Площадь
                   </p>
                   <p class="building__card-value">
-                    от 28,72 до 83,61
+                    от 26 до 81
                   </p>
                 </div>
                 <p class="building__card-link">
-                  128 квартир
-                </p> -->
+                  118 квартир
+                </p>
               </div>
             </div>
           </li>
@@ -208,6 +208,12 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
       </div>
 
+    </section>
+
+    <section class="section section_about about">
+      <div class="container about__container">
+        <section id="iframe"></section>
+      </div>
     </section>
 
     <section class="section section_choice choice">
@@ -425,7 +431,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </li>
         </ul>
 
-        <div class="regions-banner">
+        <!-- <div class="regions-banner">
           <h3 class="regions-banner__title">
             У нас есть место для вашего бизнеса!
           </h3>
@@ -435,7 +441,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <a class="regions-banner__button" href="/pages/kommercia/">
             Выбрать помещение
           </a>
-        </div>
+        </div> -->
 
         <div class="swiper-navigation">
           <div class="swiper-button swiper-button-prev swiper-button-prev_reg">
@@ -691,9 +697,12 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
     </section>
   </main>
 
+
+
   <?
   include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php';
   ?>
+  <script src="https://sibir.m2lab.ru/loader.js?containerId=iframe"></script>
 </body>
 
 </html>
