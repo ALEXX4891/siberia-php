@@ -172,13 +172,12 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   <p class="building__card-key">
                     Площадь
                   </p>
-                  <p class="building__card-value">
-                    от 26 до 81 м<sup>2</sup>
+                  <p class="building__card-value building__card-value_square">
+                    
                   </p>
                 </div>
-                <p class="building__card-link">
-                  118 квартир
-                </p>
+                <a class="building__card-link" href="/pages/kvartiry/">                  
+                </a>
               </div>
             </div>
           </li>

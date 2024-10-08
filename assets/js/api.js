@@ -2339,3 +2339,17 @@ function setAddFormInputs(popup, formBtn) {
 
 // ------------------------------------- end передача в модалку данных -------------------------------
 // }
+
+const buildingCardLink = document.querySelector(".building__card-link");
+if (buildingCardLink) {
+  buildingCardLink.innerHTML = `${allApartsInfo.length} квартир`;
+
+}
+
+const buildingCardSquare = document.querySelector(".building__card-value_square");
+if (buildingCardSquare) {
+  const minMax = getMaxMinForFilters(allApartsInfo);
+  const from = minMax.filter((item) => item.name == "Площадь, м2")[0].value.from;
+  const to = minMax.filter((item) => item.name == "Площадь, м2")[0].value.to;
+  buildingCardSquare.innerHTML = `от ${from} до ${to} м<sup>2</sup>`;
+}
