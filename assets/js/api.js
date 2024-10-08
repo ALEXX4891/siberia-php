@@ -294,6 +294,9 @@ allApartsInfo.forEach(function (item) {
   item.imgAlt = item.apart_rooms == 11 ? `Студия ${item.square} м2` : `${item.rooms}-комнатная ${item.square} м2`;
 });
 
+// оставим в массиве только объекты с статусом "free":
+allApartsInfo = allApartsInfo.filter((item) => item.status == 'free');
+
 // console.log("allAparstInfo", allApartsInfo);
 
 // -------------------------------------- start функция создания карточки квартиры: --------------------------------------
