@@ -1,6 +1,4 @@
 <!-- ----- всплывающие окна: ----- -->
-
-
 <div class="popup" id="filter">
   <div class="popup__body">
     <div class="popup__content filter">
@@ -131,6 +129,93 @@
   </div>
 </div>
 
+<div class="popup" id="promo">
+  <div class="popup__body">
+
+    <?
+
+    $resultCon = mysqli_query($db, "SELECT * FROM contacts");
+
+    $cont = mysqli_fetch_array($resultCon);
+
+    $telNumber = preg_replace('/[^0-9\.]+/', '', $cont['phone']);
+
+    $resultEvent = mysqli_query($db, "SELECT * FROM events WHERE status = 1");
+
+    $event = mysqli_fetch_array($resultEvent);
+
+    if (mysqli_num_rows($resultEvent) > 0) {
+      do {
+        $eventArr[] = $event;
+        $now = date('Y-m-d H:i:s');
+        $time = date('Y-m-d H:i:s', strtotime($event['time']));
+        $dateDiff = date_diff(date_create($now), date_create($time));
+        $end = '';
+
+        if ($time > $now) {
+          $end = 'Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']);
+        } else {
+          $end = 'Акция закончилась';
+        }
+
+        echo '
+      <div class="popup__content popup__promo promo" style="display: none;" data-id="' . $event['id'] . '">
+        <h2 class="promo__title title title_40">
+          ' . $event['title'] . '
+        </h2>
+
+        <div class="promo__top-wrap">
+          <span class="promo__date">
+          ' . date("d", strtotime($event['time'])) . ' '
+          . monthRus(date("m", strtotime($event['time'])), 'rod', 2) . ' '
+          . date("Y", strtotime($event['time'])) . '
+          </span>
+          <span class="promo__time">
+            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_850_17965)">
+                <path d="M8.5 4.31579V8.36842L10.7105 10.2105M15.5 8C15.5 11.866 12.366 15 8.5 15C4.63401 15 1.5 11.866 1.5 8C1.5 4.13401 4.63401 1 8.5 1C12.366 1 15.5 4.13401 15.5 8Z" stroke="#748D55" stroke-width="1.5" />
+              </g>
+              <defs>
+                <clipPath id="clip0_850_17965">
+                  <rect width="16" height="16" fill="white" transform="translate(0.5)" />
+                </clipPath>
+              </defs>
+            </svg>
+            ' . $end . ' 
+          </span>
+        </div>
+
+        <div class="promo__wrapper">
+          <div class="promo__img">
+            <img src="/assets/img/' . $event['photo'] . '" alt="' . $event['title'] . '">
+          </div>
+
+          <div class="promo__desc">
+          ' . $event['description'] . '
+          </div>
+          <a href="tel:+' . $telNumber . '" class="promo__phone">' . $cont['phone'] . '</a>
+
+
+          <button class="promo__btn btn btn_dark popup-link" href="#popup-call" data-request="Акция: ' . $event['title'] . '">
+            Связаться с нами
+          </button>
+        </div>
+
+        <button class="promo__close popup-close">
+          <svg width="29" height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L28.5 21M1 21L28.5 1" stroke="black" />
+          </svg>
+        </button>
+      </div>
+      ';
+      } while ($event = mysqli_fetch_array($resultEvent));
+    }
+
+    ?>
+
+  </div>
+</div>
+
 <!-- ----- окна уведомлений: ----- -->
 <div class="popup popup_success-simple" id="success">
   <div class="popup__body">
@@ -173,11 +258,10 @@
 </div>
 
 <!-- ----- формы ОС: ----- -->
-
 <div class="popup" id="popup-form" data-id="1">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form os-form">
+      <form class="popup__form os-form" id="popup-form1">
         <h3 class="form__title">
           Запросить планировки
         </h3>
@@ -248,7 +332,7 @@
 <div class="popup popup_call" id="popup-call" data-id="2">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form os-form">
+      <form class="popup__form os-form" id="popup-call-form">
         <h3 class="form__title">
           Заказать звонок
         </h3>
@@ -318,7 +402,7 @@
 <div class="popup popup_subscribe" id="popup-subscribe" data-id="3">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form os-form" action="#">
+      <form class="popup__form os-form" action="#" id="popup-subscribe-form">
         <h3 class="form__title">
           Будь в курсе событий!
         </h3>
@@ -370,7 +454,7 @@
 <div class="popup popup_request" id="popup-request" data-id="2">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form os-form">
+      <form class="popup__form os-form" id="popup-request-form">
         <h3 class="form__title">
           Оставить заявку
         </h3>
@@ -445,7 +529,7 @@
 <div class="popup popup_booking" id="popup-booking" data-id="5">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form os-form">
+      <form class="popup__form os-form" id="popup-booking-form">
         <h3 class="form__title">
           Оставить заявку
         </h3>
@@ -542,7 +626,7 @@
 <div class="popup popup-agency" id="popup-agency" data-id="6">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="popup__form os-form notification">
+      <form class="popup__form os-form notification" id="popup-agency-form">
         <h3 class="notification__title">
           Форма уведомления
         </h3>
@@ -642,7 +726,7 @@
 <div class="popup sot-request sot-request_agent" id="sot-agent" data-id="8">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="request__form popup__form os-form">
+      <form class="request__form popup__form os-form" id="sot-agent-form">
         <h3 class="request__title">
           Оставить заявку
         </h3>
@@ -738,7 +822,7 @@
 <div class="popup sot-bank" id="sot-bank" data-id="9">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="request__form popup__form os-form">
+      <form class="request__form popup__form os-form" id="sot-bank-form">
         <h3 class="request__title">
           Оставить заявку
         </h3>
@@ -787,7 +871,7 @@
 <div class="popup sot-request sot-request_business" id="sot-business" data-id="7">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="request__form popup__form os-form">
+      <form class="request__form popup__form os-form" id="sot-business-form">
         <h3 class="request__title">
           Оставить заявку
         </h3>
@@ -886,7 +970,7 @@
 <div class="popup popup_call" id="popup-booking-call" data-id="10">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form os-form">
+      <form class="popup__form os-form" id="popup-booking-call-form">
         <h3 class="form__title">
           Заказать звонок
         </h3>
@@ -958,92 +1042,5 @@
 
       </form>
     </div>
-  </div>
-</div>
-
-<div class="popup" id="promo">
-  <div class="popup__body">
-
-    <?
-
-    $resultCon = mysqli_query($db, "SELECT * FROM contacts");
-
-    $cont = mysqli_fetch_array($resultCon);
-
-    $telNumber = preg_replace('/[^0-9\.]+/', '', $cont['phone']);
-
-    $resultEvent = mysqli_query($db, "SELECT * FROM events WHERE status = 1");
-
-    $event = mysqli_fetch_array($resultEvent);
-
-    if (mysqli_num_rows($resultEvent) > 0) {
-      do {
-        $eventArr[] = $event;
-        $now = date('Y-m-d H:i:s');
-        $time = date('Y-m-d H:i:s', strtotime($event['time']));
-        $dateDiff = date_diff(date_create($now), date_create($time));
-        $end = '';
-
-        if ($time > $now) {
-          $end = 'Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']);
-        } else {
-          $end = 'Акция закончилась';
-        }
-
-        echo '
-      <div class="popup__content popup__promo promo" style="display: none;" data-id="' . $event['id'] . '">
-        <h2 class="promo__title title title_40">
-          ' . $event['title'] . '
-        </h2>
-
-        <div class="promo__top-wrap">
-          <span class="promo__date">
-          ' . date("d", strtotime($event['time'])) . ' '
-          . monthRus(date("m", strtotime($event['time'])), 'rod', 2) . ' '
-          . date("Y", strtotime($event['time'])) . '
-          </span>
-          <span class="promo__time">
-            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g clip-path="url(#clip0_850_17965)">
-                <path d="M8.5 4.31579V8.36842L10.7105 10.2105M15.5 8C15.5 11.866 12.366 15 8.5 15C4.63401 15 1.5 11.866 1.5 8C1.5 4.13401 4.63401 1 8.5 1C12.366 1 15.5 4.13401 15.5 8Z" stroke="#748D55" stroke-width="1.5" />
-              </g>
-              <defs>
-                <clipPath id="clip0_850_17965">
-                  <rect width="16" height="16" fill="white" transform="translate(0.5)" />
-                </clipPath>
-              </defs>
-            </svg>
-            ' . $end . ' 
-          </span>
-        </div>
-
-        <div class="promo__wrapper">
-          <div class="promo__img">
-            <img src="/assets/img/' . $event['photo'] . '" alt="' . $event['title'] . '">
-          </div>
-
-          <div class="promo__desc">
-          ' . $event['description'] . '
-          </div>
-          <a href="tel:+' . $telNumber . '" class="promo__phone">' . $cont['phone'] . '</a>
-
-
-          <button class="promo__btn btn btn_dark popup-link" href="#popup-call" data-request="Акция: ' . $event['title'] . '">
-            Связаться с нами
-          </button>
-        </div>
-
-        <button class="promo__close popup-close">
-          <svg width="29" height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L28.5 21M1 21L28.5 1" stroke="black" />
-          </svg>
-        </button>
-      </div>
-      ';
-      } while ($event = mysqli_fetch_array($resultEvent));
-    }
-
-    ?>
-
   </div>
 </div>

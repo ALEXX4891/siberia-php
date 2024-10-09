@@ -610,7 +610,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           Отправьте заявку на консультацию и получите ответ на любой вопрос
         </p>
         <div class="form__wrapper">
-          <form class="form__form os-form" action="#">
+          <form class="form__form os-form" id="popup-form2" action="#">
 
             <input type="number" name="id" value="2" hidden>
             <input type="text" name="theme" value="call" hidden>

@@ -13341,11 +13341,11 @@ a {
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
-          align-items: center;
+  align-items: center;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
-          justify-content: space-between;
+  justify-content: space-between;
   gap: 0 20px;
 }
 
@@ -18233,16 +18233,16 @@ a {
     display: grid;
     -ms-grid-columns: 460px 1fr;
     grid-template-columns: 460px 1fr;
-    -ms-grid-rows: 479px;
-    grid-template-rows: 470px;
+    /* -ms-grid-rows: 479px; */
+    /* grid-template-rows: 470px; */
     -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
-            align-items: center;
+    align-items: center;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     -webkit-justify-content: space-between;
-            justify-content: space-between;
+    justify-content: space-between;
     gap: 0 9px;
   }
 
