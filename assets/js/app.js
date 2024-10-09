@@ -242,9 +242,15 @@ if (formAll) {
       if (errore === 0) {
         form.classList.add("_sending");
         let formData = new FormData(form);
-        const dataRequest = form.closest(".popup").getAttribute("data-request");
-        if (dataRequest) {
-          formData.append("dataRequest", dataRequest);
+
+        const popup = form.closest(".popup")
+
+        if (popup) {
+          const dataRequest = form.closest(".popup").getAttribute("data-request");
+
+          if (dataRequest) {
+            formData.append("dataRequest", dataRequest);
+          }
         }
 
         let response = await fetch("/backend/post-mail.php", {
@@ -264,7 +270,7 @@ if (formAll) {
           } else {
             popupOpen(document.getElementById("success"));
           }
-          // TODO добавить логику показа разный сообщений об успешной отправке  через поле темы
+          
           form.classList.remove("_sending");
         } else {
           // popupOpen(document.getElementById("error"));
