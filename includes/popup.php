@@ -332,7 +332,7 @@
 <div class="popup popup_call" id="popup-call" data-id="2">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form os-form" id="popup-call-form">
+      <form class="popup__form os-form" id="popup-call-form" onsubmit="ym(98568541,'reachGoal','popup-call-form'); return true;">
         <h3 class="form__title">
           Заказать звонок
         </h3>
@@ -402,7 +402,7 @@
 <div class="popup popup_subscribe" id="popup-subscribe" data-id="3">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form os-form" action="#" id="popup-subscribe-form">
+      <form class="popup__form os-form" action="#" id="popup-subscribe-form" onsubmit="ym(98568541,'reachGoal','popup-subscribe-form'); return true;">
         <h3 class="form__title">
           Будь в курсе событий!
         </h3>
@@ -454,7 +454,7 @@
 <div class="popup popup_request" id="popup-request" data-id="2">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form os-form" id="popup-request-form">
+      <form class="popup__form os-form" id="popup-request-form" onsubmit="ym(98568541,'reachGoal','popup-request-form'); return true;">
         <h3 class="form__title">
           Оставить заявку
         </h3>
@@ -529,7 +529,7 @@
 <div class="popup popup_booking" id="popup-booking" data-id="5">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form os-form" id="popup-booking-form">
+      <form class="popup__form os-form" id="popup-booking-form" onsubmit="ym(98568541,'reachGoal','popup-booking-form'); return true;">
         <h3 class="form__title">
           Оставить заявку
         </h3>
@@ -626,7 +626,7 @@
 <div class="popup popup-agency" id="popup-agency" data-id="6">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="popup__form os-form notification" id="popup-agency-form">
+      <form class="popup__form os-form notification" id="popup-agency-form" onsubmit="ym(98568541,'reachGoal','popup-agency-form'); return true;">
         <h3 class="notification__title">
           Форма уведомления
         </h3>
@@ -726,7 +726,7 @@
 <div class="popup sot-request sot-request_agent" id="sot-agent" data-id="8">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="request__form popup__form os-form" id="sot-agent-form">
+      <form class="request__form popup__form os-form" id="sot-agent-form" onsubmit="ym(98568541,'reachGoal','sot-agent-form'); return true;">
         <h3 class="request__title">
           Оставить заявку
         </h3>
@@ -822,7 +822,7 @@
 <div class="popup sot-bank" id="sot-bank" data-id="9">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="request__form popup__form os-form" id="sot-bank-form">
+      <form class="request__form popup__form os-form" id="sot-bank-form" onsubmit="ym(98568541,'reachGoal','sot-bank-form'); return true;">
         <h3 class="request__title">
           Оставить заявку
         </h3>
@@ -871,7 +871,7 @@
 <div class="popup sot-request sot-request_business" id="sot-business" data-id="7">
   <div class="popup__body">
     <div class="popup__content">
-      <form class="request__form popup__form os-form" id="sot-business-form">
+      <form class="request__form popup__form os-form" id="sot-business-form" onsubmit="ym(98568541,'reachGoal','sot-business-form'); return true;">
         <h3 class="request__title">
           Оставить заявку
         </h3>
@@ -970,7 +970,7 @@
 <div class="popup popup_call" id="popup-booking-call" data-id="10">
   <div class="popup__body">
     <div class="popup__content popup-form">
-      <form class="popup__form os-form" id="popup-booking-call-form">
+      <form class="popup__form os-form" id="popup-booking-call-form" onsubmit="ym(98568541,'reachGoal','popup-booking-call-form'); return true;">
         <h3 class="form__title">
           Заказать звонок
         </h3>
