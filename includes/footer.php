@@ -308,27 +308,3 @@ include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/popup.php';
 		});		
 	}
 </script>
-
-Accessibility Checker
-Advanced Code Editor
-Advanced Tables
-Case Change
-Checklist
-Comments
-Enhanced Image Editing
-Enhanced Media Embed
-Export
-Footnotes
-Format Painter
-Link Checker
-Mentions
-Merge Tags
-MoxieManager
-Page Embed
-Permanent Pen
-PowerPaste
-Real-time Collaboration
-Spell Checker Pro
-Spelling Autocorrect
-Table of Contents
-Tiny Drive
