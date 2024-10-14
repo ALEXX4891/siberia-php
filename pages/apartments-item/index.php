@@ -92,11 +92,15 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               <p class="about__right-info-title">
                 Дом
               </p>
-              <p class="about__right-info-text about__right-info-text-time">
-                II квартал 2026
+              <p class="about__right-info-title">
+                №кв
               </p>
-              <p class="about__right-info-text about__right-info-text-section">
-                ГП 3
+
+              <p class="about__right-info-text about__right-info-text-time">                
+              </p>
+              <p class="about__right-info-text about__right-info-text-section">                
+              </p>
+              <p class="about__right-info-text about__right-info-text-number">                
               </p>
             </div>
 

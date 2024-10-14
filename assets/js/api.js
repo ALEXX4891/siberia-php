@@ -2180,6 +2180,9 @@ if (apartmentsItemPage) {
   const houseBlock = document.querySelector(".about__right-info-text-section");
   houseBlock.innerHTML = obj.house_title_rus;
 
+  const number = document.querySelector(".about__right-info-text-number");
+  number.innerHTML = obj.num;
+
   const projectBlock = document.querySelector(".about__btn-complex-text");
   projectBlock.innerHTML = `${obj.project_name} квартал`;
 

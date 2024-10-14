@@ -9526,22 +9526,11 @@ a {
 }
 
 .apartments-item-page .about .about__container .about__right .about__right-info .about__right-info-left {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-rows: -webkit-max-content 5px -webkit-max-content;
-  -ms-grid-rows: max-content 5px max-content;
-  -ms-grid-columns: -webkit-max-content 50px -webkit-max-content;
-  -ms-grid-columns: max-content 50px max-content;
-  grid-template: -webkit-max-content max-content/max-content -webkit-max-content;
-  grid-template: max-content max-content/max-content max-content;
+  grid-template: max-content max-content/max-content max-content max-content;
   gap: 5px 50px;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: start;
-          justify-content: start;
-  -ms-flex-line-pack: center;
-  -webkit-align-content: center;
-          align-content: center;
+  justify-content: start;
+  align-content: center;
 }
 
 .apartments-item-page
@@ -21437,23 +21426,11 @@ a {
   .apartments-item-page .about .about__container .about__right .about__right-info .about__right-info-left {
     max-width: 100%;
     width: 100%;
-    display: -ms-grid;
     display: grid;
-    -ms-grid-rows: -webkit-max-content 5px -webkit-max-content;
-    -ms-grid-rows: max-content 5px max-content;
-    -ms-grid-columns: -webkit-max-content 50px -webkit-max-content;
-    -ms-grid-columns: max-content 50px max-content;
-    grid-template: -webkit-max-content -webkit-max-content / -webkit-max-content -webkit-max-content;
-    grid-template: -webkit-max-content max-content / max-content -webkit-max-content;
-    grid-template: max-content max-content / max-content max-content;
+    grid-template: max-content max-content / max-content max-content max-content;
     gap: 0px 21px;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    -webkit-justify-content: start;
-            justify-content: start;
-    -ms-flex-line-pack: center;
-    -webkit-align-content: center;
-            align-content: center;
+    justify-content: start;
+    align-content: center;
   }
 
   .apartments-item-page
