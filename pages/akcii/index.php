@@ -34,7 +34,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <?
           // include $_SERVER["DOCUMENT_ROOT"] . '/backend/f.php';
           // $result = mysqli_query($db, "SELECT * FROM apartments WHERE id = " . $_GET['id']);
-          $result = mysqli_query($db, "SELECT * FROM events WHERE status = 1");
+          // $result = mysqli_query($db, "SELECT * FROM events WHERE status = 1");
+          $result = mysqli_query($db, "SELECT * FROM events WHERE status = 1 ORDER BY DATE DESC");
+
 
           $row = mysqli_fetch_array($result);
 
