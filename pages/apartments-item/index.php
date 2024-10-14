@@ -251,16 +251,17 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <div class="slider__right reparation_swiper">
             <ul class="swiper-wrapper">
               <li class="swiper-slide">
-
-                <img src="/assets/img/rep_1.jpg" alt="promo_1">
-
+                <img src="/assets/img/rep_2_3.jpg" alt="promo_1">
               </li>
               <li class="swiper-slide">
-
-                <img src="/assets/img/rep_1.jpg" alt="promo_1">
-
+                <img src="/assets/img/rep_2_4.jpg" alt="promo_1">
               </li>
-
+              <li class="swiper-slide">
+                <img src="/assets/img/rep_2_2.jpg" alt="promo_1">
+              </li>
+              <li class="swiper-slide">
+                <img src="/assets/img/rep_2_1.jpg" alt="promo_1">
+              </li>
             </ul>
 
             <div class="swiper-button swiper-button-prev swiper-button-prev_rep">
@@ -318,11 +319,11 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           <div class="slider__right reparation_swiper">
             <ul class="swiper-wrapper">
-              <li class="swiper-slide">
-                <img src="/assets/img/rep_2.jpg" alt="promo_1">
+            <li class="swiper-slide">
+                <img src="/assets/img/rep_1_1.jpg" alt="promo_1">
               </li>
               <li class="swiper-slide">
-                <img src="/assets/img/rep_2.jpg" alt="promo_1">
+                <img src="/assets/img/rep_1_2.jpg" alt="promo_1">
               </li>
             </ul>
 
