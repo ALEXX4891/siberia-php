@@ -524,7 +524,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="promo__slider-wrap promo_swiper">
           <ul class="promo__list swiper-wrapper">
             <?
-            $result = mysqli_query($db, "SELECT * FROM events WHERE status = 1");
+            $result = mysqli_query($db, "SELECT * FROM events WHERE status = 1 ORDER BY DATE DESC");
 
             $row = mysqli_fetch_array($result);
 
