@@ -524,7 +524,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="promo__slider-wrap promo_swiper">
           <ul class="promo__list swiper-wrapper">
             <?
-            $result = mysqli_query($db, "SELECT * FROM events WHERE status = 1");
+            $result = mysqli_query($db, "SELECT * FROM events WHERE status = 1 ORDER BY DATE DESC");
 
             $row = mysqli_fetch_array($result);
 
@@ -533,7 +533,23 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 $now = date('Y-m-d H:i:s');
                 $time = date('Y-m-d H:i:s', strtotime($row['time']));
                 $dateDiff = date_diff(date_create($now), date_create($time));
+
                 // echo $dateDiff->format("%a");
+
+                $eventArr[] = $row;
+                $now = date('Y-m-d H:i:s');
+                $time = date('Y-m-d H:i:s', strtotime($row['time']));
+                $dateDiff = date_diff(date_create($now), date_create($time));
+  
+                $end = '';
+  
+                if ($time > $now) {
+                  $end = 'Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']);
+                } else {
+                  $end = 'Акция закончилась';
+                }
+
+                if ($time > $now) {
                 echo '
                   <li class="promo__item swiper-slide">
                     <div class="promo__item-img">
@@ -546,7 +562,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   . date("Y", strtotime($row['time'])) . '
                     </p>
                     <p class="promo__item-period">
-                      Осталось ' . num_word($dateDiff->format("%a"), ['день', 'дня', 'дней']) . ' 
+                    ' . $end . ' 
 
                       
                       <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -561,8 +577,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                     </button>
                   </li>
                 ';
+                }
               } while ($row = mysqli_fetch_array($result));
-
             }
             ?>
           </ul>

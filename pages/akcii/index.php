@@ -68,6 +68,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               }
 
               // echo $dateDiff->format("%a");
+              if ($time > $now) {
               echo '
                   <li class="promo-page__cards-item">
                   <div class="promo-page__card-img-wrapper">
@@ -102,6 +103,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                   </button>
                 </li>
                 ';
+              }
             } while ($row = mysqli_fetch_array($result));
           }
           ?>

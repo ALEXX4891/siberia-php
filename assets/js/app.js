@@ -3306,7 +3306,7 @@ if (events.length > 0) {
       id: id,
     };
 
-    if (!confirm(`Вы действительно хотите удалить новостьт ${title}?`)) {
+    if (!confirm(`Вы действительно хотите удалить акцию ${title}?`)) {
       return;
     }
     item.remove();
