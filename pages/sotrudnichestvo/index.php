@@ -49,7 +49,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 >50
               </h3>
               <p class="cooperation__card-text text">
-                Агенств работают с нами
+                Агентств работают с нами
               </p>
             </div>
 
@@ -71,7 +71,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <li class="cooperation__list-item">
             <button href="#sot-agent" class="cooperation__list-link popup-link">
               <h3 class="cooperation__list-title">
-                Агенства
+                Агентства
               </h3>
 
               <p class="cooperation__list-text">
@@ -192,5 +192,3 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 </body>
 
 </html>
-
-

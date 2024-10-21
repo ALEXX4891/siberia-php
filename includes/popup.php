@@ -638,13 +638,13 @@
 
           <label class="notification__label notification__agency">
             <span class="notification__label-text">
-              Агенство недвижимости
+              Агентство недвижимости
             </span>
             <span class="notification__label-star">
               *
             </span>
             <input class="notification__input notification__input_agency _req" type="text" name="agency"
-              placeholder="Введите название агенства">
+              placeholder="Введите название агентства">
           </label>
 
           <label class="notification__label notification__agent-name">
@@ -752,7 +752,7 @@
           </label>
           <label class="request__label">
             <span class="request__label-text">
-              Название агенства
+              Название агентства
             </span>
             <span class="request__label-star">
               *

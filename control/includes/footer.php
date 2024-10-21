@@ -11,7 +11,7 @@
 						<? echo $row1['email']; ?>
 					</a>
 					<p class="contacts__item contacts__item_address">
-					<?= $row1['address']; ?>
+						<?= $row1['address']; ?>
 					</p>
 				</div>
 
@@ -233,8 +233,8 @@
 					</p>
 
 					<a class="footer__agent-link" href="#" style="opacity: 0; pointer-events: none;">
-						для агенств
-						<!-- тут должна быть ссылка на презентацию для агенств -->
+						для агентств
+						<!-- тут должна быть ссылка на презентацию для агентств -->
 					</a>
 				</div>
 			</div>

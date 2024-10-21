@@ -214,10 +214,10 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
 } elseif (!empty($_POST['id']) && $_POST['id'] == '6') {
 
   // тема письма
-  $mail->Subject = 'Заказ звонка от агенства с сайта siberia-dev.ru';
+  $mail->Subject = 'Заказ звонка от агентства с сайта siberia-dev.ru';
 
   // текст письма
-  $body = '<h1>Заказ звонка от агенства с сайта siberia-dev.ru:</h1><br/><br/>';
+  $body = '<h1>Заказ звонка от агентства с сайта siberia-dev.ru:</h1><br/><br/>';
 
   if (trim(!empty($_POST['theme']))) {
     // $body .= '<p><strong>Тема:</strong> ' . $_POST['theme'] . '</p><br/>';
@@ -293,10 +293,10 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
 
   $file = $_FILES['file'];
   // тема письма
-  $mail->Subject = 'Предложение по сотрудничеству от агенства с сайта siberia-dev.ru';
+  $mail->Subject = 'Предложение по сотрудничеству от агентства с сайта siberia-dev.ru';
 
   // текст письма
-  $body = '<h1>Предложение по сотрудничеству от агенства с сайта siberia-dev.ru:</h1><br/><br/>';
+  $body = '<h1>Предложение по сотрудничеству от агентства с сайта siberia-dev.ru:</h1><br/><br/>';
 
   if (trim(!empty($_POST['theme']))) {
     // $body .= '<p><strong>Тема:</strong> ' . $_POST['theme'] . '</p><br/>';
@@ -314,9 +314,9 @@ if (!empty($_POST['id']) && $_POST['id'] == '2') {
   }
 
   if (trim(!empty($_POST['work-type']))) {
-    $body .= '<p><strong>Агенство:</strong> ' . $_POST['work-type'] . '</p><br/>';
+    $body .= '<p><strong>Агентство:</strong> ' . $_POST['work-type'] . '</p><br/>';
     // $fieldsArr['comment'] = $_POST['agency'];
-    // $fieldsArr['comment'] = 'Предложение о сотрудничестве от Агенства: ' . $_POST['work-type'] . ".\n";
+    // $fieldsArr['comment'] = 'Предложение о сотрудничестве от Агентства: ' . $_POST['work-type'] . ".\n";
   }
 
   if (trim(!empty($_POST['message']))) {

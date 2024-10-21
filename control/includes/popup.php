@@ -90,13 +90,13 @@
   <div class="popup__body">
     <div class="popup__content">
       <h3 class="program__title">
-      Семейная от 6%
+        Семейная от 6%
       </h3>
 
       <div class="program__content">
         <p class="program__desc text">
-        Для семей, в которых после 1 января 2018 года родился ребёнок или есть ребёнок с инвалидностью.
-      </p>
+          Для семей, в которых после 1 января 2018 года родился ребёнок или есть ребёнок с инвалидностью.
+        </p>
 
         <ul class="program__list">
           <li class="program__item">
@@ -160,7 +160,7 @@
   <div class="popup__body">
     <div class="popup__content popup-success">
       <h3 class="popup-success__title">
-      Спасибо, что вы с нами!
+        Спасибо, что вы с нами!
       </h3>
       <span class="popup__close-btn popup-close">
         <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -325,10 +325,10 @@
 
         <div class="form__label-block">
 
-        <input type="number" name="id" value="3" hidden>
-        <input type="text" name="theme" value="question" hidden>
-        <input type="text" name="name" value="subscribe" hidden>
-        <input type="number" name="phone" value="1111111111" hidden>
+          <input type="number" name="id" value="3" hidden>
+          <input type="text" name="theme" value="question" hidden>
+          <input type="text" name="name" value="subscribe" hidden>
+          <input type="number" name="phone" value="1111111111" hidden>
 
 
           <label class="form__label">
@@ -452,15 +452,15 @@
 
         <div class="form__label-block">
 
-        <input type="number" name="id" value="5" hidden>
-        <input type="text" name="theme" value="flat" hidden>
-        <input type="text" name="floor" value="" hidden>
-        <input type="text" name="payment" value="" hidden>
-        <input type="text" name="house" value="" hidden>
-        <input type="text" name="project" value="" hidden>
-        <input type="text" name="house_id" value="" hidden>
+          <input type="number" name="id" value="5" hidden>
+          <input type="text" name="theme" value="flat" hidden>
+          <input type="text" name="floor" value="" hidden>
+          <input type="text" name="payment" value="" hidden>
+          <input type="text" name="house" value="" hidden>
+          <input type="text" name="project" value="" hidden>
+          <input type="text" name="house_id" value="" hidden>
 
-        <!-- <input type="text" name="title" value="" hidden> -->
+          <!-- <input type="text" name="title" value="" hidden> -->
 
 
           <label class="form__label form__label_readonly">
@@ -554,13 +554,13 @@
 
           <label class="notification__label notification__agency">
             <span class="notification__label-text">
-              Агенство недвижимости
+              Агентство недвижимости
             </span>
             <span class="notification__label-star">
               *
             </span>
             <input class="notification__input notification__input_agency _req" type="text" name="agency"
-              placeholder="Введите название агенства">
+              placeholder="Введите название агентства">
           </label>
 
           <label class="notification__label notification__agent-name">
@@ -664,18 +664,16 @@
               *
             </span>
 
-            <input class="request__input form__input request__input_name _req" type="text" name="name" placeholder="Введите имя"
-              >
+            <input class="request__input form__input request__input_name _req" type="text" name="name" placeholder="Введите имя">
           </label>
           <label class="request__label">
             <span class="request__label-text">
-              Название агенства
+              Название агентства
             </span>
             <span class="request__label-star">
               *
             </span>
-            <input class="request__input form__input request__input_name _req" type="text" name="work-type" placeholder="Введите название"
-              >
+            <input class="request__input form__input request__input_name _req" type="text" name="work-type" placeholder="Введите название">
           </label>
           <label class="request__label">
             <span class="request__label-text">
@@ -684,7 +682,7 @@
             <span class="request__label-star">
               *
             </span>
-            <input class="request__input form__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" 
+            <input class="request__input form__input request__input_phone phone _req" type="tel" name="phone" placeholder="7"
               value="7">
           </label>
           <!-- <label class="request__label">
@@ -799,8 +797,8 @@
 
         <div class="request__label-block">
 
-        <input type="number" name="id" value="7" hidden>
-        <input type="text" name="theme" value="question" hidden>
+          <input type="number" name="id" value="7" hidden>
+          <input type="text" name="theme" value="question" hidden>
 
 
 
@@ -812,8 +810,7 @@
               *
             </span>
 
-            <input class="request__input form__input request__input_name _req" type="text" name="name" placeholder="Введите имя"
-              >
+            <input class="request__input form__input request__input_name _req" type="text" name="name" placeholder="Введите имя">
           </label>
           <label class="request__label">
             <span class="request__label-text">
@@ -822,7 +819,7 @@
             <span class="request__label-star">
               *
             </span>
-            <input class="request__input form__input request__input_phone phone _req" type="tel" name="phone" placeholder="7" 
+            <input class="request__input form__input request__input_phone phone _req" type="tel" name="phone" placeholder="7"
               value="7">
           </label>
           <label class="request__label">
@@ -834,8 +831,7 @@
 
             </span>
 
-            <input class="request__input form__input request__input_name" type="text" name="work-type" placeholder=""
-              >
+            <input class="request__input form__input request__input_name" type="text" name="work-type" placeholder="">
           </label>
           <!-- <label class="request__label">
             <span class="request__label-text">
@@ -908,7 +904,7 @@
           <input type="text" name="house" value="" hidden>
           <input type="text" name="project" value="" hidden>
           <input type="text" name="apartment" value="" hidden>
-        <input type="text" name="house_id" value="" hidden>
+          <input type="text" name="house_id" value="" hidden>
 
 
 
@@ -964,4 +960,3 @@
     </div>
   </div>
 </div>
-
