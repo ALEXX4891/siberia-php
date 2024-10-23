@@ -10,7 +10,7 @@ $row1 = mysqli_fetch_array($result);
 			<div class="header__top-block control__top-block">
 				<div class="header__logo logo">
 					<a href="/" class="logo__link">
-						<img class="logo__main" width="116" height="43" src="/assets/img/logo.svg" alt="Логотип Сибирь">
+						<img class="logo__main" width="116" height="43" src="/assets/img/logo.svg" alt="застройщик сибирь">
 					</a>
 				</div>
 

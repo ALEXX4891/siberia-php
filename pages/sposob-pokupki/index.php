@@ -1,7 +1,9 @@
 <?
-$title = 'Способы покупки';
-$description = '';
-$keywords = '';
+$title = 'Способы покупки квартиры у застройщика Сибирь';
+$description = 'Вы сможете купить квартиу от застройщика в ипотеку, рассрочку или с использованием жилищных сертификатов. Возможна покупка квартиры без первоначального взноса. Станьте обладателем квартиры в окружении соснового леса.';
+$keywords = 'Ипотека, ипотека без первоначального взноса, квартира в ипотеку, льготная ипотека, семейная ипотека, квартира в рассрочку, квартира в рассрочку от застройщика, купить квартиру в рассрочку
+купить квартиру в рассрочку от застройщика, государственный жилищный сертификат, жилищный сертификат, жилищный сертификат на жилье, жилищный сертификат на покупку
+';
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 ?>
 
@@ -26,9 +28,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
 
           <div class="top__content" data-id="1">
-            <h2 class="top__subtitle title title_40">
+            <h1 class="top__subtitle title title_40">
               Ипотека
-            </h2>
+            </h1>
 
             <p class="top__text" href="/pages/sposob-pokupki/">
               Ипотека — это финансовый инструмент, который существенно облегчает процесс приобретения жилья. Существует
@@ -44,7 +46,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
             <div class="top__img">
               <picture>
-                <source srcset="/assets/img/buy-slide-1.webp" type="image/webp"><img src="/assets/img/buy-slide-1.jpg" alt="Сибирь. Способ покупки">
+                <source srcset="/assets/img/buy-slide-1.webp" type="image/webp"><img src="/assets/img/buy-slide-1.jpg" alt="покупка квартиры в ипотеку">
               </picture>
             </div>
           </div>
@@ -117,27 +119,27 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
             <ul class="programms__banks-list">
               <li class="programms__banks-item">
-                <img src="/assets/img/bank-1.svg" alt="банк">
+                <img src="/assets/img/bank-1.svg" alt="тинькофф">
               </li>
 
               <li class="programms__banks-item">
-                <img src="/assets/img/bank-2.svg" alt="банк">
+                <img src="/assets/img/bank-2.svg" alt="газпром">
               </li>
 
               <li class="programms__banks-item">
-                <img src="/assets/img/bank-3.svg" alt="банк">
+                <img src="/assets/img/bank-3.svg" alt="сбер">
               </li>
 
               <li class="programms__banks-item">
-                <img src="/assets/img/bank-4.svg" alt="банк">
+                <img src="/assets/img/bank-4.svg" alt="открытие">
               </li>
 
               <li class="programms__banks-item">
-                <img src="/assets/img/bank-5.svg" alt="банк">
+                <img src="/assets/img/bank-5.svg" alt="ат банк">
               </li>
 
               <li class="programms__banks-item">
-                <img src="/assets/img/bank-6.svg" alt="банк">
+                <img src="/assets/img/bank-6.svg" alt="втб">
               </li>
             </ul>
           </div>
@@ -208,9 +210,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
           <div class="simple__banner">
             <div class="simple__banner-text-wrap">
-              <h3 class="simple__banner-title title title_30">
+              <h2 class="simple__banner-title title title_30">
                 Оставьте заявку, и мы подберём вам оптимальную ипотечную программу!
-              </h3>
+              </h2>
               <p class="simple__banner-desc text">
                 Мы работаем с 5 крупнейшими банками страны. Для клиентов Сибири они разработали специальные предложения
                 со сниженными ставками.
@@ -220,7 +222,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </button>
             </div>
 
-            <img class="simple__background" src="/assets/img/buy-man.png" alt="баннер">
+            <img class="simple__background" src="/assets/img/buy-man.png" alt="оставить заявку">
 
           </div>
 
@@ -236,14 +238,14 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="installment__wrap wrap">
           <div class="installment__img">
             <picture>
-              <source srcset="/assets/img/installment-img-1.webp" type="image/webp"><img src="/assets/img/installment-img-1.jpg" alt="">
+              <source srcset="/assets/img/installment-img-1.webp" type="image/webp"><img src="/assets/img/installment-img-1.jpg" alt="покупка квартиры в рассрочку">
             </picture>
           </div>
 
           <div class="simple__banner-text-wrap">
-            <h3 class="simple__banner-title title title_40">
+            <h2 class="simple__banner-title title title_40">
               Рассрочка
-            </h3>
+            </h2>
             <p class="simple__banner-desc text">
               Рассрочка — тип оплаты, при котором клиент вносит первоначальный взнос, а остальное оплачивается равными
               платежами по согласованному графику, без процентов.
@@ -264,14 +266,14 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="certificates__wrap wrap">
           <div class="certificates__img">
             <picture>
-              <source srcset="/assets/img/certificates-img-1.webp" type="image/webp"><img src="/assets/img/certificates-img-1.jpg" alt="">
+              <source srcset="/assets/img/certificates-img-1.webp" type="image/webp"><img src="/assets/img/certificates-img-1.jpg" alt="сертификаты на покупку квартир">
             </picture>
           </div>
 
           <div class="simple__banner-text-wrap">
-            <h3 class="simple__banner-title title title_40">
+            <h2 class="simple__banner-title title title_40">
               Сертификаты
-            </h3>
+            </h2>
             <p class="simple__banner-desc text">
               В качестве оплаты покупатели могут использовать государственные жилищные сертификаты, материнский семейный
               капитал (если ребенку исполнилось 3 года) или два этих способа одновременно. Если стоимость квартиры выше,
@@ -293,9 +295,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
       <div class="container bot__container">
         <div class="bot__wrap wrap">
           <div class="bot__address address">
-            <h3 class="address__title title title_40">
+            <h2 class="address__title title title_40">
               Офис продаж
-            </h3>
+            </h2>
             <p class="address__desc">
               <?= $office['description']; ?>
             </p>

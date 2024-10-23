@@ -156,7 +156,7 @@
 
 				<div class="footer__logo logo">
 					<a href="/" class="logo__link">
-						<img class="logo__main" width="116" height="43" src="/assets/img/logo-white.svg" alt="Логотип Сибирь">
+						<img class="logo__main" width="116" height="43" src="/assets/img/logo-white.svg" alt="застройщик сибирь">
 					</a>
 				</div>
 
@@ -312,4 +312,25 @@ include '' . $_SERVER["DOCUMENT_ROOT"] . '/includes/popup.php';
 			ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
 		});
 	}
+</script>
+
+<!-- Разметка Schema -->
+<script type="application/ld+json" defer>
+{
+  "@context" : "http://schema.org",
+  "@type" : "LocalBusiness",
+  "name" : "Общество с ограниченной ответственностью СЗ "Сибирь"",
+  "image" : "https://siberia-dev.ru/assets/img/logo.svg",
+  "telephone" : "+73452387090",
+  "email" : "zhk.sosnovyy@mail.ru",
+  "address" : {
+    "@type" : "PostalAddress",
+    "streetAddress" : "ул. Мельникайте, 116 корпус 1",
+    "addressLocality" : "г. Тюмень",
+    "addressRegion" : "Тюменская область",
+    "addressCountry" : "Россия",
+    "postalCode" : "625007"
+  },
+  "url" : "https://siberia-dev.ru/"
+}
 </script>

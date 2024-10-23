@@ -148,7 +148,7 @@
 
 				<div class="footer__logo logo">
 					<a href="/" class="logo__link">
-						<img class="logo__main" width="116" height="43" src="/assets/img/logo-white.svg" alt="Логотип Сибирь">
+						<img class="logo__main" width="116" height="43" src="/assets/img/logo-white.svg" alt="застройщик сибирь">
 					</a>
 				</div>
 

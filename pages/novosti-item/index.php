@@ -1,7 +1,11 @@
 <?
-$title = 'Новости';
-$description = '';
-$keywords = '';
+include $_SERVER["DOCUMENT_ROOT"] . '/backend/db.php';
+$result = mysqli_query($db, "SELECT * FROM news WHERE id = " . $_GET['id']);
+$row = mysqli_fetch_array($result);
+
+$title = $row['title'];
+$description =  $row['meta-desc'];
+$keywords = "{$row['title']}, застройщики тюмени, застройщики тюмень купить, надёжный застройщик, история застройщика, жк застройщика, застройщики последние новости, недвижимость последние новости, новости застройщиков, новости недвижимости, новости рынка недвижимости";
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 ?>
 
@@ -19,8 +23,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
     <section class="section news-page-item__news-content news-content">
 
       <?php
-      $result = mysqli_query($db, "SELECT * FROM news WHERE id = " . $_GET['id']);
-      $row = mysqli_fetch_array($result);
+      // $result = mysqli_query($db, "SELECT * FROM news WHERE id = " . $_GET['id']);
+      // $row = mysqli_fetch_array($result);
       // echo '<pre>';
       // print_r($row);
       // echo '</pre>';

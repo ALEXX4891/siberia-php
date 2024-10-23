@@ -1,7 +1,7 @@
 <?
-$title = 'Проект';
-$description = '';
-$keywords = '';
+$title = 'Cосновый квартал — застройщик. Официальный сайт застройщика в Тюмени';
+$description = 'Хвойная мечта в самом сердце леса. Смотреть квартиры, условия покупки, преимущества, местоположение и инфраструктуру';
+$keywords = 'Сосновый квартал в тюмени, квартиры тюмень винзили, новый жк в тюмени, жк винзили, жк сосновый застройщик';
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 ?>
 
@@ -20,9 +20,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
       <div class="container about__container">
 
         <div class="about__top-block">
-          <h2 class="about__title title title_40">
+          <h1 class="about__title title title_40">
             Сосновый квартал
-          </h2>
+          </h1>
 
           <a class="about__link btn btn_dark" href="/pages/kvartiry/">
             Смотреть квартиры
@@ -83,9 +83,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             </p>
 
             <div class="slider__header">
-              <h1 class="slider__title">
+              <h2 class="slider__title">
                 Хвойная мечта в самом сердце леса
-              </h1>
+              </h2>
 
               <p class="slider__text text">
                 «Сосновый» – уютный район из 8 малоэтажных домов в окружении соснового леса. Квартал для тех,
@@ -105,37 +105,37 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               <ul class="slider__list swiper-wrapper">
                 <li class="slider__item swiper-slide">
                   <picture>
-                    <source srcset="/assets/img/slide-1.webp" type="image/webp"><img src="/assets/img/slide-1.jpg" alt="фасад дома">
+                    <source srcset="/assets/img/slide-1.webp" type="image/webp"><img src="/assets/img/slide-1.jpg" alt="квартиры в сосновом квартале">
                   </picture>
                 </li>
                 <li class="slider__item swiper-slide">
                   <picture>
-                    <source srcset="/assets/img/slide-2.webp" type="image/webp"><img src="/assets/img/slide-2.jpg" alt="фасад дома">
+                    <source srcset="/assets/img/slide-2.webp" type="image/webp"><img src="/assets/img/slide-2.jpg" alt="квартиры в сосновом квартале">
                   </picture>
                 </li>
                 <li class="slider__item swiper-slide">
                   <picture>
-                    <source srcset="/assets/img/slide-3.webp" type="image/webp"><img src="/assets/img/slide-3.jpg" alt="фасад дома">
+                    <source srcset="/assets/img/slide-3.webp" type="image/webp"><img src="/assets/img/slide-3.jpg" alt="квартиры в сосновом квартале">
                   </picture>
                 </li>
                 <li class="slider__item swiper-slide">
                   <picture>
-                    <source srcset="/assets/img/slide-4.webp" type="image/webp"><img src="/assets/img/slide-4.jpg" alt="фасад дома">
+                    <source srcset="/assets/img/slide-4.webp" type="image/webp"><img src="/assets/img/slide-4.jpg" alt="квартиры в сосновом квартале">
                   </picture>
                 </li>
                 <li class="slider__item swiper-slide">
                   <picture>
-                    <source srcset="/assets/img/slide-5.webp" type="image/webp"><img src="/assets/img/slide-5.jpg" alt="фасад дома">
+                    <source srcset="/assets/img/slide-5.webp" type="image/webp"><img src="/assets/img/slide-5.jpg" alt="квартиры в сосновом квартале">
                   </picture>
                 </li>
                 <li class="slider__item swiper-slide">
                   <picture>
-                    <source srcset="/assets/img/slide-6.webp" type="image/webp"><img src="/assets/img/slide-6.jpg" alt="фасад дома">
+                    <source srcset="/assets/img/slide-6.webp" type="image/webp"><img src="/assets/img/slide-6.jpg" alt="квартиры в сосновом квартале">
                   </picture>
                 </li>
                 <li class="slider__item swiper-slide">
                   <picture>
-                    <source srcset="/assets/img/slide-7.webp" type="image/webp"><img src="/assets/img/slide-7.jpg" alt="фасад дома">
+                    <source srcset="/assets/img/slide-7.webp" type="image/webp"><img src="/assets/img/slide-7.jpg" alt="квартиры в сосновом квартале">
                   </picture>
                 </li>
               </ul>
@@ -503,9 +503,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </div>
               <div class="map__mark-list-wrap">
 
-                <h2 class="map__title">
+                <h3 class="map__title">
                   Расположение и инфраструктура
-                </h2>
+                </h3>
 
                 <ul class="map__mark-list">
 
@@ -1153,9 +1153,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="container bot__container">
           <div class="bot__wrap wrap">
             <div class="bot__address address">
-              <h3 class="address__title title title_40">
+              <h2 class="address__title title title_40">
                 Офис продаж
-              </h3>
+              </h2>
               <p class="address__desc">
                 <?= $office['description']; ?>
               </p>

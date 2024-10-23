@@ -1,7 +1,7 @@
 <?
-$title = 'Квартира';
-$description = '';
-$keywords = '';
+$title = 'Х-комнатная квартира ХХ м2 в ЖК Сосновый в Тюмени от застройщика — Сибирь';
+$description = 'Купите Х-комнатную квартиру площадью ХХ м² в современном жилом комплексе "Сосновый" в Тюмени! Этот уникальный проект предлагает идеальное сочетание комфорта и уюта в окружении живописной природы. Успейте забронировать квартиру';
+$keywords = 'Х комнатная квартира, новостройка, тюмень, винзили, х комнатная, застройщик, купить квартиру, ипотека, без первоначального взноса , планировка, площадь, цена, стоимость, этаж, отделка';
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 ?>
 
@@ -255,16 +255,16 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <div class="slider__right reparation_swiper">
             <ul class="swiper-wrapper">
               <li class="swiper-slide">
-                <img src="/assets/img/rep_2_3.jpg" alt="promo_1">
+                <img src="/assets/img/rep_2_3.jpg" alt="квартира с ремонтом">
               </li>
               <li class="swiper-slide">
-                <img src="/assets/img/rep_2_4.jpg" alt="promo_1">
+                <img src="/assets/img/rep_2_4.jpg" alt="квартира с ремонтом">
               </li>
               <li class="swiper-slide">
-                <img src="/assets/img/rep_2_2.jpg" alt="promo_1">
+                <img src="/assets/img/rep_2_2.jpg" alt="квартира с ремонтом">
               </li>
               <li class="swiper-slide">
-                <img src="/assets/img/rep_2_1.jpg" alt="promo_1">
+                <img src="/assets/img/rep_2_1.jpg" alt="квартира с ремонтом">
               </li>
             </ul>
 
@@ -324,10 +324,10 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <div class="slider__right reparation_swiper">
             <ul class="swiper-wrapper">
             <li class="swiper-slide">
-                <img src="/assets/img/rep_1_1.jpg" alt="promo_1">
+                <img src="/assets/img/rep_1_1.jpg" alt="квартира с ремонтом">
               </li>
               <li class="swiper-slide">
-                <img src="/assets/img/rep_1_2.jpg" alt="promo_1">
+                <img src="/assets/img/rep_1_2.jpg" alt="квартира с ремонтом">
               </li>
             </ul>
 

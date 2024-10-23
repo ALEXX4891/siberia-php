@@ -1,7 +1,9 @@
 <?
-$title = 'Акции';
-$description = '';
-$keywords = '';
+$title = 'Акции — застройщик Сибирь';
+$description = 'Воспользуйтесь выгодными акциями на покупку квартир в Тюмени. Осенний листопад цен на квартиры в ипотеку без первоначального взноса.';
+$keywords = 'Акция на квартиры, ипотека, ипотека без первоначального взноса
+квартира в ипотеку, льготная ипотека, семейная ипотека, квартира в рассрочку, квартира в рассрочку от застройщика, купить квартиру в рассрочку, купить квартиру в рассрочку от застройщика, государственный жилищный сертификат, жилищный сертификат, жилищный сертификат на жилье, жилищный сертификат на покупку
+';
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 ?>
 
@@ -69,15 +71,15 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
               // echo $dateDiff->format("%a");
               if ($time > $now) {
-              echo '
+                echo '
                   <li class="promo-page__cards-item">
                   <div class="promo-page__card-img-wrapper">
-                    <img src="/assets/img/' . $row['photo'] . '" alt="promo_1">
+                    <img src="/assets/img/' . $row['photo'] . '" alt="' . $row['photo-alt'] . '">
                   </div>
                   <span class="promo-page__card-date">
                   ' . date("d", strtotime($row['time'])) . ' '
-                . monthRus(date("m", strtotime($row['time'])), 'rod', 2) . ' '
-                . date("Y", strtotime($row['time'])) . '
+                  . monthRus(date("m", strtotime($row['time'])), 'rod', 2) . ' '
+                  . date("Y", strtotime($row['time'])) . '
                   </span>
                   <span class="promo-page__card-period">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -119,4 +121,5 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
 
 </body>
+
 </html>

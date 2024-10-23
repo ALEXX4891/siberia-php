@@ -2,9 +2,12 @@
 // echo '<meta http-equiv="refresh" content="0; URL=\'/pages/project-item/\'" />';
 // exit();
 
-$title = 'Главная';
-$description = '';
-$keywords = '';
+$title = 'Главная – Сибирь. Официальный сайт застройщика в Тюмени';
+$description = 'Откройте для себя идеальное сочетание комфорта и природы в новых квартирах, расположенных в окружении живописного соснового леса в Тюмени. Cовременные новостройки от надежного застройщика с просторными планировками и ремонтом. ';
+$keywords = 'застройщики тюмени, застройщики тюмень купить, квартира с ремонтом
+              квартиры в новостройках с ремонтом, квартиры в сосновом бору
+              квартиры в тюмени, купить квартиру в тюмени, купить квартиру с ремонтом, официальный сайт застройщика
+            ';
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 ?>
 
@@ -23,10 +26,10 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
       <div class="container banner__container">
 
         <!-- <div class="banner__content-wrap"> -->
-        <h2 class="banner__title">
+        <h1 class="banner__title">
           Жилой комплекс<br>
           в окружении соснового леса
-        </h2>
+        </h1>
 
         <ul class="banner__list">
           <li class="banner__item">
@@ -130,7 +133,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <li class="building__cards-item swiper-slide">
             <div class="building__card-img">
               <picture>
-                <source srcset="/assets/img/building-2.webp" type="image/webp"><img src="/assets/img/building-2.jpg" alt="">
+                <source srcset="/assets/img/building-2.webp" type="image/webp"><img src="/assets/img/building-2.jpg" alt="квартиры в сосновом квартале">
               </picture>
               <div class="building__card-info">
                 <svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -219,7 +222,6 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
       <div class="container choice__container">
         <h2 class="choice__title title title_40">
           Выбрать квартиру мечты
-
         </h2>
 
         <div class="choice__form" choice-form>

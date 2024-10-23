@@ -2137,6 +2137,11 @@ if (apartmentsItemPage) {
   apart = obj;
   // console.log("obj:", obj);
 
+  // формирование мета тегов:
+  document.title = `${obj.rooms}-комнатная квартира ${obj.square} м2 в ЖК Сосновый в Тюмени от застройщика — Сибирь`;
+  document.querySelector('meta[name="description"]').setAttribute("content", `Купите ${obj.rooms}-комнатную квартиру площадью ${obj.square} м² в современном жилом комплексе "Сосновый" в Тюмени! Этот уникальный проект предлагает идеальное сочетание комфорта и уюта в окружении живописной природы. Успейте забронировать квартиру`);
+  document.querySelector('meta[name="keywords"]').setAttribute("content", `${obj.rooms} комнатная квартира, новостройка, тюмень, винзили, ${obj.rooms} комнатная, застройщик, купить квартиру, ипотека, без первоначального взноса , планировка, площадь, цена, стоимость, этаж, отделка`);
+
   const imgBlock = document.querySelector(".about__img");
   const imgArr = obj.img;
   imgArr.forEach((item) => {

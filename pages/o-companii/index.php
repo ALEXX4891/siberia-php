@@ -1,7 +1,10 @@
 <?
-$title = 'О компании';
-$description = '';
-$keywords = '';
+$title = 'О компании застрощик Сибирь';
+$description = 'Сибирь — динамично развивающийся российский застройщик, специализирующаяся на реализации жилых домов различной этажности: от разработки концепции до эксплуатации';
+$keywords = 'застройщики тюмени, застройщики тюмень купить, квартира с ремонтом
+квартиры в новостройках с ремонтом, квартиры в сосновом лесу
+квартиры в тюмени, купить квартиру в тюмени, купить квартиру с ремонтом, надёжный застройщик, история застройщика, жк застройщика
+';
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 ?>
 
@@ -19,9 +22,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
     <section class="section section__about about">
       <div class="container about__container">
         <div class="about__top">
-          <h1 class="about__title title title_25">
+          <h2 class="about__title title title_25">
             О компании
-          </h1>
+          </h2>
           <div class="about__btn-wrapper">
             <a class="about__btn about__btn_green" href="/pages/o-companii/">
               О компании
@@ -49,37 +52,37 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             <ul class="slider__list swiper-wrapper">
               <li class="slider__item swiper-slide">
                 <picture>
-                  <source srcset="/assets/img/slide-1.webp" type="image/webp"><img src="/assets/img/slide-1.jpg" alt="фасад дома">
+                  <source srcset="/assets/img/slide-1.webp" type="image/webp"><img src="/assets/img/slide-1.jpg" alt="квартиры в сосновом квартале">
                 </picture>
               </li>
               <li class="slider__item swiper-slide">
                 <picture>
-                  <source srcset="/assets/img/slide-2.webp" type="image/webp"><img src="/assets/img/slide-2.jpg" alt="фасад дома">
+                  <source srcset="/assets/img/slide-2.webp" type="image/webp"><img src="/assets/img/slide-2.jpg" alt="квартиры в сосновом квартале">
                 </picture>
               </li>
               <li class="slider__item swiper-slide">
                 <picture>
-                  <source srcset="/assets/img/slide-3.webp" type="image/webp"><img src="/assets/img/slide-3.jpg" alt="фасад дома">
+                  <source srcset="/assets/img/slide-3.webp" type="image/webp"><img src="/assets/img/slide-3.jpg" alt="квартиры в сосновом квартале">
                 </picture>
               </li>
               <li class="slider__item swiper-slide">
                 <picture>
-                  <source srcset="/assets/img/slide-4.webp" type="image/webp"><img src="/assets/img/slide-4.jpg" alt="фасад дома">
+                  <source srcset="/assets/img/slide-4.webp" type="image/webp"><img src="/assets/img/slide-4.jpg" alt="квартиры в сосновом квартале">
                 </picture>
               </li>
               <li class="slider__item swiper-slide">
                 <picture>
-                  <source srcset="/assets/img/slide-5.webp" type="image/webp"><img src="/assets/img/slide-5.jpg" alt="фасад дома">
+                  <source srcset="/assets/img/slide-5.webp" type="image/webp"><img src="/assets/img/slide-5.jpg" alt="квартиры в сосновом квартале">
                 </picture>
               </li>
               <li class="slider__item swiper-slide">
                 <picture>
-                  <source srcset="/assets/img/slide-6.webp" type="image/webp"><img src="/assets/img/slide-6.jpg" alt="фасад дома">
+                  <source srcset="/assets/img/slide-6.webp" type="image/webp"><img src="/assets/img/slide-6.jpg" alt="квартиры в сосновом квартале">
                 </picture>
               </li>
               <li class="slider__item swiper-slide">
                 <picture>
-                  <source srcset="/assets/img/slide-7.webp" type="image/webp"><img src="/assets/img/slide-7.jpg" alt="фасад дома">
+                  <source srcset="/assets/img/slide-7.webp" type="image/webp"><img src="/assets/img/slide-7.jpg" alt="квартиры в сосновом квартале">
                 </picture>
               </li>
             </ul>
@@ -112,13 +115,13 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <ul class="standarts__list swiper-wrapper">
           <li class="standarts__item swiper-slide">
             <div class="standarts__content">
-              <p class="standarts__head-text">
+              <h2 class="standarts__head-text">
                 Принципы и стандарты
-              </p>
-
-              <h2 class="standarts__title title title_40">
-                Мы – команда, которая строит качественные и современные объекты для жизни и работы
               </h2>
+
+              <h3 class="standarts__title title title_40">
+                Мы – команда, которая строит качественные и современные объекты для жизни и работы
+              </h3>
 
               <p class="standarts__text">
                 При разработке проектных планов мы во многом опираемся на потребности жильцов. Чтобы обеспечить комфорт и
@@ -129,25 +132,25 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </p>
             </div>
             <div class="standarts__img">
-              <img src="/assets/img/standarts-img.jpg" alt="стендарты">
+              <img src="/assets/img/standarts-img.jpg" alt="качественные квартиры">
             </div>
           </li>
           <li class="standarts__item swiper-slide">
             <div class="standarts__content">
-              <p class="standarts__head-text">
+              <h2 class="standarts__head-text">
                 Принципы и стандарты
-              </p>
-
-              <h2 class="standarts__title title title_40">
-                Свежий взгляд на архитектуру жилых пространств
               </h2>
+
+              <h3 class="standarts__title title title_40">
+                Свежий взгляд на архитектуру жилых пространств
+              </h3>
 
               <p class="standarts__text">
                 Мы верим в баланс простоты современных технических решений и дизайна. Наша задача вписать актуальные инженерные и архитектурные решения в успешную экономическую модель.
               </p>
             </div>
             <div class="standarts__img">
-              <img src="/assets/img/standarts-img-2.jpg" alt="стендарты">
+              <img src="/assets/img/standarts-img-2.jpg" alt="качественные квартиры">
             </div>
           </li>
           <li class="standarts__item swiper-slide">
@@ -167,7 +170,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               </p>
             </div>
             <div class="standarts__img">
-              <img src="/assets/img/standarts-img-3.jpg" alt="стендарты">
+              <img src="/assets/img/standarts-img-3.jpg" alt="качественные квартиры">
             </div>
           </li>
         </ul>
@@ -307,7 +310,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
               <div class="project-page__card-img">
                 <picture>
-                  <source srcset="/assets/img/building-2.webp" type="image/webp"><img src="/assets/img/building-2.jpg" alt="">
+                  <source srcset="/assets/img/building-2.webp" type="image/webp"><img src="/assets/img/building-2.jpg" alt="жилой квартал сосновый">
                 </picture>
                 <div class="project-page__card-info">
                   <svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -388,7 +391,3 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 </body>
 
 </html>
-
-
-
-

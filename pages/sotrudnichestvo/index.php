@@ -1,7 +1,9 @@
 <?
-$title = 'Сотрудничество';
-$description = '';
-$keywords = '';
+$title = 'Сотрудничество с застройщиком Сибирь';
+$description = 'Сотрудничество с застройщиком «Сибирь» открывает перед вами мир комфорта и уюта в собственном доме. Мы предлагаем широкий выбор квартир в новостройках, расположенных в экологически чистых районах города.';
+$keywords = 'как выйти на застройщика для сотрудничества, как найти застройщика для сотрудничества, предложение застройщику о сотрудничестве
+сотрудничество с застройщиками, сотрудничество с застройщиками в тюмени
+';
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 ?>
 
@@ -19,9 +21,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
     <section class="section cooperation">
       <div class="container cooperation__container">
         <div class="cooperation__top">
-          <h1 class="cooperation__title title title_25">
+          <h2 class="cooperation__title title title_25">
             Сотрудничество
-          </h1>
+          </h2>
           <div class="cooperation__btn-wrapper">
             <a class="cooperation__btn cooperation__btn_white" href="/pages/o-companii/">
               О компании
@@ -36,9 +38,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <div class="cooperation__left-block">
 
             <div class="cooperation__card">
-              <h2 class="cooperation__card-title">
+              <h3 class="cooperation__card-title">
                 >48
-              </h2>
+              </h3>
               <p class="cooperation__card-text">
                 Партнеров в Тюмени, Новосибирске и Заводоуковске
               </p>
@@ -56,9 +58,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           </div>
 
           <div class="cooperation__right-block">
-            <h2 class="cooperation__right-block-title title title_40">
+            <h1 class="cooperation__right-block-title title title_40">
               Станьте партнером Сибири
-            </h2>
+            </h1>
 
             <p class="cooperation__right-block-text text">
               Мы строим нашу коммуникацию на принципах открытости и честности, обеспечивая долгосрочное и взаимовыгодное
@@ -70,9 +72,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <ul class="cooperation__list">
           <li class="cooperation__list-item">
             <button href="#sot-agent" class="cooperation__list-link popup-link">
-              <h3 class="cooperation__list-title">
+              <h2 class="cooperation__list-title">
                 Агентства
-              </h3>
+              </h2>
 
               <p class="cooperation__list-text">
                 Все необходимое для эффективной коммуникации с клиентами:- Обучение и знакомство с проектами-
@@ -107,9 +109,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
             <button href="#sot-bank" class="cooperation__list-link popup-link">
 
 
-              <h3 class="cooperation__list-title">
+              <h2 class="cooperation__list-title">
                 Банки партнеры
-              </h3>
+              </h2>
 
               <p class="cooperation__list-text">
                 Оставить заявку
@@ -143,9 +145,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
           <li class="cooperation__list-item">
             <button href="#sot-business" class="cooperation__list-link popup-link">
 
-              <h3 class="cooperation__list-title">
+              <h2 class="cooperation__list-title">
                 Поставщики и подрядчики
-              </h3>
+              </h2>
 
               <p class="cooperation__list-text">
                 Есть интересный товар или продукт, который подходит задачам нашей компании? Мы открыты к диалогу и ищем

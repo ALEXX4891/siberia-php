@@ -7279,7 +7279,7 @@ a {
 .not-found-page .not-found .not-found__container .btn {
   width: 237px;
   border-radius: 5px;
-  color: #fff;
+  /* color: #fff; */
 }
 
 .contacts-page .contacts-page__container {

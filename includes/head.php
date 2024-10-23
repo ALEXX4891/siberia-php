@@ -15,7 +15,16 @@ $yandexMapApiKey = '9e0bbb5f-9b5e-4f9e-8eb8-b98592b9e414';
   <meta name="keywords" content="<? echo $keywords ?>">
   <meta name="description" content="<? echo $description ?>">
   <meta property="og:image" content="/assets/img/opengraph.png">
+  <meta property="og:title" content="<? echo $title ?>">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<? echo 'https://' . $_SERVER['HTTP_HOST'] . '' . $_SERVER['REQUEST_URI']; ?>">
+  <meta property="og:description " content="Содержание из атрибута content метатега <? echo $description ?>">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="СЗ «Сибирь», Тюмень | Новостройки от застройщика ">
+
   <title><? echo $title ?></title>
+  <meta name="yandex-verification" content="64d431561909792d">
+
   <? if ($meta) echo $meta ?>
   <link rel="canonical" href="<? echo 'https://' . $_SERVER['HTTP_HOST'] . '' . $_SERVER['REQUEST_URI']; ?>">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">

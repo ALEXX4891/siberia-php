@@ -94,7 +94,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
               <div class="project-page__card-img">
                 <picture>
-                  <source srcset="/assets/img/building-2.webp" type="image/webp"><img src="/assets/img/building-2.jpg" alt="">
+                  <source srcset="/assets/img/building-2.webp" type="image/webp"><img src="/assets/img/building-2.jpg" alt="квартиры в сосновом квартале">
                 </picture>
                 <div class="project-page__card-info">
                   <svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -190,7 +190,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
 
               <div class="project-page__card-img">
                 <picture>
-                  <source srcset="/assets/img/building-2.webp" type="image/webp"><img src="/assets/img/building-2.jpg" alt="">
+                  <source srcset="/assets/img/building-2.webp" type="image/webp"><img src="/assets/img/building-2.jpg" alt="квартиры в сосновом квартале">
                 </picture>
                 <div class="project-page__card-info">
                   <svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
