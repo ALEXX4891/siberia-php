@@ -603,9 +603,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
       <div class="container bot__container">
         <!-- <div class="bot__wrap bot__wrap_big wrap"> -->
         <div class="bot__address address">
-          <h3 class="address__title title title_40">
+          <h2 class="address__title title title_40">
             Офис продаж
-          </h3>
+          </h2>
           <p class="address__desc">
             <?= $office['description']; ?>
           </p>

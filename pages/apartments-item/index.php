@@ -73,9 +73,8 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
               Скачать презентацию
             </a>
           </div>
-          <p class="about__right-title title title_25">
-
-          </p>
+          <h1 class="about__right-title title title_25">
+          </h1>
           <div class="about__right-price-wrap">
             <p class="about__right-new-price">
 
@@ -226,14 +225,14 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
       <div class="container slider__container slider__container_1">
         <div class="rep-wrap" data-id="1">
           <div class="slider__left">
-            <h5 class="slider__head-title">
+            <h2 class="slider__head-title">
               Отделка
-            </h5>
+            </h2>
 
-            <h2 class="slider__title title title_30">
+            <h3 class="slider__title title title_30">
               Стоимость 20 000 руб./м<sup>2</sup>
 
-            </h2>
+            </h3>
             <p class="slider__text">
               <b>Комнаты/Коридор:</b><br>
               Обои под покраску, водоотталкивающая кварц виниловая плитка природных тонов, белые плинтуса,
@@ -294,16 +293,16 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
         <div class="rep-wrap" data-id="2" style="display: none">
 
           <div class="slider__left">
-            <h5 class="slider__head-title">
+            <h2 class="slider__head-title">
               Отделка
 
-            </h5>
+            </h2>
 
-            <h2 class="slider__title title title_30">
+            <h3 class="slider__title title title_30">
               Стоимость 12 000 руб./м<sup>2</sup>
 
 
-            </h2>
+            </h3>
             <p class="slider__text">
 
               <b>Комнаты/Коридор:</b><br>
@@ -773,9 +772,9 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
     <section class="section section_bot bot">
       <div class="container bot__container">
         <div class="bot__address address">
-          <h3 class="address__title title title_40">
-            <?= $office['name']; ?>
-          </h3>
+          <h2 class="address__title title title_40">
+            Офис продаж
+          </h2>
           <p class="address__desc">
             <?= $office['description']; ?>
           </p>

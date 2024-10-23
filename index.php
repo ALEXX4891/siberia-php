@@ -555,7 +555,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
                 echo '
                   <li class="promo__item swiper-slide">
                     <div class="promo__item-img">
-                      <img src="/assets/img/' . $row['photo'] . '" alt="promo_1">
+                      <img src="/assets/img/' . $row['photo'] . '" alt="' . $row['photo-alt'] . '">
                     </div>
 
                     <p class="promo__item-date">
