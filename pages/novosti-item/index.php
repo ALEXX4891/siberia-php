@@ -3,7 +3,7 @@ include $_SERVER["DOCUMENT_ROOT"] . '/backend/db.php';
 $result = mysqli_query($db, "SELECT * FROM news WHERE id = " . $_GET['id']);
 $row = mysqli_fetch_array($result);
 
-$title = $row['title'];
+$title = "{$row['title']} - Сибирь";
 $description =  $row['meta-desc'];
 $keywords = "{$row['title']}, застройщики тюмени, застройщики тюмень купить, надёжный застройщик, история застройщика, жк застройщика, застройщики последние новости, недвижимость последние новости, новости застройщиков, новости недвижимости, новости рынка недвижимости";
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/head.php';
